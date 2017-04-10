@@ -1,0 +1,18 @@
+language: go
+
+go:
+  - 1.7.x
+  - master
+
+install:
+  - go get -v github.com/spf13/hugo
+
+script:
+  - hugo
+  - python --version
+  - sudo pip install s3cmd
+  - s3cmd sync --delete-removed -P -M -r public/ s3://tmo-opensource-website
+
+notifications:
+  email:
+      on_failure: always

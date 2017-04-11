@@ -6,7 +6,7 @@ This site is build using hugo. To run the site locally, please perform steps bel
 ## Clone this repository
 Clone this repository using command below
 ```
-git clone https://github.com/tmobile/opensource.git
+git clone --recursive https://github.com/tmobile/opensource.git
 
 ```
 

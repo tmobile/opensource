@@ -1,18 +1,18 @@
 language: go
-
 go:
-  - 1.7.x
-  - master
-
+- 1.7.x
+- master
 install:
-  - go get -v github.com/spf13/hugo
-
+- go get -v github.com/spf13/hugo
 script:
-  - hugo
-  - python --version
-  - sudo pip install s3cmd
-  - s3cmd sync --delete-removed -P -M -r public/ s3://tmo-opensource-website
-
+- hugo
+- python --version
+- sudo pip install s3cmd
+- s3cmd sync --delete-removed -P -M -r public/ s3://tmo-opensource-website/internal
+- s3cmd sync --delete-removed -P -M -r public/ s3://tmo-opensource-website/external
 notifications:
   email:
-      on_failure: always
+    on_failure: always
+env:
+  global:
+    secure: VlI5Wi/ueDkWxbZTgTyFzB3HYQtU9YbSK76zi9YiMqL2j6llRTktxErg0M1VF+uYGfRtykfyOEbJv5LmAzvX3cDVWlBq6/nO9sev5UJdjBcXAd/U1tpltozJpJDGbOoZerc/H31rSHF83rlZ2j2cieZT2DAnzgTgPi3fJu6/TSZmvRyNC0vJlr/jy5B7R6I5jm7xvubYNobUYef+31kmTW4qYRN2ailihx5h+z4leQ482Ii6JJDUHH3trziPJZhoSkGNabMN5/qdVqVyEy5pHWxBkjWyvjeCh/ul6ZZ6lcfL/WeEf56UA7krjiv1p4TeMQ1GTtab8Qpbez4NAeeKRBNNdxohRhyuUx9BjlH4ISLVfRRoY//Al76zf2/abie2SSwggvN3YAMhJJzgBHzQ+k8bWgABmatIghNMHRCmvY/gi8uOcua3dGYSPcGv2KguheWTND3S0wwHVodj0IzH5KgaYWw2xPpX0hGSXC/e1vdmMnwfL1Jvf0ZX+SqW/gqLk1A4UC/zPbCa8q0PwEru4FjHnGKJfz3nbk/8TLEWQBuszdvUwFhD/SSZQM6kPEcqbP9YDvpSZBu9CSDn3RA6ggiLsA2bw4KoKQj6PuvIiVamM0K97kX8q2W11V5PuAmQhSt0XF49n/11jUJN6x8dkXBrszHGOIqoMA9CiYE9Lfk=

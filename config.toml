@@ -1,4 +1,4 @@
-baseurl = "https://opensource.t-mobile.com/"
+baseurl = "http://opensource.t-mobile.com/"
 languageCode = "en-us"
 title = "T-Mobile Opensource"
 theme = "hugo-oss-theme"
@@ -6,8 +6,6 @@ googleAnalytics = ""
 
 [params]
 	org_name = "tmobile"
-	# To provide some metadata for search engines feel free to add some
-	# information about you and your website.
 	name = "T-Mobile"
 	description = "T-Mobile Opensource"
 
@@ -17,21 +15,58 @@ googleAnalytics = ""
 	# Navigation
 	[params.navigation]
 		brand = "T-Mobile Opensource"
+		
 		[params.navigation.links]
 			projects  	= "PROJECTS"
-		[params.navigation.footer.links]
+			community	= "COMMUNITY"
+			blog		= "BLOG"
+			about		= "ABOUT US"
+
+	# footer
+	[params.footer]
+		copyright		= "Copyright 2017.All Rights Reserved"
+		[params.footer.links]
 			privacy		= "PRIVACY"
-			toa			= "TERMS"
 			feedback	= "FEEDBACK"
 
 	# Hero section
 	[params.hero]
-		# To change the background of the hero section, replace the 'header.jpg' at './static/img' with your own.
-		slogan     = "We Love Opensource"
-		subtitle   = "At T-Mobile we love opensource and community"
-		buttonText = "Find out more"
+		headline1 		= "THE"
+		headline2		= "UN-CARRIER"
+		headline3		= "OPEN SOURCE"
+		slogan			= "Providing innovative technology to the community through open source."
+		[params.hero.cta]		
+			text 			= "VIEW PROJECTS"
+			navigate_to		= "#PROJECTS"
 
-		
-	# About section
+	# projects section
+	[params.projects]
+		headline		= "PROJECTS"
+		description		= "Check out the latest projects created by the T-Mobile Team all available to try for free on GITHUB."
 
-	# Brand section		
+	# About
+	[params.about]
+		headline			= "ABOUT US"
+		description			= "Interested in getting involved with T-Mobile? Check out the latest events happening near you!"
+	
+	# Code Of Conduct
+	[params.code]
+		headline			= "CODE OF CONDUCT"
+		summary				= "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged."
+		[params.code.cta]
+			text			= "VIEW DETAILS"
+			navigate_to		= "/code"
+	
+	# Contributor's License agreement
+	[params.license]
+		headline			= "CONTRIBUTORS LICENSE AGREEMENT"
+		summary				= "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged."
+	
+	# careers plug
+	[params.careers]
+		headline			= "INTERESTED IN A CAREER WITH T-MOBILE?"
+		summary				= "Check out all the sweet oppurtunities T-Mobile has to offer!"
+		[params.careers.cta]
+			text			= "VIEW CAREERS"
+			navigate_to		= "https://tmobile.careers"
+

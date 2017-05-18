@@ -1,6 +1,6 @@
 baseurl = "http://opensource.t-mobile.com/"
 languageCode = "en-us"
-title = "T-Mobile Opensource"
+title = "T-Mobile OpenSource"
 theme = "hugo-oss-theme"
 googleAnalytics = ""
 

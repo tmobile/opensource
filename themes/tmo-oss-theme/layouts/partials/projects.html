@@ -1,0 +1,114 @@
+{{ "<!-- PROJECTS -->" | safeHTML }}
+<section id="services">
+    <div class="requestAccess overlay-container display-none" id="overlay-container-services-2">       
+        <div class="overlay-state-con">
+            <div class="overlay-state">
+                <div class="overlay-state-wrp">
+                    <div class="overlay-vertical-center">
+                        <div class="overlay-innerwrap">
+                            <div class="request-submit-widget">
+                                <div class="heading-overlay">
+                                    <span class="cross-icon" onclick="closeModel()">
+                                        <i aria-hidden="true" class="fa fa-times"></i>
+                                    </span>
+                                    <h1 class="success-header">Angular 2.0</h1>
+                                    <h2 class="success-header-content">Angular.io</h2>
+                                    <div class="overlay-button-cover header-button">
+                                      <div class="overlay-button-wrap">
+                                        <div class="secondary-button form-button">
+                                          <div class="btn">
+                                            <button type="input"><span class="career-span-overlay">View GitHub Repo</span></button>
+                                        </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                </div>
+                                <div class="event-container-angular">
+                                    <div class="first-container">
+                                        <img class="content-img-angular" src="OSS_Assets/angular2.png">
+                                        <div class="overlay-content-details">
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                        </div>
+                                        <div class="overlay-content-topic">
+                                            Tagline
+                                        </div>
+                                        <div class="overlay-content-details">
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                        </div>
+                                    </div>    
+                                    <div class="second-container">
+                                        <div class="web-content">
+                                            <div class="topic">Category</div>
+                                            <div class="topic-content">Web</div>
+                                            <div class="topic-content">Programming</div>
+                                        </div>
+                                        <div class="web-content">
+                                            <div class="topic">Languages</div>
+                                            <div class="topic-content">Javascript</div>
+                                            <div class="topic-content">Python</div>
+                                            <div class="topic-content">HTML/CSS</div>
+                                        </div>
+                                        <div class="web-content-script">
+                                            <div class="topic">Tags</div>
+                                            <div class="tag-content">Javascript</div>
+                                            <div class="tag-content">Javascript</div>
+                                            <div class="tag-content">Javascript</div>
+                                            <div class="tag-content">Javascript</div>
+                                        </div>
+                                        <div class="web-content">
+                                            <div class="topic-share">Share</div>
+                                            <img class="share-img" src="img/fb.png">
+                                            <img class="share-img" src="img/tw.png">
+                                            <img class="share-img" src="img/ins.png">
+                                        </div>
+                                    </div>
+                                </div>                                
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="cat-features-section row project">
+            <div class="container grid clearfix">
+                <div class="cat-feature-box no-padding added-margin col-lg-4 col-md-4 col-sm-12"> 
+                    <h2 class="">
+                        <span class="cat-hdg special">
+                            {{ with .Site.Params.projects.headline }}
+                                {{ . | markdownify  }}
+                            {{ end }}
+                        </span>
+                    </h2>
+                    <div class="mobile-font margin-container">
+                        {{ with .Site.Params.projects.description }}
+                            {{ . | markdownify  }}
+                        {{ end }}
+                    </div>
+                </div>
+                <div class="cat-feature-box added-padding mobile-padding col-lg-8 col-md-8 col-sm-12">
+                    <div class="project-row row">
+                        {{ range .Site.Data.projects }}
+                            <div class="tab col-lg-3 col-md-3 col-sm-3 col-xs-6 text-center" onclick="openModel2()">
+                                <div class="markup service-box-Feral">
+                                    <div class="markup-text">{{ .name }}</div>
+                                    <img class="content-img" src="img/logo/logo-feral.png">
+                                    <div class="markup-footer">
+                                        <div class="starb">12
+                                            <img class="footer-img" src="img/starg.png">
+                                        </div>
+                                        <div class="starb">4 Forks</div>
+                                        <div class="starb">3
+                                            <img class="footer-img" src="img/tg.png">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {{ end }}
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>
+

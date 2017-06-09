@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="{{ with .Site.LanguageCode }}{{ . }}{{ else }}en-US{{ end }}">
+    <head>
+        {{ partial "head.html" . }}
+    </head>
+    <body id="page-top">            
+        {{ if .Site.Params.hero }}
+            {{ partial "hero.html" . }}
+        {{ end }}
+
+        {{ if .Site.Data.projects }}
+            {{ partial "projects.html" . }}
+        {{ end }}
+        
+        {{ if .Site.Params.about }}
+            {{ partial "about.html" . }}
+        {{ end }}
+
+        {{ if .Site.Params.code }}
+            {{ partial "code.html" . }}
+        {{ end }}
+
+        {{ if .Site.Params.license }}
+            {{ partial "license.html" . }}
+        {{ end }}
+
+        {{ if .Site.Params.careers }}
+            {{ partial "careers.html" . }}
+        {{ end }}
+
+        {{ if .Site.Params.footer }}
+            {{ partial "footer.html" . }}
+        {{ end }}
+
+        {{ partial "js.html" . }}
+        {{ template "_internal/google_analytics.html" . }}
+    </body>
+</html>

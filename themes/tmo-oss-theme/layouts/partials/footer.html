@@ -1,0 +1,47 @@
+{{ "<!-- FOOTER -->" | safeHTML }}
+<footer>
+    <div class="container grid">
+        <div class="footer-content clearfix">
+            <div class="left">
+                <img src="{{ "img/logo/Logo@1x.png" | absURL }}" />
+                {{ range .Site.Data.sitemap.navigation.footer.links }}
+                    <div class="left-contents">
+                        {{ .text | markdownify  }}
+                    </div>
+                {{ end }}
+            </div>
+            <div class="content-right">
+                <img class="content-margin" src="{{ "img/Facebook@1x.png" | absURL }}" />
+                <img class="content-margin" src="{{ "img/Twitter@1x.png" | absURL }}" />
+                <img class="content-margin" src="{{ "img/Instagram@1x.png" | absURL }}" />
+            </div>
+        </div>
+        <div class="mobile_version_content">
+            <div class="mobile_version margin">
+                <img src="{{ "img/Facebook@1x.png" | absURL }}" />
+            </div>
+            <div class="mobile_version margin">
+                <img src="{{ "img/Twitter@1x.png" | absURL }}" />
+            </div>
+            <div class="mobile_version margin">
+                <img src="{{ "img/Instagram@1x.png" | absURL }}" />
+            </div>
+        </div>
+        <div class="footer_mobile">
+            {{ range .Site.Data.sitemap.navigation.footer.links }}
+                <div class="footer_mobile_contents_{{ .class }}">
+                    {{ .text | markdownify  }}
+                </div>
+            {{ end }}
+        </div>
+        <div class="mobile_logo">
+            <img src="{{ "img/logo/Logo@1x.png" | absURL }}" />
+        </div>
+        
+        <div class="footer-text">
+            {{ with .Site.Params.footer.copyright }}
+                {{ . | markdownify  }}
+            {{ end }}
+        </div>
+    </div>
+</footer>

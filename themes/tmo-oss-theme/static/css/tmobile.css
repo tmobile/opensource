@@ -1,0 +1,110 @@
+button.btn.btn-secondary.email-submit {
+    width: 172px;
+    height: 48px;
+    border-radius: 100px;
+    background-color: #ffffff;
+    /* width: 78px; */
+    /* height: 19px; */
+    /* font-family: Roboto; */
+    font-size: 16px;
+    font-weight: bold;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: 0.5px;
+    text-align: center;
+    color: #ed008c;
+}
+
+span.input-group-btn {
+    padding: 40px 0 0 0;
+}
+
+img.cloud {
+    position: absolute;
+}
+
+img.cloud.cloud1 {
+    left: 0;
+}
+
+img.cloud.cloud2 {
+    right: 0;
+}
+
+img.cloud.cloud3 {
+    right: 0;
+    top: 60%;
+}
+
+.cat-feature-box .row {
+    display: block;
+}
+
+.service-box {
+    /* background: url('img/Background/bg-top.png'); */
+}
+
+.cat-features-section h3 {
+    font-size: 36px;
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    text-align: center;
+    color: #eb0078;
+}
+
+.cat-features-section a {
+    color: #eb0078;
+}
+
+.cat-icon-adapt {
+    /* background-image: url(../img/Icons/icon-ui.png); */
+    /* height: 50px; */
+    /* width: 50px; */
+    /* background-size: contain; */
+    /* background-image: url(../img/icons/icon-ui.png); */
+    transform: scale(0.5);
+    /* background-position: 20px 20px; */
+}
+
+section.cat-prize-section {
+    /*background-image: url(../img/Background/bg-bottom.png);*/
+    /* background-position: 50%; */
+    /* background-size: 100%; */
+    text-align: center;
+    /* max-width: 1200px; */
+    padding: 0;
+    background-size: 100% 100%;
+    /*background-color: #566D9B;*/
+    /*background-color: #fff;*/
+    /*background-color: #000;*/
+}
+
+section.opposite { 
+    background-color: #000;
+}
+
+section.career { 
+    background-color: #000;
+}
+
+.cat-details-section ul {
+    padding: 0;
+}
+
+.cat-details-section ul li {
+    color: #000;
+    list-style: none;
+    padding: 0;
+}
+
+.cat-details-section .date-tag {
+    font-size: 20px;
+}
+
+.time-tag {
+    color: #eb0078;
+}

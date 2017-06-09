@@ -1,0 +1,62 @@
+{{ "<!-- HEADER -->" | safeHTML }}
+<header>
+    {{ partial "nav.html" . }}
+    <div class="header-content">
+        <div class="header-content-inner">
+            <div class="first-first-content">
+                {{ with .Site.Params.hero.headline1 }}
+                    {{ . | markdownify  }}
+                {{ end }}
+            </div>
+            <div class="first-content clearfix">
+                <div class="extra"></div>
+                <div class="un-carrier">
+                    {{ with .Site.Params.hero.headline2 }}
+                        {{ . | markdownify  }}
+                    {{ end }}
+                </div>
+            </div>
+            <div class="second-content">
+                <div>
+                    {{ with .Site.Params.hero.headline3 }}
+                        {{ . | markdownify  }}
+                    {{ end }}
+                </div>
+            </div>
+        </div>
+        <div class="header-content-inner-details">
+            <div class="mobile-width">
+                {{ with .Site.Params.hero.slogan }}
+                    {{ . | markdownify  }}
+                {{ end }}
+            </div>
+        </div>
+        <a class="btn view-projects" href="#services">
+            <button type="input">
+                <span class="header-span">
+                    {{ with .Site.Params.hero.cta.text }}
+                        {{ . | markdownify  }}
+                    {{ end }}
+                </span>
+            </button>
+        </a>
+        <div class="arrows">
+            <img src="{{ "img/Arrows@1x.png" | absURL }}">
+        </div>
+    </div>
+    <div class="requestAccess overlay-container display-none" id="overlay-container-id">
+        <div class="overlay-state-con">
+            <div class="overlay-state">
+                <div class="overlay-state-wrp">
+                    <div class="overlay-vertical-center">
+                        <div class="overlay-innerwrap">
+                            {{ range .Site.Data.sitemap.navigation.global.links }}
+                                <div class="overlay-text" onclick="closePopup()">{{ .text | markdownify }}</div>
+                            {{ end }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>

@@ -1,0 +1,22 @@
+navigation:
+  global:
+    links:
+      - text: "ABOUT US"
+        href: "#about"
+        class: ""
+      - text: "BLOG"
+        href: "javascript:alert('not implemented')"
+        class: ""
+      - text: "PROJECTS"
+        href: "#services"
+        class: ""
+  footer:
+    links:
+      - text: "PRIVACY"
+        href: ""
+        target: ""
+        class: "privacy"
+      - text: "FEEDBACK"
+        href: ""
+        target: ""
+        class: ""

@@ -12,22 +12,9 @@ googleAnalytics = ""
 	# The path must be relative to the static folder
 	favicon = "favicon.ico"
 
-	# Navigation
-	[params.navigation]
-		brand = "T-Mobile Opensource"
-		
-		[params.navigation.links]
-			projects  	= "PROJECTS"
-			community	= "COMMUNITY"
-			blog		= "BLOG"
-			about		= "ABOUT US"
-
 	# footer
 	[params.footer]
 		copyright		= "Copyright 2017.All Rights Reserved"
-		[params.footer.links]
-			privacy		= "PRIVACY"
-			feedback	= "FEEDBACK"
 
 	# Hero section
 	[params.hero]

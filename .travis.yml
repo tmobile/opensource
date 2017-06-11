@@ -1,16 +1,20 @@
 language: go
 go:
 - 1.8.x
+#whitelist
+branches:
+  only:
+    - master
 install:
 - go get -v github.com/spf13/hugo
 - sudo pip install awscli
 script:
-- hugo
+- hugo --buildDrafts
 deploy:
   provider: s3
   access_key_id: "${AWS_ACCESS_KEY}"
   secret_access_key: "${AWS_SECRET_KEY}"
-  bucket: tmo-opensource
+  bucket: tmo-opensource-website
   upload-dir: internal
   local_dir: public
   skip_cleanup: true

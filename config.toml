@@ -1,4 +1,4 @@
-baseurl = "http://opensource.t-mobile.com/"
+baseurl = "http://opensource.corporate.t-mobile.com/"
 languageCode = "en-us"
 title = "Opensource"
 theme = "tmo-oss-theme"

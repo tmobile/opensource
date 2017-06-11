@@ -1,6 +1,10 @@
 language: go
 go:
 - 1.8.x
+#whitelist
+branches:
+  only:
+    - internal
 install:
 - go get -v github.com/spf13/hugo
 - sudo pip install awscli

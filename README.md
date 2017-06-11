@@ -1,7 +1,7 @@
 # opensource
 Repository for hosting content for T-Mobile Opensource site
 
-This site is build using hugo. To run the site locally, please perform steps below.
+This site is build using hugo. To run the site locally, please perform steps below. Updating for internal branch
 
 ## Clone this repository
 Clone this repository using command below

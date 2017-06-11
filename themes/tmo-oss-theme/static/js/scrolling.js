@@ -1,26 +1,33 @@
-$(document).on("click",".project-a ",function(e){
-        e.preventDefault();
-        var id = $(this).attr("href"),
-            topSpace = 30;
-        
-        $('html, body').animate({
+$(document).on("click", ".project-a ", function(e) {
+    e.preventDefault();
+    var id = $(this).attr("href"),
+        topSpace = 30;
 
-          scrollTop: $(id).offset().top - topSpace
-        }, 800);
+    $('html, body').animate({
 
-    });
+        scrollTop: $(id).offset().top - topSpace
+    }, 800);
 
-$(document).on("click",".view-projects",function(e){
-        e.preventDefault();
-        var id = $(this).attr("href"),
-            topSpace = 30;
-        
-        $('html, body').animate({
+});
 
-          scrollTop: $(id).offset().top - topSpace
-        }, 800);
+$(document).on("click", ".view-projects", function(e) {
+    e.preventDefault();
+    var id = $(this).attr("href"),
+        topSpace = 30;
 
-    });
+    $('html, body').animate({
+
+        scrollTop: $(id).offset().top - topSpace
+    }, 800);
+
+});
+
+$(document).on("click", ".overlay-state-wrp", function(e) {
+    e.preventDefault();
+    closePopup();
+
+});
+
 
 
 function openPopup() {
@@ -50,3 +57,8 @@ function closeModel() {
     $('#overlay-container-services').addClass('display-none');
     $('#overlay-container-services-2').addClass('display-none');
 }
+
+/*$(window).resize(function() {
+    location.reload();
+});
+*/

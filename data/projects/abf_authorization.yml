@@ -1,5 +1,7 @@
 name: abf_authorization
 full_name: tmobile/abf_authorization
+description: An enterprise defined entitlements, transferable telecom model entitlements with authorization.
 url: https://github.com/tmobile/abf_authorization
 img: "foo.png"
 language: "JAVA"
+css: "service-box-Android"

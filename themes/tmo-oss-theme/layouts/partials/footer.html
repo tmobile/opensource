@@ -1,5 +1,5 @@
 {{ "<!-- FOOTER -->" | safeHTML }}
-<footer>
+<footer class='translateY'>
     <div class="container grid">
         <div class="footer-content clearfix">
             <div class="left">
@@ -37,7 +37,6 @@
         <div class="mobile_logo">
             <img src="{{ "img/logo/Logo@1x.png" | absURL }}" />
         </div>
-        
         <div class="footer-text">
             {{ with .Site.Params.footer.copyright }}
                 {{ . | markdownify  }}

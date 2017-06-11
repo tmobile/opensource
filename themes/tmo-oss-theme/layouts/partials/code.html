@@ -18,9 +18,8 @@
                     {{ end }}
                 </div>
             </div>
-
-            <div class="btn">
-                <button type="input">
+            <div class="btn white-btn">
+                <button type="input" onclick="openPageInModal('{{ .Site.Params.code.cta.navigate_to }}');">
                     <span class="code-span">
                         {{ with .Site.Params.code.cta.text }}
                             {{ . | markdownify }}

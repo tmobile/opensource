@@ -9,7 +9,7 @@ install:
 - go get -v github.com/spf13/hugo
 - sudo pip install awscli
 script:
-- hugo
+- hugo --buildDrafts
 deploy:
   provider: s3
   access_key_id: "${AWS_ACCESS_KEY}"

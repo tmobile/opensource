@@ -4,7 +4,7 @@ go:
 #whitelist
 branches:
   only:
-    - draft
+    - develop
 install:
 - go get -v github.com/spf13/hugo
 - sudo pip install awscli

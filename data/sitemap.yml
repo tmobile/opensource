@@ -16,7 +16,3 @@ navigation:
         href: "https://www.t-mobile.com/company/website/privacypolicy.aspx"
         target: "_blank"
         class: "privacy"
-      - text: "FEEDBACK"
-        href: "mailto:opensource@t-mobile.com"
-        target: "_blank"
-        class: "about"

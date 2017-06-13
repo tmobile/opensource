@@ -11,4 +11,4 @@ cat << EOF > ${invalidation_batch_file}
 }
 EOF
 aws cloudfront create-invalidation  --distribution-id ${distribution_id} --invalidation-batch file://${invalidation_batch_file}
-rm ${invalidation_batch_file}
+rm ${invalidation_batch_file} 

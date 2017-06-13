@@ -5,7 +5,7 @@
             <div class="left">
                 <img src="{{ "img/logo/Logo@1x.png" | absURL }}" />
                 {{ range .Site.Data.sitemap.navigation.footer.links }}
-                    <div class="left-contents">
+                    <div class="left-contents" onclick="navigateTo('{{ .href }}');">
                         {{ .text | markdownify  }}
                     </div>
                 {{ end }}
@@ -29,7 +29,7 @@
         </div>
         <div class="footer_mobile">
             {{ range .Site.Data.sitemap.navigation.footer.links }}
-                <div class="footer_mobile_contents_{{ .class }}">
+                <div class="footer_mobile_contents_{{ .class }}" onclick="navigateTo('{{ .href }}');">
                     {{ .text | markdownify  }}
                 </div>
             {{ end }}

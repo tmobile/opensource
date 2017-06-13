@@ -52,7 +52,7 @@ googleAnalytics = ""
 	# careers plug
 	[params.careers]
 		headline			= "INTERESTED IN A CAREER WITH T-MOBILE?"
-		summary				= "Check out all the sweet oppurtunities T-Mobile has to offer!"
+		summary				= "Check out all the sweet opportunities T-Mobile has to offer!"
 		[params.careers.cta]
 			text			= "VIEW CAREERS"
 			navigate_to		= "https://tmobile.careers"

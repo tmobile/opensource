@@ -1,7 +1,0 @@
-name: passport-tmobileid
-full_name: tmobile/passport-tmobileid
-description: T-Mobile ID enabled authentication strategy for Passport and NodeJS
-url: https://github.com/tmobile/passport-tmobileid
-img: "foo.png"
-language: "Javascript"
-css: "service-box-Angular"

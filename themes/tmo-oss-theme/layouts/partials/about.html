@@ -21,7 +21,7 @@
         
             <div class="container grid container-margin">
                 <div class="clearfix">
-                    <div class="">
+                    <div class="pad-bot">
                         <ul class="clearfix desktop">
                             {{ range .Site.Data.about }}
                                 <li class="col-lg-3 col-md-3 col-sm-6">
@@ -31,6 +31,10 @@
                                     <div class="names">{{ .name }}</div>
                                     <div class="names-content">
                                         {{ .bio }}
+                                        <div class="names-links">
+                                            <a href="{{ .linkedInUrl }}"><img src="img/linkedin.png" alt=""></a>
+                                            <a href="{{ .githubUrl }}"><img src="img/github.svg" alt=""></a>
+                                        </div>
                                     </div>
                                 </li>
                             {{ end }}

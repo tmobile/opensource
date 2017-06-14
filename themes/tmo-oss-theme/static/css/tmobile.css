@@ -83,11 +83,11 @@ section.cat-prize-section {
     /*background-color: #000;*/
 }
 
-section.opposite { 
+section.opposite {
     background-color: #000;
 }
 
-section.career { 
+section.career {
     background-color: #000;
 }
 
@@ -107,4 +107,27 @@ section.career {
 
 .time-tag {
     color: #eb0078;
+}
+.github-logo {
+  width: 3.2rem;
+  padding: 0.8rem;
+  display:inline-block;
+  float: left;
+}
+.markup-language {
+  display:inline-block;
+  float: right;
+  font-size: 10px;
+  margin: 0.8rem !important;
+  border: 1px solid #fff;
+  border-radius: 2px;
+  padding: 0.2rem 0.4rem;
+}
+.names-links {
+  margin-top: 10px;
+}
+.names-links img {
+  width: 25px;
+  margin-right: 4px;
+  display:inline-block;
 }

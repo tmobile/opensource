@@ -1,26 +1,3 @@
-.service-box-footer {
-    font-size: 10px;
-}
-.service-box-footer-title {
-    color: #ed0295;
-    font-size: 8px;
-}
-.service-box-footer a {
-    text-decoration: none;
-}
-.markup-text-10px {
-    font-size: 10px;
-    padding-top: 20px;
-}
-.footer_mobile {
-    width: 82%;
-}
-.event-container {
-    font-size: 14px;
-}
-.event-container a {
-    text-decoration: none;
-}
 .event-container h1 {
     font-size: 20px;
     font-weight: 600;
@@ -35,13 +12,4 @@
     font-size: 16px;
     font-weight: 600;
     font-family: Tele Grotesk Fet;
-}
-.repo-link {
-    color: #888;
-    display: block;
-    font-size: 10px;
-    line-height: 2;
-    text-decoration: none;
-    
-    
 }

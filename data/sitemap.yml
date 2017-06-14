@@ -16,3 +16,6 @@ navigation:
         href: "https://www.t-mobile.com/company/website/privacypolicy.aspx"
         target: "_blank"
         class: "privacy"
+  social:
+    links:
+      - icon: icon-slack.png

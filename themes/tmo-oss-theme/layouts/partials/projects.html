@@ -20,16 +20,21 @@
                 <div class="project-row row">
                     {{ range .Site.Data.projects }}
                         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 text-center">
-                            <div class="markup service-box-Feral">
-                                <div class="markup-text"><a href="{{ .url }}" class="repo-link">{{ .name }}</a></div>
-                                <img class="content-img" src="img/logo/logo-feral.png">
+                            <div class="markup">
+                                <div class="markup-text" title="{{ .name }}">{{ .name }}</div>
+                                <div class="markup-header">
+                                  <div class="github-logo">
+                                    <img src="img/github.svg" alt="github">
+                                  </div>
+                                  <div class="markup-language">{{ .language }}</div>
+                                </div>
                                 <div class="markup-footer">
                                     <div class="starb">12
-                                        <img class="footer-img" src="img/starg.png">
+                                        <img class="footer-img" src="img/star.png">
                                     </div>
                                     <div class="starb">4 Forks</div>
                                     <div class="starb">3
-                                        <img class="footer-img" src="img/tg.png">
+                                        <img class="footer-img" src="img/twitter.png">
                                     </div>
                                 </div>
                             </div>

@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 invalidation_batch_file="/tmp/batch.json"
+distribution_id=E1QJ4170VEGN9O
 cat << EOF > ${invalidation_batch_file}
 {
   "Paths": {

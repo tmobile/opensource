@@ -1,10 +1,35 @@
 <!DOCTYPE html>
 <html lang="{{ with .Site.LanguageCode }}{{ . }}{{ else }}en-US{{ end }}">
     <head>
-        {{ partial "head.html" . }}
+        {{ partial "blog-head.html" . }}
     </head>
-    <body id="page-top"> 
-
-        {{ .Content }}
+    <body>
+        <div class="blog-overlay-innerwrap  blogs-wrap">
+            <div class="blog-request-submit-widget">
+                <div class="blog-heading-overlay">
+                    <div class='blog-head-wrap'>
+                        <div class='blog-breadcrumb'> 
+                            <span><a href="/"> home </a></span> <span> / </span> <span> <a href="/blog"> {{ .Section }} </a></span> <span> / </span> <span><a href="/blog/posts"> posts </span> </a>
+                        </div>
+                        <h2 class='blog-post-head'>{{ .Title }}</h2>
+                        <h2 class="blog-success-header-content">{{ .Site.Params.name }}</h2>
+                    </div>
+                </div>
+                <div class="blog-event-container-angular">
+                    <div class="blog-first-container">
+                        <div class='blog-title-date bp-date'>
+                            {{ .Date.Format "2006-01-02" }}
+                        </div>
+                        <div class='blog-title-desc'>
+                            {{ .Content }}
+                        </div>
+                        {{ template "_internal/disqus.html" . }}
+                    </div>
+                    {{ partial "blog-sidebar.html" . }}
+                </div>
+            </div>
+        </div>
+        {{ partial "js.html" . }}
+        {{ template "_internal/google_analytics.html" . }}
     </body>
 </html>

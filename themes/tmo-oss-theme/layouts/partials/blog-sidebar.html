@@ -1,0 +1,43 @@
+{{ "<!-- BLOG SIDEBAR -->" | safeHTML }}
+<div class="blog-second-container">
+    <div class="blog-web-content">
+        <div class="blog-topic"><h4><i class="fi-megaphone"></i> <a href="{{ "post/" | absLangURL }}">Recent Posts</a></h4></div>
+        {{ range first 10 (where .Site.Pages "Section" "blog") }}
+		{{ if not (eq .URL "/posts/") }}<div class="blog-year"><a href="{{ .Permalink }}">{{ .Title }}</a></div>{{ end }}
+		{{ end }}
+    </div>
+
+    {{ if not (eq (len .Site.Taxonomies.categories) 0) }}
+        <div class="blog-web-content">
+            <div class="blog-topic"><h4><i class="fi-folder"></i> <a href="{{ "categories/" | absLangURL }}">Categories</a></h4></div>            
+            {{ range $key, $val := first 5 .Site.Taxonomies.categories.ByCount }}
+                {{ $.Scratch.Set "link" "categories/" }}
+                {{ $.Scratch.Add "link" $val.Name }}
+                <div class="blog-topic-content"><a href="{{ $.Scratch.Get "link" | lower | urlize | absLangURL }}">{{ $val.Name | title }}</a></div>
+            {{ end }}
+        </div>
+    {{ end }}
+
+    {{ if not (eq (len .Site.Taxonomies.tags) 0) }}
+        <div class="blog-web-content-script">
+            <div class="blog-topic"><h4><i class="fi-pricetag-multiple"></i> <a href="{{ $.Site.BaseURL }}tags/">Tags</a></h4></div>
+
+            {{ range $key, $val := .Site.Taxonomies.tags.ByCount }}
+                <div class="blog-tag-content">
+                    {{ $.Scratch.Set "link" "tags/" }}
+                    {{ $.Scratch.Add "link" $val.Name }}
+                    <a class="button" href="{{ $.Scratch.Get "link" | lower | urlize | absLangURL }}" title="{{ $val.Name }}">
+                        {{ $val.Name }} ({{ $val.Count }})
+                    </a>
+                </div>
+		    {{ end }}
+        </div>
+    {{end}}
+
+    <div class="blog-web-content">
+        <div class="blog-topic-share">Share</div>
+        <img class="blog-share-img" src="/img/fb.png">
+        <img class="blog-share-img" src="/img/tw.png">
+        <img class="blog-share-img" src="/img/ins.png">
+    </div>
+</div>

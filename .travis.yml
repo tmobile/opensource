@@ -18,7 +18,7 @@ deploy:
   local_dir: public
   skip_cleanup: true
   on:
-    branch: develop
+    branch: master
 after_deploy:
 - aws configure set preview.cloudfront true
 - "./cdn-invalidate.sh"

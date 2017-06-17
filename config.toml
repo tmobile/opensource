@@ -1,9 +1,9 @@
-baseurl = "http://opensource.corporate.t-mobile.com/"
+baseurl = "http://opensource.t-mobile.com/"
 languageCode = "en-us"
 title = "Opensource"
 theme = "tmo-oss-theme"
 googleAnalytics = ""
-disqusShortname= "tmo-oss-internal"
+disqusShortname= "tmo-oss"
 
 [params]
 	org_name = "tmobile"

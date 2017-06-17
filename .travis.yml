@@ -3,7 +3,7 @@ go:
 - 1.8.x
 branches:
   only:
-  - develop
+  - master
 install:
 - go get -v github.com/spf13/hugo
 - sudo pip install awscli
@@ -14,7 +14,7 @@ deploy:
   access_key_id: "${AWS_ACCESS_KEY}"
   secret_access_key: "${AWS_SECRET_KEY}"
   bucket: tmo-opensource-website
-  upload-dir: internal
+  upload-dir: public
   local_dir: public
   skip_cleanup: true
   on:

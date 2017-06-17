@@ -3,6 +3,7 @@ languageCode = "en-us"
 title = "Opensource"
 theme = "tmo-oss-theme"
 googleAnalytics = ""
+disqusShortname= "tmo-oss-internal"
 
 [params]
 	org_name = "tmobile"

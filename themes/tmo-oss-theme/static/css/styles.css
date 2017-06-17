@@ -51,7 +51,34 @@ header .header-content .header-content-inner p {
     padding-top: 1rem;
     line-height: 1.5;
 }
-
+.blog-title-txt{
+    color: #ed0295;
+    font-size: 20px;
+    font-weight: 600;
+    padding-bottom: 10px;
+    margin: 0;
+}
+.blogs-wrap a:hover{
+  color:inherit;
+}
+.blog-first-container h1 {
+    font-size: 20px;
+    font-weight: 600;
+    padding-bottom: 10px;
+    margin: 0;
+}
+.blog-first-container h2 {
+    font-size: 18px;
+    font-weight: 600;
+    padding-bottom: 10px;
+    margin: 0;
+}
+.blog-first-container h3 {
+    font-size: 16px;
+    font-weight: 600;
+    padding-bottom: 10px;
+    margin: 0;
+}
 .cat-details-section {
     background-color: transparent;
     background-size: 100% 100%;
@@ -2201,7 +2228,7 @@ a:hover {
 
 .blog-first-container {
     border-right: 2px solid #ddd;
-    width: 60%;
+    width: 70%;
     padding-right: 24px;
     padding-left: 6rem;
 }
@@ -2214,7 +2241,7 @@ a:hover {
 }
 .blog-second-container {
     padding-left: 20px;
-    width: 40%;
+    width: 30%;
 }
 .blog-request-submit-widget {
     position: relative;
@@ -2278,7 +2305,7 @@ a:hover {
 }
 .blog-post-head {
     text-transform: uppercase;
-    font-size: 4vh;
+    font-size: 1.7rem;
     margin: 1.3vh 0 0.8vh;
 }
 .blog-breadcrumb {

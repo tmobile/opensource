@@ -1,60 +1,47 @@
 <!DOCTYPE html>
 <html lang="{{ with .Site.LanguageCode }}{{ . }}{{ else }}en-US{{ end }}">
     <head>
-        {{ partial "head.html" . }}
-        {{ partial "additional-blog-head.html" . }}
+        {{ partial "blog-head.html" . }}
     </head>
-    <body id="page-top"> 
-        {{ partial "blog-header.html" . }}
-        
-        <section id="main">
-            <div>
-                {{ $paginator := .Paginate (where .Data.Pages "Section" "blog") }}
-                {{ range $paginator.Pages }}
-                    {{ if ne .File.BaseFileName "index" }}
-                        <article>
-                            {{ if .Params.thumbnail }}
-                            <div>
-                                <figure>
-                                <a href="{{ .Permalink }}">
-                                    <img src="{{ .Params.thumbnail | absURL }}" alt="{{ .Title }}" />
-                                </a>
-                                </figure>
-                            </div>
-                            {{ end }}
-                            <div>
-                                <a href="{{ .Permalink }}">
-                                    <h4>{{ .Title }}</h4>
-                                </a>
-                                <div class="metadata">
-                                    <i class="fi-clock"></i>
-                                    <time datetime="{{ .Date.Format "2006-01-02" }}">{{.Date.Format "January 02, 2006"}}</time>
-                                </div>
-                                <div class="post-list-summary">
-                                    <p>
+    <body>
+        <div class="blog-overlay-innerwrap blogs-wrap">
+            <div class="blog-request-submit-widget">
+                <div class="blog-heading-overlay">
+                    <div class='blog-head-wrap'>
+                        <h1 class="blog-success-header">{{ .Section }}</h1>
+                        <h2 class="blog-success-header-content">{{ .Site.Params.name }}</h2>
+                    </div>
+                </div>
+                <div class="blog-event-container-angular">
+                    <div class="blog-first-container">
+                        {{ $paginator := .Paginate (where .Data.Pages "Section" "blog") }}
+                        {{ range $paginator.Pages }}
+                            {{ if ne .File.BaseFileName "index" }}
+                                <div class='blog-title-wrap'>
+                                    <div class="blog-title-txt">
+                                        <a href="{{ .Permalink }}">{{ .Title | markdownify }}</a>
+                                    </div>
+                                    <div class='blog-title-date'>
+                                        {{.Date.Format "January 02, 2006" }}
+                                    </div>
+                                    <div class='blog-title-desc'> 
                                         {{ $page := . }}
                                         {{ with .Description }}
-                                        {{ . | markdownify }} <a href="{{ $page.RelPermalink }}">[Read more...]</a>
+                                        {{ . | markdownify }}
                                         {{ else }}
-                                        {{ .Summary | markdownify }}{{ if .Truncated }} <a href="{{ $page.RelPermalink }}">[Read more...]</a>{{ end }}
+                                        {{ .Summary | markdownify }}
                                         {{ end }}
-                                    </p>
+                                    </div>
+                                    <a href="{{ .Permalink }}" class='blog-title-more'>[Read more...]</a>
                                 </div>
-                            </div>
-                        </article>
-                    {{ end }}
-                {{ end }}
+                            {{end}}
+                        {{end}}
+                    </div>
+                    {{ partial "blog-sidebar.html" . }}
+                </div>
             </div>
-        </section>
-
-
-        {{ if .Site.Params.footer }}
-            {{ partial "footer.html" . }}
-        {{ end }}
-
+        </div>
         {{ partial "js.html" . }}
-        {{ partial "blog-js.html" . }}
-
         {{ template "_internal/google_analytics.html" . }}
     </body>
 </html>

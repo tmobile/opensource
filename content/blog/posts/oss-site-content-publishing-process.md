@@ -69,16 +69,18 @@ All the content that you see in this site is stored in a Github [repository](htt
     git push origin develop
     ```
     At this point your content changes made locally and tested in hugo are now committed to your forked copy of opensource repository. Next you will need to create a pull request (PR) to merge changes from your fork to tmobile opensource repository.
-     
+
 #### Travis-CI
 For continuous integration, publishing in this usecase to be exact we are using a service called [Travis-CI](http://travis-ci.com)
 
 ### Continuous Publishing
+[TODO]
 
 
 Hope you found this helpful.
 
 Cheers,
+
 Ram Gopinathan
 
 

@@ -1,0 +1,84 @@
++++
+date = "2017-06-18T21:26:26-07:00"
+draft = true
+title = "Content publishing tools and processes leveraged in this site"
+categories = ["resources"]
+tags = ["tools", "how-to", "publishing"]
++++
+
+## Overview
+In this post I wanted to walkthrough how the T-Mobile opensource site is setup and cover the tools and content publishing process we are leveraging. If you are looking to begin your journey towards opensource hopefully this information will be useful.
+
+### Our Requirements
+When we first started talking with [Steve](http://insert-link-to-steves-profile) and [Tim](http://insert-link-to-tims-profile) about launching our opensource site to show case lot of the great work our teams are doing, both Steve and Tim wanted to make sure we leveraged opensource tools and not rely on any internal tools or processes. Additionally we needed to make sure a light weight governance process exist before content becomes public. For example we needed to ensure technical articles authored as blog posts by various technology experts within our company get's reviewed by OSS working group for things like correctness, authenticity, follows guidelines on content classification etc.
+
+### Tools
+Here is the list of tools we ended up leveraging.
+
+#### Hugo
+Content for this site is statically generated using an opensource tool called [hugo](http://gohugo.io) created by [Steve Francia](http://spf13.com/) who works on the golang team at Google. If you are content author and will be creating content for this opensource site, first thing you will need to install on your laptop is hugo. 
+If you are using HomeBrew installing Hugo is easy, simply run the command below
+```
+brew install hugo
+```
+If you are new to Hugo, please check out this [QuickStart Guide](http://gohugo.io/overview/quickstart/)
+
+#### Github
+All the content that you see in this site is stored in a Github [repository](http://github.com/tmobile/opensource). Since the site is generated using Hugo, Hugo creates a folder called "content" to organize all content used in the site. We are also using the same site to host technical articles under "blog" section. You simply use Hugo commands to create content for respective sections of this site. All content is stored as [markdown](https://en.wikipedia.org/wiki/Markdown) files. Again please be sure to check out the [QuickStart Guide](http://gohugo.io/overview/quickstart/) if you are new to Hugo. To contribute content you simply perform following steps.
+
+* Fork this repository to create your own copy on to your account 
+
+    Navigate to T-Mobile Opensource repository in github and login with your github account. After you have successfully logged in click on Fork option as shown in screenshot below
+    ![](/blog/oss-fork.jpg)
+
+* Clone to your local machine
+
+    Clone forked copy of T-Mobile opensource repository on to your local machine. For this you will need to grab the repository HTTPS URL from github as shown in example below 
+    ```
+    git clone https://github.com/rprakashg/opensource.git
+    ```
+    After you have cloned the forked opensource repository to your local machine, simply switch the branch to "Develop" but running command below
+    ```
+    git checkout develop
+    ```
+* Create the content
+
+    To create content you simply use hugo commands as covered in the [QuickStart Guide](http://gohugo.io/overview/quickstart/)
+    Once the content changes are complete, before committing changes to your forked copy of the repository it can be tested locally using hugo to ensure everything looks good. Simply run command below to check how the site looks with your new content
+    ```
+    hugo server --buildDrafts
+    ```
+
+* Commit changes
+
+    At this point you have created the content and tested locally using Hugo. You are now ready to commit your changes to the repository. Run below git commands to commit changes to github. 
+
+    First stage your changes for commit
+
+    ```
+    git add .
+    ```
+    Commit your content changes
+    
+    ```
+    git commit -m '{provide commit message}'
+    ```
+    Push changes to remote branch 'Develop'
+
+    ```
+    git push origin develop
+    ```
+    At this point your content changes made locally and tested in hugo are now committed to your forked copy of opensource repository. Next you will need to create a pull request (PR) to merge changes from your fork to tmobile opensource repository.
+     
+#### Travis-CI
+For continuous integration, publishing in this usecase to be exact we are using a service called [Travis-CI](http://travis-ci.com)
+
+### Continuous Publishing
+
+
+Hope you found this helpful.
+
+Cheers,
+Ram Gopinathan
+
+

@@ -87,10 +87,12 @@ DNS URLs for both internal and external opensource sites are managed using AWS R
 As mentioned above we are using Travis-CI service for continuous publishing. 
 #### Internal Site
 As mentioned earlier all content for internal site are generated from "Develop" branch. At this point we are only accepting PRs from internal users as well as select folks from external community. There are no restrictions for pushing to "Develop" branch. When changes are committed to "develop" branch, builds run in Travis-CI which will generate site content using Hugo CLI and pushes the generated content into a folder within a S3 bucket using Travis-CI S3 deployment provider. After content is successfully pushed to S3 we run a custom script to invalidate the cloudfront distribution. You can see this from the .travis.yml below for develop branch. 
+
 ![](/blog/devbuild.jpg)
 
 Master branch in the repository is protected so that nobody is allowed to push changes directly to it without a pull request and review. Our OSS site maintainers will review each PRs, All PRs must have atleast one approved reviewer and no changes requested to be eligible for merge into master branch. 
 Once the changes submitted via PR are merged to master branch, Travis-CI builds will build the content from master branch and publish to S3. Publishing steps in build script are pretty identical to what's described for develop branch, only difference is content is push to a seperate folder within the S3 bucket. Additionally when site content is generated using Hugo CLI, any content in draft state is skipped.
+
 ![](/blog/masterbuild.jpg)
 
 

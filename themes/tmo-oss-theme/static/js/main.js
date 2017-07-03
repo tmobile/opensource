@@ -3,9 +3,17 @@ function navigateTo(url){
 }
 
 function openPageInModal(href) {
+	var jqOverlay;
+
     $('body').addClass('overflowH');
-    $('#overlay-container-services').removeClass('display-none');
-    $('#overlay-container-services').find('.event-container').load(href);
+	jqOverlay = $('#overlay-container-services');
+    jqOverlay.removeClass('display-none');
+
+    jqOverlay.find('.event-container').load(href, function() {
+		// On load, move first found H1 to modal title
+		var jqTitle = jqOverlay.find('.event-container h1:first').remove();
+		jqOverlay.find('.success-header').html(jqTitle.html());
+	});
 }
 
 $(document).on("click", ".animated-scroll", function(e) {

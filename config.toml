@@ -30,7 +30,7 @@ disqusShortname= "tmo-oss-internal"
 	# projects section
 	[params.projects]
 		headline		= "PROJECTS"
-		description		= "Check out the latest projects created by the T-Mobile Team all available to try for free on GITHUB."
+		description		= "Check out the latest projects created by the T-Mobile Team all available to try for free on GitHub."
 
 	# About
 	[params.about]
@@ -40,7 +40,7 @@ disqusShortname= "tmo-oss-internal"
 	# Code Of Conduct
 	[params.code]
 		headline			= "CODE OF CONDUCT"
-		summary				= "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged."
+		summary				= "In the interest of fostering an open and welcoming environment, we as contributors and maintainers pledge to making participation in our project and our community a harassment-free experience for everyone, regardless of age, body size, disability, ethnicity, gender identity and expression, level of experience, nationality, personal appearance, race, religion, or sexual identity and orientation."
 		[params.code.cta]
 			text			= "VIEW DETAILS"
 			navigate_to		= "/conduct/index.html"

@@ -26,7 +26,7 @@
                             {{ range .Site.Data.about }}
                                 <li class="col-lg-3 col-md-3 col-sm-6">
                                     <div class="circle">
-                                        <img src="img/{{ .icon }}" />
+                                        <img class="circle" src="img/{{ .icon }}" />
                                     </div>
                                     <div class="names">{{ .name }}</div>
                                     <div class="names-content">
@@ -34,6 +34,7 @@
                                         <div class="names-links">
                                             <a href="{{ .linkedInUrl }}"><img src="img/linkedin.png" alt=""></a>
                                             <a href="{{ .githubUrl }}"><img src="img/github.svg" alt=""></a>
+											<a href="{{ .twitterUrl }}"><img src="img/twitter.png" alt=""></a>
                                         </div>
                                     </div>
                                 </li>

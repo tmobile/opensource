@@ -18,4 +18,15 @@ navigation:
         class: "privacy"
   social:
     links:
-      - icon: icon-slack.png
+      - icon: img/icon-slack.png
+        href: "https://t-mo.slack.com/"
+        class: "slack"
+      - icon: "img/Twitter@1x.png"
+        href: "https://twitter.com/TMobile87733446"
+        class: "twitter"
+      - icon: "img/facebook.png"
+        href: "https://www.facebook.com"
+        class: "facebook"
+      - icon: "img/youtube.png"
+        href: "https://www.youtube.com/"
+        class: "youtube"

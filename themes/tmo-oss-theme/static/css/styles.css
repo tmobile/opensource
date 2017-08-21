@@ -799,6 +799,7 @@ button:hover {
 }
 #services-opposite {
     padding: 0;
+	text-align: center;
 }
 .text-center.margin-container.head-contributor {
     padding-top: 10%;
@@ -851,6 +852,13 @@ footer .margin-container {
     display: inline-block;
 }
 .career-span {
+    font-family: 'Tele Grotesk Halb';
+    font-size: 20px;
+    width: 121px;
+    height: 24px;
+    display: inline-block;
+}
+.license-span {
     font-family: 'Tele Grotesk Halb';
     font-size: 20px;
     width: 121px;

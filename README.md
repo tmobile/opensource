@@ -1,4 +1,4 @@
-[![Build Status](https://www.travis-ci.com/tmobile/opensource.png?branch=develop)](https://www.travis-ci.com/tmobile/opensource)
+[![Build Status](https://www.travis-ci.com/tmobile/opensource.svg?branch=develop)](https://www.travis-ci.com/tmobile/opensource)
 
 # opensource
 Repository for hosting content for T-Mobile Opensource site

@@ -1,4 +1,6 @@
 # opensource
+[![Build Status](https://travis-ci.com/tmobile/opensource.png?branch=master)](https://travis-ci.com/tmobile/opensource)
+
 Repository for hosting content for T-Mobile Opensource site
 
 This site is build using hugo. To run the site locally, please perform steps below. Updating for internal branch

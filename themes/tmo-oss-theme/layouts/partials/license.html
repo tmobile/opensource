@@ -18,9 +18,20 @@
                     {{ end }}    
                 </div>
             </div>
+			<div class="btn white-btn">
+                <button type="input" onclick="navigateTo('{{ .Site.Params.license.cta.navigate_to }}');">
+                    <span class="career-span">
+                        {{ with .Site.Params.license.cta.text }}
+                            {{ . | markdownify }}
+                        {{ end }}
+                    </span>
+                </button>
+            </div> 
+			
+        </div>
         </div>
     </div>    
-    {{ if .Site.Params.careers }}
+   {{ if .Site.Params.careers }}
         {{ partial "careers.html" . }}
-    {{ end }}
-</section>
+    {{ end }} 
+</section> 

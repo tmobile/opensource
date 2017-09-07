@@ -22,11 +22,11 @@
             <div class="container grid container-margin">
                 <div class="clearfix">
                     <div class="pad-bot">
-                        <ul class="clearfix desktop">
-                            {{ range .Site.Data.about }}
+                        <ul class="clearfix desktop spaceallow">
+                            {{ range sort .Site.Data.about "order" }}
                                 <li class="col-lg-3 col-md-3 col-sm-6">
                                     <div class="circle">
-                                        <img src="img/{{ .icon }}" />
+                                        <img class="circle" src="img/{{ .icon }}" />
                                     </div>
                                     <div class="names">{{ .name }}</div>
                                     <div class="names-content">
@@ -34,6 +34,7 @@
                                         <div class="names-links">
                                             <a href="{{ .linkedInUrl }}"><img src="img/linkedin.png" alt=""></a>
                                             <a href="{{ .githubUrl }}"><img src="img/github.svg" alt=""></a>
+											<a href="{{ .twitterUrl }}"><img src="img/twitter.png" alt=""></a>
                                         </div>
                                     </div>
                                 </li>
@@ -42,7 +43,7 @@
                         <div class="container mobile">
                             <div id="myCarousel" class="carousel slide" data-interval="false" data-ride="carousel">
                                 <div class="carousel-inner">
-                                    {{ range  .Site.Data.about }}
+                                    {{ range sort .Site.Data.about "order" }}
                                         {{ if eq .order 1 }}
                                         <div class="item active">
                                         {{ else }}

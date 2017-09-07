@@ -16,15 +16,15 @@
             {{ partial "about.html" . }}
         {{ end }}
 
-        {{ if .Site.Params.code }}
+       {{ if .Site.Params.code }}
             {{ partial "code.html" . }}
         {{ end }}
 
         {{ if .Site.Params.license }}
             {{ partial "license.html" . }}
         {{ end }}
-
-        {{ if .Site.Params.footer }}
+		
+		{{ if .Site.Params.footer }}
             {{ partial "footer.html" . }}
         {{ end }}
 

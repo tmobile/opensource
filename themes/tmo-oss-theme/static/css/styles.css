@@ -610,6 +610,12 @@ button:focus {
     height: 200px;
     border-radius: 50%;
     margin: auto;
+	margin-top:40px;
+	margin-bottom:20px;
+}
+.spaceallow{
+	position:relative;
+	bottom:68px;
 }
 .names {
     text-align: center;
@@ -799,6 +805,7 @@ button:hover {
 }
 #services-opposite {
     padding: 0;
+	text-align: center;
 }
 .text-center.margin-container.head-contributor {
     padding-top: 10%;
@@ -851,6 +858,13 @@ footer .margin-container {
     display: inline-block;
 }
 .career-span {
+    font-family: 'Tele Grotesk Halb';
+    font-size: 20px;
+    width: 121px;
+    height: 24px;
+    display: inline-block;
+}
+.license-span {
     font-family: 'Tele Grotesk Halb';
     font-size: 20px;
     width: 121px;

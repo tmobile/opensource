@@ -10,7 +10,12 @@ title = "Code Of Conduct"
 
 In the interest of fostering an open and welcoming environment, we as contributors and maintainers pledge to making participation in our project and our community a harassment-free experience for everyone, regardless of age, body size, disability, ethnicity, gender identity and expression, level of experience, nationality, personal appearance, race, religion, or sexual identity and orientation.
 
+<<<<<<< HEAD
 ## Our Standards
+=======
+## Reporting Issues
+If you experience or witness unacceptable behavior or have any other concerns please report it by contacting us via (mailto:opensource@t-mobile.com). All reports will be handled with discretion. In your report please include:
+>>>>>>> helpmyteam
 
 Examples of behavior that contributes to creating a positive environment include:
 

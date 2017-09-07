@@ -610,6 +610,12 @@ button:focus {
     height: 200px;
     border-radius: 50%;
     margin: auto;
+	margin-top:40px;
+	margin-bottom:20px;
+}
+.spaceallow{
+	position:relative;
+	bottom:68px;
 }
 .names {
     text-align: center;

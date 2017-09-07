@@ -23,7 +23,7 @@
                 <div class="clearfix">
                     <div class="pad-bot">
                         <ul class="clearfix desktop spaceallow">
-                            {{ range .Site.Data.about }}
+                            {{ range sort .Site.Data.about "order" }}
                                 <li class="col-lg-3 col-md-3 col-sm-6">
                                     <div class="circle">
                                         <img class="circle" src="img/{{ .icon }}" />
@@ -43,7 +43,7 @@
                         <div class="container mobile">
                             <div id="myCarousel" class="carousel slide" data-interval="false" data-ride="carousel">
                                 <div class="carousel-inner">
-                                    {{ range  .Site.Data.about }}
+                                    {{ range sort .Site.Data.about "order" }}
                                         {{ if eq .order 1 }}
                                         <div class="item active">
                                         {{ else }}

@@ -16,6 +16,7 @@ deploy:
   bucket: tmo-opensource-website
   local_dir: public
   skip_cleanup: true
+  region: us-west-2
   on:
     branch: develop
 after_deploy:

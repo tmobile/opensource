@@ -11,25 +11,17 @@
                 {{ end }}
             </div>
             <div class="content-right">
-               <!--  <img class="content-margin" src="{{ "img/icon-slack.png" | absURL }}/> -->
-			   {{ range .Site.Data.sitemap.navigation.social.links }}
-				<img class="content-margin" src="{{ .icon | absURL }}" onclick="navigateTo('{{ .href }}');"/>               
-				  {{ end }}
+			    {{ range .Site.Data.sitemap.navigation.social.links }}
+				    <img class="content-margin" src="{{ .icon | absURL }}" onclick="navigateTo('{{ .href }}');" />               
+                {{ end }}
             </div>
         </div>
         <div class="mobile_version_content">
-            <div class="mobile_version margin">
-                <img src="{{ "img/icon-slack.png" | absURL }}" />
-            </div>
-            <div class="mobile_version margin">
-                <img src="{{ "img/Twitter@1x.png" | absURL }}" />
-            </div>
-			<div class="mobile_version margin">
-                <img src="{{ "img/facebook.png" | absURL }}" />
-            </div>
-			<div class="mobile_version margin">
-                <img src="{{ "img/youtube.png" | absURL }}" />
-            </div>
+            {{ range .Site.Data.sitemap.navigation.social.links }}
+                <div class="mobile_version margin">
+                    <img src="{{ .icon | absURL }}" onclick="navigateTo('{{ .href }}');" />
+                </div>
+            {{ end }}
         </div>
         <div class="footer_mobile">
             {{ range .Site.Data.sitemap.navigation.footer.links }}

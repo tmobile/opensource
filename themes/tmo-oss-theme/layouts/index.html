@@ -3,7 +3,7 @@
     <head>
         {{ partial "head.html" . }}
     </head>
-    <body id="page-top">            
+    <body id="page-top">
         {{ if .Site.Params.hero }}
             {{ partial "hero.html" . }}
         {{ end }}
@@ -11,19 +11,25 @@
         {{ if .Site.Data.projects }}
             {{ partial "projects.html" . }}
         {{ end }}
-        
-        {{ if .Site.Params.about }}
-            {{ partial "about.html" . }}
-        {{ end }}
 
-       {{ if .Site.Params.code }}
+        {{ partial "blog.html" . }}
+
+        {{ if .Site.Params.code }}
             {{ partial "code.html" . }}
         {{ end }}
+        <div class="pink-bg">
+          {{ if .Site.Params.license }}
+              {{ partial "license.html" . }}
+          {{ end }}
 
-        {{ if .Site.Params.license }}
-            {{ partial "license.html" . }}
-        {{ end }}
-		
+          {{ if .Site.Params.about }}
+              {{ partial "about.html" . }}
+          {{ end }}
+
+          {{ if .Site.Params.careers }}
+              {{ partial "careers.html" . }}
+          {{ end }}
+        </div>
 		{{ if .Site.Params.footer }}
             {{ partial "footer.html" . }}
         {{ end }}

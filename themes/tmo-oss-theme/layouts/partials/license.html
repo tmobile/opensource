@@ -1,37 +1,35 @@
 {{ "<!-- CONTRIBUTORS LICENSE AGREEMENT -->" | safeHTML }}
-<section id="services-opposite">
+  <div class="separator pull-up">
+    <svg class="white-transparent" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 10" preserveAspectRatio="none">
+        <polygon points="100 0 100 10 0 0" />
+    </svg>
+  </div>
+  <section id="services-opposite">
     <div class="cat-prize-section opposite">
-        <div class="container grid added-extra-padding">
-            <div class="row">
-                <div class="col-lg-12 text-center margin-container head-contributor">
-                    <h2 class="">
-                        <span class="cat-hdg top-pad opposite-font">
-                            {{ with .Site.Params.license.headline }}
-                                {{ . | markdownify }}
-                            {{ end }}
-                        </span>
-                    </h2>
-                </div>
-                <div class="col-lg-12 text-left margin-container opposite-font contributor">
-                    {{ with .Site.Params.license.summary }}
-                        {{ . | markdownify }}
-                    {{ end }}    
-                </div>
-            </div>
-			<div class="btn white-btn">
-                <button type="input" onclick="navigateTo('{{ .Site.Params.license.cta.navigate_to }}');">
-                    <span class="career-span">
-                        {{ with .Site.Params.license.cta.text }}
-                            {{ . | markdownify }}
-                        {{ end }}
-                    </span>
-                </button>
-            </div> 
-			
+      <div class="container grid added-extra-padding">
+        <div class="row">
+          <div class="col-lg-12 text-center margin-container head-contributor">
+            <h2 class="">
+              <span class="cat-hdg opposite-font">
+                  {{ with .Site.Params.license.headline }}
+                      {{ . | markdownify }}
+                  {{ end }}
+              </span>
+            </h2>
+          </div>
+          <div class="col-lg-12 text-left margin-container opposite-font contributor">
+            {{ with .Site.Params.license.summary }} {{ . | markdownify }} {{ end }}
+          </div>
         </div>
+        <div class="btn white-btn">
+          <button type="input" onclick="navigateTo('{{ .Site.Params.license.cta.navigate_to }}');">
+            <span class="career-span">
+                {{ with .Site.Params.license.cta.text }}
+                    {{ . | markdownify }}
+                {{ end }}
+            </span>
+          </button>
         </div>
-    </div>    
-   {{ if .Site.Params.careers }}
-        {{ partial "careers.html" . }}
-    {{ end }} 
-</section> 
+      </div>
+    </div>
+  </section>

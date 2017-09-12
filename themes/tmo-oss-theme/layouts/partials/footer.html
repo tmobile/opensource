@@ -2,24 +2,24 @@
 <footer>
     <div class="container grid">
         <div class="footer-content clearfix">
-            <div class="left">
-                <img src="{{ "img/logo/Logo@1x.png" | absURL }}" />
+            <div class="left-contents">
+                <img class="logoMain" src="{{ "img/logo/Logo@1x.png" | absURL }}" />
                 {{ range .Site.Data.sitemap.navigation.footer.links }}
-                    <div class="left-contents" onclick="navigateTo('{{ .href }}');">
-                        {{ .text | markdownify  }}
-                    </div>
+                  <div class="left-contents">
+                    <a class="footer-links" href="{{ .href }}" target="_blank">{{ .text | markdownify  }}</a>
+                  </div>
                 {{ end }}
             </div>
             <div class="content-right">
-			    {{ range .Site.Data.sitemap.navigation.social.links }}
-				    <img class="content-margin" src="{{ .icon | absURL }}" onclick="navigateTo('{{ .href }}');" />               
+			          {{ range .Site.Data.sitemap.navigation.social.links }}
+                  <a class="footer-links" href="{{ .href }}" target="_blank"><i class="fa {{ .icon }}"></i></a>
                 {{ end }}
             </div>
         </div>
         <div class="mobile_version_content">
             {{ range .Site.Data.sitemap.navigation.social.links }}
                 <div class="mobile_version margin">
-                    <img src="{{ .icon | absURL }}" onclick="navigateTo('{{ .href }}');" />
+                    <a class="footer-links" href="{{ .href }}" target="_blank"><i class="fa {{ .icon }}"></i></a>
                 </div>
             {{ end }}
         </div>

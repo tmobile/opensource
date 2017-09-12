@@ -1,11 +1,11 @@
 navigation:
   global:
     links:
-      - text: "ABOUT US"
+      - text: "COMMUNITY"
         href: "#about"
         class: "animated-scroll"
       - text: "BLOG"
-        href: "/blog"
+        href: "#blog"
         class: ""
       - text: "PROJECTS"
         href: "#services"
@@ -18,15 +18,15 @@ navigation:
         class: "privacy"
   social:
     links:
-      - icon: img/icon-slack.png
+      - icon: fa-slack
         href: "https://t-mo.slack.com/"
         class: "slack"
-      - icon: "img/Twitter@1x.png"
+      - icon: fa-twitter
         href: "https://twitter.com/TMobile87733446"
         class: "twitter"
-      - icon: "img/facebook.png"
+      - icon: fa-twitter
         href: "https://www.facebook.com"
         class: "facebook"
-      - icon: "img/youtube.png"
+      - icon: fa-twitter
         href: "https://www.youtube.com/"
         class: "youtube"

@@ -19,11 +19,11 @@ disqusShortname= "tmo-oss"
 
 	# Hero section
 	[params.hero]
-		headline1 		= "THE"
-		headline2		= "UN-CARRIER"
-		headline3		= "OPEN SOURCE"
+		headline1 		= "AT THE"
+		headline2		= "OPEN SOURCE"
+		headline3		= "UN-CARRIER"
 		slogan			= "Providing innovative technology to the community through open source."
-		[params.hero.cta]		
+		[params.hero.cta]
 			text 			= "VIEW PROJECTS"
 			navigate_to		= "#PROJECTS"
 
@@ -36,7 +36,7 @@ disqusShortname= "tmo-oss"
 	[params.about]
 		headline			= "ABOUT US"
 		description			= "Interested in getting involved with T-Mobile? Check out the latest events happening near you!"
-	
+
 	# Code Of Conduct
 	[params.code]
 		headline			= "CODE OF CONDUCT"
@@ -44,7 +44,7 @@ disqusShortname= "tmo-oss"
 		[params.code.cta]
 			text			= "VIEW DETAILS"
 			navigate_to		= "/conduct/index.html"
-	
+
 	# Contributor's License agreement
 	[params.license]
 		headline			= "CONTRIBUTOR LICENSE AGREEMENT"
@@ -52,7 +52,7 @@ disqusShortname= "tmo-oss"
 		[params.license.cta]
 			text			= "APPLY LICENCE "
 			navigate_to		= "https://www.apache.org/licenses/LICENSE-2.0"
-		
+
 	# careers plug
 	[params.careers]
 		headline			= "INTERESTED IN A CAREER WITH T-MOBILE?"
@@ -60,4 +60,3 @@ disqusShortname= "tmo-oss"
 		[params.careers.cta]
 			text			= "VIEW CAREERS"
 			navigate_to		= "https://tmobile.careers"
-

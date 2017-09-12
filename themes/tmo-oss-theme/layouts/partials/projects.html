@@ -1,9 +1,9 @@
 {{ "<!-- PROJECTS -->" | safeHTML }}
-<section id="services">        
+<section id="services">
     <div class="cat-features-section row project">
-        <div class="container grid clearfix">
-            <div class="cat-feature-box no-padding added-margin col-lg-4 col-md-4 col-sm-12"> 
-                <h2 class="">
+        <div class="container grid clearfix added-extra-padding">
+            <div class="cat-feature-box no-padding added-margin col-lg-4 col-md-4 col-sm-12">
+                <h2 class="margin-container">
                     <span class="cat-hdg special">
                         {{ with .Site.Params.projects.headline }}
                             {{ . | markdownify  }}
@@ -19,22 +19,25 @@
             <div class="cat-feature-box added-padding mobile-padding col-lg-8 col-md-8 col-sm-12">
                 <div class="project-row row">
                     {{ range .Site.Data.projects }}
-                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 text-center">
+                        <div class="content-adjust col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center">
                             <div class="markup">
-                                <div class="markup-text" title="{{ .name }}">{{ .name }}</div>
+                                <div class="markup-details">
+                                  <div class="markup-text" title="{{ .name }}">{{ .name }}</div>
+                                  <div class="markup-desc" title="{{ .description }}">{{ .description }}</div>
+                                </div>
                                 <div class="markup-header">
-                                  <div class="github-logo">
-                                    <img src="img/github.svg" alt="github">
+                                  <div class="corner-logo">
+                                    <i class="fa fa-github"></i>
                                   </div>
-                                  <div class="markup-language">{{ .language }}</div>
+                                  <div class="corner-tag">{{ .language }}</div>
                                 </div>
                                 <div class="markup-footer">
                                     <div class="starb">12
-                                        <img class="footer-img" src="img/star.png">
+                                        <i class="icon-icon-stars"></i>
                                     </div>
                                     <div class="starb">4 Forks</div>
                                     <div class="starb">3
-                                        <img class="footer-img" src="img/twitter.png">
+                                        <i class="fa fa-twitter"></i>
                                     </div>
                                 </div>
                             </div>
@@ -45,4 +48,9 @@
         </div>
     </div>
 </section>
-
+<!--add svg for diagonal border-->
+<div class="separator pull-down">
+  <svg class="pink-transparent" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 10" preserveAspectRatio="none">
+    <polygon points="0 0 100 10 0 10" />
+  </svg>
+</div>

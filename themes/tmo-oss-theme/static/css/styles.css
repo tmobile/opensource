@@ -191,6 +191,10 @@ header .header-content .header-content-inner p {
   margin-left: -50px;
   position: relative;
 }
+.footer-content{
+  display: table;
+  width: 100%;
+}
 .cat-details-section h2 {
     color: #fff;
     padding: 0 5rem;
@@ -545,8 +549,8 @@ button:focus {
     margin-top: 40px;
 }
 .circle {
-    width: 175px;
-    height: 175px;
+    width: 125px;
+    height: 125px;
     border-radius: 50%;
     margin: auto;
     /*border: 1px solid;
@@ -556,16 +560,17 @@ button:focus {
     text-align: center;
     padding: 20px;
     color: #fff;
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     font-family: "Tele Grotesk Fet";
 }
 .names-content {
     color: #fff;
-    font-size: 19px;
+    font-size: 16px;
     font-family: 'Tele Grotesk Halb light';
     margin: auto;
     letter-spacing: 0.6px;
     width: 166px;
+    min-height: 240px;
 }
 .top-pad {
     padding-top: 9%;
@@ -733,6 +738,9 @@ button:hover {
 }
 #about {
     padding: 0;
+}
+#about ul{
+  margin-top: 25px;
 }
 #services-opposite {
     padding: 0;
@@ -2127,7 +2135,12 @@ footer .margin-container {
 .project-row.row {
     margin: 0;
 }
+a.footer-links{
+  margin-left: 5px;
+}
 a.footer-links i {
+    min-width: 32px;
+    text-align: center;
     color: #fff;
     border: solid 1px #fff;
     -webkit-border-radius:50%;

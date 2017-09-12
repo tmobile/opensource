@@ -34,7 +34,7 @@ disqusShortname= "tmo-oss"
 
 	# About
 	[params.about]
-		headline			= "ABOUT US"
+		headline			= "OSS WORKING GROUP AT T-MOBILE"
 		description			= "Interested in getting involved with T-Mobile? Check out the latest events happening near you!"
 
 	# Code Of Conduct

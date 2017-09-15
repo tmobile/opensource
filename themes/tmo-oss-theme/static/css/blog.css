@@ -1,0 +1,19 @@
+#pinkNav {
+    margin: 0;
+    width: 100vw;
+    padding: none;
+    height: 6vh;
+    background-color: #f7006e;
+}
+
+.blog-head-wrap {
+    border-bottom: 2px solid lightgrey;
+}
+
+.secondHeader {
+    margin: 2vh 8vw;
+}
+
+.blogParagraph {
+    margin: 2vh 7vw;
+}

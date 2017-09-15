@@ -208,7 +208,6 @@ header .header-content .header-content-inner p {
 
 .cat-content {
     color: #fff;
-    padding: 0 5rem;
     font-size: 1rem;
     font-family: 'Tele Grotesk Halb light';
     letter-spacing: 0.1rem;
@@ -570,6 +569,7 @@ button:focus {
     margin: auto;
     letter-spacing: 0.6px;
     width: 166px;
+    text-align: center;
     min-height: 240px;
 }
 .top-pad {
@@ -697,7 +697,7 @@ button:hover {
     min-width: 170px;
 }
 .mobile_version_content i {
-    font-size: 3rem;
+    font-size: 1.5rem;
 }
 .footer_mobile {
     font-size: 18px !important;
@@ -1451,6 +1451,7 @@ footer .margin-container {
     }
     .text-left {
         width: 90%;
+        text-align: center;
     }
 }
 @media (max-width:426px) and (min-width: 376px) {
@@ -1614,7 +1615,7 @@ footer .margin-container {
 
     .first-first-content {
         font-size: 31px;
-        right:10px;
+        right: -9px;
     }
     .first-content {
       margin-left: -32px;
@@ -1853,7 +1854,6 @@ footer .margin-container {
     .cat-prize-section.BG5 {}
 
     .mobile_version_content {
-        width: 62%;
     }
 
     .footer_mobile {
@@ -2074,15 +2074,16 @@ footer .margin-container {
     }
 
     .first-first-content {
-        font-size: 33px;
+        font-size: 30px;
+        right: 1px;
     }
     .extra {
         height: 36px;
     }
 
     .un-carrier {
-        width: 208px;
-        font-size: 38px;
+        width: 240px;
+        font-size: 30px;
     }
 
     .second-content {
@@ -2173,7 +2174,7 @@ a.footer-links i:hover {
     font-family: 'Tele Grotesk Halb';
     height: 100%;
 }
-.blog-heading-overlay {
+ {
     background-color: #fff;
     color: #000;
     text-align: left;
@@ -2313,7 +2314,6 @@ a.footer-links i:hover {
         padding-left: 2rem !important;
     }
     .blog-heading-overlay {
-        padding-left: 2rem;
     }
 }
 .blog-post-head {
@@ -2410,4 +2410,18 @@ a.footer-links i:hover {
     }
 
     #services {}
+}
+
+@media (max-width: 660px) {
+    .cat-details-section h2 {
+        font-size: 1.5rem;
+        padding: 0;
+    }
+    .mobile-font {
+        text-align: center;
+    }
+
+    .mobile_version_content {
+        width: none;
+    }
 }

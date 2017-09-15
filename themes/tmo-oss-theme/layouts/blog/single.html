@@ -9,10 +9,10 @@
                 <div class="blog-heading-overlay">
                     <div class='blog-head-wrap'>
                         <div class='blog-breadcrumb'> 
-                            <span><a href="/"> home </a></span> <span> / </span> <span> <a href="/blog"> {{ .Section }} </a></span> <span> / </span> <span><a href="/blog/posts"> posts </span> </a>
+                           {{ partial "blog-nav.html" . }}
                         </div>
-                        <h2 class='blog-post-head'>{{ .Title }}</h2>
-                        <h2 class="blog-success-header-content">{{ .Site.Params.name }}</h2>
+                        <h2 class='blog-post-head' style="font-size: 2.5rem; padding-left: 7vw;">{{ .Title }}</h2>
+                        <h2 class="blog-success-header-content" style="font-size: 1.25rem; padding-left: 7vw; padding-bottom: 1vh;">{{ .Site.Params.name }}</h2>
                     </div>
                 </div>
                 <div class="blog-event-container-angular">
@@ -29,6 +29,7 @@
                 </div>
             </div>
         </div>
+        
         {{ partial "js.html" . }}
         {{ template "_internal/google_analytics.html" . }}
     </body>

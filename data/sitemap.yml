@@ -24,7 +24,7 @@ navigation:
       - icon: fa-twitter
         href: "https://twitter.com/TMobile87733446"
         class: "twitter"
-      - icon: fa-facebook
+      - icon: fa-facebook squared
         href: "https://www.facebook.com"
         class: "facebook"
       - icon: fa-youtube

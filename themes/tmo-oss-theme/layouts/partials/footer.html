@@ -1,6 +1,6 @@
 {{ "<!-- FOOTER -->" | safeHTML }}
-<footer>
-    <div class="container grid">
+<footer style="padding: 2vh 0vh;">
+    <div class="container grid"  style="width: 100%;">
         <div class="footer-content clearfix">
             <div class="left-contents">
                 <img class="logoMain" src="{{ "img/logo/Logo@1x.png" | absURL }}" />
@@ -16,10 +16,10 @@
                 {{ end }}
             </div>
         </div>
-        <div class="mobile_version_content">
+        <div class="mobile_version_content" style="width: 100%;">
             {{ range .Site.Data.sitemap.navigation.social.links }}
                 <div class="mobile_version margin">
-                    <a class="footer-links" href="{{ .href }}" target="_blank"><i class="fa {{ .icon }}"></i></a>
+                    <a class="footer-links" href="{{ .href }}" target="_blank"><i style="min-width: 34px;" class="fa {{ .icon }}"></i></a>
                 </div>
             {{ end }}
         </div>
@@ -30,7 +30,7 @@
                 </div>
             {{ end }}
         </div>
-        <div class="mobile_logo">
+        <div class="mobile_logo" style="text-align: center;">
             <img src="{{ "img/logo/Logo@1x.png" | absURL }}" />
         </div>
         <div class="footer-text">

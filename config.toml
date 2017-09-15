@@ -60,3 +60,7 @@ disqusShortname= "tmo-oss"
 		[params.careers.cta]
 			text			= "VIEW CAREERS"
 			navigate_to		= "https://tmobile.careers"
+	# blog
+	[params.blog]
+		headline			= "BLOG"
+		summary				= "Keep up to date with the latest posts from T-Mobile. Providing interesting content curated for you."

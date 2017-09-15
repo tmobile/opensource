@@ -6,7 +6,7 @@ navigation:
         class: "animated-scroll"
       - text: "BLOG"
         href: "#blog"
-        class: ""
+        class: "animated-scroll"
       - text: "PROJECTS"
         href: "#services"
         class: "animated-scroll"

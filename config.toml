@@ -64,3 +64,4 @@ disqusShortname= "tmo-oss"
 	[params.blog]
 		headline			= "BLOG"
 		summary				= "Keep up to date with the latest posts from T-Mobile. Providing interesting content curated for you."
+		navigate_to		= "/blog"

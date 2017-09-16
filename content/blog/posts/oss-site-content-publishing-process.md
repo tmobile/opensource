@@ -1,9 +1,10 @@
 +++
 date = "2017-06-18T21:26:26-07:00"
-draft = true
+draft = false
 title = "Content publishing tools and processes leveraged in this site"
 categories = ["resources"]
 tags = ["tools", "how-to", "publishing"]
+ 
 +++
 
 ## Overview

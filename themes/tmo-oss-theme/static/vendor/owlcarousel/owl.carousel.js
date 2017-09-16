@@ -2820,7 +2820,7 @@
 		navContainerClass: 'owl-nav',
 		navClass: [ 'owl-prev', 'owl-next' ],
 		slideBy: 1,
-		dotClass: 'owl-dot',
+		dotClass: 'owl-dot ',
 		dotsClass: 'owl-dots',
 		dots: true,
 		dotsEach: false,

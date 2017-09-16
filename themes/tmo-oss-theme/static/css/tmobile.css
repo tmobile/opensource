@@ -133,12 +133,20 @@ svg.pink-transparent {
 .blog-row .markup .blog-tile-header {
     font-family: 'Tele Grotesk Ult';
     font-size: 1.4rem;
+    margin-top: 45%;
     color: #f7006e;
     margin-bottom: 1rem;
+    width: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    height: 45px;
+    overflow: hidden;
 }
 
 .blog-row .markup .blog-tile-subheader {
-    font-size: 1rem;
+  margin-top: 10px;
+  font-size: 1rem;
+  color: #666;
 }
 
 .blog-row .markup .markup-footer {

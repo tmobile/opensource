@@ -5,7 +5,6 @@ $(document).ready(function () {
     items: 5, // THIS IS IMPORTANT
     dotsEach: true,
     loop: false,
-    dots: true,
     responsive: {
       0: {
         items: 1

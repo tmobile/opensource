@@ -2,6 +2,7 @@
 date = "2017-06-08T22:38:11-07:00"
 draft = false
 title = "Announcing the launch of T-Mobile Opensource site"
+name = "Announcing the launch..."
 tags= ["oss", "t-mobile"]
 categories= ["Announcements"]
 +++

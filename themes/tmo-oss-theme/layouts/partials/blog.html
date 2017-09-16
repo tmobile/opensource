@@ -23,13 +23,14 @@
           <div class="cat-feature-box added-padding mobile-padding col-lg-12 col-md-12 col-sm-12">
               <div class="blog-row mobile-padding">
                   {{ $paginator := .Paginate (where .Data.Pages "Section" "blog") }}
-                  {{ range first 3 $paginator.Pages }}
+                  {{ range first 4 $paginator.Pages }}
                       {{ if ne .File.BaseFileName "index" }}
-                        <div class="markup" onclick="openLink('{{ .Permalink }}')">
+                        <div class="markup" onclick="window.open('{{ .Permalink }}')">
                             <div class="markup-text">
-                                <div class="blog-tile-header">{{ .Title | markdownify }}</div>
+                                <div class="blog-tile-header chop" title="{{ .Title | markdownify }}">{{ .Title | markdownify }}</div>
+                                <p class="blog-tile-paragraph">{{ slicestr .Summary 0 80| markdownify }}...</p>
                                 <div class="blog-tile-subheader">
-                                    {{ dateFormat "2 Jan, 2006" (default .Date (.PublishDate)) }} 
+                                    {{ dateFormat "2 Jan, 2006" (default .Date (.PublishDate)) }}  |
                                     {{ .ReadingTime }} minutes
                                 </div>
                             </div>
@@ -40,7 +41,6 @@
                                     {{ end }}
                                 </div>
                             </div>
-                            <div class="markup-footer">VIEW POST</div>
                         </div>
                       {{ end }}
                   {{ end }}

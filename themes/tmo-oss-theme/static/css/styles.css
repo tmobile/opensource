@@ -44,6 +44,14 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
+/* .owl-dots .owl-dot .active span {
+    background-color: blue;
+}
+span .active .owl-dot .owl-dots {
+    background-color: green;
+} */
+
+
 .icon-icon-twitterFooter:before {
     content: "\e901";
     color: #fff;
@@ -654,7 +662,7 @@ button:hover {
     margin-top: 40px;
 }
 .added-padding {
-    padding-top: 3%;
+    padding-top: 2%;
 }
 .header-content-inner {
     max-width: 300px;
@@ -998,7 +1006,7 @@ footer .margin-container {
     left: 50%;
     transform: translate(-50%, -60%);
     width: 85%;
-    white-space: nowrap;
+    white-space: inherit;
     text-overflow: ellipsis;
     overflow: hidden;
     font-size: 1.5rem;
@@ -2281,6 +2289,10 @@ a.footer-links i:hover {
 .blog-title-desc {
     font-size: 1rem;
     padding-bottom: 15px;
+    width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 .blog-title-more {
     text-transform: uppercase;
@@ -2424,4 +2436,7 @@ a.footer-links i:hover {
     .mobile_version_content {
         width: none;
     }
+}
+.blog-tile-paragraph{
+  line-height: 1.3;
 }

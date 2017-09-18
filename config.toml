@@ -8,21 +8,21 @@ disqusShortname= "tmo-oss"
 [params]
 	org_name = "tmobile"
 	name = "T-Mobile"
-	description = "T-Mobile Opensource"
+	description = "Open source at the Un-carrier."
 
 	# The path must be relative to the static folder
 	favicon = "favicon.ico"
 
 	# footer
 	[params.footer]
-		copyright		= "Copyright 2017.All Rights Reserved"
+		copyright		= "Copyright 2017. All Rights Reserved."
 
 	# Hero section
 	[params.hero]
 		headline1 		= "AT THE"
 		headline2		= "OPEN SOURCE"
 		headline3		= "UN-CARRIER"
-		slogan			= "Providing innovative technology to the community through open source."
+		slogan			= "Transforming wireless through technology innovation."
 		[params.hero.cta]
 			text 			= "VIEW PROJECTS"
 			navigate_to		= "#PROJECTS"
@@ -30,17 +30,17 @@ disqusShortname= "tmo-oss"
 	# projects section
 	[params.projects]
 		headline		= "PROJECTS"
-		description		= "Check out the latest projects created by the T-Mobile Team all available to try for free on GitHub."
+		description		= "All of our projects are available at <a href='https://github.com/tmobile'>github.com/tmobile</a>"
 
 	# About
 	[params.about]
-		headline			= "OSS WORKING GROUP AT T-MOBILE"
-		description			= "Interested in getting involved with T-Mobile? Check out the latest events happening near you!"
+		headline			= "T-MOBILE OSS WORKING GROUP"
+		description			= "We champion open source use and contribution throughout T-Mobile and help teams release their projects as open source."
 
 	# Code Of Conduct
 	[params.code]
 		headline			= "CODE OF CONDUCT"
-		summary				= "In the interest of fostering an open and welcoming environment, we as contributors and maintainers pledge to making participation in our project and our community a harassment-free experience for everyone, regardless of age, body size, disability, ethnicity, gender identity and expression, level of experience, nationality, personal appearance, race, religion, or sexual identity and orientation."
+		summary				= "In the interest of fostering an open and welcoming environment, we as contributors and maintainers pledge to make participation in our community a harassment-free experience for everyone, regardless of age, body size, disability, ethnicity, gender identity and expression, level of experience, nationality, personal appearance, race, religion, or sexual identity and orientation."
 		[params.code.cta]
 			text			= "VIEW DETAILS"
 			navigate_to		= "/conduct/index.html"
@@ -48,20 +48,20 @@ disqusShortname= "tmo-oss"
 	# Contributor's License agreement
 	[params.license]
 		headline			= "CONTRIBUTOR LICENSE AGREEMENT"
-		summary				= "At T-Mobile, we manage a lot of open source projects and we’re required to have agreements with everyone who takes part in them. It’s the easiest way for you to give us permission to use your contributions. In effect, you’re giving us a licence, but you still own the copyright — so you retain the right to modify your code and use it in other projects."
+		summary				= "All T-Mobile open source projects are licensed under the Apache License 2.0. It is a permissive free software license written by the Apache Software Foundation. It requires preservation of the copyright notice and disclaimer. Like other free software licenses, it allows the user the freedom to use the software for any purpose, to distribute it, to modify it, and to distribute modified versions without concern for royalties."
 		[params.license.cta]
-			text			= "APPLY LICENCE "
+			text			= "VIEW LICENSE"
 			navigate_to		= "https://www.apache.org/licenses/LICENSE-2.0"
 
 	# careers plug
 	[params.careers]
 		headline			= "INTERESTED IN A CAREER WITH T-MOBILE?"
-		summary				= "Check out all the sweet opportunities T-Mobile has to offer!"
+		summary				= "At T-Mobile, we're breaking the rules of wireless and we're just getting started. Join our revolution and change wireless for good."
 		[params.careers.cta]
 			text			= "VIEW CAREERS"
 			navigate_to		= "https://tmobile.careers"
 	# blog
 	[params.blog]
 		headline			= "BLOG"
-		summary				= "Keep up to date with the latest posts from T-Mobile. Providing interesting content curated for you."
+		summary				= "Keep up to date on upcoming events, new releases and technology insights from TMO app teams."
 		navigate_to		= "/blog"

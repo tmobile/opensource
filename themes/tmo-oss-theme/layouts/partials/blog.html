@@ -13,6 +13,7 @@
                 </span>
             </h2>
         </div>
+
         <div class="col-lg-12 text-left margin-container opposite-font contributor">
             {{ with .Site.Params.blog }}
                 {{ .summary | markdownify }}
@@ -25,21 +26,22 @@
                   {{ $paginator := .Paginate (where .Data.Pages "Section" "blog") }}
                   {{ range first 4 $paginator.Pages }}
                       {{ if ne .File.BaseFileName "index" }}
-                        <div class="markup" onclick="window.open('{{ .Permalink }}')">
-                            <div class="markup-text">
-                                <div class="blog-tile-header chop" title="{{ .Title | markdownify }}">{{ .Title | markdownify }}</div>
-                                <p class="blog-tile-paragraph">{{ slicestr .Summary 0 80| markdownify }}...</p>
-                                <div class="blog-tile-subheader">
-                                    {{ dateFormat "2 Jan, 2006" (default .Date (.PublishDate)) }}  |
-                                    {{ .ReadingTime }} minutes
-                                </div>
-                            </div>
+                        <div class="power markup markup-override" onclick="window.open('{{ .Permalink }}')">
                             <div class="markup-header">
-                                <div class="corner-tag">
-                                    {{ range first 1 .Params.tags }}
-                                        {{ . | markdownify }}
-                                    {{ end }}
-                                </div>
+                                <div class="blogContainer">
+                                    <div class="smallBlogContainer">
+                                        <div class="blog-tile-header chop" title="{{ .Title | markdownify }}">{{ .Title | markdownify }}</div>
+                                        <p class="blog-tile-paragraph">{{ slicestr .Summary 0 120| markdownify }}...</p>
+                                    </div>  
+                                    <div class="authorContainer">
+                                        <h5>By: {{ .Site.Params.name }}</h5>
+                                        <div class="blog-tile-subheader">
+                                                {{ dateFormat "2 Jan, 2006" (default .Date (.PublishDate)) }}  |
+                                                {{ .ReadingTime }} minutes
+                                            </div>
+                                    </div>
+                                       
+                                </div> 
                             </div>
                         </div>
                       {{ end }}

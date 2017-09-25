@@ -17,11 +17,15 @@ function openPageInModal(href) {
 }
 
 $(document).on("click", ".animated-scroll", function (e) {
-  e.preventDefault();
-  var id = $(this).attr("href"),
-    topSpace = 30;
-
-  $('html, body').animate({
-    scrollTop: $(id).offset().top - topSpace
-  }, 800);
+  if (window.location.pathname === '/') {
+    e.preventDefault();
+    var id = $(this).attr("href"),
+      topSpace = 30;
+  
+    $('html, body').animate({
+      scrollTop: $(id).offset().top - topSpace
+    }, 800);
+  } else {
+    window.location = `/${$(this).attr("href")}`
+  }
 });

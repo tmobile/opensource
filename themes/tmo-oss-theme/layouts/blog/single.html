@@ -9,14 +9,31 @@
                 <div class="blog-heading-overlay">
                     <div class='blog-head-wrap'>
                         <div class='blog-breadcrumb'> 
-                           {{ partial "blog-nav.html" . }}
+                           {{ partial "nav.html" . }}
+                        </div>   
+                    </div>
+                </div>
+                <div class="requestAccess overlay-container display-none" id="overlay-container-id">
+                    <div class="overlay-state-con" onclick="closePopup()">
+                        <div class="overlay-state">
+                            <div class="overlay-state-wrp">
+                                <div class="overlay-vertical-center">
+                                    <div class="overlay-innerwrap">
+                                        {{ range .Site.Data.sitemap.navigation.global.links }}
+                                            <div class="overlay-text" onclick="closePopup()">{{ .text | markdownify }}</div>
+                                        {{ end }}
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <h2 class='blog-post-head' style="font-size: 2.5rem; padding-left: 7vw;">{{ .Title }}</h2>
-                        <h2 class="blog-success-header-content" style="font-size: 1.25rem; padding-left: 7vw; padding-bottom: 1vh;">{{ .Site.Params.name }}</h2>
                     </div>
                 </div>
                 <div class="blog-event-container-angular">
                     <div class="blog-first-container">
+                            <!-- TODO: fix this link to go to blogs home -->
+                            <a href="/blog"><h4 class="back-to-blogs"><i class="fa fa-arrow-left" aria-hidden="true"></i>   Back To Blogs</h4></a>
+                            <h2 class='blog-post-head' style="font-size: 2.5rem;">{{ .Title }}</h2>
+                            <h3 class="blog-success-header-content author">By: {{ .Site.Params.name }}</h3>
                         <div class='blog-title-date bp-date'>
                             {{ .Date.Format "2006-01-02" }}
                         </div>

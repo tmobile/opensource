@@ -8,12 +8,12 @@
             <div class="blog-request-submit-widget">
                 <div class="blog-heading-overlay">
                     <div class='blog-head-wrap'>
-                        {{ partial "blog-nav.html" . }}
-                        <h1 style="font-size: 2.5rem; 
-                        padding-left: 7vw;">T-Mobile Blog</h1>
+                        {{ partial "nav.html" . }}
+                        <h1 class="secondHeader">T-Mobile Blog</h1>
                         <p class="blogParagraph">Lorem Ipsum Dolor Sit Amet</p>
                     </div>
                 </div>
+                
                 <div class="blog-event-container-angular">
                     <div class="blog-first-container">
                         {{ $paginator := .Paginate (where .Data.Pages "Section" "blog") }}

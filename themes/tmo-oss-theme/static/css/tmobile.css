@@ -118,10 +118,7 @@ svg.pink-transparent {
 
 .blog-row .markup {
     background-color: #fff;
-    height: 16rem;
-    width: 16rem;
-    margin: 0.5rem;
-    display:inline-block;
+    margin: 0.5rem auto;
 }
 
 .blog-row .markup .corner-tag {
@@ -132,15 +129,10 @@ svg.pink-transparent {
 
 .blog-row .markup .blog-tile-header {
     font-family: 'Tele Grotesk Ult';
-    font-size: 1.4rem;
-    margin-top: 45%;
+    font-size: 1.5rem;
     color: #f7006e;
-    margin-bottom: 1rem;
-    width: 100%;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    height: 45px;
-    overflow: hidden;
+    margin: 0px;
+    margin-right: 0px;
 }
 
 .blog-row .markup .blog-tile-subheader {
@@ -277,6 +269,14 @@ header {
     -ms-transform: rotate(45deg) translateZ(1px);
     -o-transform: rotate(45deg) translateZ(1px);
     transform: rotate(45deg) translateZ(1px);
+}
+
+@media  (max-width: 650px) {
+    .blog-row .markup .blog-tile-header {
+        border-right: none;
+        line-height: 1.2;
+        
+    }
 }
 
 @keyframes opacity {

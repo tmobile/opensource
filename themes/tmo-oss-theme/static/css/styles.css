@@ -44,13 +44,12 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
-/* .owl-dots .owl-dot .active span {
-    background-color: blue;
+.owl-carousel .owl-theme .owl-dots .owl-dot span {
+    background: grey;
 }
-span .active .owl-dot .owl-dots {
-    background-color: green;
-} */
-
+.owl-theme.owl-carousel.owl-dots.owl-dot.active span {
+    background: white;
+}
 
 .icon-icon-twitterFooter:before {
     content: "\e901";
@@ -461,7 +460,7 @@ footer {
 }
 .mainNav-contents {
     padding: 17px 0;
-    width: 80%;
+    width: 86%;
     margin: auto;
 }
 .nav-contents {
@@ -1011,6 +1010,15 @@ footer .margin-container {
     overflow: hidden;
     font-size: 1.5rem;
     letter-spacing: .6px;
+    z-index: 4;
+}
+
+.blogs-text {
+    white-space: inherit;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-size: 1.5rem;
+    letter-spacing: .6px;
 }
 .markup-footer {
     position: absolute;
@@ -1020,16 +1028,136 @@ footer .margin-container {
     margin: auto;
 }
 .markup {
-    padding-bottom: 12px;
     border-radius: 3px;
-    /*margin-bottom: 14px;*/
+    background-color: white;
     box-shadow: 0 2px 8px -1px rgba(0, 0, 0, 0.75);
-    min-height: 10rem;
     position: relative;
     cursor: pointer;
     transition: all 0.2s ease;
-    min-height: 220px;
+    height: 30vh;
 }
+.power {
+    height: 15vh;
+    display: flex;
+    align-items: center;
+    width: 85%;
+    padding: 4% 0vh 6% 0vh;   
+}
+
+.blogContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-content: center;
+    height: 100%;
+    padding-top: 10px;
+}
+.authorContainer {
+    width: 25%;
+    font-size: 15px;
+    margin-top: 5px;    
+    padding-left: 5%;
+    font-weight: bold;
+    display: flex;
+    align-items: left;
+    justify-content: center;
+    flex-direction: column;   
+    border-left: 2px solid lightgrey; 
+}
+
+.authorContainer h5 {
+    font-weight: bold;    
+    margin: 0px;
+}
+
+.smallBlogContainer {
+    width: 75%;
+    text-align: left;
+    padding-left: 10px;   
+    padding-left: 3%;
+    padding-right: 3%; 
+}
+
+.blog-tile-paragraph{
+    line-height: 1.3;
+    width: 100%;
+    margin: 0px;
+    text-align: left;
+    margin-top: 5px;
+
+  }
+
+@media  (max-width: 650px) {
+
+    .power {
+        width: 100%;
+        padding-top: 0px;
+        height: 32vh;
+    }
+
+    .blog-row .markup .blog-tile-header {
+        text-align: center;
+    }
+
+    .blogContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 22vh;
+    }
+    .blog-tile-paragraph {
+        width: 90%;
+        border-right: none;
+        text-align: center;
+        padding: 0;
+        margin: 10px 0px;
+    }
+    .smallBlogContainer {
+        width: 80%;
+        
+    }
+
+    .authorContainer {
+        width: 100%;
+        
+    }
+    .authorContainer h5 {
+        font-size: 10px;
+        align-items: center;
+        display: none;
+    } 
+
+    .blog-tile-subheader {
+        font-size: 12px;
+        width: 90%;
+        
+    }
+}
+
+@media  (min-width: 650px) and (max-width: 1100px) {
+
+    .power {
+        height: 20vh;
+    }
+
+    .smallblogContainer {
+        width: 70%;
+    }
+
+    .authorContainer {
+        width: 30%;
+        padding-left: 3%;
+    }
+
+    .blog-row .markup .blog-tile-subheader {
+        text-align: left;
+    }
+
+    
+
+}
+
 #services .markup-details {
       position: absolute;
       top: 50%;
@@ -1053,6 +1181,11 @@ footer .margin-container {
 .markup:hover {
   transform: translateY(-4px);
 }
+
+
+
+
+
 .footer-img {
     height: 16px;
     padding-left: 2px;
@@ -1472,7 +1605,7 @@ footer .margin-container {
     /*}*/
 
     .markup {
-        height: 11rem;
+        height: 40vh;
         margin-left: 10px;
     }
 
@@ -2180,15 +2313,9 @@ a.footer-links i:hover {
     letter-spacing: 0.5px;
     line-height: 1.5;
     font-family: 'Tele Grotesk Halb';
-    height: 100%;
+    white-space: normal;
 }
- {
-    background-color: #fff;
-    color: #000;
-    text-align: left;
-    padding: 1rem 0 2rem 6rem;
-    border-bottom: 2px solid #ddd;
-}
+
 .blog-success-header {
     font-size: 2.2rem;
     font-family: 'Tele Grotesk Fet';
@@ -2244,12 +2371,12 @@ a.footer-links i:hover {
 .blog-first-container {
     width: 70%;
     padding-right: 24px;
-    padding-left: 6rem;
+    padding-left: 7%   ;
 }
 .blog-first-container,
 .blog-second-container {
     float: left;
-    padding-top: 2rem;
+    padding-top: 2%;
     height: 100%;
     overflow: auto;
 }
@@ -2329,13 +2456,11 @@ a.footer-links i:hover {
     }
 }
 .blog-post-head {
-    text-transform: uppercase;
     font-size: 2.5rem;
     margin: 1.3vh 0 0.8vh;
 }
 .blog-breadcrumb {
     font-size: 1rem;
-    margin-bottom: 1.7rem;
     font-family: 'Tele Grotesk Fet';
 }
 .blog-breadcrumb i {
@@ -2346,7 +2471,7 @@ a.footer-links i:hover {
     padding: 0 7px 0 0;
 }
 .blog-title-date.bp-date {
-    padding: 35px 0 25px;
+    padding: 5px 0 25px;
 }
 .blog-title-txt.bp-txt {
     color: #000;
@@ -2380,6 +2505,10 @@ a.footer-links i:hover {
     font-weight: 500;
     margin: 0;
     font-family: 'Tele Grotesk Ult';
+    width: 80%;
+    margin-bottom: 20px;
+    line-height: 1.2;
+    
 }
 .blog-post-author {
     font-size: 1rem;
@@ -2393,6 +2522,7 @@ a.footer-links i:hover {
     font-weight: 600;
     padding-bottom: 10px;
     margin: 0;
+    
 }
 
 .fa {
@@ -2437,6 +2567,9 @@ a.footer-links i:hover {
         width: none;
     }
 }
-.blog-tile-paragraph{
-  line-height: 1.3;
+
+@media (max-width:426px) and (min-width: 250px) {
+    .power {
+        height: 43vh;
+    }
 }

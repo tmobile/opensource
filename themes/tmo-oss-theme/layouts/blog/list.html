@@ -10,10 +10,10 @@
                     <div class='blog-head-wrap'>
                         {{ partial "nav.html" . }}
                         <h1 class="secondHeader">T-Mobile Blog</h1>
-                        <p class="blogParagraph">Lorem Ipsum Dolor Sit Amet</p>
+                        <p class="blogParagraph">By: {{ .Site.Params.name }}</p>
                     </div>
                 </div>
-                
+
                 <div class="blog-event-container-angular">
                     <div class="blog-first-container">
                         {{ $paginator := .Paginate (where .Data.Pages "Section" "blog") }}
@@ -26,7 +26,7 @@
                                     <div class='blog-title-date'>
                                         {{.Date.Format "January 02, 2006" }}
                                     </div>
-                                    <div class='blog-title-desc'> 
+                                    <div class='blog-title-desc'>
                                         {{ $page := . }}
                                         {{ with .Description }}
                                         {{ . | markdownify }}

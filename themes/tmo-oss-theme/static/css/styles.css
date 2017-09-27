@@ -1041,7 +1041,7 @@ footer .margin-container {
     display: flex;
     align-items: center;
     width: 85%;
-    padding: 4% 0vh 6% 0vh;   
+    padding: 4% 0vh 6% 0vh;
 }
 
 .blogContainer {
@@ -1055,27 +1055,27 @@ footer .margin-container {
 .authorContainer {
     width: 25%;
     font-size: 15px;
-    margin-top: 5px;    
+    margin-top: 5px;
     padding-left: 5%;
     font-weight: bold;
     display: flex;
     align-items: left;
     justify-content: center;
-    flex-direction: column;   
-    border-left: 2px solid lightgrey; 
+    flex-direction: column;
+    border-left: 2px solid lightgrey;
 }
 
 .authorContainer h5 {
-    font-weight: bold;    
+    font-weight: bold;
     margin: 0px;
 }
 
 .smallBlogContainer {
     width: 75%;
     text-align: left;
-    padding-left: 10px;   
+    padding-left: 10px;
     padding-left: 3%;
-    padding-right: 3%; 
+    padding-right: 3%;
 }
 
 .blog-tile-paragraph{
@@ -1115,23 +1115,23 @@ footer .margin-container {
     }
     .smallBlogContainer {
         width: 80%;
-        
+
     }
 
     .authorContainer {
         width: 100%;
-        
+
     }
     .authorContainer h5 {
         font-size: 10px;
         align-items: center;
         display: none;
-    } 
+    }
 
     .blog-tile-subheader {
         font-size: 12px;
         width: 90%;
-        
+
     }
 }
 
@@ -1154,10 +1154,12 @@ footer .margin-container {
         text-align: left;
     }
 
-    
+
 
 }
-
+#services .markup{
+  min-height: 13rem;
+}
 #services .markup-details {
       position: absolute;
       top: 50%;
@@ -2508,7 +2510,7 @@ a.footer-links i:hover {
     width: 80%;
     margin-bottom: 20px;
     line-height: 1.2;
-    
+
 }
 .blog-post-author {
     font-size: 1rem;
@@ -2522,7 +2524,7 @@ a.footer-links i:hover {
     font-weight: 600;
     padding-bottom: 10px;
     margin: 0;
-    
+
 }
 
 .fa {

@@ -1,53 +1,40 @@
-<!DOCTYPE html>
-<html lang="{{ with .Site.LanguageCode }}{{ . }}{{ else }}en-US{{ end }}">
-    <head>
-        {{ partial "blog-head.html" . }}
-    </head>
-    <body>
-        <div class="blog-overlay-innerwrap  blogs-wrap">
-            <div class="blog-request-submit-widget">
-                <div class="blog-heading-overlay">
-                    <div class='blog-head-wrap'>
-                        <div class='blog-breadcrumb'>
-                           {{ partial "nav.html" . }}
+{{ define "blog" }}
+    <div class="blog-heading-overlay">
+        <div class='blog-head-wrap'>
+            <div class='blog-breadcrumb'>
+                {{ partial "nav.html" . }}
+            </div>
+        </div>
+    </div>
+    <div class="requestAccess overlay-container display-none" id="overlay-container-id">
+        <div class="overlay-state-con" onclick="closePopup()">
+            <div class="overlay-state">
+                <div class="overlay-state-wrp">
+                    <div class="overlay-vertical-center">
+                        <div class="overlay-innerwrap">
+                            {{ range .Site.Data.sitemap.navigation.global.links }}
+                                <div class="overlay-text" onclick="closePopup()">{{ .text | markdownify }}</div>
+                            {{ end }}
                         </div>
                     </div>
-                </div>
-                <div class="requestAccess overlay-container display-none" id="overlay-container-id">
-                    <div class="overlay-state-con" onclick="closePopup()">
-                        <div class="overlay-state">
-                            <div class="overlay-state-wrp">
-                                <div class="overlay-vertical-center">
-                                    <div class="overlay-innerwrap">
-                                        {{ range .Site.Data.sitemap.navigation.global.links }}
-                                            <div class="overlay-text" onclick="closePopup()">{{ .text | markdownify }}</div>
-                                        {{ end }}
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="blog-event-container-angular">
-                    <div class="blog-first-container">
-                            <!-- TODO: fix this link to go to blogs home -->
-                            <a href="/blog"><h4 class="back-to-blogs"><i class="fa fa-arrow-left" aria-hidden="true"></i>   Back To Blogs</h4></a>
-                            <h2 class='blog-post-head' style="font-size: 2.5rem;">{{ .Title }}</h2>
-                            <h3 class="blog-success-header-content author">By: {{ .Site.Params.name }}</h3>
-                        <div class='blog-title-date bp-date'>
-                            {{ .Date.Format "2006-01-02" }}
-                        </div>
-                        <div class='blog-title-desc'>
-                            {{ .Content }}
-                        </div>
-                        {{ template "_internal/disqus.html" . }}
-                    </div>
-                    {{ partial "blog-sidebar.html" . }}
                 </div>
             </div>
         </div>
-        {{ partial "footer.html" . }}
-        {{ partial "js.html" . }}
-        {{ template "_internal/google_analytics.html" . }}
-    </body>
-</html>
+    </div>
+    <div class="blog-event-container-angular">
+        <div class="blog-first-container">
+                <!-- TODO: fix this link to go to blogs home -->
+                <a href="/blog"><h4 class="back-to-blogs"><i class="fa fa-arrow-left" aria-hidden="true"></i>   Back To Blogs</h4></a>
+                <h2 class='blog-post-head' style="font-size: 2.5rem;">{{ .Title }}</h2>
+                <h3 class="blog-success-header-content author">By: {{ .Site.Params.name }}</h3>
+            <div class='blog-title-date bp-date'>
+                {{ .Date.Format "2006-01-02" }}
+            </div>
+            <div class='blog-title-desc'>
+                {{ .Content }}
+            </div>
+            {{ template "_internal/disqus.html" . }}
+        </div>
+        {{ partial "blog-sidebar.html" . }}
+    </div>
+{{ end }}

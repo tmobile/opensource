@@ -1,7 +1,7 @@
 {{ "<!-- BLOG SIDEBAR -->" | safeHTML }}
 <div class="blog-second-container">
     <div class="blog-web-content">
-        <div class="blog-topic"><h4><i class="fi-megaphone"></i> <a href="{{ "post/" | absLangURL }}" class="blog-topic-share">Recent Posts</a></h4></div>
+        <div class="blog-topic"><h4><i class="fi-megaphone"></i> <a href="{{ "posts/" | absLangURL }}" class="blog-topic-share">Recent Posts</a></h4></div>
         {{ range first 10 (where .Site.Pages "Section" "blog") }}
 		{{ if not (eq .URL "/posts/") }}<div class="blog-year"><a href="{{ .Permalink }}">{{ .Title }}</a></div>{{ end }}
 		{{ end }}

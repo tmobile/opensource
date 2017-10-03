@@ -1,0 +1,53 @@
+{{ "<!-- TAXONOMY LIST TEMPLATE -->" | safeHTML }}
+<!DOCTYPE html>
+<html lang="{{ with .Site.LanguageCode }}{{ . }}{{ else }}en-US{{ end }}">
+    <head>
+        {{ partial "blog-head.html" . }}
+    </head>
+    <body>
+        <div class="blog-overlay-innerwrap blogs-wrap">
+            <div class="blog-request-submit-widget">
+                <div class="blog-heading-overlay">
+                    <div class='blog-head-wrap'>
+                        <div>
+                            {{ partial "nav.html" .}}
+                        </div>
+                        <div>
+                            <h1 class="secondHeader">{{ .Title | markdownify }}</h1>
+                            <p class="blogParagraph">By: {{ .Site.Params.name }}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="blog-event-container-angular">
+                  <div class="blog-first-container">
+                    {{ range (.Paginate .Data.Pages).Pages }}
+                      {{ if ne .File.BaseFileName "index" }}
+                          <div class='blog-title-wrap'>
+                              <div class="blog-title-txt">
+                                  <a href="{{ .Permalink }}">{{ .Title | markdownify }}</a>
+                              </div>
+                              <div class='blog-title-date'>
+                                  {{.Date.Format "January 02, 2006" }}
+                              </div>
+                              <div class='blog-title-desc'>
+                                  {{ $page := . }}
+                                  {{ with .Description }}
+                                  {{ . | markdownify }}
+                                  {{ else }}
+                                  {{ .Summary | markdownify }}
+                                  {{ end }}
+                              </div>
+                              <a href="{{ .Permalink }}" class='blog-title-more'>[Read more...]</a>
+                          </div>
+                      {{end}}
+                    {{end}}      
+                  </div>
+                  {{ partial "blog-sidebar.html" . }}
+                </div>
+            </div>
+        </div>
+        {{ partial "footer.html" . }}
+        {{ partial "js.html" . }}
+        {{ template "_internal/google_analytics.html" . }}
+    </body>
+</html>

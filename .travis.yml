@@ -3,7 +3,7 @@ go:
 - 1.8.x
 branches:
   only:
-  - develop
+  - master
 install:
 - go get -v github.com/spf13/hugo
 - sudo pip install awscli
@@ -18,7 +18,7 @@ deploy:
   skip_cleanup: true
   region: us-west-2
   on:
-    branch: develop
+    branch: master
 after_deploy:
 - aws configure set preview.cloudfront true
 - "./cdn-invalidate.sh"

@@ -1,7 +1,7 @@
 {{ "<!-- BLOG SIDEBAR -->" | safeHTML }}
 <div class="blog-second-container">
     <div class="blog-web-content">
-        <div class="blog-topic"><h4><i class="fi-megaphone"></i> <a href="{{ "post/" | absLangURL }}">Recent Posts</a></h4></div>
+        <div class="blog-topic"><h4><i class="fi-megaphone"></i> <a href="{{ "posts/" | absLangURL }}" class="blog-topic-share">Recent Posts</a></h4></div>
         {{ range first 10 (where .Site.Pages "Section" "blog") }}
 		{{ if not (eq .URL "/posts/") }}<div class="blog-year"><a href="{{ .Permalink }}">{{ .Title }}</a></div>{{ end }}
 		{{ end }}
@@ -9,7 +9,7 @@
 
     {{ if not (eq (len .Site.Taxonomies.categories) 0) }}
         <div class="blog-web-content">
-            <div class="blog-topic"><h4><i class="fi-folder"></i> <a href="{{ "categories/" | absLangURL }}">Categories</a></h4></div>            
+            <div class="blog-topic"><h4><i class="fi-folder"></i> <a href="{{ "categories/" | absLangURL }}" class="blog-topic-share">Categories</a></h4></div>            
             {{ range $key, $val := first 5 .Site.Taxonomies.categories.ByCount }}
                 {{ $.Scratch.Set "link" "categories/" }}
                 {{ $.Scratch.Add "link" $val.Name }}
@@ -20,7 +20,7 @@
 
     {{ if not (eq (len .Site.Taxonomies.tags) 0) }}
         <div class="blog-web-content-script">
-            <div class="blog-topic"><h4><i class="fi-pricetag-multiple"></i> <a href="{{ $.Site.BaseURL }}tags/">Tags</a></h4></div>
+            <div class="blog-topic"><h4><i class="fi-pricetag-multiple"></i> <a href="{{ $.Site.BaseURL }}tags/" class="blog-topic-share">Tags</a></h4></div>
 
             {{ range $key, $val := .Site.Taxonomies.tags.ByCount }}
                 <div class="blog-tag-content">

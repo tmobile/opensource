@@ -1,0 +1,81 @@
+.moonContainer {
+    height: 100vh;
+    width: 100vw;
+    background: url('../img/BG@3x.png') no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#fourzerofour-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 12vh;
+    padding-left: 4vw;
+    padding-right: 4vw;   
+}
+
+#fourzerofourheader {
+    background-color: white;
+    color: black;
+    font-size: 7em;
+    width: 25vw;
+    text-align: center;
+    font-family: Tele Grotesk Ult;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2px;
+    position: relative;
+    z-index: 3;
+    
+}
+
+#pinkshadow {
+    height: 10vh;
+    width: 25vw;
+    background-color: rgb(255, 150, 205);
+    position: relative;
+    top: -100px;
+    left: 1vw;
+}
+
+#fourzerofourbutton {
+    color: #fff;
+    font-family: 'Tele Grotesk Ult';
+    font-size: 19px;
+    letter-spacing: 0.5px;
+    background-color: #f7006e;
+}
+
+#fourzerofourbottom {
+    line-height: 1px;
+    text-align: center;
+}
+
+@media only screen and (max-width: 992px) {
+    #fourzerofourheader {
+        width: 55vw;
+    }
+
+    #pinkshadow {
+        height: 12vh;
+        top: -111px;
+        left: 35vw;
+    }
+
+    .fourzerofourtext {
+        text-align: center;
+        line-height: 15px;
+    }
+    .lost {
+        margin-top: 2vh;
+    }
+
+    .adjust {
+        margin-top: -3vh;
+    }
+ }

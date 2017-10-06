@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="{{ with .Site.LanguageCode }}{{ . }}{{ else }}en-US{{ end }}">
+    <head>
+        {{ partial "blog-head.html" . }}
+    </head>
+    <body>
+        <div class="blog-overlay-innerwrap blogs-wrap">
+            <div class="blog-request-submit-widget">
+                {{ block "blog" . }}{{ end }}
+            </div>
+        </div>
+        {{ partial "footer.html" . }}
+        {{ partial "js.html" . }}
+        {{ template "_internal/google_analytics.html" . }}
+    </body>
+</html>

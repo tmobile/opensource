@@ -1,7 +1,7 @@
 name: opensource
 full_name: tmobile/opensource
-description: T-Mobile opensource website
+description: Templating and CI/CD for serverless websites
 url: https://github.com/tmobile/opensource
 img: "foo.png"
-language: "Javascript"
+language: "HUGO"
 css: ""

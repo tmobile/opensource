@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="{{ with .Site.LanguageCode }}{{ . }}{{ else }}en-US{{ end }}">
+    <head>
+        {{ partial "head.html" . }}
+    </head>
+    <body id="page-top">
+        {{ block "main" . }}{{ end }}
+
+        {{ if .Site.Params.footer }}
+            {{ partial "footer.html" . }}
+        {{ end }}
+
+        {{ partial "modals.html" . }}
+
+        {{ partial "js.html" . }}
+        {{ template "_internal/google_analytics.html" . }}
+    </body>    
+</html>

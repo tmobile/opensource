@@ -3,12 +3,12 @@ go:
 - 1.8.x
 branches:
   only:
-  - master
+  - develop
 install:
 - go get -v github.com/spf13/hugo
 - sudo pip install awscli
 script:
-- hugo
+- hugo --buildDrafts --cleanDestinationDir
 deploy:
   provider: s3
   access_key_id: "${AWS_ACCESS_KEY}"
@@ -16,8 +16,9 @@ deploy:
   bucket: tmo-opensource-website-external
   local_dir: public
   skip_cleanup: true
+  region: us-west-2
   on:
-    branch: master
+    branch: develop
 after_deploy:
 - aws configure set preview.cloudfront true
 - "./cdn-invalidate.sh"

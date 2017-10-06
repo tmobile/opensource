@@ -1,4 +1,4 @@
-baseurl = "http://opensource.corporate.t-mobile.com/"
+baseurl = "http://opensource.t-mobile.com/"
 languageCode = "en-us"
 title = "T-Mobile Open Source"
 theme = "tmo-oss-theme"
@@ -9,6 +9,7 @@ disqusShortname= "tmo-oss"
 	org_name = "tmobile"
 	name = "T-Mobile"
 	description = "Open source at the Un-carrier."
+	ogImage = "img/OSS-Preview.png"
 
 	# The path must be relative to the static folder
 	favicon = "favicon.ico"

@@ -8,7 +8,8 @@
 <title>{{ .Site.Title }}</title>
 
 {{ "<!-- Favicon -->" | safeHTML }}
-<link rel="shortcut icon" href="img/{{ .Site.Params.favicon }}" />
+<link rel="icon" type="image/png" href="/img/favicon-32x32.png" sizes="32x32" />
+<link rel="icon" type="image/png" href="/img/favicon-16x16.png" sizes="16x16" />
 
 {{ "<!-- Bootstrap Core CSS -->" | safeHTML }}
 <link rel="stylesheet" href="{{ "vendor/bootstrap/css/bootstrap.min.css" | absURL }}" type="text/css" />

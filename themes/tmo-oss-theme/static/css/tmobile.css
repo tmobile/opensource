@@ -112,7 +112,7 @@ svg.pink-transparent {
     width: 100%;
     height: 90px;
     background: rgba(0,0,0,0);
-    fill: #f7006e;
+    fill: #f21580;
 }
 
 
@@ -122,15 +122,15 @@ svg.pink-transparent {
 }
 
 .blog-row .markup .corner-tag {
-    border: 1px solid #f7006e;
+    border: 1px solid #f21580;
     text-transform: uppercase;
-    color: #f7006e;
+    color: #f21580;
 }
 
 .blog-row .markup .blog-tile-header {
     font-family: 'Tele Grotesk Ult';
     font-size: 1.5rem;
-    color: #f7006e;
+    color: #f21580;
     margin: 0px;
     margin-right: 0px;
 }
@@ -145,7 +145,7 @@ svg.pink-transparent {
     font-family: 'Tele Grotesk Ult';
     font-size: 0.9rem;
     margin-bottom: 1rem;
-    color: #f7006e;
+    color: #f21580;
 }
 
 #blog .white-btn {
@@ -162,7 +162,7 @@ header {
 }
 
 #blogNav {
-    background: #f7006e;
+    background: #f21580;
 }
 
 #blogNav .mainNav-contents {

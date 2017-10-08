@@ -1,5 +1,6 @@
-function navigateTo(url) {
-  window.location.href = url;
+function navigateTo(url, name) {
+  name = name ||"";
+  window.open(url, name);
 }
 
 function openPageInModal(href) {

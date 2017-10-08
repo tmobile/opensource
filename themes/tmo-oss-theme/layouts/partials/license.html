@@ -22,7 +22,7 @@
           </div>
         </div>
         <div class="btn white-btn">
-          <button type="input" onclick="navigateTo('{{ .Site.Params.license.cta.navigate_to }}');">
+          <button type="input" onclick="navigateTo('{{ .Site.Params.license.cta.navigate_to }}', '_license');">
             <span class="career-span">
                 {{ with .Site.Params.license.cta.text }}
                     {{ . | markdownify }}

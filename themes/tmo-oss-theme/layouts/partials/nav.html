@@ -1,7 +1,7 @@
 {{ "<!-- NAVIGATION -->" | safeHTML }}
 <nav id="mainNav" class="navbar navbar-default navbar-fixed-top affix">
     <div class="mainNav-contents clearfix"> 
-        <a href="/"><img class="logoMain" src="{{ "img/logo/Logo@1x.png" | absURL }}" /></a>
+        <a href="#"><img class="logoMain" src="{{ "img/logo/Logo@1x.png" | absURL }}" /></a>
         {{ range .Site.Data.sitemap.navigation.global.links }}
             <div class="nav-contents">
                 <a href="{{ .href }}" class="{{ .class }}">{{ .text | markdownify }}</a>

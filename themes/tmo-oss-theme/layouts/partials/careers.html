@@ -19,7 +19,7 @@
                 </div>
             </div>
             <div class="btn">
-                <button type="input" onclick="navigateTo('{{ .Site.Params.careers.cta.navigate_to }}');">
+                <button type="input" onclick="navigateTo('{{ .Site.Params.careers.cta.navigate_to }}','_careers');">
                     <span class="career-span">
                         {{ with .Site.Params.careers.cta.text }}
                             {{ . | markdownify }}

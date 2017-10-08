@@ -21,4 +21,4 @@ As users of open source, we've seen first-hand the value the community brings in
 
 We are excited to engage the tech community, share ideas and solve problems big and small together. And it's no secret that, with this initiative, we hope to [recruit talented developers](https://tmobile.careers/) who are as passionate about building great software as we are.
 
-Find out more and connect with us at: https://opensource.t-mobile.com.
+Find out more and connect with us at: http://opensource.t-mobile.com.

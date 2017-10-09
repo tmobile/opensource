@@ -4,7 +4,6 @@
 {{ with .Site.Params.description }}<meta name="description" content="{{ . }}">{{ end }}
 {{ .Hugo.Generator }}
 <title>{{ .Site.Title }}</title>
-
 {{ "<!-- Favicon -->" | safeHTML }}
 <link rel="icon" type="image/png" href="/img/favicon-32x32.png" sizes="32x32" />
 <link rel="icon" type="image/png" href="/img/favicon-16x16.png" sizes="16x16" />
@@ -23,3 +22,11 @@
 <link rel="stylesheet" href="{{ "css/styles.css" | absURL }}" type="text/css" />
 <link rel="stylesheet" href="{{ "css/tmobile.css" | absURL }}" type="text/css" />
 <link rel="stylesheet" href="{{ "css/blog.css" | absURL }}" type="text/css" />
+
+{{ "<!-- meta tags -->" | safeHTML }}
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta property="og:title" content="{{ .Site.Params.Blog.headline }}"/>
+<meta property="og:image" content="{{ .Permalink }}{{ .Site.Params.ogImage}}"/>
+<meta property="og:site_name" content="{{ .Site.Title }}"/>
+<meta property="og:description" content="{{ .Site.Params.Blog.summary }}"/>

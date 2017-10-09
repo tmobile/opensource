@@ -13,7 +13,9 @@
                     <div class="overlay-vertical-center">
                         <div class="overlay-innerwrap">
                             {{ range .Site.Data.sitemap.navigation.global.links }}
-                                <div class="overlay-text" onclick="closePopup()">{{ .text | markdownify }}</div>
+                                <div class="overlay-text" onclick="closePopup()">
+                                   <a href="{{ .href }}" class="{{ .class }}">{{ .text | markdownify }}</a>
+                                </div>
                             {{ end }}
                         </div>
                     </div>

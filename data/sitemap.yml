@@ -9,7 +9,7 @@ navigation:
         class: "animated-scroll"
       - text: "PROJECTS"
         href: "#services"
-        class: "animated-scroll"
+        class: "animated-scroll" 
   footer:
     links:
       - text: "PRIVACY"
@@ -21,12 +21,12 @@ navigation:
       - icon: fa-slack
         href: "https://t-mo.slack.com/"
         class: "slack"
-      - icon: fa-twitter
-        href: "https://twitter.com/TMobile87733446"
-        class: "twitter"
-      - icon: fa-facebook squared
-        href: "https://www.facebook.com"
-        class: "facebook"
+      # - icon: fa-twitter
+      #   href: "https://twitter.com/TMobile87733446"
+      #   class: "twitter"
+      # - icon: fa-facebook squared
+      #   href: "https://www.facebook.com"
+      #   class: "facebook"
       - icon: fa-youtube
         href: "https://www.youtube.com/"
         class: "youtube"

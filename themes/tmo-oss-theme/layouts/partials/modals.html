@@ -6,14 +6,19 @@
                 <div class="overlay-vertical-center">
                     <div class="overlay-innerwrap">
                         <div class="request-submit-widget">
-                            <div class="heading-overlay">
-                                <span class="cross-icon" onclick="closeModel()"><i aria-hidden="true" class="fa fa-times"></i></span>
-                                <h1 class="success-header">{{ .Title }} </h1>
-                                <h2 class="success-header-content">{{ .Title }}</h2>
-                            </div>
-                            <div class="event-container">
-
-                            </div>
+                            {{range where .Site.Pages "Section" "conduct"}} 
+                                {{ if eq .File.BaseFileName "index" }}
+                                    <div>
+                                        <div class="heading-overlay">
+                                            <span class="cross-icon" onclick="closeModel()"><i aria-hidden="true" class="fa fa-times"></i></span>
+                                                <h1 class="success-header">{{ .Title }} </h1>
+                                        </div>                                  
+                                        <div class="event-container">
+                                                {{ .Content }} 
+                                        </div>
+                                    </div>
+                                {{end}}
+                            {{end}}
                             <div class="overlay-button-cover">
                                 <div class="overlay-button-wrap">
                                     <div class="secondary-button form-button">

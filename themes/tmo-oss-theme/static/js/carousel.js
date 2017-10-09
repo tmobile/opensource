@@ -3,26 +3,37 @@ $(document).ready(function () {
 
   owl.owlCarousel({
     items: 5, // THIS IS IMPORTANT
-    dotsEach: true,
+    dots: false,
+    nav: true,
     loop: false,
+    navText: [],
     responsive: {
       0: {
         items: 1
       },
       480: {
         items: 1
-      }, // from zero to 480 screen width 4 items
+      }, 
       768: {
         items: 2
-      }, // from 480 screen widthto 768 6 items
+      }, 
       1024: {
-        items: 4 // from 768 screen width to 1024 8 items
+        items: 3
+      },
+      1200: {
+        items: 5
       }
     },
   });
 
+  var carouselInit = function(event){
+    $(".owl-nav .owl-prev").addClass("left carousel-control glyphicon glyphicon-chevron-left");
+    $(".owl-nav .owl-next").addClass("right carousel-control glyphicon glyphicon-chevron-right");
+  }
 
-  owl.owlCarousel();
+  owl.owlCarousel({
+    onInitialized: carouselInit()
+  });
   // Go to the next item
   $('.customNextBtn').click(function () {
     owl.trigger('next.owl.carousel');

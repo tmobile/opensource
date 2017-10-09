@@ -2162,7 +2162,7 @@ footer .margin-container {
 }
 @media (max-width: 376px) {
     #mainNav .mainNav-contents {
-        padding-left: 2rem;
+        padding-left: 1rem;
     }
     .nav-contents {
         margin: 0 7px;
@@ -2331,7 +2331,7 @@ a.footer-links i:hover {
 }
 
 /*blogs*/
-.blogs-wrap * {
+/* .blogs-wrap * {
     font-size: inherit;
     color: inherit;
     box-sizing: border-box;
@@ -2339,8 +2339,7 @@ a.footer-links i:hover {
     line-height: 1.5;
     font-family: 'Tele Grotesk Halb';
     white-space: normal;
-}
-
+} */
 .blog-success-header {
     font-size: 2.2rem;
     font-family: 'Tele Grotesk Fet';
@@ -2472,7 +2471,6 @@ a.footer-links i:hover {
     .blog-second-container {
         width: 100%;
         height: initial;
-        padding-left: 2rem;
     }
     #blogNav .mainNav-contents {
         padding-left: 2rem !important;

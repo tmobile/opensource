@@ -33,7 +33,7 @@ $(document).on("click", ".overlay-state-wrp", function(e) {
 function openPopup() {
     $('body').addClass('overflow');
     $('#dots-overlay').addClass('display-none');
-    $('#overlay-container-id').removeClass('display-none');
+    $('#overlay-container-id').removeClass('display-none');  
 }
 
 function closePopup() {

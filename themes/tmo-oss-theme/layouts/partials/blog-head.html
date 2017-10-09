@@ -24,9 +24,9 @@
 <link rel="stylesheet" href="{{ "css/blog.css" | absURL }}" type="text/css" />
 
 {{ "<!-- meta tags -->" | safeHTML }}
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta property="og:title" content="{{ .Site.Params.Blog.headline }}"/>
-<meta property="og:image" content="{{ .Permalink }}{{ .Site.Params.ogImage}}"/>
+<meta property="og:image" content="{{ .Permalink }}"/>
 <meta property="og:site_name" content="{{ .Site.Title }}"/>
 <meta property="og:description" content="{{ .Site.Params.Blog.summary }}"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">

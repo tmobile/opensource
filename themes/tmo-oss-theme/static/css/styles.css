@@ -576,7 +576,7 @@ button:focus {
     margin: auto;
     letter-spacing: 0.6px;
     width: 166px;
-    text-align: center;
+    text-align: left;
     min-height: 240px;
 }
 .top-pad {
@@ -814,11 +814,34 @@ footer .margin-container {
 .nav-contents a {
     color: #fff !important;
 }
-.carousel-control.left {
-    background-image: none;
+.nav-contents a {
+    color: #fff !important;
 }
-.carousel-control.right {
+.owl-theme .owl-nav [class*=owl-]{
+    background: none;
+}
+.owl-theme .owl-nav [class*=owl-]:hover{
+    background: none;
+}
+.owl-theme .owl-nav .carousel-control{
+    width: 50px;
+}
+.owl-theme .owl-nav .carousel-control.disabled{
+    display: none;
+}
+.owl-theme .owl-nav .carousel-control.left.owl-left{
     background-image: none;
+    background: none;
+}
+.owl-theme .owl-nav .carousel-control.right.owl-right {
+    background-image: none;
+    background: none;
+}
+.owl-theme .owl-nav .glyphicon{
+    position: absolute;
+    top: 45%;
+    font-size: 30px;
+    height: 40px;
 }
 
 /*new changes*/

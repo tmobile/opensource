@@ -1035,7 +1035,9 @@ footer .margin-container {
     letter-spacing: .6px;
     z-index: 4;
 }
-
+#blog .markup-header{
+    width:100%;
+}
 .blogs-text {
     white-space: inherit;
     text-overflow: ellipsis;
@@ -2240,16 +2242,20 @@ footer .margin-container {
     }
 
     .first-first-content {
-        font-size: 30px;
-        right: 1px;
+        font-size: 28px;
+        right: 13px;
+        line-height: 24px;
     }
     .extra {
         height: 36px;
     }
 
     .un-carrier {
-        width: 240px;
+        width: 210px;
         font-size: 30px;
+        height: 52px;
+        line-height: 52px;
+        margin-left: 20px;
     }
 
     .second-content {

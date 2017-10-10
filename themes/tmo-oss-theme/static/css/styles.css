@@ -39,7 +39,7 @@
     text-transform: none;
     line-height: 1;
 
-    /* Better Font Rendering ======= */
+    /* Better Font Rendering =========== */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -576,7 +576,7 @@ button:focus {
     margin: auto;
     letter-spacing: 0.6px;
     width: 166px;
-    text-align: center;
+    text-align: left;
     min-height: 240px;
 }
 .top-pad {
@@ -814,11 +814,34 @@ footer .margin-container {
 .nav-contents a {
     color: #fff !important;
 }
-.carousel-control.left {
-    background-image: none;
+.nav-contents a {
+    color: #fff !important;
 }
-.carousel-control.right {
+.owl-theme .owl-nav [class*=owl-]{
+    background: none;
+}
+.owl-theme .owl-nav [class*=owl-]:hover{
+    background: none;
+}
+.owl-theme .owl-nav .carousel-control{
+    width: 50px;
+}
+.owl-theme .owl-nav .carousel-control.disabled{
+    display: none;
+}
+.owl-theme .owl-nav .carousel-control.left.owl-left{
     background-image: none;
+    background: none;
+}
+.owl-theme .owl-nav .carousel-control.right.owl-right {
+    background-image: none;
+    background: none;
+}
+.owl-theme .owl-nav .glyphicon{
+    position: absolute;
+    top: 45%;
+    font-size: 30px;
+    height: 40px;
 }
 
 /*new changes*/
@@ -2139,7 +2162,7 @@ footer .margin-container {
 }
 @media (max-width: 376px) {
     #mainNav .mainNav-contents {
-        padding-left: 2rem;
+        padding-left: 1rem;
     }
     .nav-contents {
         margin: 0 7px;
@@ -2308,7 +2331,7 @@ a.footer-links i:hover {
 }
 
 /*blogs*/
-.blogs-wrap * {
+/* .blogs-wrap * {
     font-size: inherit;
     color: inherit;
     box-sizing: border-box;
@@ -2316,8 +2339,7 @@ a.footer-links i:hover {
     line-height: 1.5;
     font-family: 'Tele Grotesk Halb';
     white-space: normal;
-}
-
+} */
 .blog-success-header {
     font-size: 2.2rem;
     font-family: 'Tele Grotesk Fet';
@@ -2449,7 +2471,6 @@ a.footer-links i:hover {
     .blog-second-container {
         width: 100%;
         height: initial;
-        padding-left: 2rem;
     }
     #blogNav .mainNav-contents {
         padding-left: 2rem !important;

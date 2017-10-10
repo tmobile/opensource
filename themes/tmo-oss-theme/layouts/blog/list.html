@@ -3,6 +3,25 @@
         <div class='blog-head-wrap'>
             <div>
                 {{ partial "nav.html" .}}
+                <div class="header-content">
+                    <div class="requestAccess overlay-container display-none" id="overlay-container-id">
+                        <div class="overlay-state-con" onclick="closePopup()">
+                            <div class="overlay-state">
+                                <div class="overlay-state-wrp">
+                                    <div class="overlay-vertical-center">
+                                        <div class="overlay-innerwrap">
+                                            {{ range .Site.Data.sitemap.navigation.global.links }}
+                                                <div class="overlay-text" onclick="closePopup()">
+                                                        <a href="{{ .href }}" class="{{ .class }}">{{ .text | markdownify }}</a>
+                                                </div>
+                                            {{ end }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div>
                 <h1 class="secondHeader">{{ .Title | markdownify }}</h1>

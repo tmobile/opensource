@@ -1,7 +1,7 @@
 name: jazz
 full_name: tmobile/jazz
 description: A platform for building serverless applications 
-url: https://github.com/tmobile/jazz-installer
+url: https://github.com/tmobile/jazz-core
 img: "foo.png"
 language: "SERVERLESS"
 css: ""

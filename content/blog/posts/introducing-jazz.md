@@ -4,7 +4,7 @@ draft = false
 title = "Introducing Jazz: T-Mobile’s Serverless Development Platform"
 categories = ["resources"]
 tags = ["tools", "serverless", "cicd"]
-author = "satish" 
+author = "Satish Malireddi" 
  
 +++
 

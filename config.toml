@@ -30,7 +30,7 @@ disqusShortname= "tmo-oss"
 	# projects section
 	[params.projects]
 		headline		= "PROJECTS"
-		description		= "All of our projects are available at <a href='https://github.com/tmobile'>github.com/tmobile</a>"
+		description		= "All of our projects are available at <a href='https://github.com/tmobile' target='_github-tmobile'>github.com/tmobile</a>"
 
 	# About
 	[params.about]
@@ -65,3 +65,11 @@ disqusShortname= "tmo-oss"
 		headline			= "BLOG"
 		summary				= "Keep up to date on upcoming events, new releases and technology insights from TMO app teams."
 		navigate_to		= "/blog"
+	# define authors	
+	[params.authors]
+		[params.authors.nick]
+			name = "Nicholas Criss"
+		[params.authors.ram]
+			name = "Ram Gopinathan"
+		[params.authors.satish]
+			name = "Satish Malireddi"

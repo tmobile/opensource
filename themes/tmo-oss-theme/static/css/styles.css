@@ -562,6 +562,12 @@ button:focus {
     /*border: 1px solid;
     background-color: #fff;*/
 }
+.community-pic.circle {
+    overflow: hidden;
+}
+.margin-top-10{
+    margin-top: -10px;
+}
 .names {
     text-align: center;
     padding: 20px;
@@ -1066,7 +1072,9 @@ footer .margin-container {
     width: 85%;
     padding: 4% 0vh 6% 0vh;
 }
-
+.markup-header{
+    width:100%;
+}
 .blogContainer {
     display: flex;
     flex-direction: row;
@@ -2443,6 +2451,9 @@ a.footer-links i:hover {
     width: 100%;
     text-overflow: ellipsis;
     overflow: hidden;
+    font-size: 18px;
+}
+.blog-title-wrap .blog-title-desc{
     white-space: nowrap;
 }
 .blog-title-more {

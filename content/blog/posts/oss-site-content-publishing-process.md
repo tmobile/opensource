@@ -4,7 +4,7 @@ draft = false
 title = "Content publishing tools and processes leveraged in this site"
 categories = ["resources"]
 tags = ["tools", "how-to", "publishing"]
-author = "ram" 
+author = "Ram Gopinathan" 
  
 +++
 

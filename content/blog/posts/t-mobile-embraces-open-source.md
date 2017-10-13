@@ -4,7 +4,7 @@ draft = false
 title = "T-Mobile embraces open source"
 categories = ["resources"]
 tags= ["oss", "t-mobile"]
-author = "nick"
+author = "Nicholas Criss"
 
 +++
 

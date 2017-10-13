@@ -34,8 +34,8 @@
                                         <p class="blog-tile-paragraph">{{ slicestr .Summary 0 120| markdownify }}...</p>
                                     </div>  
                                     <div class="authorContainer">
-                                        {{ $author := index .Site.Params.authors .Params.author }}
-                                        <h5>By: {{ $author.name | markdownify }}</h5>
+                                        <!-- {{ $author := index .Site.Params.authors .Params.author }} -->
+                                        <h5>By: {{ .Params.author  | markdownify }}</h5>
                                         <div class="blog-tile-subheader">
                                                 {{ dateFormat "2 Jan, 2006" (default .Date (.PublishDate)) }}  |
                                                 {{ .ReadingTime }} minutes

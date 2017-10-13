@@ -33,16 +33,16 @@
                             {{ else }}
                             <div>
                             {{ end }}
-                                <div class="circle">
-                                    <img class="circle" src="img/{{ .icon }}" />
+                                <div class="community-pic circle">
+                                    <img class="" src="img/{{ .icon }}" />
                                 </div>
                                 <div class="names">{{ .name }}</div>
                                 <div class="names-content">
                                     {{ .bio }}
                                     <div class="names-links">
-                                        <a href="{{ .linkedInUrl }}"><i class="icon-icon-linkedin"></i></a>
-                                        <a href="{{ .githubUrl }}"><i class="icon-icon-github"></i></a>
-        								<a href="{{ .twitterUrl }}"><i class="icon-icon-twitter"></i></a>
+                                        <a href="{{ .linkedInUrl }}" target="_blank"><i class="icon-icon-linkedin"></i></a>
+                                        <a href="{{ .githubUrl }}" target="_blank"><i class="icon-icon-github"></i></a>
+        								<a href="{{ .twitterUrl }}" target="_blank"><i class="icon-icon-twitter"></i></a>
                                     </div>
                                 </div>
                             </div>

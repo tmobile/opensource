@@ -19,7 +19,7 @@ navigation:
   social:
     links:
       - icon: fa-slack
-        href: "https://t-mo.slack.com/"
+        href: "https://tmo-oss.slack.com"
         class: "slack"
       # - icon: fa-twitter
       #   href: "https://twitter.com/TMobile87733446"

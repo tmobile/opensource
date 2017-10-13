@@ -562,6 +562,12 @@ button:focus {
     /*border: 1px solid;
     background-color: #fff;*/
 }
+.community-pic.circle {
+    overflow: hidden;
+}
+.margin-top-10{
+    margin-top: -10px;
+}
 .names {
     text-align: center;
     padding: 20px;
@@ -1035,9 +1041,7 @@ footer .margin-container {
     letter-spacing: .6px;
     z-index: 4;
 }
-#blog .markup-header{
-    width:100%;
-}
+
 .blogs-text {
     white-space: inherit;
     text-overflow: ellipsis;
@@ -1068,7 +1072,9 @@ footer .margin-container {
     width: 85%;
     padding: 4% 0vh 6% 0vh;
 }
-
+.markup-header{
+    width:100%;
+}
 .blogContainer {
     display: flex;
     flex-direction: row;
@@ -2242,20 +2248,16 @@ footer .margin-container {
     }
 
     .first-first-content {
-        font-size: 28px;
-        right: 13px;
-        line-height: 24px;
+        font-size: 30px;
+        right: 1px;
     }
     .extra {
         height: 36px;
     }
 
     .un-carrier {
-        width: 210px;
+        width: 240px;
         font-size: 30px;
-        height: 52px;
-        line-height: 52px;
-        margin-left: 20px;
     }
 
     .second-content {
@@ -2449,6 +2451,9 @@ a.footer-links i:hover {
     width: 100%;
     text-overflow: ellipsis;
     overflow: hidden;
+    font-size: 18px;
+}
+.blog-title-wrap .blog-title-desc{
     white-space: nowrap;
 }
 .blog-title-more {

@@ -82,6 +82,11 @@ All the content that you see in this site is stored in a Github [repository](htt
   * Configure a remote that points to upstream repository in git (follow instructions [here](https://help.github.com/articles/configuring-a-remote-for-a-fork/))
   * Sync your local fork to keep it up-to-date with the upstream T-Mobile opensource repository (follow instructions [here](https://help.github.com/articles/syncing-a-fork/) )
 
+    After you have configured a remote that points to upstream repository to sync develop branch on your local fork, you would run following command
+    ```bash
+    git merge upstream/develop
+    ```
+
 ### Travis-CI
 
 For continuous integration; publishing in this usecase to be exact we are using a service called [Travis-CI](http://travis-ci.com)

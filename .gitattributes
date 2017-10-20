@@ -1,0 +1,2 @@
+config.toml merge=ours
+.travis.yml merge=ours

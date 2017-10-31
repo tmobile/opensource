@@ -9,7 +9,7 @@ navigation:
         class: "animated-scroll"
       - text: "PROJECTS"
         href: "#services"
-        class: "animated-scroll" 
+        class: "animated-scroll"
   footer:
     links:
       - text: "PRIVACY"
@@ -19,7 +19,7 @@ navigation:
   social:
     links:
       - icon: fa-slack
-        href: "https://tmo-oss.slack.com"
+        href: "https://tmo-oss-getinvite.herokuapp.com/"
         class: "slack"
       # - icon: fa-twitter
       #   href: "https://twitter.com/TMobile87733446"
@@ -28,5 +28,5 @@ navigation:
       #   href: "https://www.facebook.com"
       #   class: "facebook"
       - icon: fa-youtube
-        href: "https://www.youtube.com/"
+        href: "https://www.youtube.com/playlist?list=PL0mz2nejZ-DgH0XsbYDrKPbeMiEJYWqUg"
         class: "youtube"

@@ -1,7 +1,7 @@
-name: abf_authorization
-full_name: tmobile/abf_authorization
+name: keybiner
+full_name: tmobile/keybiner
 description: Library for encoding authorized business functions in an ID token
-url: https://github.com/tmobile/abf_authorization
+url: https://github.com/tmobile/keybiner
 img: "foo.png"
 language: "JAVA"
 css: ""

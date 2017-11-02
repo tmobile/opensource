@@ -1,4 +1,8 @@
 public
 config.toml
 .travis.yml
+<<<<<<< HEAD
 .DS_Store
+=======
+.DS_Store
+>>>>>>> develop

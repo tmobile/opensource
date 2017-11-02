@@ -2,7 +2,7 @@ baseurl = "http://opensource.t-mobile.com/"
 languageCode = "en-us"
 title = "T-Mobile Open Source"
 theme = "tmo-oss-theme"
-googleAnalytics = ""
+googleAnalytics = "UA-20393691-8"
 disqusShortname= "tmo-oss"
 
 [params]

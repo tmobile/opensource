@@ -3,7 +3,7 @@ go:
 - 1.8.x
 branches:
   only:
-  - develop
+  - master
 install:
 - go get -v github.com/spf13/hugo
 - sudo pip install awscli
@@ -13,12 +13,12 @@ deploy:
   provider: s3
   access_key_id: "${AWS_ACCESS_KEY}"
   secret_access_key: "${AWS_SECRET_KEY}"
-  bucket: tmo-opensource-website
+  bucket: tmo-opensource-website-external
   local_dir: public
   skip_cleanup: true
   region: us-west-2
   on:
-    branch: develop
+    branch: master
 after_deploy:
 - aws configure set preview.cloudfront true
 - "./cdn-invalidate.sh"

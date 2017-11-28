@@ -79,12 +79,3 @@ management.
 open-sourced under the Hyperledger Project, and you can check it out now on
 GitHub.
 
-* [Blockchain](https://medium.com/tag/blockchain?source=post)
-* [Blockchain
-Technology](https://medium.com/tag/blockchain-technology?source=post)
-* [Innovation](https://medium.com/tag/innovation?source=post)
-* [T Mobile](https://medium.com/tag/t-mobile?source=post)
-* [Cloud](https://medium.com/tag/cloud?source=post)
-
-By clapping more or less, you can signal to us which stories really stand out.
-

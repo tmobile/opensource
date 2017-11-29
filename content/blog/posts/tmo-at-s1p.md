@@ -14,7 +14,7 @@ You can catch engineers from T-Mobile at SpringOne. We also have two talks, you 
 **Tuesday 2:00p-3:00p PST (60 min) at Room: 2010**   
 [Zero to 12 Million](http://springoneplatform.io/sessions/zero-to-12-million)
 
-**Brendan Aye** Principal Cloudfoundry Platform Architect from PCF team at T-Mobile will discuss T-Mobile PCF journey from 0 to application receiving 10 million calls a day on platform in 3 months. 
+**Brendan Aye** Principal Cloudfoundry Platform Architect from PCF team at T-Mobile will discuss T-Mobile's PCF journey from 0 to an application receiving 10 million calls a day on a platform in 3 months.
 
 **Wednesday 11:30a-12:30p PST (60 min) at Room: 2018**   
 [Building Enterprise Cache Based on CQRS](http://springoneplatform.io/sessions/building-enterprise-cache-based-on-cqrs)

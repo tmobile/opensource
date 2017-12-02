@@ -21,7 +21,7 @@ As one of the largest tech events of the year, it's a great venue for the Un-car
 **Tuesday 12:15p-1:15p PST and 5:30p-6:30p PST (60 min)**  
 [GPSTEC303: GPS: Blockchain and the Road to Innovation](https://www.portal.reinvent.awsevents.com/connect/search.ww#loadSearch-searchPhrase=gpstec303&searchType=session&tc=0&sortBy=abbreviationSort&p=)
  
-Due to high demand, a second session was added! Chris Spanton from the Cloud Center of Excellence will present HyperDirectory, a proof-of-concept directory service built on blockchain. Using smart contracts to codify the rules for role-based access control (RBAC), HyperDirectory provides both a highly-compliant source of truth for RBAC and a perfect record of all previous states and approvals via the append-only ledger. Integrating-with and built-using [Jazz](http://jazz.corporate.t-mobile.com/), our serverless development platform, this is a great showcase for our first [open source](http://opensource.t-mobile.com/) project!
+Due to high demand, a second session was added! Chris Spanton from the Cloud Center of Excellence will present HyperDirectory, a proof-of-concept directory service built on blockchain. Using smart contracts to codify the rules for role-based access control (RBAC), HyperDirectory provides both a highly-compliant source of truth for RBAC and a perfect record of all previous states and approvals via the append-only ledger. Integrating-with and built-using [Jazz](https://github.com/tmobile/jazz/), our serverless development platform, this is a great showcase for our first [open source](http://opensource.t-mobile.com/) project!
  
  
 **Thursday 2:30p-2:45p PST (15 min)**  

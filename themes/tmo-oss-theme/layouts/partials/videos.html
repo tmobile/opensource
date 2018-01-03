@@ -1,0 +1,118 @@
+{{ "<!-- VIDEOS -->" | safeHTML }}
+<!--<div class="bg-primary cat-details-section">-->
+    <!--<div class="separator pull-up">-->
+        <!--<svg class="white-transparent" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 10"-->
+             <!--preserveAspectRatio="none">-->
+            <!--<polygon points="0,0 100,10 100,0"/>-->
+        <!--</svg>-->
+    <!--</div>-->
+<!--</div>-->
+<section id="videos" >
+    <div class="bg-primary cat-details-section">
+        <div class="container grid added-extra-padding">
+            <div class="row">
+                <div class="col-lg-12 text-center margin-container">
+                    <h2 class="">
+                        <span class="cat-hdg">
+                            {{ .Site.Params.videos.headline}}
+                        </span>
+                    </h2>
+                    <div class="video-container">
+                        {{$mainVideoIndex := 0}}
+                        <iframe class="main-video"
+                                width="840" height="472"
+                                src="{{(index .Site.Params.videos.data $mainVideoIndex).url}}" frameborder="0"
+                                gesture="media"
+                                allow="encrypted-media">
+                        </iframe>
+                        <div class="main-video-overlay"
+                             onclick="openVideoModal({{(index .Site.Params.videos.data $mainVideoIndex).title}},
+                             {{(index .Site.Params.videos.data $mainVideoIndex).url}})"
+                             data-toggle="modal"
+                             data-target="#videoModal"></div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="video-playlist">
+                        <div class="small-video-container">
+                            {{$first := 1}}
+                            <div class="small-video-overlay"
+                                 onclick="openVideoModal({{(index .Site.Params.videos.data $first).title}},
+                             {{(index .Site.Params.videos.data $first).url}})"
+                                 data-toggle="modal"
+                                 data-target="#videoModal"></div>
+                            <iframe style="border-radius: 5px;"
+                                    width="280" height="157"
+                                    src="{{(index .Site.Params.videos.data $first).url}}"
+                                    frameborder="0"
+                                    gesture="media"
+                                    allow="encrypted-media">
+                            </iframe>
+                        </div>
+                        <div class="small-video-container">
+                            {{$second:= 2}}
+                            <div class="small-video-overlay"
+                                 onclick="openVideoModal({{(index .Site.Params.videos.data $second).title}},
+                             {{(index .Site.Params.videos.data $second).url}})"
+                                 data-toggle="modal"
+                                 data-target="#videoModal"></div>
+                            <iframe style="border-radius: 5px;"
+                                    width="280" height="157"
+                                    src="{{(index .Site.Params.videos.data $second).url}}"
+                                    frameborder="0"
+                                    gesture="media"
+                                    allow="encrypted-media">
+                            </iframe>
+                        </div>
+                        <div class="small-video-container">
+                            {{$third:= 3}}
+                            <div class="small-video-overlay"
+                                 onclick="openVideoModal({{(index .Site.Params.videos.data $third).title}},
+                             {{(index .Site.Params.videos.data $third).url}})"
+                                 data-toggle="modal"
+                                 data-target="#videoModal"></div>
+                            <iframe style="border-radius: 5px;"
+                                    width="280" height="157"
+                                    src="{{(index .Site.Params.videos.data $third).url}}"
+                                    frameborder="0"
+                                    gesture="media"
+                                    allow="encrypted-media">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="bg-primary cat-details-section">
+        <div class="separator pull-down">
+            <svg class="white-transparent" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 10"
+                 preserveAspectRatio="none">
+                <polygon points="0,10 100,10 100,0"/>
+            </svg>
+        </div>
+    </div>
+</section>
+
+<div id="videoModal"  class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="heading-overlay">
+            <span class="cross-icon"
+                  data-dismiss="modal"><i aria-hidden="true" class="fa fa-times"></i></span>
+            <h1 id="videoModalTitle" class="success-header"></h1>
+        </div>
+        <div class="video-modal-body">
+            <iframe id="videoModalSrc"
+                    width="530" height="315"
+                    src=""
+                    frameborder="0"
+                    gesture="media"
+                    allow="encrypted-media">
+            </iframe>
+        </div>
+    </div>
+</div>

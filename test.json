@@ -1,0 +1,127 @@
+{
+  "baseurl": "http://opensource.corporate.t-mobile.com/",
+  "languageCode": "en-us",
+  "title": "T-Mobile Open Source",
+  "theme": "tmo-oss-theme",
+  "googleAnalytics": "UA-20393691-7",
+  "disqusShortname": "tmo-oss-internal",
+  "params": {
+    "org_name": "tmobile",
+    "name": "T-Mobile",
+    "description": "Open source at the Un-carrier.",
+    "favicon": "favicon.ico",
+    "footer": {
+      "copyright": "Copyright 2017. All Rights Reserved."
+    },
+    "hero": {
+      "headline1": "AT THE",
+      "headline2": "OPEN SOURCE",
+      "headline3": "UN-CARRIER",
+      "slogan": "Transforming wireless through technology innovation.",
+      "cta": {
+        "text": "VIEW PROJECTS",
+        "navigate_to": "#PROJECTS"
+      }
+    },
+    "projects": {
+      "headline": "PROJECTS",
+      "description": "All of our projects are available at <a href='https://github.com/tmobile' target='_github-tmobile'>github.com/tmobile</a>"
+    },
+    "about": {
+      "headline": "T-MOBILE OSS WORKING GROUP",
+      "description": "We champion open source use and contribution throughout T-Mobile and help teams release their projects as open source."
+    },
+    "code": {
+      "headline": "CODE OF CONDUCT",
+      "summary": "In the interest of fostering an open and welcoming environment, we as contributors and maintainers pledge to make participation in our community a harassment-free experience for everyone, regardless of age, body size, disability, ethnicity, gender identity and expression, level of experience, nationality, personal appearance, race, religion, or sexual identity and orientation.",
+      "cta": {
+        "text": "VIEW DETAILS",
+        "navigate_to": "/conduct/index.html"
+      }
+    },
+    "license": {
+      "headline": "CONTRIBUTOR LICENSE AGREEMENT",
+      "summary": "All T-Mobile open source projects are licensed under the Apache License 2.0. It is a permissive free software license written by the Apache Software Foundation. It requires preservation of the copyright notice and disclaimer. Like other free software licenses, it allows the user the freedom to use the software for any purpose, to distribute it, to modify it, and to distribute modified versions without concern for royalties.",
+      "cta": {
+        "text": "VIEW LICENSE",
+        "navigate_to": "https://www.apache.org/licenses/LICENSE-2.0"
+      }
+    },
+    "careers": {
+      "headline": "INTERESTED IN A CAREER WITH T-MOBILE?",
+      "summary": "At T-Mobile, we're breaking the rules of wireless and we're just getting started. Join our revolution and change wireless for good.",
+      "cta": {
+        "text": "VIEW CAREERS",
+        "navigate_to": "https://tmobile.careers"
+      }
+    },
+    "blog": {
+      "headline": "BLOG",
+      "summary": "Keep up to date on upcoming events, new releases and technology insights from TMO app teams.",
+      "navigate_to": "/blog"
+    },
+    "authors": {
+      "nick": {
+        "name": "Nicholas Criss"
+      },
+      "ram": {
+        "name": "Ram Gopinathan"
+      },
+      "satish": {
+        "name": "Satish Malireddi"
+      }
+    },
+    "events": {
+      "headline": "Events Calendar"
+    },
+    "videos": {
+      "headline": "Jazz Serverless Demos",
+      "data": [
+        {
+          "title": "T-Mobile & StudentRND CodeDay",
+          "url": "https://www.youtube.com/watch?v=11qwWGuH60s&index=1&list=PL0mz2nejZ-DgH0XsbYDrKPbeMiEJYWqUg&t=8s"
+        },
+        {
+          "title": "Zero to 12 Million - Brendan Aye, T-Mobile",
+          "url": "https://www.youtube.com/watch?v=AUbZWaezOVk&list=PL0mz2nejZ-DgH0XsbYDrKPbeMiEJYWqUg&index=2"
+        },
+        {
+          "title": "Building Enterprise Cache Based on CQRS - Komes Subramaniam, T-Mobile",
+          "url": "https://www.youtube.com/watch?v=QI17F5XLg8U&list=PL0mz2nejZ-DgH0XsbYDrKPbeMiEJYWqUg&index=3"
+        },
+        {
+          "title": "Using Alexa and the Echo Show for interactive business reports",
+          "url": "https://www.youtube.com/watch?v=iGnjcXdhRgM&list=PL0mz2nejZ-DgH0XsbYDrKPbeMiEJYWqUg&index=4"
+        },
+        {
+          "title": "Hacktober Cloud + Commerce Hackathon",
+          "url": "https://www.youtube.com/watch?v=roeYsLd2YIA&index=5&list=PL0mz2nejZ-DgH0XsbYDrKPbeMiEJYWqUg"
+        },
+        {
+          "title": "T-Mobile’s Cloud Container Platform (CCP) at Docker Meetup",
+          "url": "https://www.youtube.com/watch?v=LlEirvpnvdU&index=6&list=PL0mz2nejZ-DgH0XsbYDrKPbeMiEJYWqUg"
+        },
+        {
+          "title": "AWS re:Invent 2017: Enabling Digital Transformation on AWS for T-Mobile, While Maint (DEM61)",
+          "url": "https://www.youtube.com/watch?v=J1zCH8aDnU4&list=PL0mz2nejZ-DgH0XsbYDrKPbeMiEJYWqUg&index=7"
+        },
+        {
+          "title": "AWS re:Invent 2017: [REPEAT] GPS: Blockchain and the Road to Innovation (GPSTEC303-R)",
+          "url": "https://www.youtube.com/watch?v=z29SCJQfBmM&index=8&list=PL0mz2nejZ-DgH0XsbYDrKPbeMiEJYWqUg"
+        },
+        {
+          "title": "AWS re:Invent 2017: Amazon Connect Delivers Personalized Customer Experiences (BAP202)",
+          "url": "https://www.youtube.com/watch?v=rSzDFJGw5vg&list=PL0mz2nejZ-DgH0XsbYDrKPbeMiEJYWqUg&index=9"
+        },
+        {
+          "title": "T-Mobile | Open Source Tech | Jazz Serverless Developer Teaser",
+          "url": "https://www.youtube.com/watch?v=6Kp1yxMjn1k&list=PL0mz2nejZ-DgH0XsbYDrKPbeMiEJYWqUg&index=10"
+        },
+        {
+          "title": "T-Mobile Big Data Hackathon #TMoHack",
+          "url": "https://www.youtube.com/watch?v=3zHxNo8pkg0&list=PL0mz2nejZ-DgH0XsbYDrKPbeMiEJYWqUg&index=11"
+        }
+      ]
+    }
+  }
+}

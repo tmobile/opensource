@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  var owl = $('.owl-carousel');
+  var owl = $('#about .owl-carousel');
 
   owl.owlCarousel({
     items: 5, // THIS IS IMPORTANT
@@ -27,9 +27,9 @@ $(document).ready(function () {
   });
 
   var carouselInit = function(event){
-    $(".owl-nav .owl-prev").addClass("left carousel-control glyphicon glyphicon-chevron-left");
-    $(".owl-nav .owl-next").addClass("right carousel-control glyphicon glyphicon-chevron-right");
-  }
+    $("#about .owl-nav .owl-prev").addClass("left carousel-control glyphicon glyphicon-chevron-left");
+    $("#about .owl-nav .owl-next").addClass("right carousel-control glyphicon glyphicon-chevron-right");
+  };
 
   owl.owlCarousel({
     onInitialized: carouselInit()

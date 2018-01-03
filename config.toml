@@ -76,7 +76,7 @@ favicon = "favicon.ico"
   headline = "Events Calendar"
 
   [params.videos]
-  headline = "Jazz Serverless Demos"
+  headline = "Videos"
 
     [[params.videos.data]]
     title = "T-Mobile & StudentRND CodeDay"

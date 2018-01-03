@@ -1,8 +1,19 @@
 {{ "<!-- EVENTS -->" | safeHTML }}
-
 <section id="events">
-    {{ .Site.Params.events.headline}}
-
-    <p>{{ .Site.Params.code }}</p>
-    <p>{{ .Site.Params.code.cta.navigate_to }}</p>
+    <div class="bg-primary cat-features-section">
+        <div class="container grid">
+            <div class="row">
+                <div class="col-lg-12 text-center margin-container">
+                    <h2 class="">
+                        <span class="cat-hdg">
+                            {{ .Site.Params.events.headline}}
+                        </span>
+                    </h2>
+                </div>
+            </div>
+            <div class="row project-row">
+                <div class="owl-carousel owl-theme"></div>
+            </div>
+        </div>
+    </div>
 </section>

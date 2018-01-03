@@ -2943,13 +2943,7 @@ a.footer-links i:hover {
 }
 
 #videos {
-    margin-top: -10em;
     padding-top: 0;
-    z-index: 0;
-}
-
-#videos .bg-primary {
-    padding-top: 10em;
 }
 
 #video .main-video {
@@ -2987,4 +2981,29 @@ a.footer-links i:hover {
     text-align: center;
     background-image: url(../img/bg-about.png);
     background-size: 100% 100%;
+}
+
+#events {
+    padding: 0 0 2em 0;
+}
+
+#events .markup {
+    margin: calc(2vh + 4px) .5em 0 .5em;
+}
+
+#events .markup.event-past {
+
+    background-color: grey;
+}
+
+#events .markup.event-upcoming {
+    background-color: red;
+}
+
+#events .owl-carousel .owl-item.center .markup {
+    height: 34vh;
+    padding-left: 2vh;
+    padding-right: 2vh;
+    margin-top: 4px;
+    margin-bottom: 4px;
 }

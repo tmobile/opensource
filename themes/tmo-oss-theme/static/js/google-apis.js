@@ -24,23 +24,46 @@ function retrieveEventsData() {
             .then(function (response) {
                 var carousel = $('#events .owl-carousel');
 
+                var pastEventsCount = 0;
+
                 for (var i = 0; i < response.result.items.length; i += 1) {
                     var eventData = response.result.items[i];
-                    var eventElement = newEvent(eventData.summary,
-                        eventData.description,
-                        eventData.start.dateTime || eventData.start.date,
-                        eventData.end.dateTime || eventData.end.date,
-                        !!eventData.start.dateTime);
+                    var eventElement = newEvent(eventData);
+                    pastEventsCount += (new Date(eventData.start.dateTime || eventData.start.date) < new Date()) ? 1 : 0;
                     carousel.append(eventElement);
-                };
+                }
 
                 carousel.owlCarousel({
                     items: 5,
                     loop: true,
                     nav: true,
+                    mouseDrag: false,
                     center: true,
                     dots: false,
-                    navText: []
+                    navText: [],
+                    margin: 10,
+                    responsive: {
+                        0: {
+                            items: 1,
+                            startPosition: pastEventsCount
+                        },
+                        480: {
+                            items: 1,
+                            startPosition: pastEventsCount
+                        },
+                        768: {
+                            items: 2,
+                            startPosition: pastEventsCount
+                        },
+                        1024: {
+                            items: 3,
+                            startPosition: pastEventsCount
+                        },
+                        1200: {
+                            items: 5,
+                            startPosition: pastEventsCount
+                        }
+                    }
                 });
 
                 $("#events .owl-nav .owl-prev").addClass("left carousel-control glyphicon glyphicon-chevron-left");
@@ -49,25 +72,39 @@ function retrieveEventsData() {
     });
 }
 
-function newEvent(summary, description, start, end, timeFlag) {
+function newEvent(eventData) {
     var date, time = '';
-    description = description | '';
-    if (timeFlag) {
-        time =  ', ' + formatTimeSpan(new Date(start), new Date(end))
+    var start = eventData.start.dateTime || eventData.start.date;
+    var summary = eventData.summary;
+    var description = eventData.description || '';
+    description = description || '';
+    if (!!eventData.start.dateTime) {
+        time = ', ' + formatTimeSpan(new Date(start),
+            new Date(eventData.end.dateTime))
     }
     date = formatDate(new Date(start));
 
-    var markupClass;
-    if (new Date(start) < new Date()) {
-        markupClass = 'event-past'
-    } else {
-        markupClass = 'event-upcoming'
+    var markupClass = new Date(start) < new Date() ? 'event-past' : 'event-upcoming';
+
+    var imageTag;
+    if (eventData.attachments) {
+        // https://drive.google.com/uc?id=0Bzgk4zncCwI7aDZCSHY4YU0zNUF&export=download
+        imageTag = 'https://drive.google.com/uc?id=' +
+            eventData.attachments[0].fileId +
+            '&export=download';
     }
 
-    var eventTemplate = '<div class="markup ' + markupClass + '">' +
+    var eventTemplate = '<div class="markup ' + markupClass + '"' +
+        (!!imageTag ? ' style="background: url(' + imageTag + ');' +
+            'background-size: cover;">' : '>') +
+        '<div class="markup-overlay"></div>' +
+        '<div class="markup-content">' +
         '<div class="markup-header">' + summary + '</div>' +
-        '<div class="markup-details"> ' + description + '</div>' +
+        '<div class="markup-details"> ' +
+        '<div class="markup-text">' + description + '</div>' +
+        '</div>' +
         '<div class="markup-footer">' + date + time + '</div>' +
+        '</div>' +
         '</div>';
     return eventTemplate;
 }

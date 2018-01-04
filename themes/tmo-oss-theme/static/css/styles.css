@@ -751,6 +751,10 @@ button:hover {
     margin-top: 40px;
 }
 
+.text-black {
+    color: black;
+}
+
 .added-padding {
     padding-top: 2%;
 }
@@ -2988,22 +2992,52 @@ a.footer-links i:hover {
 }
 
 #events .markup {
-    margin: calc(2vh + 4px) .5em 0 .5em;
+    text-align: center;
+    font-size: 20px;
+    position: relative;
+    margin-top: calc(2vh + 4px);
 }
 
-#events .markup.event-past {
-
-    background-color: grey;
+#events .markup .markup-overlay {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left:0;
+    padding: 40px 10px;
+    border-radius: 3px;
 }
 
-#events .markup.event-upcoming {
-    background-color: red;
+#events .markup .markup-content {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left:0;
+    border-radius: 3px;
+}
+
+#events .markup.event-past .markup-overlay {
+    background-color: rgba(0, 0, 0, .3);
+}
+
+#events .markup.event-upcoming .markup-overlay {
+    background-color: rgba(242, 21, 128, .5);
 }
 
 #events .owl-carousel .owl-item.center .markup {
+    padding-left: .5em;
+    padding-right: .5em;
     height: 34vh;
-    padding-left: 2vh;
-    padding-right: 2vh;
     margin-top: 4px;
     margin-bottom: 4px;
+}
+
+#events .markup .markup-header {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#events .markup .markup-footer {
+    font-size: 20px;
 }

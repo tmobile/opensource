@@ -12,24 +12,32 @@
         <div class="container grid">
             <div class="row">
                 <div class="col-lg-12 text-center margin-container">
-                    <h2 class="">
+                    <h2>
                         <span class="cat-hdg">
                             {{ .Site.Params.videos.headline}}
                         </span>
                     </h2>
-                    <div class="video-container">
-                        {{$mainVideoIndex := 0}}
-                        <iframe class="main-video"
-                                width="840" height="472"
-                                src="{{(index .Site.Params.videos.data $mainVideoIndex).url}}" frameborder="0"
-                                gesture="media"
-                                allow="encrypted-media">
-                        </iframe>
-                        <div class="main-video-overlay"
-                             onclick="openVideoModal({{(index .Site.Params.videos.data $mainVideoIndex).title}},
+                    <span class="section-heading cat-content">
+                            Quis, consequat sed metus. Etiam faucibus elit tempor, convallis felis no
+                    </span>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 text-center margin-container">
+                        <div class="video-container">
+                            {{$mainVideoIndex := 0}}
+                            <iframe class="main-video"
+                                    width="840" height="472"
+                                    src="{{(index .Site.Params.videos.data $mainVideoIndex).url}}" frameborder="0"
+                                    gesture="media"
+                                    allow="encrypted-media">
+                            </iframe>
+                            <br>
+                            <div class="main-video-overlay"
+                                 onclick="openVideoModal({{(index .Site.Params.videos.data $mainVideoIndex).title}},
                              {{(index .Site.Params.videos.data $mainVideoIndex).url}})"
-                             data-toggle="modal"
-                             data-target="#videoModal"></div>
+                                 data-toggle="modal"
+                                 data-target="#videoModal"></div>
+                        </div>
                     </div>
                 </div>
             </div>

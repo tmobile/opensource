@@ -28,14 +28,15 @@ function retrieveEventsData() {
 
                 for (var i = 0; i < response.result.items.length; i += 1) {
                     var eventData = response.result.items[i];
-                    var eventElement = newEvent(eventData);
-                    pastEventsCount += (new Date(eventData.start.dateTime || eventData.start.date) < new Date()) ? 1 : 0;
+                    var result = newEvent(eventData);
+                    var eventElement = result.eventTemplate;
+                    pastEventsCount += result.isPast ? 1 : 0;
+
                     carousel.append(eventElement);
                 }
 
                 carousel.owlCarousel({
                     items: 5,
-                    loop: true,
                     nav: true,
                     mouseDrag: false,
                     center: true,
@@ -74,30 +75,52 @@ function retrieveEventsData() {
 
 function newEvent(eventData) {
     var date, time = '';
-    var start = eventData.start.dateTime || eventData.start.date;
+    var start = new Date(eventData.start.dateTime || eventData.start.date);
     var summary = eventData.summary;
     var description = eventData.description || '';
     description = description || '';
+
+    var isPast = false;
     if (!!eventData.start.dateTime) {
-        time = ', ' + formatTimeSpan(new Date(start),
+        time = ', ' + formatTimeSpan(start,
             new Date(eventData.end.dateTime))
+    } else {
+        var plusOneDay = start;
+        plusOneDay.setDate(plusOneDay.getDate() + 1);
+        start = plusOneDay;
     }
-    date = formatDate(new Date(start));
+    date = formatDate(start);
 
-    var markupClass = new Date(start) < new Date() ? 'event-past' : 'event-upcoming';
 
-    var imageTag;
-    if (eventData.attachments) {
-        // https://drive.google.com/uc?id=0Bzgk4zncCwI7aDZCSHY4YU0zNUF&export=download
-        imageTag = 'https://drive.google.com/uc?id=' +
-            eventData.attachments[0].fileId +
-            '&export=download';
+    var markupClass;
+    // if (!!eventData.start.dateTime) {
+    if (start <= new Date()) {
+        isPast = true;
+        markupClass = 'event-past';
+    } else {
+        markupClass = 'event-upcoming';
     }
+    // } else {
+    //     var plusOneDay = new Date(start);
+    //     if (new Date(start) < new Date().getDay()) {
+    //         markupClass = 'event-past';
+    //     } else {
+    //         markupClass = 'event-upcoming';
+    //     }
+    // }
+
+
+    var imageTag = false;
+    // if (eventData.attachments) {
+    //     imageTag = 'https://drive.google.com/uc?id=' +
+    //         eventData.attachments[0].fileId +
+    //         '&export=download';
+    // }
 
     var eventTemplate = '<div class="markup ' + markupClass + '"' +
         (!!imageTag ? ' style="background: url(' + imageTag + ');' +
             'background-size: cover;">' : '>') +
-        '<div class="markup-overlay"></div>' +
+        // '<div class="markup-overlay"></div>' +
         '<div class="markup-content">' +
         '<div class="markup-header">' + summary + '</div>' +
         '<div class="markup-details"> ' +
@@ -106,7 +129,10 @@ function newEvent(eventData) {
         '<div class="markup-footer">' + date + time + '</div>' +
         '</div>' +
         '</div>';
-    return eventTemplate;
+    return {
+        isPast: isPast,
+        eventTemplate: eventTemplate
+    };
 }
 
 function formatDate(date) {
@@ -140,7 +166,7 @@ function formatDate(date) {
 
 function formatTimeSpan(start, end) {
     var startMin = start.getMinutes();
-    var startHours = start.getHours() > start.getHours() ? start.getHours() - 12 : start.getHours();
+    var startHours = start.getHours() > 12 ? start.getHours() - 12 : start.getHours();
     var startM = start.getHours() > 12 ? 'pm' : 'am';
 
     var endMin = end.getMinutes();
@@ -148,9 +174,9 @@ function formatTimeSpan(start, end) {
     var endM = end.getHours() > 12 ? 'pm' : 'am';
 
 
-    var dateString = startHours + ':' + (startMin === '0' ? '' : startMin) +
+    var dateString = startHours + (startMin === 0 ? '' : (':' + startMin)) +
         (startM !== endM ? (' ' + startM) : '') +
         ' - ' +
-        endHours + ':' + (endMin === '0' ? '' : endMin) + ' ' + endM;
+        endHours + (endMin === 0 ? '' : (':' + endMin)) + ' ' + endM;
     return dateString;
 }

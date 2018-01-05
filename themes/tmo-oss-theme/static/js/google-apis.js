@@ -1,6 +1,8 @@
 function retrieveEventsData() {
-    var API_KEY = 'AIzaSyBMx7fI4YXkSqALBeZ_cV66lSDtSaCFiiI';
-    var CLIENT_ID = '342833929601-kl7va0uc0r8po204e3r69d5s87ceqfdp.apps.googleusercontent.com';
+    // var API_KEY = 'AIzaSyBMx7fI4YXkSqALBeZ_cV66lSDtSaCFiiI';
+    // var CLIENT_ID = '342833929601-kl7va0uc0r8po204e3r69d5s87ceqfdp.apps.googleusercontent.com';
+    var API_KEY = 'AIzaSyBU1o-gbhJpAOxd9rYuW7xcjXPNinjvhwI';
+    var CLIENT_ID = '908427607840-ll2dg2op9q5861q3svqud0aqmf4kf6b9.apps.googleusercontent.com';
     var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];
     var SCOPES = "https://www.googleapis.com/auth/calendar.readonly";
     gapi.load('client:auth2', function () {

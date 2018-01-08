@@ -3,6 +3,8 @@ function retrieveEventsData() {
     var CLIENT_ID = '908427607840-ll2dg2op9q5861q3svqud0aqmf4kf6b9.apps.googleusercontent.com';
     var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];
     var SCOPES = "https://www.googleapis.com/auth/calendar.readonly";
+    var CALENDAR_ID = '3natpe27nllmrfi5ikgaoagtn4@group.calendar.google.com';
+    // var CALENDAR_ID = 'muk4317cue1ndb659obo3fcl60@group.calendar.google.com';
     gapi.load('client:auth2', function () {
         gapi.client.init({
             apiKey: API_KEY,
@@ -14,7 +16,7 @@ function retrieveEventsData() {
             oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
 
             return gapi.client.calendar.events.list({
-                'calendarId': 'muk4317cue1ndb659obo3fcl60@group.calendar.google.com',
+                'calendarId': CALENDAR_ID,
                 'showDeleted': false,
                 'singleEvents': true,
                 'maxResults': 10,

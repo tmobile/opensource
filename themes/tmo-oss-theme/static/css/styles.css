@@ -705,7 +705,6 @@ button:hover {
     color: white;
 }
 
-
 .opposite-font {
     color: #fff;
 }
@@ -2968,7 +2967,7 @@ a.footer-links i:hover {
 #videos .video-container {
     position: relative;
     width: calc((.85 * 100vw) - 30px);
-    height: calc(((9/16) * (.85 * 100vw)) - 30px);
+    height: calc(((9 / 16) * (.85 * 100vw)) - 30px);
     max-width: 640px;
     max-height: 385px;
 }
@@ -3018,8 +3017,16 @@ a.footer-links i:hover {
 
 #videoModal .modal-dialog {
     width: calc((.85 * 95vw) - 30px);
-    height: calc(((9/16) * (.85 * 95vw)) - 30px);
-    max-height: 95vh;
+    height: calc(((9 / 16) * (.85 * 95vw)) - 30px);
+    /*max-height: 95vh;*/
+}
+
+@media (max-width: 770px) {
+    #videoModal .modal-dialog {
+        width: calc(95vw - 10px);
+        height: calc((9 / 16) * (95vw - 10px));
+        margin: 25vh auto;
+    }
 }
 
 #videoModal iframe {

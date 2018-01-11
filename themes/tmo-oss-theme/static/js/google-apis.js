@@ -3,8 +3,8 @@ function retrieveEventsData() {
     var CLIENT_ID = '908427607840-ll2dg2op9q5861q3svqud0aqmf4kf6b9.apps.googleusercontent.com';
     var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];
     var SCOPES = "https://www.googleapis.com/auth/calendar.readonly";
-    var CALENDAR_ID = '3natpe27nllmrfi5ikgaoagtn4@group.calendar.google.com';
-    // var CALENDAR_ID = 'muk4317cue1ndb659obo3fcl60@group.calendar.google.com';
+    // var CALENDAR_ID = '3natpe27nllmrfi5ikgaoagtn4@group.calendar.google.com';
+    var CALENDAR_ID = 'muk4317cue1ndb659obo3fcl60@group.calendar.google.com';
     gapi.load('client:auth2', function () {
         gapi.client.init({
             apiKey: API_KEY,
@@ -25,6 +25,20 @@ function retrieveEventsData() {
         })
             .then(function (response) {
                 var carousel = $('#events .owl-carousel');
+                if (!response.result.items.length) {
+                    var noEventsTemplate = '<div class="text-center"><span class="code-span" style="color: black">No Events Scheduled</span></div>';
+                    carousel.after(noEventsTemplate);
+                    return;
+                } else {
+                    var allEventsTemplate = '<div class="text-center">' +
+                        '<div class="btn btn-white">' +
+                        '<button onclick="window.open(\'https://calendar.google.com/calendar?cid=M25hdHBlMjdubGxtcmZpNWlrZ2FvYWd0bjRAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ\', \'_blank\')">' +
+                        '<span class="code-span">All Events</span>' +
+                        '</button>' +
+                        '</div>' +
+                        '</div>';
+                    carousel.after(allEventsTemplate);
+                }
 
                 var pastEventsCount = 0;
 
@@ -35,6 +49,10 @@ function retrieveEventsData() {
                     pastEventsCount += result.isPast ? 1 : 0;
 
                     carousel.append(eventElement);
+                }
+
+                if (pastEventsCount === response.result.items.length) {
+                    pastEventsCount -= 1;
                 }
 
                 carousel.owlCarousel({

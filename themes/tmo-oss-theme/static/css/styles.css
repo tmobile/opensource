@@ -699,6 +699,13 @@ button:hover {
     transition: 0.3s ease;
 }
 
+#events button {
+    transition: 0.3s ease;
+    background-color: #f21580 !important;
+    color: white;
+}
+
+
 .opposite-font {
     color: #fff;
 }
@@ -2960,6 +2967,10 @@ a.footer-links i:hover {
 
 #videos .video-container {
     position: relative;
+    width: calc((.85 * 100vw) - 30px);
+    height: calc(((9/16) * (.85 * 100vw)) - 30px);
+    max-width: 640px;
+    max-height: 385px;
 }
 
 #videos .main-video {
@@ -2992,11 +3003,6 @@ a.footer-links i:hover {
     #videos .video-playlist {
         display: none;
     }
-
-    #videos .video-container {
-        width: 22rem;
-        height: 10rem;
-    }
 }
 
 #videos .small-video-container {
@@ -3010,17 +3016,16 @@ a.footer-links i:hover {
     background: rgba(0, 0, 0, 0);
 }
 
-#videoModal .video-modal-body {
-    text-align: center;
-    background-image: url(../img/bg-about.png);
-    background-size: 100% 100%;
+#videoModal .modal-dialog {
+    width: calc((.85 * 95vw) - 30px);
+    height: calc(((9/16) * (.85 * 95vw)) - 30px);
+    max-height: 95vh;
 }
 
-/*#events {*/
-/*background: url("../img/BG4@1x.png");*/
-/*background-size: 100% 100%;*/
-/*z-index: 1;*/
-/*}*/
+#videoModal iframe {
+    height: 100%;
+    width: 100%;
+}
 
 #events .cat-content {
     font-family: 'Tele Grotesk Halb';

@@ -16,7 +16,7 @@
                         </span>
                     </h2>
                     <!--<span class="section-heading cat-content">-->
-                            <!--Quis, consequat sed metus. Etiam faucibus elit tempor, convallis felis no-->
+                    <!--Quis, consequat sed metus. Etiam faucibus elit tempor, convallis felis no-->
                     <!--</span>-->
                 </div>
                 <div class="row">
@@ -88,6 +88,15 @@
                     </div>
                 </div>
             </div>
+            <div class="text-center" style="margin-top: 20px">
+                <button href=""
+                        class="btn white-btn"
+                        type="input"
+                        onclick="window.open('https://www.youtube.com/playlist?list=PL0mz2nejZ-DgH0XsbYDrKPbeMiEJYWqUg', '_blank')">
+                    <span class="code-span">All Videos</span>
+                </button>
+            </div>
+
         </div>
         <div class="separator pull-down">
             <svg class="white-transparent" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 10"
@@ -100,19 +109,11 @@
 
 <div id="videoModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
-        <div class="heading-overlay">
-            <span class="cross-icon"
-                  data-dismiss="modal"><i aria-hidden="true" class="fa fa-times"></i></span>
-            <h1 id="videoModalTitle" class="success-header"></h1>
-        </div>
-        <div class="video-modal-body">
             <iframe id="videoModalSrc"
-                    width="530" height="315"
                     src=""
                     frameborder="0"
                     gesture="media"
                     allow="encrypted-media">
             </iframe>
-        </div>
     </div>
 </div>

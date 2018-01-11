@@ -19,7 +19,6 @@ function retrieveEventsData() {
                 'calendarId': CALENDAR_ID,
                 'showDeleted': false,
                 'singleEvents': true,
-                'maxResults': 10,
                 'orderBy': 'startTime'
             })
         })

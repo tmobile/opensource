@@ -1366,11 +1366,11 @@ footer .margin-container {
 
 }
 
-#services .markup {
+ .markup {
     min-height: 13rem;
 }
 
-#services .markup-details {
+.markup-details {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -1381,7 +1381,7 @@ footer .margin-container {
     letter-spacing: .6px;
 }
 
-#services .markup-details .markup-desc {
+.markup-details .markup-desc {
     font-family: 'Tele Grotesk Halb light';
     text-overflow: ellipsis;
     word-wrap: ellipsis;
@@ -3040,9 +3040,15 @@ a.footer-links i:hover {
 }
 
 #events .markup {
-    background: url("../img/pexels-photo-313691.jpeg");
+    background: url("../img/business-people-crop.png");
     background-size: cover;
+    background-repeat: no-repeat;
+    max-height: 13rem;
     margin: 4px;
+}
+
+#events .markup:hover {
+    transform: translateY(0);
 }
 
 #events .markup-overlay {
@@ -3051,6 +3057,7 @@ a.footer-links i:hover {
     width: 100%;
     top: 0;
     left: 0;
+    border-radius: 3px;
 }
 
 #events .event-past .markup-overlay {
@@ -3059,11 +3066,6 @@ a.footer-links i:hover {
 
 #events .event-upcoming .markup-overlay {
     background-color: rgba(241, 21, 128, .3)
-}
-
-#events .markup .markup-content {
-    z-index: 1;
-    padding: 20px 10px;
 }
 
 #events .markup-desc {
@@ -3109,3 +3111,36 @@ a.footer-links i:hover {
         color: white;
     }
 }
+
+#events .owl-carousel {
+    background-color: white;
+}
+.events-separator {
+    height: 20rem;
+    position: relative;
+}
+
+#loading-bar-spinner.spinner {
+    left: 50%;
+    margin-left: -20px;
+    top: 50%;
+    margin-top: -20px;
+    position: absolute;
+    color: #f21580;
+    animation: loading-bar-spinner 400ms linear infinite;
+}
+
+#loading-bar-spinner.spinner .spinner-icon {
+    width: 40px;
+    height: 40px;
+    border:  solid 4px transparent;
+    border-top-color:  #f21580 !important;
+    border-left-color: #f21580 !important;
+    border-radius: 50%;
+}
+
+@keyframes loading-bar-spinner {
+    0%   { transform: rotate(0deg);   transform: rotate(0deg); }
+    100% { transform: rotate(360deg); transform: rotate(360deg); }
+}
+

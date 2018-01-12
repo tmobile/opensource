@@ -31,12 +31,14 @@ function retrieveEventsData() {
                         if (!response.result.items.length) {
                             return noEvents('No Events Scheduled');
                         }
-                        var allEventsTemplate = '<div class="text-center">' +
+                        var allEventsTemplate = '<div class="cat-prize-section">' +
+                            '<div class="container grid text-center">' +
                             '<div class="btn btn-white">' +
                             '<button onclick="window.open(\'https://calendar.google.com/calendar?cid=M25hdHBlMjdubGxtcmZpNWlrZ2FvYWd0bjRAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ\', \'_blank\')">' +
-                            '<span class="code-span">All Events</span>' +
+                            '<span class="code-span">ALL EVENTS</span>' +
                             '</button>' +
                             '</div>' +
+                            '</div>'+
                             '</div>';
                         carousel.after(allEventsTemplate);
 
@@ -137,8 +139,8 @@ function newEvent(eventData) {
     var eventTemplate = '<div class="markup ' + markupClass + '">' +
         '<div class="markup-overlay">' +
         '<div class="markup-content">' +
-        '<div class="markup-header">' + summary + '</div>' +
         '<div class="markup-details"> ' +
+        '<div class="markup-text">' + summary + '</div>' +
         '<div class="markup-desc" title="' + description + '">' + description + ' </div>' +
         '</div>' +
         '<div class="markup-footer">' +

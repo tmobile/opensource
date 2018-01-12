@@ -7,14 +7,22 @@
                 <polygon points="0,0 100,10 100,0"/>
             </svg>
         </div>
-        <div class="container grid text-center">
-                <div class="section-heading cat-details-section">
-                    <h2 class="section-heading">
-                        {{.Site.Params.videos.headline}}
-                    </h2>
-                    <span class="section-heading">
-                        {{ .Site.Params.videos.summary}}
-                    </span>
+        <div class="adjust clearfix">
+            <div class="container grid added-extra-margin">
+                <div class="row">
+                    <div class="text-center">
+                        <h2 class="section-heading cat-details-section">
+                            {{ with .Site.Params.videos.headline }}
+                                {{ . | markdownify }}
+                            {{ end }}
+                        </h2>
+                        <span class="section-heading cat-content">
+                            {{ with .Site.Params.videos.summary }}
+                                {{ . | markdownify }}
+                            {{ end }}
+                        </span>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="container container-margin grid text-center">

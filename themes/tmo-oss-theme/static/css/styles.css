@@ -667,7 +667,7 @@ button:focus {
 }
 
 .margin-container {
-    margin-bottom: 40px;
+    margin-bottom: 20px;
 }
 
 .cat-prize-section button {
@@ -1366,7 +1366,7 @@ footer .margin-container {
 
 }
 
- .markup {
+#events .markup, #services .markup{
     min-height: 13rem;
 }
 
@@ -2965,6 +2965,7 @@ a.footer-links i:hover {
 }
 
 #videos .cat-prize-section button {
+    margin: 20px 0;
     background-color: white;
     color: #f21580;
 }
@@ -3084,10 +3085,21 @@ a.footer-links i:hover {
     font-size: 2.5rem;
 }
 
-#events .section-heading span {
+#events .section-heading  {
     color: black;
 }
+#events button  {
+    margin: 20px 0;
+}
 
+#events .owl-carousel .owl-item {
+    margin: 0 !important;
+    transform: scale(.97);
+}
+#events .owl-carousel .owl-item.center{
+    transform: scale(1.02);
+    margin: 0 3px;
+}
 @media (min-width: 480px) {
     #events .owl-carousel .owl-prev {
         left: -50px;
@@ -3114,10 +3126,6 @@ a.footer-links i:hover {
 
 #events .owl-carousel {
     background-color: white;
-}
-.events-separator {
-    height: 20rem;
-    position: relative;
 }
 
 #loading-bar-spinner.spinner {

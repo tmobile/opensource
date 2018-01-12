@@ -2,13 +2,23 @@
 <section id="events">
     <div class="bg-primary cat-features-section">
         <div class="container grid text-center">
-            <div class="section-heading cat-details-section">
-                <h2 class="section-heading">
-                    {{.Site.Params.events.headline}}
-                </h2>
-                <span class="section-heading">
-                        {{ .Site.Params.events.summary}}
-                    </span>
+            <div class="row">
+                <div class="col-lg-12 margin-container">
+                    <h2 class="">
+                        <!-- //change added top pad -->
+                        <span class="cat-hdg">
+                            {{ with .Site.Params.events }}
+                                {{ .headline | markdownify }}
+                            {{ end }}
+                        </span>
+                    </h2>
+                </div>
+        
+                <div class="col-lg-12 text-left margin-container contributor section-heading">
+                    {{ with .Site.Params.events }}
+                        {{ .summary | markdownify }}
+                    {{ end }}
+                </div>
             </div>
             <div class="container grid container-margin">
                 <div class="events-separator">

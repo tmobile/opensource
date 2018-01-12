@@ -1299,7 +1299,7 @@ footer .margin-container {
     .power {
         width: 100%;
         padding-top: 0px;
-        height: 32vh;
+        height: auto;
     }
 
     .blog-row .markup .blog-tile-header {
@@ -1311,7 +1311,7 @@ footer .margin-container {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        height: 22vh;
+        height: auto;
     }
 
     .blog-tile-paragraph {
@@ -1336,6 +1336,7 @@ footer .margin-container {
         font-size: 10px;
         align-items: center;
         display: none;
+        text-align: left;
     }
 
     .blog-tile-subheader {
@@ -1348,7 +1349,8 @@ footer .margin-container {
 @media (min-width: 650px) and (max-width: 1100px) {
 
     .power {
-        height: 20vh;
+        height: auto;
+        padding: 10px;
     }
 
     .smallblogContainer {
@@ -3103,7 +3105,7 @@ a.footer-links i:hover {
     margin-top: 1rem;
 }
 
-@media(orientation: landscape) {
+@media(orientation: landscape and max-width: 768px) {
     #events .owl-item {
         padding: 0 10px;
     }

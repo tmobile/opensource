@@ -7,33 +7,31 @@
                 <polygon points="0,0 100,10 100,0"/>
             </svg>
         </div>
-        <div class="container grid">
+        <div class="container grid text-center">
+                <div class="section-heading cat-details-section">
+                    <h2 class="section-heading">
+                        {{.Site.Params.videos.headline}}
+                    </h2>
+                    <span class="section-heading">
+                        {{ .Site.Params.videos.summary}}
+                    </span>
+            </div>
+        </div>
+        <div class="container container-margin grid text-center">
             <div class="row">
                 <div class="col-lg-12 text-center margin-container">
-                    <h2>
-                        <span class="cat-hdg">
-                            {{ .Site.Params.videos.headline}}
-                        </span>
-                    </h2>
-                    <!--<span class="section-heading cat-content">-->
-                    <!--Quis, consequat sed metus. Etiam faucibus elit tempor, convallis felis no-->
-                    <!--</span>-->
-                </div>
-                <div class="row">
-                    <div class="col-lg-12 text-center margin-container">
-                        <div class="video-container">
-                            {{$mainVideoIndex := 0}}
-                            <iframe class="main-video"
-                                    src="{{(index .Site.Params.videos.data $mainVideoIndex).url}}" frameborder="0"
-                                    gesture="media"
-                                    allow="encrypted-media">
-                            </iframe>
-                            <div class="main-video-overlay"
-                                 onclick="openVideoModal({{(index .Site.Params.videos.data $mainVideoIndex).title}},
+                    <div class="video-container">
+                        {{$mainVideoIndex := 0}}
+                        <iframe class="main-video"
+                                src="{{(index .Site.Params.videos.data $mainVideoIndex).url}}" frameborder="0"
+                                gesture="media"
+                                allow="encrypted-media">
+                        </iframe>
+                        <div class="main-video-overlay"
+                             onclick="openVideoModal({{(index .Site.Params.videos.data $mainVideoIndex).title}},
                              {{(index .Site.Params.videos.data $mainVideoIndex).url}})"
-                                 data-toggle="modal"
-                                 data-target="#videoModal"></div>
-                        </div>
+                             data-toggle="modal"
+                             data-target="#videoModal"></div>
                     </div>
                 </div>
             </div>
@@ -88,15 +86,16 @@
                     </div>
                 </div>
             </div>
-            <div class="text-center" style="margin-top: 20px">
-                <button href=""
-                        class="btn white-btn"
-                        type="input"
-                        onclick="window.open('https://www.youtube.com/playlist?list=PL0mz2nejZ-DgH0XsbYDrKPbeMiEJYWqUg', '_blank')">
-                    <span class="code-span">All Videos</span>
-                </button>
+            <div class="cat-prize-section">
+                <div class="container grid text-center">
+                    <div class="btn btn-white">
+                        <button type="input"
+                                onclick="window.open('https://www.youtube.com/playlist?list=PL0mz2nejZ-DgH0XsbYDrKPbeMiEJYWqUg', '_blank')">
+                            <span class="code-span">ALL VIDEOS</span>
+                        </button>
+                    </div>
+                </div>
             </div>
-
         </div>
         <div class="separator pull-down">
             <svg class="white-transparent" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 10"
@@ -109,11 +108,11 @@
 
 <div id="videoModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
-            <iframe id="videoModalSrc"
-                    src=""
-                    frameborder="0"
-                    gesture="media"
-                    allow="encrypted-media">
-            </iframe>
+        <iframe id="videoModalSrc"
+                src=""
+                frameborder="0"
+                gesture="media"
+                allow="encrypted-media">
+        </iframe>
     </div>
 </div>

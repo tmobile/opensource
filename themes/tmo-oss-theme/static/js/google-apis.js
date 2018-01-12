@@ -5,90 +5,97 @@ function retrieveEventsData() {
     var SCOPES = "https://www.googleapis.com/auth/calendar.readonly";
     // var CALENDAR_ID = '3natpe27nllmrfi5ikgaoagtn4@group.calendar.google.com';
     var CALENDAR_ID = 'muk4317cue1ndb659obo3fcl60@group.calendar.google.com';
-    gapi.load('client:auth2', function () {
-        gapi.client.init({
-            apiKey: API_KEY,
-            clientId: CLIENT_ID,
-            discoveryDocs: DISCOVERY_DOCS,
-            scope: SCOPES
-        }).then(function () {
-            var oneWeekAgo = new Date();
-            oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
+    gapi.load('client:auth2', {
+        onerror: function () {
+            noEvents('Failed to load data');
+        },
+        callback: function () {
+            gapi.client.init({
+                apiKey: API_KEY,
+                clientId: CLIENT_ID,
+                discoveryDocs: DISCOVERY_DOCS,
+                scope: SCOPES
+            }).then(function () {
+                var oneWeekAgo = new Date();
+                oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
 
-            return gapi.client.calendar.events.list({
-                'calendarId': CALENDAR_ID,
-                'showDeleted': false,
-                'singleEvents': true,
-                'orderBy': 'startTime'
+                return gapi.client.calendar.events.list({
+                    'calendarId': CALENDAR_ID,
+                    'showDeleted': false,
+                    'singleEvents': true,
+                    'orderBy': 'startTime'
+                })
             })
-        })
-            .then(function (response) {
-                var carousel = $('#events .owl-carousel');
-                if (!response.result.items.length) {
-                    var noEventsTemplate = '<div class="text-center"><span class="code-span" style="color: black">No Events Scheduled</span></div>';
-                    carousel.after(noEventsTemplate);
-                    return;
-                } else {
-                    var allEventsTemplate = '<div class="text-center">' +
-                        '<div class="btn btn-white">' +
-                        '<button onclick="window.open(\'https://calendar.google.com/calendar?cid=M25hdHBlMjdubGxtcmZpNWlrZ2FvYWd0bjRAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ\', \'_blank\')">' +
-                        '<span class="code-span">All Events</span>' +
-                        '</button>' +
-                        '</div>' +
-                        '</div>';
-                    carousel.after(allEventsTemplate);
-                }
-
-                var pastEventsCount = 0;
-
-                for (var i = 0; i < response.result.items.length; i += 1) {
-                    var eventData = response.result.items[i];
-                    var result = newEvent(eventData);
-                    var eventElement = result.eventTemplate;
-                    pastEventsCount += result.isPast ? 1 : 0;
-
-                    carousel.append(eventElement);
-                }
-
-                if (pastEventsCount === response.result.items.length) {
-                    pastEventsCount -= 1;
-                }
-
-                carousel.owlCarousel({
-                    items: 5,
-                    nav: true,
-                    mouseDrag: false,
-                    center: true,
-                    dots: false,
-                    navText: [],
-                    margin: 10,
-                    responsive: {
-                        0: {
-                            items: 1,
-                            startPosition: pastEventsCount
-                        },
-                        480: {
-                            items: 1,
-                            startPosition: pastEventsCount
-                        },
-                        768: {
-                            items: 2,
-                            startPosition: pastEventsCount
-                        },
-                        1024: {
-                            items: 3,
-                            startPosition: pastEventsCount
-                        },
-                        1200: {
-                            items: 5,
-                            startPosition: pastEventsCount
+                .then(function (response) {
+                        var carousel = $('#events .owl-carousel');
+                        if (!response.result.items.length) {
+                            return noEvents('No Events Scheduled');
                         }
-                    }
-                });
+                        var allEventsTemplate = '<div class="text-center">' +
+                            '<div class="btn btn-white">' +
+                            '<button onclick="window.open(\'https://calendar.google.com/calendar?cid=M25hdHBlMjdubGxtcmZpNWlrZ2FvYWd0bjRAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ\', \'_blank\')">' +
+                            '<span class="code-span">All Events</span>' +
+                            '</button>' +
+                            '</div>' +
+                            '</div>';
+                        carousel.after(allEventsTemplate);
 
-                $("#events .owl-nav .owl-prev").addClass("left carousel-control glyphicon glyphicon-chevron-left");
-                $("#events .owl-nav .owl-next").addClass("right carousel-control glyphicon glyphicon-chevron-right");
-            });
+                        var filteredEventsList = filterToTen(response.result.items);
+
+                        var pastEventsCount = 0;
+
+                        for (var i = 0; i < filteredEventsList.length; i += 1) {
+                            var eventData = filteredEventsList[i];
+                            var result = newEvent(eventData);
+                            var eventElement = result.eventTemplate;
+                            pastEventsCount += result.isPast ? 1 : 0;
+
+                            carousel.append(eventElement);
+                        }
+
+                        if (pastEventsCount === response.result.items.length) {
+                            pastEventsCount -= 1;
+                        }
+
+                        carousel.owlCarousel({
+                            items: 5,
+                            nav: true,
+                            mouseDrag: false,
+                            center: true,
+                            dots: false,
+                            navText: [],
+                            margin: 10,
+                            responsive: {
+                                0: {
+                                    items: 1,
+                                    startPosition: pastEventsCount
+                                },
+                                480: {
+                                    items: 1,
+                                    startPosition: pastEventsCount
+                                },
+                                768: {
+                                    items: 2,
+                                    startPosition: pastEventsCount
+                                },
+                                1024: {
+                                    items: 3,
+                                    startPosition: pastEventsCount
+                                },
+                                1200: {
+                                    items: 5,
+                                    startPosition: pastEventsCount
+                                }
+                            }
+                        });
+
+                        $("#events .owl-nav .owl-prev").addClass("left carousel-control glyphicon glyphicon-chevron-left");
+                        $("#events .owl-nav .owl-next").addClass("right carousel-control glyphicon glyphicon-chevron-right");
+                    },
+                    function () {
+                        noEvents('No Events Scheduled');
+                    });
+        }
     });
 }
 
@@ -112,42 +119,35 @@ function newEvent(eventData) {
 
 
     var markupClass;
-    // if (!!eventData.start.dateTime) {
     if (start <= new Date()) {
         isPast = true;
         markupClass = 'event-past';
     } else {
         markupClass = 'event-upcoming';
     }
-    // } else {
-    //     var plusOneDay = new Date(start);
-    //     if (new Date(start) < new Date().getDay()) {
-    //         markupClass = 'event-past';
-    //     } else {
-    //         markupClass = 'event-upcoming';
-    //     }
-    // }
 
 
-    var imageTag = false;
+    var imageTag = true;
     // if (eventData.attachments) {
     //     imageTag = 'https://drive.google.com/uc?id=' +
     //         eventData.attachments[0].fileId +
     //         '&export=download';
     // }
 
-    var eventTemplate = '<div class="markup ' + markupClass + '"' +
-        (!!imageTag ? ' style="background: url(' + imageTag + ');' +
-            'background-size: cover;">' : '>') +
-        // '<div class="markup-overlay"></div>' +
+    var eventTemplate = '<div class="markup ' + markupClass + '">' +
+        '<div class="markup-overlay">' +
         '<div class="markup-content">' +
         '<div class="markup-header">' + summary + '</div>' +
         '<div class="markup-details"> ' +
-        '<div class="markup-text">' + description + '</div>' +
+        '<div class="markup-desc" title="' + description + '">' + description + ' </div>' +
         '</div>' +
-        '<div class="markup-footer">' + date + time + '</div>' +
+        '<div class="markup-footer">' +
+        '<span class="fa fa-calendar"></span>' +
+        date + time + '</div>' +
+        '</div>' +
         '</div>' +
         '</div>';
+    // '<div class="markup-overlay"></div>';
     return {
         isPast: isPast,
         eventTemplate: eventTemplate
@@ -198,4 +198,45 @@ function formatTimeSpan(start, end) {
         ' - ' +
         endHours + (endMin === 0 ? '' : (':' + endMin)) + ' ' + endM;
     return dateString;
+}
+
+function noEvents(message) {
+    var carousel = $('#events .owl-carousel');
+    var noEventsTemplate = '<div class="text-center">' +
+        '<span class="code-span" style="color: black">' + message + '</span>' +
+        '</div>';
+    carousel.after(noEventsTemplate);
+    return;
+}
+
+function filterToTen(events) {
+    var minDistanceToNow;
+    var index;
+    for (var i = 0; i < events.length; i += 1) {
+        var eventDate = new Date(events[i].start.dateTime || events[i].start.date);
+        var eventTimeAway = Math.abs(eventDate - new Date());
+        if (minDistanceToNow) {
+            if (eventTimeAway < minDistanceToNow) {
+                minDistanceToNow = eventTimeAway;
+                index = i;
+            }
+        } else {
+            minDistanceToNow = eventTimeAway;
+            index = i;
+        }
+    }
+
+    var list = [];
+    for (var j = 5; j > 0; j -= 1) {
+        if (events[index - j]) {
+            list.push(events[index - j])
+        }
+    }
+
+    for (var k = 0; k < 5; k += 1) {
+        if (events[index + k]) {
+            list.push(events[index + k])
+        }
+    }
+    return list;
 }

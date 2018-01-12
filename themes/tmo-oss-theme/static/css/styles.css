@@ -297,6 +297,7 @@ header .header-content .header-content-inner p {
     font-size: 2.4rem;
     letter-spacing: 1px;
     color: #f21580;
+    text-transform: uppercase;
 }
 
 .tag-content {
@@ -2941,7 +2942,6 @@ a.footer-links i:hover {
 
 #videos {
     padding: 0;
-    /*margin-top: -5rem;*/
 }
 
 #videos .separator.pull-down {
@@ -2950,14 +2950,6 @@ a.footer-links i:hover {
 
 #videos .separator.pull-up {
     padding-bottom: 5rem;
-}
-
-/*#videos .bg-primary {*/
-/*padding-top: 5rem;*/
-/*}*/
-
-#videos .cat-content {
-    font-family: 'Tele Grotesk Halb';
 }
 
 #videos iframe {
@@ -2970,6 +2962,11 @@ a.footer-links i:hover {
     height: calc(((9 / 16) * (.85 * 100vw)) - 30px);
     max-width: 640px;
     max-height: 385px;
+}
+
+#videos .cat-prize-section button {
+    background-color: white;
+    color: #f21580;
 }
 
 #videos .main-video {
@@ -3029,55 +3026,64 @@ a.footer-links i:hover {
     }
 }
 
+@media(orientation: landscape) {
+    #videoModal .modal-dialog {
+        height: calc(85vh);
+        width: calc((16/9) * (85vh));
+        margin: 7vh auto;
+    }
+}
+
 #videoModal iframe {
     height: 100%;
     width: 100%;
 }
 
-#events .cat-content {
-    font-family: 'Tele Grotesk Halb';
-}
-
 #events .markup {
-    text-align: center;
-    font-size: 20px;
-    position: relative;
-    margin-top: calc(2vh + 4px);
+    background: url("../img/pexels-photo-313691.jpeg");
+    background-size: cover;
+    margin: 4px;
 }
 
-#events .markup .markup-overlay {
+#events .markup-overlay {
     position: absolute;
     height: 100%;
     width: 100%;
     top: 0;
     left: 0;
-    border-radius: 3px;
+}
+
+#events .event-past .markup-overlay {
+    background-color: rgba(75, 75, 75, .5)
+}
+
+#events .event-upcoming .markup-overlay {
+    background-color: rgba(241, 21, 128, .3)
 }
 
 #events .markup .markup-content {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
-    border-radius: 3px;
+    z-index: 1;
     padding: 20px 10px;
 }
 
-#events .markup.event-past {
-    background-color: #4B4B4B;
+#events .markup-desc {
+    font-size: .9rem;
+    font-family: 'Tele grotesk Halb light';
+    height: 2.6rem;
+    line-height: 1.3rem;
 }
 
-#events .markup.event-upcoming {
-    background-color: #F21580;
+#events .markup-footer .fa {
+    margin-right: 5px;
 }
 
-#events .owl-carousel .owl-item.center .markup {
-    padding-left: .5em;
-    padding-right: .5em;
-    height: 34vh;
-    margin-top: 4px;
-    margin-bottom: 4px;
+#events .section-heading h2 {
+    color: #f21580;
+    font-size: 2.5rem;
+}
+
+#events .section-heading span {
+    color: black;
 }
 
 @media (min-width: 480px) {
@@ -3102,18 +3108,4 @@ a.footer-links i:hover {
     #events .owl-carousel .owl-next {
         color: white;
     }
-}
-
-#events .markup .markup-header {
-    font-size: 20px;
-    font-weight: bold;
-}
-
-#events .markup .markup-details {
-    margin-top: 10px;
-    font-size: 16px;
-}
-
-#events .markup .markup-footer {
-    font-size: 20px;
 }

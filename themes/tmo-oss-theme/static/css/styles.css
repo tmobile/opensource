@@ -2984,19 +2984,17 @@ a.footer-links i:hover {
 }
 
 #videos .video-playlist {
-    display: flex;
-    justify-content: space-between;
     margin: 0 10em;
 
 }
 
-@media (max-width: 1439px) {
+@media (max-width: 1542px) {
     #videos .video-playlist > :nth-child(3) {
         display: none;
     }
 }
 
-@media (max-width: 1055px) {
+@media (max-width: 1105px) {
     #videos .video-playlist {
         display: none;
     }
@@ -3004,6 +3002,8 @@ a.footer-links i:hover {
 
 #videos .small-video-container {
     position: relative;
+    display: inline-block;
+    margin: 10px;
 }
 
 #videos .small-video-overlay {
@@ -3074,6 +3074,7 @@ a.footer-links i:hover {
     font-family: 'Tele grotesk Halb light';
     height: 2.6rem;
     line-height: 1.3rem;
+    overflow: hidden;
 }
 
 #events .markup-footer .fa {
@@ -3096,16 +3097,18 @@ a.footer-links i:hover {
 }
 
 #events .owl-carousel .owl-item {
-    margin: 2rem 0 !important;
+    /*margin-bottom: 1rem;*/
+    margin-top: 1rem;
 }
 #events .owl-carousel .owl-item.center{
-    transform: scale(1.02);
-    margin: 1rem 0 !important;
+    margin-top: 0;
 }
+
 #events .owl-item.center .markup{
     height: 15rem;
     min-height: 15rem;
 }
+
 @media (min-width: 480px) {
     #events .owl-carousel .owl-prev {
         left: -50px;
@@ -3130,8 +3133,25 @@ a.footer-links i:hover {
     }
 }
 
+#events .read-more-link {
+    display: none;
+    font-size: 18px;
+    font-family: "Tele Grotesk Ult";
+    color: white;
+}
+
+#events .owl-item.center .read-more-link {
+    display: block;
+}
+
+#events .events-separator {
+    height: 20rem;
+    position: relative;
+}
+
 #events .owl-carousel {
     background-color: white;
+
 }
 
 #loading-bar-spinner.spinner {

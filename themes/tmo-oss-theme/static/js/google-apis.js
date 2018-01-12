@@ -38,7 +38,7 @@ function retrieveEventsData() {
                             '<span class="code-span">ALL EVENTS</span>' +
                             '</button>' +
                             '</div>' +
-                            '</div>'+
+                            '</div>' +
                             '</div>';
                         carousel.after(allEventsTemplate);
 
@@ -141,7 +141,9 @@ function newEvent(eventData) {
         '<div class="markup-content">' +
         '<div class="markup-details"> ' +
         '<div class="markup-text">' + summary + '</div>' +
-        '<div class="markup-desc" title="' + description + '">' + description + ' </div>' +
+        '<div class="markup-desc" title="' + description + '">' + description + ' ' +
+        '</div>' +
+        '<a href="' + eventData.htmlLink + '" class="read-more-link">Read More</a>' +
         '</div>' +
         '<div class="markup-footer">' +
         '<span class="fa fa-calendar"></span>' +
@@ -208,6 +210,9 @@ function noEvents(message) {
         '<span class="code-span" style="color: black">' + message + '</span>' +
         '</div>';
     carousel.after(noEventsTemplate);
+
+    var spinner = $('#loading-bar-spinner');
+    spinner.remove();
     return;
 }
 

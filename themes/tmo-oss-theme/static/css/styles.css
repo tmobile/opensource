@@ -3091,14 +3091,20 @@ a.footer-links i:hover {
 #events button  {
     margin: 20px 0;
 }
+#events .owl-stage-outer {
+    height: 17rem;
+}
 
 #events .owl-carousel .owl-item {
-    margin: 0 !important;
-    transform: scale(.97);
+    margin: 2rem 0 !important;
 }
 #events .owl-carousel .owl-item.center{
     transform: scale(1.02);
-    margin: 0 3px;
+    margin: 1rem 0 !important;
+}
+#events .owl-item.center .markup{
+    height: 15rem;
+    min-height: 15rem;
 }
 @media (min-width: 480px) {
     #events .owl-carousel .owl-prev {

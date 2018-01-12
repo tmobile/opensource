@@ -66,7 +66,7 @@ function retrieveEventsData() {
                             center: true,
                             dots: false,
                             navText: [],
-                            margin: 10,
+                            margin: 0,
                             responsive: {
                                 0: {
                                     items: 1,

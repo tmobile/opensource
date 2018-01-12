@@ -3075,6 +3075,8 @@ a.footer-links i:hover {
     height: 2.6rem;
     line-height: 1.3rem;
     overflow: hidden;
+    white-space: nowrap;
+    text-overflow-ellipsis: '...';
 }
 
 #events .markup-footer .fa {
@@ -3100,6 +3102,12 @@ a.footer-links i:hover {
     /*margin-bottom: 1rem;*/
     margin-top: 1rem;
 }
+
+@media(orientation: landscape) {
+    #events .owl-item {
+        padding: 0 10px;
+    }
+}
 #events .owl-carousel .owl-item.center{
     margin-top: 0;
 }
@@ -3109,28 +3117,16 @@ a.footer-links i:hover {
     min-height: 15rem;
 }
 
-@media (min-width: 480px) {
-    #events .owl-carousel .owl-prev {
-        left: -50px;
-        position: absolute;
-        color: #F21580;
-    }
-
-    #events .owl-carousel .owl-next {
-        right: -50px;
-        position: absolute;
-        color: #F21580;
-    }
+#events .owl-carousel .owl-prev {
+    left: -50px;
+    position: absolute;
+    color: #F21580;
 }
 
-@media (max-width: 479px) {
-    #events .owl-carousel .owl-prev {
-        color: white;
-    }
-
-    #events .owl-carousel .owl-next {
-        color: white;
-    }
+#events .owl-carousel .owl-next {
+    right: -50px;
+    position: absolute;
+    color: #F21580;
 }
 
 #events .read-more-link {
@@ -3147,6 +3143,11 @@ a.footer-links i:hover {
 #events .events-separator {
     height: 20rem;
     position: relative;
+}
+
+#events .no-events {
+    position: absolute;
+    top: calc(50% - 10px);
 }
 
 #events .owl-carousel {

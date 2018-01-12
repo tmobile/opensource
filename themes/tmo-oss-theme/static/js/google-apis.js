@@ -72,14 +72,6 @@ function retrieveEventsData() {
                                     items: 1,
                                     startPosition: pastEventsCount
                                 },
-                                480: {
-                                    items: 1,
-                                    startPosition: pastEventsCount
-                                },
-                                768: {
-                                    items: 2,
-                                    startPosition: pastEventsCount
-                                },
                                 1024: {
                                     items: 3,
                                     startPosition: pastEventsCount
@@ -206,13 +198,46 @@ function formatTimeSpan(start, end) {
 
 function noEvents(message) {
     var carousel = $('#events .owl-carousel');
-    var noEventsTemplate = '<div class="text-center">' +
-        '<span class="code-span" style="color: black">' + message + '</span>' +
-        '</div>';
-    carousel.after(noEventsTemplate);
 
-    var spinner = $('#loading-bar-spinner');
-    spinner.remove();
+    var eventTemplate = '<div class="markup event-past">' +
+        '<div class="markup-overlay">' +
+        '<div class="markup-content">' +
+        '<div class="markup-details"> ' +
+        '<div class="markup-text">No Events Scheduled</div>' +
+        '</div>' +
+        '</div>' +
+        '</div>' +
+        '</div>';
+    carousel.append(eventTemplate);
+    carousel.owlCarousel({
+        items: 5,
+        nav: true,
+        mouseDrag: false,
+        center: true,
+        dots: false,
+        navText: [],
+        margin: 10,
+        responsive: {
+            0: {
+                items: 1
+            },
+            480: {
+                items: 1
+            },
+            768: {
+                items: 2
+            },
+            1024: {
+                items: 3
+            },
+            1200: {
+                items: 5
+            }
+        }
+    });
+
+    // var spinner = $('#loading-bar-spinner');
+    // spinner.remove();
     return;
 }
 

@@ -3092,6 +3092,7 @@ a.footer-links i:hover {
 
 #events .section-heading  {
     color: black;
+    text-align: center;
 }
 #events button  {
     margin: 20px 0;

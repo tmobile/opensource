@@ -1381,6 +1381,7 @@ footer .margin-container {
     overflow: hidden;
     font-size: 1.5rem;
     letter-spacing: .6px;
+    line-height: 1.2;
 }
 
 .markup-details .markup-desc {
@@ -3124,12 +3125,14 @@ a.footer-links i:hover {
     left: -50px;
     position: absolute;
     color: #F21580;
+    margin-top: -20px; 
 }
 
 #events .owl-carousel .owl-next {
     right: -50px;
     position: absolute;
     color: #F21580;
+    margin-top: -20px; 
 }
 
 #events .read-more-link {

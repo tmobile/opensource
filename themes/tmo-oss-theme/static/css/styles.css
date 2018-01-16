@@ -244,9 +244,9 @@ header .header-content .header-content-inner p {
 
 .cat-content {
     color: #fff;
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-family: 'Tele Grotesk Halb light';
-    letter-spacing: 0.1rem;
+    letter-spacing: 0.05rem;
     line-height: 1.4;
     margin-bottom: 40px;
 }
@@ -667,7 +667,7 @@ button:focus {
 }
 
 .margin-container {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .cat-prize-section button {

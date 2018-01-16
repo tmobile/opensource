@@ -1,3 +1,4 @@
+
 {{ "<!-- MODALS -->" | safeHTML }}
 <div class="requestAccess overlay-container display-none" id="overlay-container-services">
     <div class="overlay-state-con">
@@ -6,15 +7,15 @@
                 <div class="overlay-vertical-center">
                     <div class="overlay-innerwrap">
                         <div class="request-submit-widget">
-                            {{range where .Site.Pages "Section" "conduct"}} 
+                            {{range where .Site.Pages "Section" "conduct"}}
                                 {{ if eq .File.BaseFileName "index" }}
                                     <div>
                                         <div class="heading-overlay">
                                             <span class="cross-icon" onclick="closeModel()"><i aria-hidden="true" class="fa fa-times"></i></span>
                                                 <h1 class="success-header">{{ .Title }} </h1>
-                                        </div>                                  
+                                        </div>
                                         <div class="event-container">
-                                                {{ .Content }} 
+                                                {{ .Content }}
                                         </div>
                                     </div>
                                 {{end}}

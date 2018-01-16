@@ -32,7 +32,7 @@
                                     <div class="smallBlogContainer">
                                         <div class="blog-tile-header chop" title="{{ .Title | markdownify }}">{{ .Title | markdownify }}</div>
                                         <p class="blog-tile-paragraph">{{ slicestr .Summary 0 120| markdownify }}...</p>
-                                    </div>  
+                                    </div>
                                     <div class="authorContainer">
                                         <!-- {{ $author := index .Site.Params.authors .Params.author }} -->
                                         <h5>By: {{ .Params.author  | markdownify }}</h5>
@@ -41,8 +41,8 @@
                                                 {{ .ReadingTime }} minutes
                                             </div>
                                     </div>
-                                       
-                                </div> 
+
+                                </div>
                             </div>
                         </div>
                       {{ end }}
@@ -58,8 +58,13 @@
     </div>
   </div>
 </section>
+<!--<div class="separator pull-up">-->
+  <!--<svg class="pink-transparent" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 10" preserveAspectRatio="none">-->
+    <!--<polygon points="0 0 100 0 0 10" />-->
+  <!--</svg>-->
+<!--</div>-->
 <div class="separator pull-up">
   <svg class="pink-transparent" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 10" preserveAspectRatio="none">
-    <polygon points="0 0 100 0 0 10" />
+    <polygon points="0,0 100,0 0,10" />
   </svg>
 </div>

@@ -2,3 +2,4 @@ public
 config.toml
 .travis.yml
 .DS_Store
+/.idea

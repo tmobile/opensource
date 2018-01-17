@@ -26,7 +26,7 @@
     <div class="blog-event-container-angular">
         <div class="blog-first-container">
                 <!-- TODO: fix this link to go to blogs home -->
-                <a href="/blog"><h4 class="back-to-blogs"><i class="fa fa-arrow-left" aria-hidden="true"></i>   Back To Blogs</h4></a>
+                <a href="{{ .Site.Params.blog.navigate_to }}"><h4 class="back-to-blogs"><i class="fa fa-arrow-left" aria-hidden="true"></i>   Back To Blogs</h4></a>
                 <h2 class='blog-post-head' style="font-size: 2.5rem;">{{ .Title }}</h2>
                 <h3 class="blog-success-header-content author">By: {{ .Params.author }}</h3>
             <div class='blog-title-date bp-date'>

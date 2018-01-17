@@ -10,7 +10,6 @@
 			var secondval = (b.start.dateTime?b.start.dateTime : b.start.date);
             return Date.parse(firstval) - Date.parse(secondval);
         })
-        console.log(response.data.items);
         var allEventsTemplate = '<div class="cat-prize-section">' +
             '<div class="container grid text-center">' +
             '<div class="btn btn-white">' +
@@ -22,7 +21,6 @@
             '</div>';
         carousel.after(allEventsTemplate);
         var filteredEventsList = filterToTen(response.data.items);
-        console.log(filteredEventsList);
         var pastEventsCount = 0;
 
         for (var i = 0; i < filteredEventsList.length; i += 1) {
@@ -33,11 +31,9 @@
 
             carousel.append(eventElement);
         }
-        console.log(pastEventsCount);
         if (pastEventsCount === response.data.items.length) {
             pastEventsCount -= 1;
         }
-        console.log(pastEventsCount);
         carousel.owlCarousel({
             items: 5,
             nav: true,
@@ -212,9 +208,6 @@ function noEvents(message) {
             }
         }
     });
-
-    // var spinner = $('#loading-bar-spinner');
-    // spinner.remove();
     return;
 }
 

@@ -20,27 +20,54 @@
                 </div>
                 <div class="blog-event-container-angular">
                   <div class="blog-first-container">
-                    {{ range (.Paginate .Data.Pages).Pages }}
-                      {{ if ne .File.BaseFileName "index" }}
-                          <div class='blog-title-wrap'>
-                              <div class="blog-title-txt">
-                                  <a href="{{ .Permalink }}">{{ .Title | markdownify }}</a>
-                              </div>
-                              <div class='blog-title-date'>
-                                  {{.Date.Format "January 02, 2006" }}
-                              </div>
-                              <div class='blog-title-desc'>
-                                  {{ $page := . }}
-                                  {{ with .Description }}
-                                  {{ . | markdownify }}
-                                  {{ else }}
-                                  {{ .Summary | markdownify }}
-                                  {{ end }}
-                              </div>
-                              <a href="{{ .Permalink }}" class='blog-title-more'>[Read more...]</a>
-                          </div>
-                      {{end}}
-                    {{end}}      
+                    <!-- Renders list for sections -->
+                    {{ if .Sections }}
+                        {{ range .Sections }}
+                            {{ range .Data.Pages }}
+                                {{ if ne .File.BaseFileName "index" }}
+                                    <div class='blog-title-wrap'>
+                                        <div class="blog-title-txt">
+                                            <a href="{{ .Permalink }}">{{ .Title | markdownify }}</a>
+                                        </div>
+                                        <div class='blog-title-date'>
+                                            {{.Date.Format "January 02, 2006" }}
+                                        </div>
+                                        <div class='blog-title-desc'>
+                                            {{ $page := . }}
+                                            {{ with .Description }}
+                                            {{ . | markdownify }}
+                                            {{ else }}
+                                            {{ .Summary | markdownify }}
+                                            {{ end }}
+                                        </div>
+                                        <a href="{{ .Permalink }}" class='blog-title-more'>[Read more...]</a>
+                                    </div>
+                                {{end}}
+                            {{end}}
+                        {{end}}
+                    {{end}}
+                    <!-- Renders list for sub-sections -->
+                    {{ range .Data.Pages }}
+                        {{ if ne .File.BaseFileName "index" }}
+                            <div class='blog-title-wrap'>
+                                <div class="blog-title-txt">
+                                    <a href="{{ .Permalink }}">{{ .Title | markdownify }}</a>
+                                </div>
+                                <div class='blog-title-date'>
+                                    {{.Date.Format "January 02, 2006" }}
+                                </div>
+                                <div class='blog-title-desc'>
+                                    {{ $page := . }}
+                                    {{ with .Description }}
+                                    {{ . | markdownify }}
+                                    {{ else }}
+                                    {{ .Summary | markdownify }}
+                                    {{ end }}
+                                </div>
+                                <a href="{{ .Permalink }}" class='blog-title-more'>[Read more...]</a>
+                            </div>
+                        {{end}}
+                    {{end}}    
                   </div>
                   {{ partial "blog-sidebar.html" . }}
                 </div>

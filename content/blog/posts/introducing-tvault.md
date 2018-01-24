@@ -76,7 +76,7 @@ T-Vault is built to simplify the process of secrets management. It is an
 intuitive and easy-to-use tool that application developers can easily adopt
 without sacrificing their agility while still following best practices for
 secrets management. It uses a few open source products internally including, at
-its heart, Hashicorp Vault. Hashicorp Vault provides the core functionality of
+its heart, [Hashicorp Vault](https://www.vaultproject.io/). Hashicorp Vault provides the core functionality of
 safely storing secrets at rest and access control to those secrets. T-Vault
 builds on that base to provide a higher-level logical abstraction called
 **Safe** (internally using the concept of paths, within Hashicorp Vault).

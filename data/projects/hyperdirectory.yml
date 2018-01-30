@@ -1,7 +1,7 @@
 name: hyperdirectory
 full_name: tmobile/hyperdirectory
 description: Highly auditable blockchain-based, access management solution
-url: https://github.com/tmobile/hyperdirectory
+url: https://github.com/hyperledger/sawtooth-hyper-directory
 img: "foo.png"
 language: "BLOCKCHAIN"
 css: ""

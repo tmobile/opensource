@@ -1,5 +1,5 @@
-name: hyperdirectory
-full_name: tmobile/hyperdirectory
+name: hyper-directory
+full_name: hyperledger/sawtooth-hyper-directory
 description: Highly auditable blockchain-based, access management solution
 url: https://github.com/hyperledger/sawtooth-hyper-directory
 img: "foo.png"

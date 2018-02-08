@@ -12,7 +12,6 @@ function openPageInModal(href) {
 
 function openVideoModal(title, url) {
     $('#videoModalTitle').text(title);
-    console.log(url);
     $("#videoModalSrc").attr("src", url);
     $('#videoModal').on('hidden.bs.modal', function () {
         $("#videoModalSrc").attr("src", "");
@@ -21,7 +20,6 @@ function openVideoModal(title, url) {
 
 
 $(document).on("click", ".animated-scroll", function (e) {
-    console.log('onclick');
     if (window.location.pathname === '/') {
         e.preventDefault();
         var id = $(this).attr("href"),

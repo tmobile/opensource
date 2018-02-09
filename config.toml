@@ -1,9 +1,9 @@
-baseurl = "http://opensource.t-mobile.com/"
+baseurl = "http://opensource.corporate.t-mobile.com/"
 languageCode = "en-us"
 title = "T-Mobile Open Source"
 theme = "tmo-oss-theme"
-googleAnalytics = "UA-20393691-8"
-disqusShortname= "tmo-oss"
+googleAnalytics = "UA-20393691-7"
+disqusShortname= "tmo-oss-internal"
 
 [params]
 org_name = "tmobile"
@@ -20,9 +20,9 @@ favicon = "favicon.ico"
   headline3 = "UN-CARRIER"
   slogan = "Transforming wireless through technology innovation."
 
-    [params.hero.cta]
-    text = "VIEW PROJECTS"
-    navigate_to = "#PROJECTS"
+  [params.hero.cta]
+  text = "VIEW PROJECTS"
+  navigate_to = "#PROJECTS"
 
   [params.projects]
   headline = "PROJECTS"

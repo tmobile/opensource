@@ -1137,7 +1137,7 @@ footer .margin-container {
 }
 
 .event-container {
-    /*text-align: left;*/
+    text-align: left;
     overflow: auto;
     padding: 2rem 4rem 2rem 4rem;
     height: 50vh;

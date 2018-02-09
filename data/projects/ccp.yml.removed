@@ -1,7 +1,0 @@
-name: ccp
-full_name: tmobile/ccp
-description: Cloud Container Platform
-url: https://github.com/tmobile/ccp
-img: "foo.png"
-language: "DOCKER"
-css: ""

@@ -32,7 +32,7 @@ If you are new to Hugo, please check out this [QuickStart Guide](http://gohugo.i
 
 ### Github
 
-All the content that you see in this site is stored in a Github [repository](http://github.com/tmobile/opensource). Repository has two branches, "master" branch reflects all content currently public and accessible through opensource.t-mobile.com site and "develop" branch reflects all content currently public and any new content that is under development or review and accessible via opensource.corporate.t-mobile.com. Since the site is generated using Hugo, Hugo creates a folder called "content" to organize all content used in the site. We are also using the same site to host technical articles under "blog" section. You simply use Hugo commands to create content for respective sections of this site. All content is stored as [markdown](https://en.wikipedia.org/wiki/Markdown) files. Again please be sure to check out the [QuickStart Guide](http://gohugo.io/overview/quickstart/) if you are new to Hugo. 
+All the content that you see in this site is stored in a Github [repository](http://github.com/tmobile/opensource). Repository has two branches, "master" branch reflects all content currently public and accessible through opensource.t-mobile.com site and "develop" branch reflects all content currently public and any new content that is under development or review and accessible via opensource.corporate.t-mobile.com. Since the site is generated using Hugo, Hugo creates a folder called "content" to organize all content used in the site. We are also using the same site to host technical articles under "blog" section. You simply use Hugo commands to create content for respective sections of this site. All content is stored as [markdown](https://en.wikipedia.org/wiki/Markdown) files. Again please be sure to check out the [QuickStart Guide](http://gohugo.io/overview/quickstart/) if you are new to Hugo.
 
 ### Travis-CI
 
@@ -58,19 +58,17 @@ Its super simple to contribute content to this site, only requirement is to be f
 
 As mentioned earlier all content for internal instance of this site are generated from "develop" branch. At this point we are only accepting PRs from internal users as well as select folks from external community. When changes are merged to "develop" branch, builds run in Travis-CI which will generate site content using Hugo CLI and pushes the generated content into a folder within a S3 bucket using Travis-CI S3 deployment provider. After content is successfully pushed to S3 we run a custom script to invalidate the cloudfront distribution. You can see this from the [.travis.yml](https://raw.githubusercontent.com/tmobile/opensource/develop/.travis.yml) below for develop branch.
 
-![](/blog/devbuild.png)
+![devbuild](/blog/devbuild.png)
 
 ### External Site
 
 Master branch in the repository is protected so that nobody is allowed to push changes directly to it without a pull request and review. Our OSS site maintainers will review each PRs, All PRs must have atleast one approved reviewer and no changes requested to be eligible for merge into master branch. 
 Once the changes submitted via PR are merged to master branch, Travis-CI builds will build the content from master branch and publish to S3. Publishing steps in build script are pretty identical to what's described for develop branch, only difference is content is push to a different S3 bucket. Additionally when site content is generated using Hugo CLI, any content in draft state is skipped. You can see this from the [.travis.yml](https://raw.githubusercontent.com/tmobile/opensource/master/.travis.yml) below for master branch.
 
-![](/blog/masterbuild.png)
+![masterbuild](/blog/masterbuild.png)
 
 Hope you found this helpful.
 
 Cheers,
 
 Ram Gopinathan
-
-

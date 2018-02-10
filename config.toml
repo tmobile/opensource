@@ -59,7 +59,7 @@ favicon = "favicon.ico"
   [params.blog]
   headline = "BLOG"
   summary = "Read about T-Mobile technology development, release details and other insights from app teams."
-  navigate_to = "/blog/posts"
+  navigate_to = "/blog"
 
   [params.authors]
 

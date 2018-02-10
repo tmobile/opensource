@@ -14,7 +14,7 @@ authentication or authorization, instead went after the less interesting
 parts of the application. A lack of regular patching and poor handling of
 secrets tended to be the common cause for most attacks.
 
-**Let’s focus on the secret management for a minute…**
+# **Let’s focus on the secret management for a minute…**
 
 Keeping your secrets safe should be a top priority. In the world of secret
 management, any good solution should follow these basic security principles:
@@ -70,7 +70,7 @@ the complexities of managing paths, policies, tokens, leases and backends. We
 wanted to abstract away all the complexities and provide a black box solution
 that is easy to use.
 
-### We ended-up building [T-Vault](https://github.com/tmobile/t-vault) 
+## We ended-up building [T-Vault](https://github.com/tmobile/t-vault) 
 
 T-Vault is built to simplify the process of secrets management. It is an
 intuitive and easy-to-use tool that application developers can easily adopt
@@ -86,6 +86,6 @@ and documentation is available from within the UI (another attempt to make
 developers’ lives easier).
 
 T-Vault is open-sourced under the Apache License Version 2.0. Check out the
-project in[ GitHub](https://github.com/tmobile/t-vault) and this [short demo video](https://www.youtube.com/watch?v=fv3GOiFYAt8).
+project in [GitHub](https://github.com/tmobile/t-vault) and this [short demo video](https://www.youtube.com/watch?v=fv3GOiFYAt8).
 
 _(Note:  The T-Vault team has made every effort to review and test the present released version of T-Vault.  However, as with all security related software, a party’s security team should independently evaluate T-Vault and any modifications prior to any use.  Refer to the [readme.txt](https://github.com/tmobile/t-vault/blob/master/readme.txt))_

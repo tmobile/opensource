@@ -19,14 +19,19 @@ JSON Web Token (JWT) is an open standard ([RFC
 self-contained way for securely transmitting information between parties as a
 JSON object.
 
-* **Compact**: Because of their smaller size, JWTs can be sent through a URL, POST
+* **Compact**:
+
+Because of their smaller size, JWTs can be sent through a URL, POST
 parameter, or inside an HTTP header. Additionally, the smaller size means
 transmission is fast.
-* **Self-contained**: The payload contains all the required information about the
+
+* **Self-contained**:
+
+The payload contains all the required information about the
 user, avoiding the need to query the database more than once.
 
-![](https://cdn-images-1.medium.com/max/1600/1*2K2OEklVQEFaK_FysIuXmA.png)
-<span class="figcaption_hack">picture courtesy: [Toptal](https://medium.com/@Toptal)</span>
+![jwt](https://cdn-images-1.medium.com/max/1600/1*2K2OEklVQEFaK_FysIuXmA.png)
+picture courtesy: [Toptal](https://medium.com/@Toptal)
 
 Common scenarios to use JWT are Authentication & Secure Information exchange. As
 per our Authorization design and Internal API security guidance, we see a need
@@ -47,7 +52,7 @@ it is tied to. Consider Account & Lines are resources in telecom industry.
 Permission/Access information on each resources are called entitlements
 /authorization information.
 
-### Problem Statement
+# Problem Statement
 
 As per design specification, we need to include authorization information as
 part the ID Token. Authorization information includes resources and
@@ -60,8 +65,8 @@ their business functions/processes such as ‘Pay Bill’, ‘Cancel Subscriptio
 permissions/access rights / privileges which might have been defined at the
 system /application / product level.
 
-![](https://cdn-images-1.medium.com/max/1600/1*P7vm5jiMWqMLS06CDtMgRw.png)
-<span class="figcaption_hack">Image from googled result</span>
+![arch](https://cdn-images-1.medium.com/max/1600/1*P7vm5jiMWqMLS06CDtMgRw.png)
+Image from googled result
 
 Adding ABFs with the resource’s id in an ID Token would make it large in data
 size. Transferring a large content as a token from one service to another
@@ -73,12 +78,10 @@ compress the authorization information.
 Sample ABF List
 
 > *“WAIVE_PROCESSING_FEE”,*
-
 > *“PUSH_FEES_TO_BILL”,*
-
 > *“EXEMPT_PROCESSING_FEE”*
 
-### Solution
+# Solution
 
 As part of login, a user obtains an ID Token from IdP. IdP generates the ID
 Token after user authentication, and it adds authorization information (ABFs)
@@ -87,31 +90,33 @@ format, we can leverage the KeyBiner library. It masks ABF values to a bit
 position with a binary model, and compresses and uses character encoding to
 significantly reduce the payload size.
 
+```json
     {
-     “iss”:”account.domain.com”,
-     “sub”:”U-96be1cf7–0f9f-450c-bdbe-11d6e12f9926",
-     “AT”:”02.p4BkK0wCpBmCCW42l”,
-     “iat”:”1481699266017",
-     “exp”:”2824345",
-     “repid”:”xxxxxx”,
-     “repgrp”:”yyy,sss,ddd,ggg”,
-     “entitlements”:{
-     “accountNumber”:”987654320",
-     “ABFs”:[
-     “WAIVE_PROCESSING_FEE”,
-     “PUSH_FEES_TO_BILL”
-     ]
-     }
+        “iss”:”account.domain.com”,
+        “sub”:”U-96be1cf7–0f9f-450c-bdbe-11d6e12f9926",
+        “AT”:”02.p4BkK0wCpBmCCW42l”,
+        “iat”:”1481699266017",
+        “exp”:”2824345",
+        “repid”:”xxxxxx”,
+        “repgrp”:”yyy,sss,ddd,ggg”,
+        “entitlements”:{
+        “accountNumber”:”987654320",
+        “ABFs”:[
+                “WAIVE_PROCESSING_FEE”,
+                “PUSH_FEES_TO_BILL”
+            ]
+        }
     }
+```
 
 Here are the internal details: KeyBiner consumes ABF reference data which holds
 numeric assignment to each ABF. Example
 
-*24 — “WAIVE_PROCESSING_FEE”,*
+* *24 — “WAIVE_PROCESSING_FEE”,*
 
-*34 — “PUSH_FEES_TO_BILL”,*
+* *34 — “PUSH_FEES_TO_BILL”,*
 
-*56 — “EXEMPT_PROCESSING_FEE”*
+* *56 — “EXEMPT_PROCESSING_FEE”*
 
 Each ABF String/value is converted to a bit position based its numerical
 reference. Bit value 1 or 0 at that position specifies whether the ABF is
@@ -121,12 +126,12 @@ characters and encode to base64 characters. At the end of this process it would
 result significantly reduced size which can be transferred / used for
 authorization request. The result of string would look like
 
-
 Every service layer receives an ID Token as part of the request. The KeyBiner
 library can convert back to uncompressed format, and it can verify ABF existence
 from the token’s entitlement claim as well.
 
 The KeyBiner library can be used/extended for any purpose not just for
 authorization. You can find its source code and how-to in :
-[https://github.com/tmobile/keybiner](https://github.com/tmobile/keybiner). Have
-a nice day!!
+[https://github.com/tmobile/keybiner](https://github.com/tmobile/keybiner). 
+
+Have a nice day!!

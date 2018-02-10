@@ -58,9 +58,11 @@ Hyper Directory is a Proof-of-Concept (POC) built with Intel, that looks to
 solve several unique pain points which I’ve felt in T-Mobile’s enterprise cloud.
 
 * What is the source of truth for identity and permissions?
+
 * How do we tell not just the what, but the when of permission management?
-* How do we solve the “Who’s watching the watchers” problem of auditing change
-management?
+
+* How do we solve the “Who’s watching the watchers” problem of auditing change management?
+
 * How do we do all this in a way that reduces complexity and increases efficiency?
 
 Hyper Directory directly addresses each of these, and more. It’s first a RESTful
@@ -75,7 +77,6 @@ traditional LDAP based directory services will add a new dimension to the
 usability and security of Role-Based Access Control (RBAC) permission
 management.
 
-[Hyper Directory ](https://github.com/tmobile/hyperdirectory)will be
+[Hyper Directory](https://github.com/tmobile/hyperdirectory)will be
 open-sourced under the Hyperledger Project, and you can check it out now on
 GitHub.
-

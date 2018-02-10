@@ -49,7 +49,9 @@ Let’s dive into few of these developer pain points in more detail; this is
 important because some of these led to teams questioning the readiness of
 serverless services for enterprise adoption.
 
-1.*New Tools*: While serverless promised the notion of ‘writing code and forget
+1. *New Tools*:
+
+While serverless promised the notion of ‘writing code and forget
 everything else’, using these serverless services is not straightforward. Code
 once ready has to be deployed into serverless infrastructure which should be
 provisioned using cli/api or new serverless deployment tools. Each of these
@@ -57,14 +59,18 @@ tools requires developers to understand how they work and sometimes require
 changes to their application which is not appreciated by the application
 developers.
 
-1.*CI/CD*: Most of the available serverless deployment tools
+2. *CI/CD*:
+
+Most of the available serverless deployment tools
 (open-source/commercial) addresses major concerns related to easier/faster
 development and deployment. However, integrating those with existing enterprise
 CI/CD tooling is required to comply with the enterprise standards. This resulted
 in more platform integration work for developers instead of focusing on their
 application.
 
-1.*Monitoring & Logging*: Cloud providers have their own implementations to
+3. *Monitoring & Logging*:
+
+Cloud providers have their own implementations to
 support monitoring & logging. Developers always wanted an easier and quicker
 access to their application logs preferably at a location that they are already
 comfortable with (typically Splunk, Elasticsearch etc. within enterprises).
@@ -73,19 +79,25 @@ understand and configure these details themselves. This is not considering the
 fact that cloud providers do change (frequently) lower level details on how they
 implement logging (log formats for example).
 
-1.*Security*: While building APIs in 2 minutes appear exciting, today’s serverless
+4. *Security*:
+
+While building APIs in 2 minutes appear exciting, today’s serverless
 service implementations like AWS API Gateway may leave us with a greater exposed
 attack surface. Adding the security controls is required before we build a
 production grade serverless application using these services. Continuous
 compliance should be enforced to ensure services are always secure. Leaving
 these details to developers might leave the surface open for attacks.
 
-1.*Multi Cloud*: Most of these pain points multiply when developers want to use
+5. *Multi Cloud*:
+
+Most of these pain points multiply when developers want to use
 more than one cloud providers to host their applications built using serverless
 architectures. In fact, these are not easy problems to solve even when they try
 to use multiple accounts within a single cloud provider alone (in case of AWS).
 
-1.*DRY*: All in all, when developers started writing these smallest components of
+6. *DRY*:
+
+All in all, when developers started writing these smallest components of
 their applications — now called functions — sharing best practices within teams
 implementing decoupled services just got more difficult which led to
 duplication.

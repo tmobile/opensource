@@ -38,7 +38,7 @@ favicon = "favicon.ico"
 
     [params.code.cta]
     text = "VIEW DETAILS"
-    navigate_to = "/conduct/index.html"
+    navigate_to = "/conduct.html"
 
   [params.license]
   headline = "CONTRIBUTOR LICENSE AGREEMENT"

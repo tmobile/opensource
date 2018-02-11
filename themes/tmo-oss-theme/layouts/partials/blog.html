@@ -22,7 +22,7 @@
       <div class="row">
           <div class="cat-feature-box added-padding mobile-padding col-lg-12 col-md-12 col-sm-12">
               <div class="blog-row mobile-padding">
-                  {{ $paginator := .Paginate (where .Site.Pages "Type" "blog") }}
+                  {{ $paginator := .Paginate (where .Site.Pages "Section" "blog") }}
                   {{ range first 4 $paginator.Pages }}
                       {{ if ne .File.BaseFileName "index" }}
                         <div class="power markup markup-override" onclick="window.open('{{ .Permalink }}')">

@@ -5,7 +5,6 @@
       <div class="row">
         <div class="col-lg-12 margin-container">
             <h2 class="">
-                <!-- //change added top pad -->
                 <span class="cat-hdg opposite-font">
                     {{ with .Site.Params.blog }}
                         {{ .headline | markdownify }}
@@ -23,7 +22,7 @@
       <div class="row">
           <div class="cat-feature-box added-padding mobile-padding col-lg-12 col-md-12 col-sm-12">
               <div class="blog-row mobile-padding">
-                  {{ $paginator := .Paginate (where .Data.Pages "Section" "blog") }}
+                  {{ $paginator := .Paginate (where .Site.Pages "Type" "blog") }}
                   {{ range first 4 $paginator.Pages }}
                       {{ if ne .File.BaseFileName "index" }}
                         <div class="power markup markup-override" onclick="window.open('{{ .Permalink }}')">
@@ -58,11 +57,6 @@
     </div>
   </div>
 </section>
-<!--<div class="separator pull-up">-->
-  <!--<svg class="pink-transparent" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 10" preserveAspectRatio="none">-->
-    <!--<polygon points="0 0 100 0 0 10" />-->
-  <!--</svg>-->
-<!--</div>-->
 <div class="separator pull-up">
   <svg class="pink-transparent" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 10" preserveAspectRatio="none">
     <polygon points="0,0 100,0 0,10" />

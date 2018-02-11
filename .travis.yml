@@ -5,7 +5,7 @@ branches:
   only:
   - develop
 install:
-- go get -v github.com/spf13/hugo@0.29
+- go get -v github.com/gohugoio/hugo
 - sudo pip install awscli
 script:
 - hugo --cleanDestinationDir

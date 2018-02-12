@@ -20,7 +20,7 @@ Additional requirement is you need to have Faas cli installed and configured to 
 
 ```sh
 
-faas template pull git@github.com:tmobile/faas-java-templates.git
+faas template pull https://github.com/tmobile/faas-java-templates.git
 
 ```
 
@@ -34,9 +34,11 @@ faas new --list
 
 ## Creating functions using these templates
 
-As mentioned earlier repository currently provides both Vertx or SpringBoot templates. 
+As mentioned earlier repository currently provides both Vertx or SpringBoot templates.
 
-* To create a function using these templates, run the command below
+To create a function using these templates, run the command below.
+
+*Note: Replace string within '{}' with a value that makes sense for your usecase.*
 
 ```sh
 
@@ -46,7 +48,9 @@ faas new {name of function} --lang vertx|springboot
 
 ## Building the function
 
-Once you've implemented the function logic, you would build the function using the faas cli build command as shown below
+Once you've implemented the function logic, you would build the function using the faas cli build command as shown below.
+
+*Note: Replace string within '{}' with a value that makes sense for your usecase.*
 
 ```sh
 
@@ -67,6 +71,8 @@ faas push -f {stack yml}
 ## Deploying the function
 
 Once the function is built using the faas cli, you can simply deploy them as shown below
+
+*Note: Replace string within '{}' with a value that makes sense for your usecase.*
 
 ```sh
 

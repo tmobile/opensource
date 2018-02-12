@@ -11,7 +11,7 @@ title = "Introducing Vertx and SpringBoot Java Templates for OpenFaas"
 
 # Introduction
 
-This post is more of an introductory post announcing release of SpringBoot and Vertx Java templates for OpenFaas. These templates allow you to develop your serverless function for the OpenFaas platform using SpringBoot or Vertx. In the Java ecosystem both SpringBoot and Vertx are very popular frameworks for developing microservices. With the release of these templates we are brining the power of these frameworks into OpenFaas. You can find the templates in our github repository [here](https://github.com/tmobile/faas-java-templates). Please provide us any feedback, issues you might run into.
+This post is more of an introductory post announcing release of SpringBoot and Vertx Java templates for OpenFaas. These templates allow you to develop your serverless function for the OpenFaas platform using SpringBoot or Vertx. In the Java ecosystem both SpringBoot and Vertx are very popular frameworks for developing microservices. With the release of these templates we are bringing the power of these frameworks into OpenFaas. You can find the templates in our github repository [here](https://github.com/tmobile/faas-java-templates). Please provide us any feedback or issues you might run into. If you are new to OpenFaas, please check out this kubecon [talk](https://www.youtube.com/watch?v=XgsxqHQvMnM) by Alex Ellis creator of OpenFaas platform.
 
 ## Downloading the template
 
@@ -50,7 +50,7 @@ Once you've implemented the function logic, you would build the function using t
 
 ```sh
 
-faas build {stack yml} --image {function docker image} --handler {path to your function handler} --lang vert|springboot --name {function name}
+faas build {stack yml} --image {function docker image} --handler {path to your function handler} --lang vertx|springboot --name {function name}
 
 ```
 

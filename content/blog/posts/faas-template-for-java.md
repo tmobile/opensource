@@ -50,7 +50,7 @@ Once you've implemented the function logic, you would build the function using t
 
 ```sh
 
-faas build {stack yml} --image {function docker image} --handler {path to your function handler} --lang vert|springboot --name {function name}
+faas build {stack yml} --image {function docker image} --handler {path to your function handler} --lang vertx|springboot --name {function name}
 
 ```
 

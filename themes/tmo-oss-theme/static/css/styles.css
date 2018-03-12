@@ -3044,7 +3044,7 @@ a.footer-links i:hover {
 }
 
 #events .markup {
-    background: url("../img/business-people-crop.png");
+    /*background: url("../img/business-people-crop.png");*/
     background-size: cover;
     background-repeat: no-repeat;
     max-height: 13rem;
@@ -3053,6 +3053,15 @@ a.footer-links i:hover {
 
 #events .markup:hover {
     transform: translateY(0);
+}
+
+#events .markup-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: 80px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
 }
 
 #events .markup-overlay {
@@ -3069,7 +3078,7 @@ a.footer-links i:hover {
 }
 
 #events .event-upcoming .markup-overlay {
-    background-color: rgba(241, 21, 128, .6)
+    background-color: rgba(241, 21, 128, 1)
 }
 
 #events .markup-desc {
@@ -3078,8 +3087,19 @@ a.footer-links i:hover {
     height: 2.6rem;
     line-height: 1.3rem;
     overflow: hidden;
-    white-space: nowrap;
-    text-overflow-ellipsis: '...';
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+#events .markup-overlay {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    border-radius: 3px;
 }
 
 #events .markup-footer .fa {
@@ -3159,6 +3179,94 @@ a.footer-links i:hover {
 #events .owl-carousel {
     background-color: white;
 
+}
+
+#event-info-modal {
+    font-family: 'Tele Grotesk Halb';
+    border-radius: 5px;
+}
+
+#event-info-modal .modal-dialog {
+    position: relative;
+}
+
+#event-info-modal .modal-close {
+    color: white;
+    font-size: 60px;
+    position: absolute;
+    text-align: center;
+    height: 65px;
+    width: 65px;
+    top: 0;
+    right: 0;
+    line-height: 1;
+    z-index: 1;
+}
+
+#event-info-modal .modal-close:hover {
+    cursor: pointer;
+}
+
+#event-info-modal .modal-header {
+    background-color: #f21580;
+    padding-left: 64px;
+    padding-right: 64px;
+    border-radius: 5px;
+}
+
+#event-info-modal .modal-body {
+    padding: 36px 20px;
+}
+
+#event-info-modal .modal-title {
+    font-family: "Tele Grotesk Fet";
+    color: white;
+    padding-top: 48px;
+    font-size: 26px;
+    border-radius: 5px;
+}
+
+#event-info-modal .modal-info {
+    font-size: 18px;
+    font-weight: normal;
+    color: black;
+    margin-bottom: 22px;
+    position: relative;
+}
+
+#event-info-modal .modal-info:last-child {
+    margin-bottom: 0;
+}
+
+#event-info-modal .modal-icon {
+    color: rgba(0, 0, 0, .4);
+    position: absolute;
+    left: 0;
+    height: 100%;
+    width: 30px;
+    text-align: center;
+}
+
+#event-info-modal .modal-icon .fa {
+    font-size: 24px;
+    position: relative;
+    top: 0;
+}
+
+#event-info-modal .modal-icon .fa.shift-icon {
+    font-size: 24px;
+    position: relative;
+    top: 12px;
+}
+
+#event-info-modal .content {
+    margin-left: 44px;
+}
+
+#event-info-modal .subtext {
+    font-size: 18px;
+    color: rgba(0, 0, 0, .4);
+    line-height: 21px
 }
 
 #loading-bar-spinner.spinner {

@@ -1,90 +1,122 @@
-(function($){
+var CALENDAR_ID = '3natpe27nllmrfi5ikgaoagtn4@group.calendar.google.com';
 
-    $.getJSON("https://8bgaf4sxq3.execute-api.us-west-2.amazonaws.com/api/calendar", function (response){
-        var carousel = $('#events .owl-carousel');
-        if (!response.data.items.length) {
-            return noEvents('No Events Scheduled');
+function retrieveEventsData() {
+    var API_KEY = 'AIzaSyBU1o-gbhJpAOxd9rYuW7xcjXPNinjvhwI';
+    var CLIENT_ID = '908427607840-ll2dg2op9q5861q3svqud0aqmf4kf6b9.apps.googleusercontent.com';
+    var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];
+    var SCOPES = "https://www.googleapis.com/auth/calendar.readonly";
+    // var CALENDAR_ID = '3natpe27nllmrfi5ikgaoagtn4@group.calendar.google.com';
+    // var CALENDAR_ID = 'muk4317cue1ndb659obo3fcl60@group.calendar.google.com';
+    gapi.load('client:auth2', {
+        onerror: function () {
+            noEvents('Failed to load data');
+        },
+        callback: function () {
+            gapi.client.init({
+                apiKey: API_KEY,
+                clientId: CLIENT_ID,
+                discoveryDocs: DISCOVERY_DOCS,
+                scope: SCOPES
+            }).then(function () {
+                var oneWeekAgo = new Date();
+                oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
+
+                return gapi.client.calendar.events.list({
+                    'calendarId': CALENDAR_ID,
+                    'showDeleted': false,
+                    'singleEvents': true,
+                    'orderBy': 'startTime'
+                })
+            })
+                .then(function (response) {
+                        var carousel = $('#events .owl-carousel');
+                        if (!response.result.items.length) {
+                            return noEvents('No Events Scheduled');
+                        }
+                        var allEventsTemplate = '<div class="cat-prize-section">' +
+                            '<div class="container grid text-center">' +
+                            '<div class="btn btn-white">' +
+                            '<button onclick="window.open(\'https://calendar.google.com/calendar?cid=M25hdHBlMjdubGxtcmZpNWlrZ2FvYWd0bjRAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ\', \'_blank\')">' +
+                            '<span class="code-span">ALL EVENTS</span>' +
+                            '</button>' +
+                            '</div>' +
+                            '</div>' +
+                            '</div>';
+                        carousel.after(allEventsTemplate);
+
+                        var filteredEventsList = filterToTen(response.result.items);
+
+                        var pastEventsCount = 0;
+
+                        for (var i = 0; i < filteredEventsList.length; i += 1) {
+                            var eventData = filteredEventsList[i];
+                            var result = newEvent(eventData);
+                            var eventElement = result.eventTemplate;
+                            pastEventsCount += result.isPast ? 1 : 0;
+
+                            carousel.append(eventElement);
+                        }
+
+                        if (pastEventsCount === response.result.items.length) {
+                            pastEventsCount -= 1;
+                        }
+
+                        carousel.owlCarousel({
+                            items: 5,
+                            nav: true,
+                            mouseDrag: false,
+                            center: true,
+                            dots: false,
+                            navText: [],
+                            margin: 0,
+                            responsive: {
+                                0: {
+                                    items: 1,
+                                    startPosition: pastEventsCount
+                                },
+                                1024: {
+                                    items: 3,
+                                    startPosition: pastEventsCount
+                                },
+                                1200: {
+                                    items: 5,
+                                    startPosition: pastEventsCount
+                                }
+                            }
+                        });
+
+                        $("#events .owl-nav .owl-prev").addClass("left carousel-control glyphicon glyphicon-chevron-left");
+                        $("#events .owl-nav .owl-next").addClass("right carousel-control glyphicon glyphicon-chevron-right");
+                    },
+                    function () {
+                        noEvents('No Events Scheduled');
+                    });
         }
-        response.data.items.sort(function(a, b){
-            var firstval = (a.start.dateTime?a.start.dateTime : a.start.date);
-			var secondval = (b.start.dateTime?b.start.dateTime : b.start.date);
-            return Date.parse(firstval) - Date.parse(secondval);
-        })
-        var allEventsTemplate = '<div class="cat-prize-section">' +
-            '<div class="container grid text-center">' +
-            '<div class="btn btn-white">' +
-            '<button onclick="window.open(\'https://calendar.google.com/calendar?cid=M25hdHBlMjdubGxtcmZpNWlrZ2FvYWd0bjRAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ\', \'_events\')">' +
-            '<span class="code-span">ALL EVENTS</span>' +
-            '</button>' +
-            '</div>' +
-            '</div>' +
-            '</div>';
-        carousel.after(allEventsTemplate);
-        var filteredEventsList = filterToTen(response.data.items);
-        var pastEventsCount = 0;
-
-        for (var i = 0; i < filteredEventsList.length; i += 1) {
-            var eventData = filteredEventsList[i];
-            var result = newEvent(eventData);
-            var eventElement = result.eventTemplate;
-            pastEventsCount += result.isPast ? 1 : 0;
-
-            carousel.append(eventElement);
-        }
-        if (pastEventsCount === response.data.items.length) {
-            pastEventsCount -= 1;
-        }
-        carousel.owlCarousel({
-            items: 5,
-            nav: true,
-            mouseDrag: false,
-            center: true,
-            dots: false,
-            navText: [],
-            margin: 0,
-            responsive: {
-                0: {
-                    items: 1,
-                    startPosition: pastEventsCount
-                },
-                1024: {
-                    items: 3,
-                    startPosition: pastEventsCount
-                },
-                1200: {
-                    items: 5,
-                    startPosition: pastEventsCount
-                }
-            }
-        });
-
-        $("#events .owl-nav .owl-prev").addClass("left carousel-control glyphicon glyphicon-chevron-left");
-        $("#events .owl-nav .owl-next").addClass("right carousel-control glyphicon glyphicon-chevron-right");
-    })
-    .fail(function(e){
-        console.log(JSON.stringify(e));
-        return noEvents('Error loading events. Please try later.');
     });
-})(jQuery);
+}
 
 function newEvent(eventData) {
-    var date, time = '';
     var start = new Date(eventData.start.dateTime || eventData.start.date);
     var summary = eventData.summary;
+    // var descText = $(eventData.description).text()
+    // var descText = escapeHtml(eventData.description);
+    // console.log('desc', descText);
     var description = eventData.description || '';
-    description = description || '';
-
     var isPast = false;
-    if (!!eventData.start.dateTime) {
-        time = ', ' + formatTimeSpan(start,
-            new Date(eventData.end.dateTime))
-    } else {
-        var plusOneDay = start;
-        plusOneDay.setDate(plusOneDay.getDate() + 1);
-        start = plusOneDay;
-    }
-    date = formatDate(start);
 
+    var dateString;
+    var date = moment(eventData.start.dateTime || eventData.start.date).format('MMM Do');
+    var endDate = moment(eventData.end.dateTime || eventData.end.date).format('MMM Do');
+    if (eventData.start.dateTime) {
+        var startA = moment(eventData.start.dateTime).format('a');
+        var endA = moment(eventData.end.dateTime).format('a');
+        var startTime = moment(eventData.start.dateTime).format('h:mm');
+        var endTime = moment(eventData.end.dateTime).format('h:mm a');
+        dateString = date + ', ' + startTime + (startA !== endA ? (' ' + startA) : '') +
+            ' - ' + endTime
+    } else {
+        dateString = (date + ' - ' + endDate);
+    }
 
     var markupClass;
     if (start <= new Date()) {
@@ -94,27 +126,17 @@ function newEvent(eventData) {
         markupClass = 'event-upcoming';
     }
 
-
-    var imageTag = true;
-    // if (eventData.attachments) {
-    //     imageTag = 'https://drive.google.com/uc?id=' +
-    //         eventData.attachments[0].fileId +
-    //         '&export=download';
-    // }
-
-    var eventTemplate = '<div class="markup ' + markupClass + '">' +
+    var eventTemplate = '<div event-id="' + eventData.id + '" onclick="changeEventModal(event)" class="markup ' + markupClass + '">' +
         '<div class="markup-overlay">' +
         '<div class="markup-content">' +
         '<div class="markup-details"> ' +
-        '<div class="markup-text" title="'+summary+'">' + summary + '</div>' +
+        '<div class="markup-text">' + summary + '</div>' +
         '<div class="markup-desc" title="' + description + '">' + description + ' ' +
         '</div>' +
         '</div>' +
         '<div class="markup-footer">' +
         '<span class="fa fa-calendar"></span>' +
-        date + time + '</div>' +
-        '</div>' +
-        '</div>' +
+        dateString + '</div>' +
         '</div>';
     // '<div class="markup-overlay"></div>';
     return {
@@ -123,50 +145,55 @@ function newEvent(eventData) {
     };
 }
 
-function formatDate(date) {
-    var monthNames = [
-        "Jan", "Feb", "Mar",
-        "Apr", "May", "Jun", "Jul",
-        "Aug", "Sep", "Oct",
-        "Nov", "Dec"
-    ];
-
-    var day = date.getDate();
-    var suffix = 'th';
-    switch (day) {
-        case 1:
-            suffix = 'st';
-            break;
-        case 2:
-            suffix = 'nd';
-            break;
-        case 3:
-            suffix = 'rd';
-            break;
-    }
-
-
-    var monthIndex = date.getMonth();
-    var year = date.getFullYear();
-
-    return monthNames[monthIndex] + ' ' + day + suffix;
+function changeEventModal(event) {
+    var eventId = event.currentTarget.getAttribute('event-id');
+    var calendarId = event.currentTarget.getAttribute('event-id');
+    var request = gapi.client.calendar.events.get({
+        eventId: eventId,
+        calendarId: CALENDAR_ID
+    });
+    request.execute(function (response) {
+        var options = {};
+        $('#event-info-modal').modal(options);
+        var modalContent = $('#event-info-modal .modal-content');
+        modalContent.html('');
+        var string = '<div class="modal-header">' +
+            '                <h5 class="modal-title">' + response.result.summary + '</h5>' +
+            '            </div><div class="modal-body">';
+        var x = moment(response.start.dateTime).format('MMM Do YYYY');
+        var date = moment(response.start.dateTime || response.start.date).format('MMM Do YYYY');
+        var startTime = moment(response.start.dateTime || response.start.date).format('h:mm a');
+        var endTime = moment(response.end.dateTime).format('h:mm a');
+        string += appendModalElement('fa-clock', date, response.start.dateTime ? startTime + ' - ' + endTime : '', !!response.start.dateTime);
+        if (response.location) {
+            var locationArr = response.location.split(',');
+            var locationLabel = locationArr[0];
+            locationArr.splice(0, 1);
+            var locationCoor = locationArr.join(',');
+            string += appendModalElement('fa-map-marker', locationLabel, locationCoor, !!locationCoor);
+        }
+        if (response.description) {
+            string += appendModalElement('fa-align-justify', response.description, '', true);
+        }
+        string += appendModalElement('fa-calendar-alt', response.result.organizer.displayName,
+            response.creator ? 'Created by: ' + response.creator.displayName : '',
+            !!response.creator);
+        string += '</div>';
+        modalContent.append($(string));
+    })
 }
 
-function formatTimeSpan(start, end) {
-    var startMin = start.getMinutes();
-    var startHours = start.getHours() > 12 ? start.getHours() - 12 : start.getHours();
-    var startM = start.getHours() > 12 ? 'pm' : 'am';
-
-    var endMin = end.getMinutes();
-    var endHours = end.getHours() > 12 ? end.getHours() - 12 : end.getHours();
-    var endM = end.getHours() > 12 ? 'pm' : 'am';
-
-
-    var dateString = startHours + (startMin === 0 ? '' : (':' + startMin)) +
-        (startM !== endM ? (' ' + startM) : '') +
-        ' - ' +
-        endHours + (endMin === 0 ? '' : (':' + endMin)) + ' ' + endM;
-    return dateString;
+function appendModalElement(icon, content, subtext, shiftIcon) {
+    var template = '<div class="modal-info">' +
+        '<div class="modal-icon">' +
+        '<span class="fa ' + icon + ' ' + (shiftIcon ? 'shift-icon' : '') + '"></span>' +
+        '</div>' +
+        '<div class="content">' +
+        content +
+        (subtext ? ('<div class="subtext">' + subtext + '</div>') : '') +
+        '</div>' +
+        '</div>';
+    return template;
 }
 
 function noEvents(message) {
@@ -176,7 +203,7 @@ function noEvents(message) {
         '<div class="markup-overlay">' +
         '<div class="markup-content">' +
         '<div class="markup-details"> ' +
-        '<div class="markup-text">'+ message + '</div>' +
+        '<div class="markup-text">No Events Scheduled</div>' +
         '</div>' +
         '</div>' +
         '</div>' +
@@ -208,6 +235,9 @@ function noEvents(message) {
             }
         }
     });
+
+    // var spinner = $('#loading-bar-spinner');
+    // spinner.remove();
     return;
 }
 

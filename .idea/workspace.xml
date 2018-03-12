@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8735b3b5-4e6c-488e-a1ba-803a0faef442" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/themes/tmo-oss-theme/static/js/oninit.js" />
-      <change beforePath="$PROJECT_DIR$/themes/tmo-oss-theme/layouts/partials/events.html" afterPath="$PROJECT_DIR$/themes/tmo-oss-theme/layouts/partials/events.html" />
-      <change beforePath="$PROJECT_DIR$/themes/tmo-oss-theme/layouts/partials/head.html" afterPath="$PROJECT_DIR$/themes/tmo-oss-theme/layouts/partials/head.html" />
-      <change beforePath="$PROJECT_DIR$/themes/tmo-oss-theme/layouts/partials/js.html" afterPath="$PROJECT_DIR$/themes/tmo-oss-theme/layouts/partials/js.html" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/themes/tmo-oss-theme/static/css/styles.css" afterPath="$PROJECT_DIR$/themes/tmo-oss-theme/static/css/styles.css" />
-      <change beforePath="$PROJECT_DIR$/themes/tmo-oss-theme/static/js/google-apis.js" afterPath="$PROJECT_DIR$/themes/tmo-oss-theme/static/js/google-apis.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -24,8 +20,8 @@
       <file leaf-file-name="google-apis.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/themes/tmo-oss-theme/static/js/google-apis.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="276" column="0" lean-forward="true" selection-start-line="276" selection-start-column="0" selection-end-line="276" selection-end-column="0" />
+            <state relative-caret-position="174">
+              <caret line="163" column="0" lean-forward="false" selection-start-line="163" selection-start-column="0" selection-end-line="163" selection-end-column="0" />
               <folding>
                 <element signature="n#!!block;n#retrieveEventsData#0" expanded="false" />
                 <element signature="e#430#506#0" expanded="false" />
@@ -52,31 +48,39 @@
                 <element signature="e#5536#5602#0" expanded="false" />
                 <element signature="e#5608#5655#0" expanded="false" />
                 <element signature="e#6294#6362#0" expanded="false" />
-                <element signature="n#!!block;n#changeEventModal#0" expanded="false" />
                 <element signature="e#6583#6648#0" expanded="false" />
-                <element signature="e#6691#8379#0" expanded="false" />
-                <element signature="e#7639#7954#0" expanded="false" />
-                <element signature="e#7989#8094#0" expanded="false" />
+                <element signature="e#7575#7890#0" expanded="false" />
+                <element signature="e#7925#8030#0" expanded="false" />
                 <element signature="n#!!block;n#appendModalElement#0" expanded="false" />
                 <element signature="n#!!block;n#noEvents#0" expanded="false" />
-                <element signature="e#9290#9770#0" expanded="false" />
-                <element signature="e#9459#9764#0" expanded="false" />
-                <element signature="e#9476#9516#0" expanded="false" />
-                <element signature="e#9535#9575#0" expanded="false" />
-                <element signature="e#9594#9634#0" expanded="false" />
-                <element signature="e#9654#9694#0" expanded="false" />
-                <element signature="e#9714#9754#0" expanded="false" />
-                <element signature="e#9778#9821#0" expanded="false" />
+                <element signature="e#9226#9706#0" expanded="false" />
+                <element signature="e#9395#9700#0" expanded="false" />
+                <element signature="e#9412#9452#0" expanded="false" />
+                <element signature="e#9471#9511#0" expanded="false" />
+                <element signature="e#9530#9570#0" expanded="false" />
+                <element signature="e#9590#9630#0" expanded="false" />
+                <element signature="e#9650#9690#0" expanded="false" />
+                <element signature="e#9714#9757#0" expanded="false" />
                 <element signature="n#!!block;n#filterToTen#0" expanded="false" />
-                <element signature="e#9981#10405#0" expanded="false" />
-                <element signature="e#10159#10313#0" expanded="false" />
-                <element signature="e#10211#10303#0" expanded="false" />
-                <element signature="e#10319#10399#0" expanded="false" />
-                <element signature="e#10461#10552#0" expanded="false" />
-                <element signature="e#10494#10546#0" expanded="false" />
-                <element signature="e#10589#10680#0" expanded="false" />
-                <element signature="e#10622#10674#0" expanded="false" />
+                <element signature="e#9917#10341#0" expanded="false" />
+                <element signature="e#10095#10249#0" expanded="false" />
+                <element signature="e#10147#10239#0" expanded="false" />
+                <element signature="e#10255#10335#0" expanded="false" />
+                <element signature="e#10397#10488#0" expanded="false" />
+                <element signature="e#10430#10482#0" expanded="false" />
+                <element signature="e#10525#10616#0" expanded="false" />
+                <element signature="e#10558#10610#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="80">
+              <caret line="4" column="6" lean-forward="false" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -91,11 +95,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="styles.css" pinned="false" current-in-tab="false">
+      <file leaf-file-name="styles.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/themes/tmo-oss-theme/static/css/styles.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="213">
-              <caret line="3056" column="0" lean-forward="true" selection-start-line="3056" selection-start-column="0" selection-end-line="3056" selection-end-column="0" />
+            <state relative-caret-position="293">
+              <caret line="3090" column="33" lean-forward="false" selection-start-line="3090" selection-start-column="33" selection-end-line="3090" selection-end-column="33" />
               <folding>
                 <element signature="e#11#112#0" expanded="false" />
                 <element signature="e#125#233#0" expanded="false" />
@@ -704,41 +708,40 @@
                 <element signature="e#50927#51038#0" expanded="false" />
                 <element signature="e#51076#51122#0" expanded="false" />
                 <element signature="e#51164#51211#0" expanded="false" />
-                <element signature="e#51234#51486#0" expanded="false" />
-                <element signature="e#51512#51623#0" expanded="false" />
-                <element signature="e#51652#51678#0" expanded="false" />
-                <element signature="e#51708#51754#0" expanded="false" />
-                <element signature="e#51782#51827#0" expanded="false" />
-                <element signature="e#51844#51867#0" expanded="false" />
-                <element signature="e#51893#51915#0" expanded="false" />
-                <element signature="e#51949#52003#0" expanded="false" />
-                <element signature="e#52081#52113#0" expanded="false" />
-                <element signature="e#52154#52176#0" expanded="false" />
-                <element signature="e#52210#52255#0" expanded="false" />
-                <element signature="e#52289#52377#0" expanded="false" />
-                <element signature="e#52411#52500#0" expanded="false" />
-                <element signature="e#52526#52624#0" expanded="false" />
-                <element signature="e#52667#52690#0" expanded="false" />
-                <element signature="e#52718#52764#0" expanded="false" />
-                <element signature="e#52785#52839#0" expanded="false" />
-                <element signature="e#52863#52896#0" expanded="false" />
-                <element signature="e#52916#52981#0" expanded="false" />
-                <element signature="e#53015#53042#0" expanded="false" />
-                <element signature="e#53075#53262#0" expanded="false" />
-                <element signature="e#53301#53325#0" expanded="false" />
-                <element signature="e#53359#53466#0" expanded="false" />
-                <element signature="e#53498#53525#0" expanded="false" />
-                <element signature="e#53558#53684#0" expanded="false" />
-                <element signature="e#53716#53832#0" expanded="false" />
-                <element signature="e#53875#53900#0" expanded="false" />
-                <element signature="e#53932#54061#0" expanded="false" />
-                <element signature="e#54097#54157#0" expanded="false" />
-                <element signature="e#54204#54267#0" expanded="false" />
-                <element signature="e#54296#54322#0" expanded="false" />
-                <element signature="e#54351#54427#0" expanded="false" />
-                <element signature="e#54458#54639#0" expanded="false" />
-                <element signature="e#54684#54868#0" expanded="false" />
-                <element signature="e#54870#55036#0" expanded="false" />
+                <element signature="e#51547#51658#0" expanded="false" />
+                <element signature="e#51687#51713#0" expanded="false" />
+                <element signature="e#51743#51789#0" expanded="false" />
+                <element signature="e#51817#51862#0" expanded="false" />
+                <element signature="e#51879#51902#0" expanded="false" />
+                <element signature="e#51928#51950#0" expanded="false" />
+                <element signature="e#51984#52038#0" expanded="false" />
+                <element signature="e#52116#52148#0" expanded="false" />
+                <element signature="e#52189#52211#0" expanded="false" />
+                <element signature="e#52245#52290#0" expanded="false" />
+                <element signature="e#52324#52412#0" expanded="false" />
+                <element signature="e#52446#52535#0" expanded="false" />
+                <element signature="e#52561#52659#0" expanded="false" />
+                <element signature="e#52702#52725#0" expanded="false" />
+                <element signature="e#52753#52799#0" expanded="false" />
+                <element signature="e#52820#52874#0" expanded="false" />
+                <element signature="e#52898#52931#0" expanded="false" />
+                <element signature="e#52951#53016#0" expanded="false" />
+                <element signature="e#53050#53077#0" expanded="false" />
+                <element signature="e#53110#53297#0" expanded="false" />
+                <element signature="e#53336#53360#0" expanded="false" />
+                <element signature="e#53394#53501#0" expanded="false" />
+                <element signature="e#53533#53560#0" expanded="false" />
+                <element signature="e#53593#53719#0" expanded="false" />
+                <element signature="e#53751#53867#0" expanded="false" />
+                <element signature="e#53910#53935#0" expanded="false" />
+                <element signature="e#53967#54096#0" expanded="false" />
+                <element signature="e#54132#54192#0" expanded="false" />
+                <element signature="e#54239#54302#0" expanded="false" />
+                <element signature="e#54331#54357#0" expanded="false" />
+                <element signature="e#54386#54462#0" expanded="false" />
+                <element signature="e#54493#54674#0" expanded="false" />
+                <element signature="e#54719#54903#0" expanded="false" />
+                <element signature="e#54905#55071#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -756,21 +759,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="head.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="head.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/themes/tmo-oss-theme/layouts/partials/head.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="440">
               <caret line="25" column="86" lean-forward="false" selection-start-line="25" selection-start-column="86" selection-end-line="25" selection-end-column="86" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="oninit.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/themes/tmo-oss-theme/static/js/oninit.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="40">
-              <caret line="2" column="0" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -782,6 +775,7 @@
     <findStrings>
       <find>oninit</find>
       <find>mark</find>
+      <find>console</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -790,11 +784,12 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/themes/tmo-oss-theme/static/js/google-apis.js" />
         <option value="$PROJECT_DIR$/themes/tmo-oss-theme/layouts/partials/js.html" />
-        <option value="$PROJECT_DIR$/themes/tmo-oss-theme/static/css/styles.css" />
         <option value="$PROJECT_DIR$/themes/tmo-oss-theme/layouts/partials/events.html" />
         <option value="$PROJECT_DIR$/themes/tmo-oss-theme/layouts/partials/head.html" />
+        <option value="$PROJECT_DIR$/themes/tmo-oss-theme/static/js/google-apis.js" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/themes/tmo-oss-theme/static/css/styles.css" />
       </list>
     </option>
   </component>
@@ -916,16 +911,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1520895800685</updated>
-      <workItem from="1520895801820" duration="1112000" />
+      <workItem from="1520895801820" duration="1260000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1112000" />
+    <option name="totallyTimeSpent" value="1260000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1928" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24973656" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -934,7 +928,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32998884" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32998884" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -965,10 +959,44 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/themes/tmo-oss-theme/static/js/oninit.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="2" column="0" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/tmo-oss-theme/layouts/partials/js.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="26" lean-forward="false" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/tmo-oss-theme/layouts/partials/events.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="73">
+          <caret line="21" column="18" lean-forward="true" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="18" />
+          <folding>
+            <element signature="e#1568#1575#1" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/themes/tmo-oss-theme/layouts/partials/head.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="25" column="86" lean-forward="false" selection-start-line="25" selection-start-column="86" selection-end-line="25" selection-end-column="86" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/themes/tmo-oss-theme/static/js/google-apis.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="276" column="0" lean-forward="true" selection-start-line="276" selection-start-column="0" selection-end-line="276" selection-end-column="0" />
+        <state relative-caret-position="174">
+          <caret line="163" column="0" lean-forward="false" selection-start-line="163" selection-start-column="0" selection-end-line="163" selection-end-column="0" />
           <folding>
             <element signature="n#!!block;n#retrieveEventsData#0" expanded="false" />
             <element signature="e#430#506#0" expanded="false" />
@@ -995,54 +1023,44 @@
             <element signature="e#5536#5602#0" expanded="false" />
             <element signature="e#5608#5655#0" expanded="false" />
             <element signature="e#6294#6362#0" expanded="false" />
-            <element signature="n#!!block;n#changeEventModal#0" expanded="false" />
             <element signature="e#6583#6648#0" expanded="false" />
-            <element signature="e#6691#8379#0" expanded="false" />
-            <element signature="e#7639#7954#0" expanded="false" />
-            <element signature="e#7989#8094#0" expanded="false" />
+            <element signature="e#7575#7890#0" expanded="false" />
+            <element signature="e#7925#8030#0" expanded="false" />
             <element signature="n#!!block;n#appendModalElement#0" expanded="false" />
             <element signature="n#!!block;n#noEvents#0" expanded="false" />
-            <element signature="e#9290#9770#0" expanded="false" />
-            <element signature="e#9459#9764#0" expanded="false" />
-            <element signature="e#9476#9516#0" expanded="false" />
-            <element signature="e#9535#9575#0" expanded="false" />
-            <element signature="e#9594#9634#0" expanded="false" />
-            <element signature="e#9654#9694#0" expanded="false" />
-            <element signature="e#9714#9754#0" expanded="false" />
-            <element signature="e#9778#9821#0" expanded="false" />
+            <element signature="e#9226#9706#0" expanded="false" />
+            <element signature="e#9395#9700#0" expanded="false" />
+            <element signature="e#9412#9452#0" expanded="false" />
+            <element signature="e#9471#9511#0" expanded="false" />
+            <element signature="e#9530#9570#0" expanded="false" />
+            <element signature="e#9590#9630#0" expanded="false" />
+            <element signature="e#9650#9690#0" expanded="false" />
+            <element signature="e#9714#9757#0" expanded="false" />
             <element signature="n#!!block;n#filterToTen#0" expanded="false" />
-            <element signature="e#9981#10405#0" expanded="false" />
-            <element signature="e#10159#10313#0" expanded="false" />
-            <element signature="e#10211#10303#0" expanded="false" />
-            <element signature="e#10319#10399#0" expanded="false" />
-            <element signature="e#10461#10552#0" expanded="false" />
-            <element signature="e#10494#10546#0" expanded="false" />
-            <element signature="e#10589#10680#0" expanded="false" />
-            <element signature="e#10622#10674#0" expanded="false" />
+            <element signature="e#9917#10341#0" expanded="false" />
+            <element signature="e#10095#10249#0" expanded="false" />
+            <element signature="e#10147#10239#0" expanded="false" />
+            <element signature="e#10255#10335#0" expanded="false" />
+            <element signature="e#10397#10488#0" expanded="false" />
+            <element signature="e#10430#10482#0" expanded="false" />
+            <element signature="e#10525#10616#0" expanded="false" />
+            <element signature="e#10558#10610#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/themes/tmo-oss-theme/static/js/oninit.js">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="2" column="0" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/themes/tmo-oss-theme/layouts/partials/js.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="26" lean-forward="false" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="26" />
+        <state relative-caret-position="80">
+          <caret line="4" column="6" lean-forward="false" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/themes/tmo-oss-theme/static/css/styles.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="3056" column="0" lean-forward="true" selection-start-line="3056" selection-start-column="0" selection-end-line="3056" selection-end-column="0" />
+        <state relative-caret-position="293">
+          <caret line="3090" column="33" lean-forward="false" selection-start-line="3090" selection-start-column="33" selection-end-line="3090" selection-end-column="33" />
           <folding>
             <element signature="e#11#112#0" expanded="false" />
             <element signature="e#125#233#0" expanded="false" />
@@ -1651,60 +1669,41 @@
             <element signature="e#50927#51038#0" expanded="false" />
             <element signature="e#51076#51122#0" expanded="false" />
             <element signature="e#51164#51211#0" expanded="false" />
-            <element signature="e#51234#51486#0" expanded="false" />
-            <element signature="e#51512#51623#0" expanded="false" />
-            <element signature="e#51652#51678#0" expanded="false" />
-            <element signature="e#51708#51754#0" expanded="false" />
-            <element signature="e#51782#51827#0" expanded="false" />
-            <element signature="e#51844#51867#0" expanded="false" />
-            <element signature="e#51893#51915#0" expanded="false" />
-            <element signature="e#51949#52003#0" expanded="false" />
-            <element signature="e#52081#52113#0" expanded="false" />
-            <element signature="e#52154#52176#0" expanded="false" />
-            <element signature="e#52210#52255#0" expanded="false" />
-            <element signature="e#52289#52377#0" expanded="false" />
-            <element signature="e#52411#52500#0" expanded="false" />
-            <element signature="e#52526#52624#0" expanded="false" />
-            <element signature="e#52667#52690#0" expanded="false" />
-            <element signature="e#52718#52764#0" expanded="false" />
-            <element signature="e#52785#52839#0" expanded="false" />
-            <element signature="e#52863#52896#0" expanded="false" />
-            <element signature="e#52916#52981#0" expanded="false" />
-            <element signature="e#53015#53042#0" expanded="false" />
-            <element signature="e#53075#53262#0" expanded="false" />
-            <element signature="e#53301#53325#0" expanded="false" />
-            <element signature="e#53359#53466#0" expanded="false" />
-            <element signature="e#53498#53525#0" expanded="false" />
-            <element signature="e#53558#53684#0" expanded="false" />
-            <element signature="e#53716#53832#0" expanded="false" />
-            <element signature="e#53875#53900#0" expanded="false" />
-            <element signature="e#53932#54061#0" expanded="false" />
-            <element signature="e#54097#54157#0" expanded="false" />
-            <element signature="e#54204#54267#0" expanded="false" />
-            <element signature="e#54296#54322#0" expanded="false" />
-            <element signature="e#54351#54427#0" expanded="false" />
-            <element signature="e#54458#54639#0" expanded="false" />
-            <element signature="e#54684#54868#0" expanded="false" />
-            <element signature="e#54870#55036#0" expanded="false" />
+            <element signature="e#51547#51658#0" expanded="false" />
+            <element signature="e#51687#51713#0" expanded="false" />
+            <element signature="e#51743#51789#0" expanded="false" />
+            <element signature="e#51817#51862#0" expanded="false" />
+            <element signature="e#51879#51902#0" expanded="false" />
+            <element signature="e#51928#51950#0" expanded="false" />
+            <element signature="e#51984#52038#0" expanded="false" />
+            <element signature="e#52116#52148#0" expanded="false" />
+            <element signature="e#52189#52211#0" expanded="false" />
+            <element signature="e#52245#52290#0" expanded="false" />
+            <element signature="e#52324#52412#0" expanded="false" />
+            <element signature="e#52446#52535#0" expanded="false" />
+            <element signature="e#52561#52659#0" expanded="false" />
+            <element signature="e#52702#52725#0" expanded="false" />
+            <element signature="e#52753#52799#0" expanded="false" />
+            <element signature="e#52820#52874#0" expanded="false" />
+            <element signature="e#52898#52931#0" expanded="false" />
+            <element signature="e#52951#53016#0" expanded="false" />
+            <element signature="e#53050#53077#0" expanded="false" />
+            <element signature="e#53110#53297#0" expanded="false" />
+            <element signature="e#53336#53360#0" expanded="false" />
+            <element signature="e#53394#53501#0" expanded="false" />
+            <element signature="e#53533#53560#0" expanded="false" />
+            <element signature="e#53593#53719#0" expanded="false" />
+            <element signature="e#53751#53867#0" expanded="false" />
+            <element signature="e#53910#53935#0" expanded="false" />
+            <element signature="e#53967#54096#0" expanded="false" />
+            <element signature="e#54132#54192#0" expanded="false" />
+            <element signature="e#54239#54302#0" expanded="false" />
+            <element signature="e#54331#54357#0" expanded="false" />
+            <element signature="e#54386#54462#0" expanded="false" />
+            <element signature="e#54493#54674#0" expanded="false" />
+            <element signature="e#54719#54903#0" expanded="false" />
+            <element signature="e#54905#55071#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/themes/tmo-oss-theme/layouts/partials/events.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="73">
-          <caret line="21" column="18" lean-forward="true" selection-start-line="21" selection-start-column="18" selection-end-line="21" selection-end-column="18" />
-          <folding>
-            <element signature="e#1568#1575#1" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/themes/tmo-oss-theme/layouts/partials/head.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="25" column="86" lean-forward="false" selection-start-line="25" selection-start-column="86" selection-end-line="25" selection-end-column="86" />
-          <folding />
         </state>
       </provider>
     </entry>

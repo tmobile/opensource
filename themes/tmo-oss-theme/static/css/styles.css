@@ -3088,6 +3088,7 @@ a.footer-links i:hover {
     line-height: 1.3rem;
     overflow: hidden;
     text-overflow: ellipsis;
+    text-overflow-ellipsis: '...';
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;

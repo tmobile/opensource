@@ -164,7 +164,7 @@ function changeEventModal(event) {
         var date = moment(response.start.dateTime || response.start.date).format('MMM Do YYYY');
         var startTime = moment(response.start.dateTime || response.start.date).format('h:mm a');
         var endTime = moment(response.end.dateTime).format('h:mm a');
-        string += appendModalElement('fa-clock', date, response.start.dateTime ? startTime + ' - ' + endTime : '', !!response.start.dateTime);
+        string += appendModalElement('fa-clock-o', date, response.start.dateTime ? startTime + ' - ' + endTime : '', !!response.start.dateTime);
         if (response.location) {
             var locationArr = response.location.split(',');
             var locationLabel = locationArr[0];
@@ -175,7 +175,7 @@ function changeEventModal(event) {
         if (response.description) {
             string += appendModalElement('fa-align-justify', response.description, '', true);
         }
-        string += appendModalElement('fa-calendar-alt', response.result.organizer.displayName,
+        string += appendModalElement('fa-calendar', response.result.organizer.displayName,
             response.creator ? 'Created by: ' + response.creator.displayName : '',
             !!response.creator);
         string += '</div>';

@@ -124,10 +124,8 @@ function newEvent(eventData) {
 
     var eventTemplate = '<div event-id="' + eventData.id + '" onclick="changeEventModal(event)" class="markup ' + markupClass + '">' +
         '<div class="markup-header">' + eventData.summary + '</div>' +
-        '<div class="markup-content">' +
         '<div class="markup-details"> ' +
         '<div class="markup-desc" title="' + description + '">' + description + ' </div>' +
-        '</div>' +
         '</div>' +
         '<div class="markup-footer">' +
         '<span class="fa fa-calendar"></span>' + dateString +
@@ -143,45 +141,23 @@ function newEvent(eventData) {
 function changeEventModal(event) {
     var eventId = event.currentTarget.getAttribute('event-id');
     var calendarId = event.currentTarget.getAttribute('event-id');
-    var request = gapi.client.calendar.events.get({
-        eventId: eventId,
-        calendarId: CALENDAR_ID
-    });
-    request.execute(function (response) {
-        var options = {};
-        $('#event-info-modal').modal(options);
-        var modalContent = $('#event-info-modal .modal-content');
-        modalContent.html('');
-        var string = '<div class="modal-header">' +
-            '                <h5 class="modal-title">' + response.result.summary + '</h5>' +
-            '            </div><div class="modal-body">';
-        var x = moment(response.start.dateTime).format('MMM Do YYYY');
-        var date = moment(response.start.dateTime || response.start.date).format('MMM Do YYYY');
-        var startTime = moment(response.start.dateTime || response.start.date).format('h:mm a');
-        var endTime = moment(response.end.dateTime).format('h:mm a');
-        string += appendModalElement('fa-clock-o', date, response.start.dateTime ? startTime + ' - ' + endTime : '', !!response.start.dateTime);
-        if (response.location) {
-            var locationArr = response.location.split(',');
-            var locationLabel = locationArr[0];
-            locationArr.splice(0, 1);
-            var locationCoor = locationArr.join(',');
-            string += appendModalElement('fa-map-marker', locationLabel, locationCoor, !!locationCoor);
-        }
-        if (response.description) {
-            string += appendModalElement('fa-align-justify', response.description, '', true);
-        }
-        string += appendModalElement('fa-calendar', response.result.organizer.displayName,
-            response.creator ? 'Created by: ' + response.creator.displayName : '',
-            !!response.creator);
-        string += '</div>';
-        modalContent.append($(string));
-    })
+    var mockData;
+    if (mockData) {
+        onRequestEvent(mockEvent1);
+    } else {
+        var request = gapi.client.calendar.events.get({
+            eventId: eventId,
+            calendarId: CALENDAR_ID
+        });
+
+        request.execute(onRequestEvent)
+    }
 }
 
 function appendModalElement(icon, content, subtext, shiftIcon) {
     var template = '<div class="modal-info">' +
         '<div class="modal-icon">' +
-        '<span class="fa ' + icon + ' ' + (shiftIcon ? 'shift-icon' : '') + '"></span>' +
+            '<div class="fa ' + icon + ' ' + (shiftIcon ? 'shift-icon' : 'stay-icon') + '"></div>' +
         '</div>' +
         '<div class="content">' +
         content +
@@ -229,4 +205,34 @@ function noEvents() {
             }
         }
     });
+}
+
+function onRequestEvent(response) {
+    var options = {};
+    $('#event-info-modal').modal(options);
+    var modalContent = $('#event-info-modal .modal-content');
+    modalContent.html('');
+    var string = '<div class="modal-header"><h5 class="modal-title">' + response.result.summary + '</h5></div>' +
+        '<div class="modal-body">';
+        // '<div class="container-fluid">';
+    var x = moment(response.start.dateTime).format('MMM Do YYYY');
+    var date = moment(response.start.dateTime || response.start.date).format('MMM Do YYYY');
+    var startTime = moment(response.start.dateTime || response.start.date).format('h:mm a');
+    var endTime = moment(response.end.dateTime).format('h:mm a');
+    string += appendModalElement('fa-clock-o', date, response.start.dateTime ? startTime + ' - ' + endTime : '', !!response.start.dateTime);
+    if (response.location) {
+        var locationArr = response.location.split(',');
+        var locationLabel = locationArr[0];
+        locationArr.splice(0, 1);
+        var locationCoor = locationArr.join(',');
+        string += appendModalElement('fa-map-marker', locationLabel, locationCoor, !!locationCoor);
+    }
+    if (response.description) {
+        string += appendModalElement('fa-align-justify', response.description, '', true);
+    }
+    string += appendModalElement('fa-calendar', response.result.organizer.displayName,
+        response.creator ? 'Created by: ' + response.creator.displayName : '',
+        !!response.creator);
+    string += '</div>';
+    modalContent.append($(string));
 }

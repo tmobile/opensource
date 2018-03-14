@@ -6,6 +6,7 @@ var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/
 var SCOPES = "https://www.googleapis.com/auth/calendar.readonly";
 
 function retrieveEventsData() {
+    var mockData;
     if (mockData) {
         initCarousel(mockData);
     } else {

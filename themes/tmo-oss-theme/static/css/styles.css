@@ -3043,19 +3043,26 @@ a.footer-links i:hover {
     width: 100%;
 }
 
+#events .event-past {
+    background-color: rgba(75, 75, 75, .5)
+}
+
+#events .event-upcoming {
+    background-color: rgba(241, 21, 128, 1)
+}
+
 #events .markup {
-    /*background: url("../img/business-people-crop.png");*/
-    background-size: cover;
-    background-repeat: no-repeat;
     max-height: 13rem;
     margin: 4px;
+    position: relative;
 }
 
-#events .markup:hover {
-    transform: translateY(0);
-}
-
-#events .markup-text {
+#events .markup-header {
+    font-family: "Tele Grotesk Fet";
+    font-weight: normal;
+    font-size: 26px;
+    position: relative;
+    top: 8%;
     overflow: hidden;
     text-overflow: ellipsis;
     max-height: 80px;
@@ -3064,21 +3071,9 @@ a.footer-links i:hover {
     -webkit-box-orient: vertical;
 }
 
-#events .markup-overlay {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
-    border-radius: 3px;
-}
-
-#events .event-past .markup-overlay {
-    background-color: rgba(75, 75, 75, .5)
-}
-
-#events .event-upcoming .markup-overlay {
-    background-color: rgba(241, 21, 128, 1)
+#events .markup-content {
+    position: relative;
+    top: 50%;
 }
 
 #events .markup-desc {
@@ -3092,15 +3087,6 @@ a.footer-links i:hover {
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
-}
-
-#events .markup-overlay {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
-    border-radius: 3px;
 }
 
 #events .markup-footer .fa {

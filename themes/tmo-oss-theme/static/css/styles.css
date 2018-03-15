@@ -3176,16 +3176,24 @@ a.footer-links i:hover {
     border-radius: 5px;
 }
 
+.no-padding {
+    padding: 0!important;
+}
 
 
 #event-info-modal .modal-dialog {
     word-wrap: break-word;
-    position: fixed;
+    position: relative;
     top: 15vh;
     height: 70vh;
-    left: calc(50% - 300px);
     margin: 0 auto;
 }
+
+@media (max-width: 400px) {
+    /*#event-info-modal .modal-dialog {*/
+        /*width: 100vw;*/
+    /*}*/
+/*}*/
 
 /*#event-info-modal .modal-content {*/
     /*max-height: 60vh;*/

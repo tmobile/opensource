@@ -3189,7 +3189,7 @@ a.footer-links i:hover {
     margin: 0 auto;
 }
 
-@media (max-width: 400px) {
+/*@media (max-width: 400px) {*/
     /*#event-info-modal .modal-dialog {*/
         /*width: 100vw;*/
     /*}*/

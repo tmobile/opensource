@@ -3174,10 +3174,7 @@ a.footer-links i:hover {
 #event-info-modal {
     font-family: 'Tele Grotesk Halb';
     border-radius: 5px;
-}
-
-.no-padding {
-    padding: 0!important;
+    padding: 0 20px !important;
 }
 
 
@@ -3188,21 +3185,6 @@ a.footer-links i:hover {
     height: 70vh;
     margin: 0 auto;
 }
-
-/*@media (max-width: 400px) {*/
-    /*#event-info-modal .modal-dialog {*/
-        /*width: 100vw;*/
-    /*}*/
-/*}*/
-
-/*#event-info-modal .modal-content {*/
-    /*max-height: 60vh;*/
-    /*overflow-y: scroll;*/
-/*}*/
-
-/*#event.modal-body {*/
-    /*overflow-y: scroll;*/
-/*}*/
 
 #event-info-modal .modal-close {
     color: white;
@@ -3284,6 +3266,19 @@ a.footer-links i:hover {
     font-size: 18px;
     color: rgba(0, 0, 0, .4);
     line-height: 21px
+}
+
+@media (max-width: 420px) {
+    #event-info-modal .modal-header {
+        height: 70px;
+    }
+
+    #event-info-modal .modal-title {
+        padding-top: 10px;
+    }
+    #event-info-modal .modal-body {
+        height: calc(70vh - 70px);
+    }
 }
 
 #loading-bar-spinner.spinner {

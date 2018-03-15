@@ -167,6 +167,7 @@ function appendModalElement(icon, content, subtext, shiftIcon) {
     return template;
 }
 
+
 function noEvents() {
     var carousel = $('#events .owl-carousel');
     var eventTemplate = '<div class="markup event-past">' +

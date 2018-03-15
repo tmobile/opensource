@@ -3176,28 +3176,25 @@ a.footer-links i:hover {
     border-radius: 5px;
 }
 
-#event-info-modal .center-helper {
-    display: flex;
-    justify-content: space-around;
-    flex-direction: column;
-    height: 100%;
-    z-index: 1;
-}
 
-#event-info-modal .underlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background-color: #E785D6;
-    z-index: -1;
-}
 
 #event-info-modal .modal-dialog {
-    position: relative;
     word-wrap: break-word;
+    position: fixed;
+    top: 15vh;
+    height: 70vh;
+    left: calc(50% - 300px);
+    margin: 0 auto;
 }
+
+/*#event-info-modal .modal-content {*/
+    /*max-height: 60vh;*/
+    /*overflow-y: scroll;*/
+/*}*/
+
+/*#event.modal-body {*/
+    /*overflow-y: scroll;*/
+/*}*/
 
 #event-info-modal .modal-close {
     color: white;
@@ -3225,6 +3222,8 @@ a.footer-links i:hover {
 
 #event-info-modal .modal-body {
     padding: 36px 20px;
+    height: calc(70vh - 100px);
+    overflow-y: scroll;
 }
 
 #event-info-modal .modal-title {

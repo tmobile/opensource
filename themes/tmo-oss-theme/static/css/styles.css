@@ -3112,11 +3112,7 @@ a.footer-links i:hover {
     margin-top: 1rem;
 }
 
-@media (orientation: landscape and max-width:
-
-768px
-
-) {
+@media (orientation: landscape) and (max-width: 768px) {
     #events .owl-item {
         padding: 0 10px;
     }
@@ -3176,7 +3172,6 @@ a.footer-links i:hover {
     border-radius: 5px;
     padding: 0 20px !important;
 }
-
 
 #event-info-modal .modal-dialog {
     word-wrap: break-word;
@@ -3271,10 +3266,16 @@ a.footer-links i:hover {
 @media (max-width: 420px) {
     #event-info-modal .modal-header {
         height: 70px;
+        padding-left: 16px;
+        padding-right: 64px;
     }
 
     #event-info-modal .modal-title {
         padding-top: 10px;
+        font-size: 22px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
     }
     #event-info-modal .modal-body {
         height: calc(70vh - 70px);

@@ -2,3 +2,5 @@ public
 config.toml
 .travis.yml
 .DS_Store
+/.idea
+themes/tmo-oss-theme/static/js/mock-data.js

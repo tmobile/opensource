@@ -15,7 +15,12 @@ function openVideoModal(title, url) {
     $("#videoModalSrc").attr("src", url);
     $('#videoModal').on('hidden.bs.modal', function () {
         $("#videoModalSrc").attr("src", "");
-    })
+    });
+}
+
+function openVideoFromPlaylist(event) {
+    openVideoModal(event.target.attributes['video-title'].nodeValue,
+        event.target.attributes['video-url'].nodeValue);
 }
 
 

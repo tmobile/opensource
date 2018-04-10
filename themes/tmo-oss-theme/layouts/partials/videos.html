@@ -30,10 +30,8 @@
                 <div class="col-lg-12 text-center margin-container">
                     <div id="youtube-video-0"
                          class="video-container">
-                        {{$mainVideoIndex := 0}}
-
                         <iframe class="main-video"
-                                src="{{(index .Site.Params.videos.data $mainVideoIndex).url}}"
+                                src=""
                                 frameborder="0"
                                 gesture="media"
                                 allow="encrypted-media">
@@ -50,14 +48,13 @@
                     <div class="video-playlist">
                         <div id="youtube-video-1"
                              class="small-video-container">
-                            {{$first := 1}}
                             <div class="small-video-overlay"
                                  onclick="openVideoFromPlaylist(event)"
                                  data-toggle="modal"
                                  data-target="#videoModal"></div>
                             <iframe style="border-radius: 5px;"
                                     width="280" height="157"
-                                    src="{{(index .Site.Params.videos.data $first).url}}"
+                                    src=""
                                     frameborder="0"
                                     gesture="media"
                                     allow="encrypted-media">
@@ -65,14 +62,13 @@
                         </div>
                         <div id="youtube-video-2"
                                 class="small-video-container">
-                            {{$second:= 2}}
                             <div class="small-video-overlay"
                                  onclick="openVideoFromPlaylist(event)"
                                  data-toggle="modal"
                                  data-target="#videoModal"></div>
                             <iframe style="border-radius: 5px;"
                                     width="280" height="157"
-                                    src="{{(index .Site.Params.videos.data $second).url}}"
+                                    src=""
                                     frameborder="0"
                                     gesture="media"
                                     allow="encrypted-media">
@@ -80,14 +76,13 @@
                         </div>
                         <div id="youtube-video-3"
                                 class="small-video-container">
-                            {{$third:= 3}}
                             <div class="small-video-overlay"
                                  onclick="openVideoFromPlaylist(event)"
                                  data-toggle="modal"
                                  data-target="#videoModal"></div>
                             <iframe style="border-radius: 5px;"
                                     width="280" height="157"
-                                    src="{{(index .Site.Params.videos.data $third).url}}"
+                                    src=""
                                     frameborder="0"
                                     gesture="media"
                                     allow="encrypted-media">

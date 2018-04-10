@@ -3009,6 +3009,10 @@ a.footer-links i:hover {
     margin: 10px;
 }
 
+#videos .video-hider iframe {
+    border-radius: 5px;
+}
+
 #videos .small-video-overlay {
     position: absolute;
     height: 100%;
@@ -3282,7 +3286,7 @@ a.footer-links i:hover {
     }
 }
 
-#loading-bar-spinner.spinner {
+.loading-bar-spinner.spinner {
     left: 50%;
     margin-left: -20px;
     top: 50%;
@@ -3292,7 +3296,7 @@ a.footer-links i:hover {
     animation: loading-bar-spinner 400ms linear infinite;
 }
 
-#loading-bar-spinner.spinner .spinner-icon {
+.loading-bar-spinner.spinner .spinner-icon {
     width: 40px;
     height: 40px;
     border: solid 4px transparent;

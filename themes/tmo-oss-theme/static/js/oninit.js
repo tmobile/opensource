@@ -34,6 +34,9 @@ function startCalendarClient() {
 }
 
 function startVideoClient() {
+    var videoHider = $('#video-hider');
+    videoHider.css('opacity', '0');
+    console.log('hiding');
     gapi.client.load('youtube', 'v3', function (callbackData) {
         var request = gapi.client.youtube.playlistItems.list({
             part: 'snippet',
@@ -41,9 +44,10 @@ function startVideoClient() {
             playlistId: 'PL0mz2nejZ-DgH0XsbYDrKPbeMiEJYWqUg'
         });
         request.execute(function (response) {
+            var videoLoader = $('#video-loader');
             if(!response.error) {
                 response.items.forEach(function (video, index) {
-                    console.log(video.snippet.title);
+
                     var videoContainer = $('#youtube-video-' + index + ' [data-toggle="modal"]');
                     var videoFrame = $('#youtube-video-' + index + ' iframe');
                     var videoSrc = 'https://youtube.com/embed/' + video.snippet.resourceId.videoId;
@@ -52,7 +56,10 @@ function startVideoClient() {
                     videoContainer.attr('video-url', videoSrc);
                     videoContainer.attr('video-title', video.snippet.title);
                 });
+                videoLoader.css('opacity', '0');
+                videoHider.css('opacity', 1);
             }
+            videoLoader.css('opacity', '0');
         })
     })
 }

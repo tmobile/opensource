@@ -13,7 +13,7 @@
                     <div class="text-center">
                         <h2 class="section-heading cat-details-section">
                             {{ with .Site.Params.videos.headline }}
-                                {{ . | markdownify }}
+                            {{ . | markdownify }}
                             {{ end }}
                         </h2>
                         <span class="section-heading cat-content">
@@ -26,81 +26,61 @@
             </div>
         </div>
         <div class="container container-margin grid text-center">
-            <div class="row">
-                <div class="col-lg-12 text-center margin-container">
-                    <div class="video-container">
-                        {{$mainVideoIndex := 0}}
-                        <iframe class="main-video"
-                                src="{{(index .Site.Params.videos.data $mainVideoIndex).url}}" frameborder="0"
-                                gesture="media"
-                                allow="encrypted-media">
-                        </iframe>
-                        <div class="main-video-overlay"
-                             onclick="openVideoModal({{(index .Site.Params.videos.data $mainVideoIndex).title}},
-                             {{(index .Site.Params.videos.data $mainVideoIndex).url}})"
-                             data-toggle="modal"
-                             data-target="#videoModal"></div>
-                    </div>
-                </div>
+            <div id="video-loader" class="loading-bar-spinner spinner">
+                <div class="spinner-icon"></div>
             </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="video-playlist">
-                        <div class="small-video-container">
-                            {{$first := 1}}
-                            <div class="small-video-overlay"
-                                 onclick="openVideoModal({{(index .Site.Params.videos.data $first).title}},
-                             {{(index .Site.Params.videos.data $first).url}})"
+
+            <div id="video-hider">
+                <div class="row">
+                    <div class="col-lg-12 text-center margin-container">
+                        <div id="youtube-video-0"
+                             class="video-container">
+                            <iframe class="main-video video-thumbnail"></iframe>
+                            <div class="main-video-overlay"
+                                 onclick="openVideoFromPlaylist(event)"
                                  data-toggle="modal"
                                  data-target="#videoModal"></div>
-                            <iframe style="border-radius: 5px;"
-                                    width="280" height="157"
-                                    src="{{(index .Site.Params.videos.data $first).url}}"
-                                    frameborder="0"
-                                    gesture="media"
-                                    allow="encrypted-media">
-                            </iframe>
-                        </div>
-                        <div class="small-video-container">
-                            {{$second:= 2}}
-                            <div class="small-video-overlay"
-                                 onclick="openVideoModal({{(index .Site.Params.videos.data $second).title}},
-                             {{(index .Site.Params.videos.data $second).url}})"
-                                 data-toggle="modal"
-                                 data-target="#videoModal"></div>
-                            <iframe style="border-radius: 5px;"
-                                    width="280" height="157"
-                                    src="{{(index .Site.Params.videos.data $second).url}}"
-                                    frameborder="0"
-                                    gesture="media"
-                                    allow="encrypted-media">
-                            </iframe>
-                        </div>
-                        <div class="small-video-container">
-                            {{$third:= 3}}
-                            <div class="small-video-overlay"
-                                 onclick="openVideoModal({{(index .Site.Params.videos.data $third).title}},
-                             {{(index .Site.Params.videos.data $third).url}})"
-                                 data-toggle="modal"
-                                 data-target="#videoModal"></div>
-                            <iframe style="border-radius: 5px;"
-                                    width="280" height="157"
-                                    src="{{(index .Site.Params.videos.data $third).url}}"
-                                    frameborder="0"
-                                    gesture="media"
-                                    allow="encrypted-media">
-                            </iframe>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="cat-prize-section">
-                <div class="container grid text-center">
-                    <div class="btn btn-white">
-                        <button type="input"
-                                onclick="window.open('https://www.youtube.com/playlist?list=PL0mz2nejZ-DgH0XsbYDrKPbeMiEJYWqUg','_videos')">
-                            <span class="code-span">ALL VIDEOS</span>
-                        </button>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="video-playlist">
+                            <div id="youtube-video-1"
+                                 class="small-video-container">
+                                <div class="small-video-overlay"
+                                     onclick="openVideoFromPlaylist(event)"
+                                     data-toggle="modal"
+                                     data-target="#videoModal"></div>
+                                <iframe class="video-thumbnail"></iframe>
+                            </div>
+                            <div id="youtube-video-2"
+                                 class="small-video-container">
+                                <div class="small-video-overlay"
+                                     onclick="openVideoFromPlaylist(event)"
+                                     data-toggle="modal"
+                                     data-target="#videoModal"></div>
+                                <iframe class="video-thumbnail"></iframe>
+                            </div>
+                            <div id="youtube-video-3"
+                                 class="small-video-container">
+                                <div class="small-video-overlay"
+                                     onclick="openVideoFromPlaylist(event)"
+                                     data-toggle="modal"
+                                     data-target="#videoModal"></div>
+                                <iframe class="video-thumbnail">                                </iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cat-prize-section">
+                    <div class="container grid text-center">
+                        <div class="btn btn-white">
+                            <button type="input"
+                                    onclick="window.open('https://www.youtube.com/playlist?list=PL0mz2nejZ-DgH0XsbYDrKPbeMiEJYWqUg','_videos')">
+                                <span class="code-span">ALL VIDEOS</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>

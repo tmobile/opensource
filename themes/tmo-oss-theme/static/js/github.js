@@ -25,5 +25,25 @@
                 })
             }
         }
-    })
+    });
+
+    $.ajax({
+        url: "https://api.github.com/repos/hyperledger/sawtooth-next-directory",
+        type: "GET",
+        cache: true,
+        success: function(repo) {
+            var nextIdentity = $('.project-row .markup[repo="next-identity"]');
+            if(repo) {
+                    var footer = nextIdentity.find(".markup-footer");
+                    if(footer) {
+                        var elms = $(footer).children();
+                        if(elms != null && elms.length == 2){
+                            $(elms[0]).prepend(repo.watchers);
+                            $(elms[1]).prepend(repo.forks);
+                        }
+                    }
+            }
+        }
+    });
+
 })(jQuery); // End of use strict

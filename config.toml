@@ -2,8 +2,8 @@ baseurl = "/"
 languageCode = "en-us"
 title = "T-Mobile Open Source"
 theme = "tmo-oss-theme"
-googleAnalytics = "UA-20393691-7"
-disqusShortname= "tmo-oss-internal"
+googleAnalytics = "UA-20393691-8"
+disqusShortname= "tmo-oss"
 
 [params]
 org_name = "tmobile"

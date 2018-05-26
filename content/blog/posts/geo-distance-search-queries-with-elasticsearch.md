@@ -2,7 +2,7 @@
 tags = ["elasticsearch"]
 categories = ["resources", "elasticsearch"]
 author = "Ram Gopinathan"
-draft = true
+draft = false
 date = 2018-05-24T21:00:00-07:00
 title = "Using geo distance search queries with elasticsearch"
 
@@ -280,7 +280,7 @@ if results.Hits.TotalHits > 0 {
 
 ```
 
-So there you have it. Elasticsearch is , and the go SDK makes building applications that leverage elasticsearch much easier, the nice part about all of this is store locator queries are super performant, so everybody wins :)
+So there you have it. Elasticsearch is awesome, and the go SDK makes building applications that leverage elasticsearch much easier, the nice part about all of this is store locator queries are super performant, so everybody wins :)
 
 Drop a comment or reach out to me via twitter or email if you have any questions.
 

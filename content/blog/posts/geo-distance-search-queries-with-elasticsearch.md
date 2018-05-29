@@ -1,17 +1,17 @@
 +++
-tags = ["elasticsearch"]
-categories = ["resources", "elasticsearch"]
+tags = ["elasticsearch", "golang", "t-mobile"]
+categories = ["Resources", "Elasticsearch", "Golang"]
 author = "Ram Gopinathan"
 draft = false
 date = 2018-05-24T21:00:00-07:00
-title = "Using geo distance search queries with elasticsearch"
+title = "Dude where's my store? using geo distance search queries with Elasticsearch to provide store locator experience"
 
 +++
 
-In this post, I will walk through how we use geo distance search queries with elasticsearch to provide "find a store" experience within our mobile application. Currently, the microservice that powers this experience in our mobile app is developed using vert.x which is a Java based framework that is quite commonly used for developing microservices. We recently ported this service to a serverless application and decided to develop in golang.
+In this post, I will walk through how we use geo distance search queries with Elasticsearch to provide "find a store" experience within our mobile application. Currently, the microservice that powers this experience in our mobile app is developed using Vert.x which is a Java based framework that is quite commonly used for developing microservices. We recently ported this service to a serverless application and decided to develop in golang.
 
-## Interacting with elasticsearch
-Since we decided to develop the new services in golang, we needed a golang SDK to interact with elasticsearch as we didn't want to write low-level REST/HTTP calls to elasticsearch APIs.  With a bit of research on the interwebz, I came across two options, 
+## Interacting with Elasticsearch
+Since we decided to develop the new services in golang, we needed a golang SDK to interact with Elasticsearch as we didn't want to write low-level REST/HTTP calls to Elasticsearch APIs.  With a bit of research on the interwebz, I came across two options, 
 
 * Official [Elasticsearch SDK](https://github.com/elastic/go-elasticsearch) for go from Elasticsearch team 
 
@@ -19,45 +19,29 @@ Since we decided to develop the new services in golang, we needed a golang SDK t
 
 I ended up settling with the third party SDK mainly for reasons listed below:
 
-1. Official GitHub repo for elasticsearch go SDK doesn't seem to be under active development. We noticed open PRs from Sept of 2017 and 0 releases. It did not look like it's ready for any production workloads.
+1. Official GitHub repo for Elasticsearch Golang SDK doesn't seem to be under active development. We noticed open PRs from Sept of 2017 and 0 releases. It did not look like it's ready for any production workloads.
 
-2. Design for the third party library seemed to be well thought out and clean, specifically the use of builder pattern. Resulting code written was much more readable and maintainable than dealing with JSON documents and low level REST API calls to elasticsearch APIs.
+2. Design for the third party library seemed to be well thought out and clean, specifically the use of builder pattern. Resulting code written was much more readable and maintainable than dealing with JSON documents and low level REST API calls to Elasticsearch APIs.
 
 ## High level solution design
 ![](/img/storelocator.png?raw=true)
 
 There are two primary components of the architecture diagram above
 
-1. Indexer service accepts a CSV feed of all the stores and does an upsert into an elastic search index. Indexer service also exposes some admin operations such as creation of index, deletion of index, etc.
+1. Indexer service accepts a CSV feed of all the stores and does an upsert into an Elasticsearch index. Indexer service also exposes some admin operations such as creation of index, deletion of index, etc.
 
 2. Query service accepts a lat/lon value as well as radius and returns a list of stores.
 
 ### Indexer service
 As mentioned before indexer service exposes admin operations such as creation of index as well as deleting indexes etc. Table below shows the REST endpoints for this service.
 
-<table>
-    <tr>
-        <th>Path</th>
-        <th>Method</th>
-        <th>Description</th>
-    </tr>
-    <tr>
-        <td>/1.0/admin/index</td>
-        <td>POST</td>
-        <td>Create a new index</td>
-    </tr>
-    <tr>
-        <td>/1.0/admin/index/{indexName}</td>
-        <td>DELETE</td>
-        <td>Delete index</td>
-    </tr>
-    <tr>
-        <td>/1.0/index/{indexName}</td>
-        <td>PUT</td>
-        <td>Add records in CSV file posted to elastic search index</td>
-    </tr>
-</table>
+Path                         | Method | Description
+--------------------         | ------ | ------------------
+/1.0/admin/index             | POST   | Create a new index
+/1.0/admin/index/{indexName} | DELETE | Delete index
+/1.0/index/{indexName}       | PUT    | Add records in CSV file posted to elastic search index
 
+<br />
 To enable geo searches, we have to manually create the mapping and explicitly set the field mapping at the time of index creation. 
 
 ```go
@@ -81,7 +65,7 @@ const mapping = `
 ```
 In the code above, you can see we are specifying the location field for store as geo point so that we can provide latitude/longitude pair at the time of indexing.
 
-Using the elastic search SDK for go, we create store locator index as shown in the code below
+Using the Elasticsearch SDK for Golang, we create store locator index as shown in the code below
 
 ```go
 exists, _ := p.client.IndexExists(indexName).Do(p.context)
@@ -198,7 +182,7 @@ This service handles store locator queries. Query requests include latitude, lon
 
 If you want to learn more about geo distance queries, head over [here](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-geo-distance-query.html) 
 
-Here is what the actual query that gets sent to elasticsearch instance looks like during a store locator query
+Here is what the actual query that gets sent to Elasticsearch instance looks like during a store locator query
 
 ```sh
 curl -X POST \
@@ -251,7 +235,7 @@ bq := elastic.NewBoolQuery().
 
 ```
 
-At this point, we can now execute the search against elasticsearch instance as shown in the code below.
+At this point, we can now execute the search against Elasticsearch instance as shown in the code below.
 
 ```go
 results, err := p.client.Search(indexName).
@@ -280,9 +264,11 @@ if results.Hits.TotalHits > 0 {
 
 ```
 
-So there you have it. Elasticsearch is awesome, and the go SDK makes building applications that leverage elasticsearch much easier, the nice part about all of this is store locator queries are super performant, so everybody wins :)
+So there you have it. Elasticsearch is awesome, and the Golang SDK makes building applications that leverage Elasticsearch much easier, the nice part about all of this is store locator queries are super performant, so everybody wins :)
 
 Drop a comment or reach out to me via twitter or email if you have any questions.
+
+Huge shout out to my boss [Tim Shelton](https://twitter.com/TimothyAShelton) who originally created the store locator APIs and also graciously agreeing to review this post and sharing his feedback. 
 
 Thanks,
 Ram

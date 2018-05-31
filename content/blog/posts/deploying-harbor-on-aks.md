@@ -70,7 +70,7 @@ At the end of this step, you would have created two ingress urls. In my case ing
 Harbor registry requires persistent blob storage to store all the docker images. Since we are deploying this on Azure we will need to use Azure Blob storage. Follow instructions below to create an Azure Storage Account in your subscription. One thing to keep in mind here is we need to ensure Azure storage account is created in "EastUS" region as AKS in the preview is currently only available in that region. We don't want our AKS cluster in EastUS and Storage Account used by VMware harbor to store images be in a different region. 
  
 
-```#!/bin/bash
+```bash
 
 AKS_STORAGE_ACCOUNT_NAME=<Provide storage account name>
 AKS_RESOURCE_GROUP=<Provide the Kubenetes Resource group>
@@ -94,14 +94,14 @@ Note down the account name and key; you will need it in the steps below.
 
 ### 3.1. Download helm chart from Harbor GitHub repository
 
-```#!/bin/bash
+```bash
 git clone https://github.com/vmware/harbor
 cd contrib/helm/harbor
 ```
 
 ### 3.2. Download Chart dependencies
 
-```#!/bin/bash
+```bash
 helm dependency update
 ```
 
@@ -151,8 +151,8 @@ Once the above changes are complete, your values.yaml should look like below.
       bucket: ""
       encrypt: "true"
     azure:
-      accountname: "<Storage account name (from above)>"
-      accountkey: "<Storage account key (from above)>"
+      accountname: "Storage account name (from above)"
+      accountkey: "Storage account key (from above)"
       container: "images"
 ```
 
@@ -166,7 +166,7 @@ Your secret.yaml should look like below.
 ### 3.4. Deploy to AKS
 We can now deploy harbor to AKS using the helm install command as shown below.
 
-```#!/bin/bash
+```bash
 
 helm install . --debug --name my-release --set externalDomain=game-harbor-demo.eastus.cloudapp.azure.com
 
@@ -178,13 +178,13 @@ Follow the instructions displayed as a result of running helm install command to
 Verify all pods are in running state as well as ingresses. You can perform this using azure CLI or kubectl. 
 
 Using Azure CLI
-```#!/bin/bash
+```bash
 az aks browse --resource-group <YOUR RESOURCE GROUP> --name <KUBERNETES SERVICE NAME>
 ```
 
 Using kubectl
 
-```#!/bin/bash
+```bash
 kubectl get pods
 kubectl get ing
 ```
@@ -202,7 +202,7 @@ Verify we can access the Harbor web UI
     
     Set environment variables to enable content trust and image signing as shown below
 
-    ```!#/bin/bash
+    ```bash
     export DOCKER_CONTENT_TRUST=1
     export DOCKER_CONTENT_TRUST_SERVER=https://<YOUR NOTARYDNS>.eastus.cloudapp.azure.com
     ```

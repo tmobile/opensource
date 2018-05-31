@@ -28,35 +28,18 @@ This article is meant to provide a walkthrough/guide to deploy VMWare Harbor on 
 
 * Helm installed and configured
 
-    If this your first time using helm, you can learn more about helm [here](https://docs.helm.sh/) and install and configure helm using instructions available [here](https://github.com/kubernetes/helm/blob/master/docs/install.md), additionally be sure to initialize helm with default service account as shown below.
+    If this your first time using helm, you can learn more about Helm [here](https://docs.helm.sh/) and install and configure helm using instructions available [here](https://github.com/kubernetes/helm/blob/master/docs/install.md), additionally be sure to initialize helm with default service account as shown below.
 
     ```#!/bin/bash
     helm init --service-account default
     ```
  
-## Install VMWare Harbor Container Registry on Azure Kubernetes Service
-<!-- TOC -->
-
-- [1.0. Create Ingress Controllers for harbor and notary](#12-create-ingress-controllers-for-harbor-and-notary)
-
-- [2.0. Configure Azure Storage](#14-configure-azure-storage)
-
-- [3.0. Deploy harbor using helm chart](#15-deploy-harbor-using-helm-chart)
-    - [3.1. Download helm chart from Harbor github repository](#31-download-helm-chart-from-harbor-github-repository)
-    - [3.2. Download Chart dependencies ](#152-download-external-dependent-charts-required-by-harbor-chart)
-    - [3.3. Now update the values.yaml under /contrib/helm/harbor](#153-now-update-the-valuesyaml-under-contribhelmharbor)
-    - [3.4. Deploy to AKS](#154-install-using-harbor-helm-chart)
-- [4.0. Verify the deployment](#16-verify-the-deployment)
-- [5.0. Credits](#17-credits)
-- [6.0. Troubleshooting](#18-troubleshooting)
-
-<!-- /TOC -->
-
+## Installing VMWare Harbor on Azure Kubernetes Service
 
 ## 1.0. Create Ingress Controllers for harbor and notary
 Talk about why we need to create ingress controllers
 
-We need to create two ingress controllers 
+We need to create two ingress controllers. 
 
 * Harbor registry 
 
@@ -84,7 +67,7 @@ At the end of this step, you would have created two ingress urls. In my case ing
 
 ## 2.0. Create an Azure Storage Account
 
-Harbor registry requires persistent blob storage to store all the docker images. Since we are deploying this on Azure we will need to use Azure Blob storage. Follow instructions below to create an Azure Storage Account in your subscription. One thing to keep in mind here is we need to ensure Azure storage account is created in "EastUS" region as AKS in preview is currently only available in that region. We don't want our AKS cluster in EastUS and Storage Account used by VMware harbor to store images be in a different region. 
+Harbor registry requires persistent blob storage to store all the docker images. Since we are deploying this on Azure we will need to use Azure Blob storage. Follow instructions below to create an Azure Storage Account in your subscription. One thing to keep in mind here is we need to ensure Azure storage account is created in "EastUS" region as AKS in the preview is currently only available in that region. We don't want our AKS cluster in EastUS and Storage Account used by VMware harbor to store images be in a different region. 
  
 
 ```#!/bin/bash
@@ -105,7 +88,7 @@ echo Storage account name: $AKS_STORAGE_ACCOUNT_NAME
 echo Storage account key: $STORAGE_KEY
 ```
 
-Note down the account name and key, You will need it in the step below.
+Note down the account name and key; you will need it in the steps below.
 
 ## 3.0. Deploy harbor using helm chart
 
@@ -178,27 +161,7 @@ By default common name for CA certificate is hardcoded to harbor-ca, we will nee
 You can find the secret.yaml under "/contrib/helm/harbor/templates/ingress"
 
 Your secret.yaml should look like below.
-
-```yaml
-{{ if not .Values.insecureRegistry }}
-{{ if .Values.generateCertificates }}
-{{ $ca := genCA “game-harbor-demo.eastus.cloudapp.azure.com” 3650 }}
-{{ $cert := genSignedCert (include “harbor.certCommonName” .) nil nil 3650 $ca }}
-apiVersion: v1
-kind: Secret
-metadata:
- name: “{{ template “harbor.fullname” . }}-ingress”
- labels:
-{{ include “harbor.labels” . | indent 4 }}
-type: kubernetes.io/tls
-data:
- tls.crt: {{ .Values.tlsCrt | default $cert.Cert | b64enc | quote }}
- tls.key: {{ .Values.tlsKey | default $cert.Key | b64enc | quote }}
- ca.crt: {{ .Values.caCrt | default $ca.Cert | b64enc | quote }}
-{{ end }}
-{{ end }}
-
-```
+![](/img/secret-yaml.png?raw=true)
 
 ### 3.4. Deploy to AKS
 We can now deploy harbor to AKS using the helm install command as shown below.
@@ -247,7 +210,7 @@ Verify we can access the Harbor web UI
 Play around with harbor by creating new projects, registries. For more details and videos [visit](https://github.com/vmware/harbor)
 
 ## 5.0. Resources
-Following list of resources was immensely helpful, huge shout out to everyone who contributed content to these articles. 
+The following list of resources was immensely helpful, a huge shout out to everyone who contributed content to these articles. 
 
 - <https://github.com/vmware/harbor>
 
@@ -259,4 +222,4 @@ Following list of resources was immensely helpful, huge shout out to everyone wh
 
 ## 6.0. Final thoughts
 
-Huge thanks to [Ram Gopinathan](http://twitter.com/rprakashg) for pointing me to look at Harbor project and reviewing this article and providing many comments and updates. This was a truly fun effort and Harbor project is something that everyone should seriously have a look at if you are leveraging docker and containers in your organization.
+Huge thanks to [Ram Gopinathan](http://twitter.com/rprakashg) for pointing me to look at Harbor project and reviewing this article and providing many comments and updates. This was a truly fun effort, and Harbor project is something that everyone should seriously have a look at if you are leveraging docker and containers in your organization.

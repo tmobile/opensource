@@ -8,7 +8,7 @@ title = "Deploying VMWare harbor on Azure Kubernetes Service aka AKS"
 
 +++
 
-VMware [harbor] (https://github.com/vmware/harbor) is an open source all in one enterprise-class container registry that extends open source docker distribution and adds many functionalities that are typically required in the enterprise such as:
+VMware Harbor is an open source all in one enterprise-class container registry that extends open source docker distribution and adds many functionalities that are typically required in the enterprise such as:
 
 - container registry
 

@@ -161,7 +161,25 @@ You can find the secret.yaml under "/contrib/helm/harbor/templates/ingress"
 
 Your secret.yaml should look like below.
 
-![](/img/secret-yaml.png?raw=true)
+```yaml
+{{ if not .Values.insecureRegistry }}
+{{ if .Values.generateCertificates }}
+{{ $ca := genCA “game-harbor-demo.eastus.cloudapp.azure.com” 3650 }}
+{{ $cert := genSignedCert (include “harbor.certCommonName” .) nil nil 3650 $ca }}
+apiVersion: v1
+kind: Secret
+metadata:
+ name: “{{ template “harbor.fullname” . }}-ingress”
+ labels:
+{{ include “harbor.labels” . | indent 4 }}
+type: kubernetes.io/tls
+data:
+ tls.crt: {{ .Values.tlsCrt | default $cert.Cert | b64enc | quote }}
+ tls.key: {{ .Values.tlsKey | default $cert.Key | b64enc | quote }}
+ ca.crt: {{ .Values.caCrt | default $ca.Cert | b64enc | quote }}
+{{ end }}
+{{ end }}
+```
 
 ### 3.4. Deploy to AKS
 We can now deploy harbor to AKS using the helm install command as shown below.

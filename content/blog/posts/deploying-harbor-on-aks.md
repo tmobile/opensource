@@ -181,7 +181,7 @@ helm install . --debug --name my-release --set externalDomain=game-harbor-demo.e
 
 ```
 
-Since we will be using docker CLI to push images into registry, we will need to follow instructions shown in output after helm install command suceeds to integrate docker CLI with newly deployed container registry on AKS.
+Since we will be using docker CLI to push images into registry, we will need to complete instructions shown in output after helm install command suceeds to integrate docker CLI with newly deployed container registry on AKS.
 
 ## 4.0. Verify the deployment
 Verify all pods are in running state as well as ingresses. You can perform this using azure CLI or kubectl. 

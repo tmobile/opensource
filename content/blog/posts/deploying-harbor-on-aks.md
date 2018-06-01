@@ -10,6 +10,12 @@ title = "Deploying VMWare harbor on Azure Kubernetes Service aka AKS"
 
 VMware [harbor](https://github.com/vmware/harbor) is an open source all in one enterprise-class container registry that extends open source docker distribution and adds many functionalities that are typically required in the enterprise such as:
 
+* container registry
+
+* container image vulnerability scanning
+
+* notary (Content trust and digital signing)
+
 We recently went through an evaluation process of VMware harbor and had to deploy it on our Azure Kubernetes cluster. Harbor project currently includes a [helm chart](https://github.com/vmware/harbor/tree/master/contrib/helm/harbor) that can be used to deploy to a kubernetes cluster, unfortunately, with AKS we had to make some edits to the Helm chart as well as perform some additional steps.
 This article is meant to provide a walkthrough/guide to deploy VMWare Harbor on Azure Kubernetes Service (AKS).
 

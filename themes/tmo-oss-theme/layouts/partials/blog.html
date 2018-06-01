@@ -30,7 +30,7 @@
                                 <div class="blogContainer">
                                     <div class="smallBlogContainer">
                                         <div class="blog-tile-header chop" title="{{ .Title | markdownify }}">{{ .Title | markdownify }}</div>
-                                        <p class="blog-tile-paragraph">{{ slicestr .Summary 0 120| markdownify }}...</p>
+                                        <p class="blog-tile-paragraph">{{ slicestr .Summary 0 70| markdownify }}...</p>
                                     </div>
                                     <div class="authorContainer">
                                         <!-- {{ $author := index .Site.Params.authors .Params.author }} -->

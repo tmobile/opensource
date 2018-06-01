@@ -36,15 +36,7 @@ This article is meant to provide a walkthrough/guide to deploy VMWare Harbor on 
 ## Installing VMWare Harbor on Azure Kubernetes Service
 
 ## 1.0. Create Ingress Controllers for harbor and notary
-Talk about why we need to create ingress controllers
-
-We need to create two ingress controllers. 
-
-* Harbor registry 
-
-* Notary service
-
-Follow the instructions available in this [tutorial](https://docs.microsoft.com/en-us/azure/aks/ingress) to create ingress controllers. We only need to follow steps highlighted in these sections.
+We need to create two ingress controllers to allow users to access both Harbor and Notary services. Follow the instructions available in this [tutorial](https://docs.microsoft.com/en-us/azure/aks/ingress) to create ingress controllers. We only need to follow steps highlighted in these sections.
 
 - [install-an-ingress-controller](https://docs.microsoft.com/en-us/azure/aks/ingress#install-an-ingress-controller)
     
@@ -156,10 +148,9 @@ Once the above changes are complete, your values.yaml should look like below.
 ```
 
 #### 3.3.2 Updates to secret.yaml
-By default common name for CA certificate is hardcoded to harbor-ca, we will need to change this to reflect the correct FQDN from ingress URL we created earlier. For this POC we are setting it to "game-harbor-demo.eastus.cloudapp.azure.com. 
-You can find the secret.yaml under "/contrib/helm/harbor/templates/ingress"
+By default common name for CA certificate is hardcoded to harbor-ca, we will need to change this to reflect the correct FQDN from ingress URL we created earlier. For this POC we are setting it to "game-harbor-demo.eastus.cloudapp.azure.com. You can find the secret.yaml under "/contrib/helm/harbor/templates/ingress" directory.
 
-Your secret.yaml should look like below.
+Your secret.yaml should look like below after the above mentioned updates are complete.
 
 ```yaml
 {{ if not .Values.insecureRegistry }}
@@ -190,7 +181,7 @@ helm install . --debug --name my-release --set externalDomain=game-harbor-demo.e
 
 ```
 
-Follow the instructions displayed as a result of running helm install command to complete docker CLI configurations required to integrate with newly deployed container registry on AKS.
+Since we will be using docker CLI to push images into registry, we will need to follow instructions shown in output after helm install command suceeds to integrate docker CLI with newly deployed container registry on AKS.
 
 ## 4.0. Verify the deployment
 Verify all pods are in running state as well as ingresses. You can perform this using azure CLI or kubectl. 

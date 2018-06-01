@@ -74,7 +74,7 @@ favicon = "favicon.ico"
 
     [params.authors.prashant]
     name = "Prashant Gupta"
-    
+
   [params.events]
   headline = "EVENTS CALENDAR"
   summary = "Keep up to date on new releases and upcoming events."

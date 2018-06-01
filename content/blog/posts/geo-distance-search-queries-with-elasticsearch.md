@@ -28,11 +28,11 @@ I ended up settling with the third party SDK mainly for reasons listed below:
 
 There are two primary components of the architecture diagram above
 
-1. Indexer service accepts a CSV feed of all the stores and does an upsert into an Elasticsearch index. Indexer service also exposes some admin operations such as creation of index, deletion of index, etc.
+1. Indexer function accepts a CSV feed of all the stores and does an upsert into an Elasticsearch index. Indexer service also exposes some admin operations such as creation of index, deletion of index, etc.
 
-2. Query service accepts a lat/lon value as well as radius and returns a list of stores.
+2. Query function accepts a lat/lon value as well as radius and returns a list of stores.
 
-### Indexer service
+### Indexer function
 As mentioned before indexer service exposes admin operations such as creation of index as well as deleting indexes etc. Table below shows the REST endpoints for this service.
 
 Path                         | Method | Description
@@ -177,7 +177,7 @@ for i, record := range records {
 #### Additional considerations
 With the above indexing mechanism, we can index about 5300 stores in about 20 seconds. Larger the file, you have to consider timeouts, etc. It would be a good practice to break the file down into smaller files and process them into separate requests.
 
-### Query service
+### Query Function
 This service handles store locator queries. Query requests include latitude, longitude and distance as parameter, service uses geo distance queries based on lat/lon and distance values passed in request and returns a collection of stores in response.
 
 If you want to learn more about geo distance queries, head over [here](https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-geo-distance-query.html) 

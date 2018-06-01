@@ -8,13 +8,7 @@ title = "Deploying VMWare harbor on Azure Kubernetes Service aka AKS"
 
 +++
 
-VMware Harbor is an open source all in one enterprise-class container registry that extends open source docker distribution and adds many functionalities that are typically required in the enterprise such as:
-
-- container registry
-
-- container image vulnerability scanning
-
-- notary (Content trust and digital signing)
+VMware [harbor](https://github.com/vmware/harbor) is an open source all in one enterprise-class container registry that extends open source docker distribution and adds many functionalities that are typically required in the enterprise such as:
 
 We recently went through an evaluation process of VMware harbor and had to deploy it on our Azure Kubernetes cluster. Harbor project currently includes a [helm chart](https://github.com/vmware/harbor/tree/master/contrib/helm/harbor) that can be used to deploy to a kubernetes cluster, unfortunately, with AKS we had to make some edits to the Helm chart as well as perform some additional steps.
 This article is meant to provide a walkthrough/guide to deploy VMWare Harbor on Azure Kubernetes Service (AKS).
@@ -112,7 +106,7 @@ We need to make some changes to values.yaml and secret.yaml files
 
 * Turn off certificate auto generation
 
-    Since we are using kube-lego we will need to turn off auto-generation of the certificate when we deploy the chart using helm.
+    Since we are using kube-lego for automatically getting a TLS certificate from letsencrypt, we will need to turn off auto-generation of the certificate when we deploy the chart using helm.
 
 * Update external domain
     
@@ -160,6 +154,7 @@ By default common name for CA certificate is hardcoded to harbor-ca, we will nee
 You can find the secret.yaml under "/contrib/helm/harbor/templates/ingress"
 
 Your secret.yaml should look like below.
+
 ![](/img/secret-yaml.png?raw=true)
 
 ### 3.4. Deploy to AKS
@@ -190,7 +185,7 @@ kubectl get ing
 
 Verify we can access the Harbor web UI
 
-* Launch browser and navigate to https://<YOUR DNS NAME>.eastus.cloudapp.azure.com 
+* Launch browser and navigate to https://YOUR_HARBOR_DNS_NAME.eastus.cloudapp.azure.com 
 
 * Login with admin credentials. Default credentials are
     * username=admin password="Harbor12345"

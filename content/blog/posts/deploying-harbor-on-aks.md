@@ -40,21 +40,21 @@ We need to create two ingress controllers to allow users to access both Harbor a
 
 - [install-an-ingress-controller](https://docs.microsoft.com/en-us/azure/aks/ingress#install-an-ingress-controller)
     
-    Please be sure to set the RBAC to false as shown below. Preview version of AKS doesn't support RBAC; this could potentially change in future. 
+    Follow steps listed in this section to install an NGINX ingress controller. Please be sure to set the RBAC to false as shown below. Preview version of AKS doesn't support RBAC; this could potentially change in future. 
     
     ```
-    --set rbac.create=false
+    helm install stable/nginx-ingress --namespace kube-system --set rbac.create=false --set rbac.createRole=false --set rbac.createClusterRole=false
     ```
 
-- [Configure-dns-name] (https://docs.microsoft.com/en-us/azure/aks/ingress#configure-dns-name)
+- [Configure-dns-name](https://docs.microsoft.com/en-us/azure/aks/ingress#configure-dns-name)
 
 - [Install-kube-lego](https://docs.microsoft.com/en-us/azure/aks/ingress#install-kube-leg)
 
 At the end of this step, you would have created two ingress urls. In my case ingress hosts were:
 
-- game-harbor-demo.eastus.cloudapp.azure.com
+- tmobile-harbor-demo.eastus.cloudapp.azure.com
 
-- notary-game-harbor-demo.eastus.cloudapp.azure.com
+- tmoobile-notary-demo.eastus.cloudapp.azure.com
 
 ## 2.0. Create an Azure Storage Account
 
@@ -62,7 +62,6 @@ Harbor registry requires persistent blob storage to store all the docker images.
  
 
 ```bash
-
 AKS_STORAGE_ACCOUNT_NAME=<Provide storage account name>
 AKS_RESOURCE_GROUP=<Provide the Kubenetes Resource group>
 AKS_REGION=eastus 
@@ -87,7 +86,7 @@ Note down the account name and key; you will need it in the steps below.
 
 ```bash
 git clone https://github.com/vmware/harbor
-cd contrib/helm/harbor
+cd harbor/contrib/helm/harbor
 ```
 
 ### 3.2. Download Chart dependencies
@@ -121,7 +120,7 @@ We need to make some changes to values.yaml and secret.yaml files
 Once the above changes are complete, your values.yaml should look like below. 
 
 ```yaml
- externalDomain: game-harbor-demo.eastus.cloudapp.azure.com
+ externalDomain: tmobile-harbor-demo.eastus.cloudapp.azure.com
  generateCertificates: false
  ingress:
  annotations:
@@ -155,7 +154,7 @@ Your secret.yaml should look like below after the above mentioned updates are co
 ```yaml
 {{ if not .Values.insecureRegistry }}
 {{ if .Values.generateCertificates }}
-{{ $ca := genCA “game-harbor-demo.eastus.cloudapp.azure.com” 3650 }}
+{{ $ca := genCA “tmobile-harbor-demo.eastus.cloudapp.azure.com” 3650 }}
 {{ $cert := genSignedCert (include “harbor.certCommonName” .) nil nil 3650 $ca }}
 apiVersion: v1
 kind: Secret
@@ -177,7 +176,7 @@ We can now deploy harbor to AKS using the helm install command as shown below.
 
 ```bash
 
-helm install . --debug --name my-release --set externalDomain=game-harbor-demo.eastus.cloudapp.azure.com
+helm install . --debug --name my-release --set externalDomain=tmobile-harbor-demo.eastus.cloudapp.azure.com
 
 ```
 

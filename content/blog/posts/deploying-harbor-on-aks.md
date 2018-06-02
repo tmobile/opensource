@@ -54,7 +54,7 @@ At the end of this step, you would have created two ingress urls. In my case ing
 
 - tmobile-harbor-demo.eastus.cloudapp.azure.com
 
-- tmoobile-notary-demo.eastus.cloudapp.azure.com
+- tmobile-notary-demo.eastus.cloudapp.azure.com
 
 ## 2.0. Create an Azure Storage Account
 
@@ -101,9 +101,9 @@ We need to make some changes to values.yaml and secret.yaml files
 
 #### 3.3.1 Updates to values.yaml 
 
-* Turn off certificate auto generation
+* Turn off certificate auto generation by helm
 
-    Since we are using kube-lego for automatically getting a TLS certificate from letsencrypt, we will need to turn off auto-generation of the certificate when we deploy the chart using helm.
+    Since we are using kube-lego for automatically getting a TLS certificate from letsencrypt, we will need to turn off auto-generation of the certificate by helm when deploying the chart.
 
 * Update external domain
     
@@ -225,8 +225,6 @@ The following list of resources was immensely helpful, a huge shout out to every
 - <https://github.com/vmware/harbor/tree/master/contrib/helm/harbor>
 
 - <https://docs.microsoft.com/en-us/azure/aks/ingress#install-an-ingress-controller>
-
-- <https://docs.microsoft.com/en-us/azure/aks/azure-files-volume>
 
 ## 6.0. Final thoughts
 

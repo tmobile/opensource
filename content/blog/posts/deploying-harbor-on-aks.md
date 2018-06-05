@@ -23,7 +23,7 @@ This article is meant to provide a walkthrough/guide to deploy VMWare Harbor on 
 
 * AKS cluster provisioned in your Azure Account
 
-    Creating a Kubernetes cluster on Azure is pretty simple and can be quickly done by utilizing either [Azure CLI](https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough) or from [Azure Portal](https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough-portal).
+    Creating a Kubernetes cluster on Azure is pretty simple and can be quickly done by utilizing either [Azure CLI](https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough) or from [Azure Portal](https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough-portal). There is a known issue with the Harbor helm chart, chart doesn't work with Kubernetes 1.8.9+ and 1.9.4+ versions. So if you are testing this out be sure to use version 1.8.7. See more info on chart known issue [here](https://github.com/vmware/harbor/issues/4496)
 
 * Helm installed and configured
 
@@ -54,7 +54,7 @@ At the end of this step, you would have created two ingress urls. In my case ing
 
 - tmobile-harbor-demo.eastus.cloudapp.azure.com
 
-- tmoobile-notary-demo.eastus.cloudapp.azure.com
+- tmobile-notary-demo.eastus.cloudapp.azure.com
 
 ## 2.0. Create an Azure Storage Account
 
@@ -101,9 +101,9 @@ We need to make some changes to values.yaml and secret.yaml files
 
 #### 3.3.1 Updates to values.yaml 
 
-* Turn off certificate auto generation
+* Turn off certificate auto generation by helm
 
-    Since we are using kube-lego for automatically getting a TLS certificate from letsencrypt, we will need to turn off auto-generation of the certificate when we deploy the chart using helm.
+    Since we are using kube-lego for automatically getting a TLS certificate from letsencrypt, we will need to turn off auto-generation of the certificate by helm when deploying the chart.
 
 * Update external domain
     
@@ -147,7 +147,7 @@ Once the above changes are complete, your values.yaml should look like below.
 ```
 
 #### 3.3.2 Updates to secret.yaml
-By default common name for CA certificate is hardcoded to harbor-ca, we will need to change this to reflect the correct FQDN from ingress URL we created earlier. For this POC we are setting it to "game-harbor-demo.eastus.cloudapp.azure.com. You can find the secret.yaml under "/contrib/helm/harbor/templates/ingress" directory.
+By default common name for CA certificate is hardcoded to harbor-ca, we will need to change this to reflect the correct FQDN from ingress URL we created earlier. For this post we are setting it to "tmobile-harbor-demo.eastus.cloudapp.azure.com. You can find the secret.yaml under "/contrib/helm/harbor/templates/ingress" directory.
 
 Your secret.yaml should look like below after the above mentioned updates are complete.
 
@@ -225,8 +225,6 @@ The following list of resources was immensely helpful, a huge shout out to every
 - <https://github.com/vmware/harbor/tree/master/contrib/helm/harbor>
 
 - <https://docs.microsoft.com/en-us/azure/aks/ingress#install-an-ingress-controller>
-
-- <https://docs.microsoft.com/en-us/azure/aks/azure-files-volume>
 
 ## 6.0. Final thoughts
 

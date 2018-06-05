@@ -23,7 +23,7 @@ This article is meant to provide a walkthrough/guide to deploy VMWare Harbor on 
 
 * AKS cluster provisioned in your Azure Account
 
-    Creating a Kubernetes cluster on Azure is pretty simple and can be quickly done by utilizing either [Azure CLI](https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough) or from [Azure Portal](https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough-portal).
+    Creating a Kubernetes cluster on Azure is pretty simple and can be quickly done by utilizing either [Azure CLI](https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough) or from [Azure Portal](https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough-portal). There is a known issue with the Harbor helm chart, chart doesn't work with Kubernetes 1.8.9+ and 1.9.4+ versions. So if you are testing this out be sure to use version 1.8.7. See more info on chart known issue [here](https://github.com/vmware/harbor/issues/4496)
 
 * Helm installed and configured
 
@@ -147,7 +147,7 @@ Once the above changes are complete, your values.yaml should look like below.
 ```
 
 #### 3.3.2 Updates to secret.yaml
-By default common name for CA certificate is hardcoded to harbor-ca, we will need to change this to reflect the correct FQDN from ingress URL we created earlier. For this POC we are setting it to "game-harbor-demo.eastus.cloudapp.azure.com. You can find the secret.yaml under "/contrib/helm/harbor/templates/ingress" directory.
+By default common name for CA certificate is hardcoded to harbor-ca, we will need to change this to reflect the correct FQDN from ingress URL we created earlier. For this post we are setting it to "tmobile-harbor-demo.eastus.cloudapp.azure.com. You can find the secret.yaml under "/contrib/helm/harbor/templates/ingress" directory.
 
 Your secret.yaml should look like below after the above mentioned updates are complete.
 

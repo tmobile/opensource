@@ -23,7 +23,7 @@ This article is meant to provide a walkthrough/guide to deploy VMWare Harbor on 
 
 * AKS cluster provisioned in your Azure Account
 
-    Creating a Kubernetes cluster on Azure is pretty simple and can be quickly done by utilizing either [Azure CLI](https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough) or from [Azure Portal](https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough-portal). There is a known issue with the Harbor helm chart, chart doesn't work with Kubernetes 1.8.9+ and 1.9.4+ versions. So if you are testing this out be sure to use version 1.8.7. See more info on chart known issue [here](https://github.com/vmware/harbor/issues/4496)
+    Creating a Kubernetes cluster on Azure is pretty simple and can be quickly done by utilizing either [Azure CLI](https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough) or from [Azure Portal](https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough-portal). There is a known issue with the Harbor helm chart, chart doesn't work with Kubernetes 1.8.9+ and 1.9.4+ versions. So if you are testing this out, be sure to use version 1.8.7. See more info on chart known issue [here](https://github.com/vmware/harbor/issues/4496)
 
 * Helm installed and configured
 
@@ -69,7 +69,8 @@ AKS_REGION=eastus
 #Create the storage account
 az storage account create -n $AKS_STORAGE_ACCOUNT_NAME -g $AKS_RESOURCE_GROUP -l $AKS_REGION --sku Standard_LRS
 
-#Export the connection string as an environment variable, this is used when creating export AZURE_STORAGE_CONNECTION_STRING=`az storage account show-connection-string -n $AKS_STORAGE_ACCOUNT_NAME -g $AKS_RESOURCE_GROUP -o tsv`
+#Export the connection string as an environment variable, this is used when creating 
+export AZURE_STORAGE_CONNECTION_STRING=`az storage account show-connection-string -n $AKS_STORAGE_ACCOUNT_NAME -g $AKS_RESOURCE_GROUP -o tsv`
 
 #Get storage account key
 STORAGE_KEY=$(az storage account keys list --resource-group $AKS_RESOURCE_GROUP --account-name $AKS_STORAGE_ACCOUNT_NAME --query "[0].value" -o tsv)

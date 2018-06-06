@@ -231,10 +231,10 @@ If all is well, the image should be successfully pushed and you should be able t
     
 Set environment variables to enable content trust and image signing as shown below.
 
-    ```bash
-    export DOCKER_CONTENT_TRUST=1
-    export DOCKER_CONTENT_TRUST_SERVER=https://<YOUR NOTARYDNS>.eastus.cloudapp.azure.com
-    ```
+```bash
+export DOCKER_CONTENT_TRUST=1
+export DOCKER_CONTENT_TRUST_SERVER=https://<YOUR NOTARYDNS>.eastus.cloudapp.azure.com
+```
 
 If you are new to Harbor please check out [Harbor project](https://github.com/vmware/harbor) on Github
 

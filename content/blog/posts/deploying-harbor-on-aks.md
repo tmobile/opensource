@@ -229,7 +229,7 @@ If all is well, the image should be successfully pushed and you should be able t
 
 #### 4.2.3. Enabling content trust and image signing
     
-    Set environment variables to enable content trust and image signing as shown below
+Set environment variables to enable content trust and image signing as shown below.
 
     ```bash
     export DOCKER_CONTENT_TRUST=1

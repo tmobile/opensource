@@ -1,5 +1,5 @@
 +++
-tags = ["harbor", "azure", "AKS", "K8s"]
+tags = ["Harbor", "Azure", "AKS", "K8s", "T-Mobile", "Microsoft", "VMware"]
 categories = ["Azure", "K8s", "AKS", "Harbor", "VMWare"]
 author = "Prashant Gupta"
 draft = false
@@ -48,13 +48,17 @@ We need to create two ingress controllers to allow users to access both Harbor a
 
 - [Configure-dns-name](https://docs.microsoft.com/en-us/azure/aks/ingress#configure-dns-name)
 
+    Helm chart sets up FQDN for notary based on the harbor DNS, for ex. for this post we used "tmobile-harbor-demo" as harbor DNS, so your notary DNS will be "notary-tmobile-harbor-demo". Keep this in mind when you configure the DNS for the nginx ingress for notary to also use the same format. 
+    
+    You could always change this using kubectl edit ing command and update ingress routes if you made any mistake or you are getting certificate errors.
+     
 - [Install-kube-lego](https://docs.microsoft.com/en-us/azure/aks/ingress#install-kube-leg)
 
 At the end of this step, you would have created two ingress urls. In my case ingress hosts were:
 
 - tmobile-harbor-demo.eastus.cloudapp.azure.com
 
-- tmobile-notary-demo.eastus.cloudapp.azure.com
+- notary-tmobile-harbor-demo.eastus.cloudapp.azure.com
 
 ## 2.0. Create an Azure Storage Account
 

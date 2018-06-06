@@ -1,5 +1,5 @@
 +++
-tags = ["harbor", "azure", "AKS", "K8s"]
+tags = ["Harbor", "Azure", "AKS", "K8s", "T-Mobile", "Microsoft", "VMware"]
 categories = ["Azure", "K8s", "AKS", "Harbor", "VMWare"]
 author = "Prashant Gupta"
 draft = false
@@ -23,7 +23,7 @@ This article is meant to provide a walkthrough/guide to deploy VMWare Harbor on 
 
 * AKS cluster provisioned in your Azure Account
 
-    Creating a Kubernetes cluster on Azure is pretty simple and can be quickly done by utilizing either [Azure CLI](https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough) or from [Azure Portal](https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough-portal). There is a known issue with the Harbor helm chart, chart doesn't work with Kubernetes 1.8.9+ and 1.9.4+ versions. So if you are testing this out be sure to use version 1.8.7. See more info on chart known issue [here](https://github.com/vmware/harbor/issues/4496)
+    Creating a Kubernetes cluster on Azure is pretty simple and can be quickly done by utilizing either [Azure CLI](https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough) or from [Azure Portal](https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough-portal). There is a known issue with the Harbor helm chart, chart doesn't work with Kubernetes 1.8.9+ and 1.9.4+ versions. So if you are testing this out, be sure to use version 1.8.7. See more info on the issue [here](https://github.com/vmware/harbor/issues/4496)
 
 * Helm installed and configured
 
@@ -35,7 +35,7 @@ This article is meant to provide a walkthrough/guide to deploy VMWare Harbor on 
  
 ## Installing VMWare Harbor on Azure Kubernetes Service
 
-## 1.0. Create Ingress Controllers for harbor and notary
+## 1.0. Create ingress controllers for harbor and notary
 We need to create two ingress controllers to allow users to access both Harbor and Notary services. Follow the instructions available in this [tutorial](https://docs.microsoft.com/en-us/azure/aks/ingress) to create ingress controllers. We only need to follow steps highlighted in these sections.
 
 - [install-an-ingress-controller](https://docs.microsoft.com/en-us/azure/aks/ingress#install-an-ingress-controller)
@@ -48,15 +48,19 @@ We need to create two ingress controllers to allow users to access both Harbor a
 
 - [Configure-dns-name](https://docs.microsoft.com/en-us/azure/aks/ingress#configure-dns-name)
 
+    Helm chart sets up FQDN for notary based on the harbor DNS, for ex. for this post we used "tmobile-harbor-demo" as harbor DNS, so your notary DNS will be "notary-tmobile-harbor-demo". Keep this in mind when you configure the DNS for the nginx ingress for notary to also use the same format. 
+    
+    You could always change this using kubectl edit ing command and update ingress routes if you made any mistake or you are getting certificate errors.
+     
 - [Install-kube-lego](https://docs.microsoft.com/en-us/azure/aks/ingress#install-kube-leg)
 
 At the end of this step, you would have created two ingress urls. In my case ingress hosts were:
 
 - tmobile-harbor-demo.eastus.cloudapp.azure.com
 
-- tmobile-notary-demo.eastus.cloudapp.azure.com
+- notary-tmobile-harbor-demo.eastus.cloudapp.azure.com
 
-## 2.0. Create an Azure Storage Account
+## 2.0. Create an Azure storage account
 
 Harbor registry requires persistent blob storage to store all the docker images. Since we are deploying this on Azure we will need to use Azure Blob storage. Follow instructions below to create an Azure Storage Account in your subscription. One thing to keep in mind here is we need to ensure Azure storage account is created in "EastUS" region as AKS in the preview is currently only available in that region. We don't want our AKS cluster in EastUS and Storage Account used by VMware harbor to store images be in a different region. 
  
@@ -69,7 +73,8 @@ AKS_REGION=eastus
 #Create the storage account
 az storage account create -n $AKS_STORAGE_ACCOUNT_NAME -g $AKS_RESOURCE_GROUP -l $AKS_REGION --sku Standard_LRS
 
-#Export the connection string as an environment variable, this is used when creating export AZURE_STORAGE_CONNECTION_STRING=`az storage account show-connection-string -n $AKS_STORAGE_ACCOUNT_NAME -g $AKS_RESOURCE_GROUP -o tsv`
+#Export the connection string as an environment variable, this is used when creating 
+export AZURE_STORAGE_CONNECTION_STRING=`az storage account show-connection-string -n $AKS_STORAGE_ACCOUNT_NAME -g $AKS_RESOURCE_GROUP -o tsv`
 
 #Get storage account key
 STORAGE_KEY=$(az storage account keys list --resource-group $AKS_RESOURCE_GROUP --account-name $AKS_STORAGE_ACCOUNT_NAME --query "[0].value" -o tsv)
@@ -80,9 +85,9 @@ echo Storage account key: $STORAGE_KEY
 
 Note down the account name and key; you will need it in the steps below.
 
-## 3.0. Deploy harbor using helm chart
+## 3.0. Deploying harbor using helm chart
 
-### 3.1. Download helm chart from Harbor GitHub repository
+### 3.1. Download helm chart from harbor GitHub repository
 
 ```bash
 git clone https://github.com/vmware/harbor
@@ -95,9 +100,9 @@ cd harbor/contrib/helm/harbor
 helm dependency update
 ```
 
-### 3.3. Update helm chart for Harbor
+### 3.3. Update helm chart for harbor
 
-We need to make some changes to values.yaml and secret.yaml files
+We need to make some changes to values.yaml.
 
 #### 3.3.1 Updates to values.yaml 
 
@@ -107,7 +112,7 @@ We need to make some changes to values.yaml and secret.yaml files
 
 * Update external domain
     
-    Ensure external domain option is updated to reflect the ingress URL for Harbor that we created in the previous step.
+    Ensure external domain option is updated to reflect the ingress URL for harbor that we created in the previous step.
 
 * Add annotations
 
@@ -146,31 +151,6 @@ Once the above changes are complete, your values.yaml should look like below.
       container: "images"
 ```
 
-#### 3.3.2 Updates to secret.yaml
-By default common name for CA certificate is hardcoded to harbor-ca, we will need to change this to reflect the correct FQDN from ingress URL we created earlier. For this post we are setting it to "tmobile-harbor-demo.eastus.cloudapp.azure.com. You can find the secret.yaml under "/contrib/helm/harbor/templates/ingress" directory.
-
-Your secret.yaml should look like below after the above mentioned updates are complete.
-
-```yaml
-{{ if not .Values.insecureRegistry }}
-{{ if .Values.generateCertificates }}
-{{ $ca := genCA “tmobile-harbor-demo.eastus.cloudapp.azure.com” 3650 }}
-{{ $cert := genSignedCert (include “harbor.certCommonName” .) nil nil 3650 $ca }}
-apiVersion: v1
-kind: Secret
-metadata:
- name: “{{ template “harbor.fullname” . }}-ingress”
- labels:
-{{ include “harbor.labels” . | indent 4 }}
-type: kubernetes.io/tls
-data:
- tls.crt: {{ .Values.tlsCrt | default $cert.Cert | b64enc | quote }}
- tls.key: {{ .Values.tlsKey | default $cert.Key | b64enc | quote }}
- ca.crt: {{ .Values.caCrt | default $ca.Cert | b64enc | quote }}
-{{ end }}
-{{ end }}
-```
-
 ### 3.4. Deploy to AKS
 We can now deploy harbor to AKS using the helm install command as shown below.
 
@@ -199,7 +179,7 @@ kubectl get ing
 
 Verify we can access the Harbor web UI
 
-* Launch browser and navigate to https://YOUR_HARBOR_DNS_NAME.eastus.cloudapp.azure.com 
+* Launch browser and navigate to https://tmobile-harbor-demo.eastus.cloudapp.azure.com 
 
 * Login with admin credentials. Default credentials are
     * username=admin password="Harbor12345"

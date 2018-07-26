@@ -10,7 +10,6 @@
 
   function getRepo(element) {
     var url = "https://api.github.com/repos/" + element.attr("full-name");
-    return;
     $.ajax({
       url: url,
       type: "GET",

@@ -1,0 +1,7 @@
+name: casquatch
+full_name: tmobile/casquatch
+description:  Java abstraction layer for Cassandra databases
+url: https://github.com/tmobile/casquatch.git
+img: "foo.png"
+language: "JAVA"
+css: ""

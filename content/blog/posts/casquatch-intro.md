@@ -67,7 +67,7 @@ Then you are good to go. Checkout the [javadocs](https://tmobile.github.io/casqu
 
 This project is being released with an open source only model which means there is no proprietary magic we are holding back. The code we are releasing today has been reported as used by national platforms including the activation of the Series 3 Apple Watch, T-Mobile Payments, Digits, and multiple others that are yet to be announced.
 
-Project Casquatch, as open source project, is continuously evolving.  Please refer to your IT group to determine suitability for any production or critical needs. Cassandra is also open sourced under Apache License 2.0. Check out the project in  [Github](https://github.com/tmobile/casquatch/)  and this short [demo video](https://github.com/tmobile/casquatch/link-to-docs-todo).
+Project Casquatch, as open source project, is continuously evolving.  Please refer to your IT group to determine suitability for any production or critical needs. Cassandra is also open sourced under Apache License 2.0. Check out the project in  [Github](https://github.com/tmobile/casquatch/)  and this short [demo video](https://www.youtube.com/watch?v=XNVZFzTsM04).
 
 Apple is a trademark of Apple Inc.  T-Mobile and Digits  are trademarks of T-Mobile US.
 

@@ -20,7 +20,9 @@
                 <div class="project-row row">
                     {{ range .Site.Data.projects }}
                         <div class="content-adjust col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center" onclick="window.open('{{ .url }}', '_blank');">
-                            <div class="markup" repo="{{ .name }}">
+                            <div class="markup"
+                                 full-name="{{.full_name}}"
+                                 repo="{{ .name }}">
                                 <div class="markup-details">
                                   <div class="markup-text" title="{{ .name }}">{{ .name }}</div>
                                   <div class="markup-desc" title="{{ .description }}">{{ .description }}</div>

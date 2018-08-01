@@ -1,6 +1,6 @@
 +++
 
-tags = ["JS", "Design patterns", "JavaScript", "Javascript Objects", "Factory"]
+tags = ["JS", "Design patterns", "JavaScript", "Javascript Objects", "Factory", "Builder", "ES6 Classes"]
 categories = ["Resources", "OpenSource", "Community"]
 author = "Siddharth Vidhani"
 draft = true
@@ -10,10 +10,10 @@ title = "Factory and Builder patterns in JavaScript using Object mapping"
 +++
 
 #  Overview
-Every language has design patterns which help us to organize our code in a way where it’s easy to understand, maintain and test. JavaScript being one of most dynamic languages is also one of the most abused and misunderstood ;). In this post I want to share some examples of how code is written and how can it be improved to make it more flexible which is easy to maintain.
+Every language has design patterns, which help us to organize our code in a way, where it’s easy to understand, maintain and test. JavaScript being one of the most dynamic languages, is also one of the most abused and misunderstood ;). In this post I want to share some examples of how code is written and how can it be improved to make it more flexible which is easy to maintain and follow.
 
 #  Bad coding patterns
-In JavaScript lot of times we tend to write code using if/else or switch/case when we have to use branching in multiple places. We end up writing too much logic which ends up being repetitive. Let’s take a look at an example:
+In JavaScript, lot of times we tend to write code using if/else or switch/case, when we have to use branching in multiple places. We end up writing too much logic which ends up being repetitive. Let’s take a look at an example:
 
 The code below checks for the service type and then performs the business logic for the appropriate service. There a few issues with this approach
 
@@ -74,12 +74,12 @@ const serviceData = getService('lambda', options);
 ```
 
 #  Factory pattern (with classes)
-Factory in real word manufactures products and in software it manufactures objects. Let’s see how we can improve this code by using a factory class that uses object mapping and modules. I am also using some convention to make it simpler which will be easier to maintain. The service type is also the name of the module, thus taking away the if/else logic and making the code more concise. This approach provides lot of benefits:
+Factory, in real word manufactures products and in software it manufactures objects. Let’s see how we can improve this code by using a factory class that uses object mapping and modules. I am also using some convention, to make it simpler which will be easier to maintain. The service type is also the name of the module, thus taking away the if/else logic and making the code more concise. This approach provides lot of benefits:
 
     *   Code is easy to maintain as you don’t have to change the factory if you add or delete a new service. It just works!
     *   Code is more concise as the logic is abstracted out. Also, this is more efficient as it’s a lookup(hash).
     *   Unit testing becomes easier as the code need not be tested again (serviceFactory or already implemented service types). Only specific module that are added will need their own unit tests.
-    *   Late execution – what you get is a function (pointer) and you can execute it as per other logic you may have in the code 
+    *   Late execution – what you get is a function (pointer) and you can execute it as per other logic you may have in the code. 
 
 ```sh
 //index.js
@@ -141,9 +141,9 @@ module.exports = function defaultSvcType() {
 ```
 
 #  Builder pattern (with classes)
-Now that we have looked at one pattern lets take it to another level and see how we will use it in real world using the builder  pattern. Builder pattern is used to separate the complexities of the creation logic from the final representation.
+Now that we have looked at one pattern, lets take it to another level and see how we will use it in real world using the builder pattern. Builder pattern is used to separate the complexities of the creation logic from the final representation.
 
-In this section I will construct a template(bundle) (eg. a website with api or a api with another lambda) as in real world it is very often that we use templates to bundle our services. I have extended the previous example and below is how to use a builder pattern with classes in combination with object mapping similar to factory pattern we saw. Benefits of this approach:
+In this section I will construct a template(bundle) (eg. a website with api or a api with another lambda) as in real world it is very often that we use templates to bundle our services. I have extended the previous example and below is how to use a builder pattern with classes in combination with object mapping similar to factory pattern we saw earlier. Benefits of this approach:
 
     *   Similar benfits like previous example we saw.
     *   With this pattern we have delegated the construction(build) of template or implementation to it's own class/module/function and this provides a good separation of concerns.
@@ -227,7 +227,7 @@ module.exports = class DefaultTemplateBuilder {
 ```
 
 #  Summary
-So to summarize it is always better to use some design patterns to improve the code and the above examples shows few ways of solving this problem. As we saw the benefits are:
+So to summarize, it is always better to use some design patterns to improve the code and the above examples shows few ways of solving this problem. As we saw the benefits are:
 
     *   Easy to read and follow.
     *   Easy to maintain when it comes to troubleshooting and debugging as code is abstracted.

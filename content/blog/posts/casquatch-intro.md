@@ -59,7 +59,7 @@ Add an @Autowired variable to your controller:
 private CassandraDriver db;
 ```
 
-Then you are good to go. Checkout the [javadocs](https://tmobile.github.io/casquatch)
+Then you are good to go. Checkout the [javadocs](https://tmobile.github.io/casquatch) for the API or the [demo video](https://www.youtube.com/watch?v=XNVZFzTsM04) for more information.
 
 
 

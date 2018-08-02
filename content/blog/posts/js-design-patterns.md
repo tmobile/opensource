@@ -5,12 +5,12 @@ categories = ["Resources", "OpenSource", "Community"]
 author = "Siddharth Vidhani"
 draft = false
 date = 2018-08-01T07:32:00-08:00
-title = "Factory and Builder patterns in JavaScript using Object mapping"
+title = "Factory and builder patterns in JavaScript using object mapping"
 
 +++
 
 #  Overview
-Every language has design patterns, which help us to organize our code in a way, where it’s easy to understand, maintain and test. JavaScript being one of the most dynamic languages, is also one of the most abused and misunderstood ;). In this post I want to share some examples of how code is written and how can it be improved to make it more flexible which is easy to maintain and follow.
+Every language has design patterns, which help us to organize our code in a way, where it’s easy to understand, maintain and test. JavaScript being one of the most commonly used dynamic languages, is also one of the most abused and misunderstood ;). In this post I want to share some examples of how code is written and how can it be improved to make it more flexible which is easy to maintain and follow.
 
 #  Bad coding patterns
 In JavaScript, lot of times we tend to write code using if/else or switch/case, when we have to use branching in multiple places. We end up writing too much logic which ends up being repetitive. Let’s take a look at an example:
@@ -22,7 +22,7 @@ The code below checks for the service type and then performs the business logic 
     *   The code can become unreadable for a developer looking at it when trying to debug any issue.
     *   The code for the specific service is executed the moment condition is satisfied. There is no way to do some kind of late execution.
 
-```sh
+```javascript
 
 function getService(pizzaType, options) {
     if(pizzaType === 'api') {
@@ -47,7 +47,7 @@ Another way I have seen this being done is using switch statement. Let’s take 
 
 This code is similar to the one above and has similar issues. If for any reason you forget to put a break statement then the code falls through to the next case statement which is a side effect of using switch.
 
-```sh
+```javascript
 
 function getService(svcType, options) {
     switch(svcType) {
@@ -81,7 +81,7 @@ Factory, in real word manufactures products and in software it manufactures obje
     *   Unit testing becomes easier as the code need not be tested again (serviceFactory or already implemented service types). Only specific module that are added will need their own unit tests.
     *   Late execution – what you get is a function (pointer) and you can execute it as per other logic you may have in the code. 
 
-```sh
+```javascript
 //index.js
 const ServiceFactory = require('./ServiceFactory');
 const svcFactory = new ServiceFactory();
@@ -148,7 +148,7 @@ In this section I will construct a template(bundle) (eg. a website with api or a
     *   Similar benfits like previous example we saw.
     *   With this pattern we have delegated the construction(build) of template or implementation to it's own class/module/function and this provides a good separation of concerns.
 
-```sh
+```javascript
 
 //index.js
 const ServerlessTemplateBuilder = require('./ServerlessTemplateBuilder');

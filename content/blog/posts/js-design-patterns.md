@@ -85,31 +85,28 @@ Factory, in real word manufactures products and in software it manufactures obje
 //index.js
 const ServiceFactory = require('./ServiceFactory');
 const svcFactory = new ServiceFactory();
-const options = { 'title' : 'Report title'};
-const generateReport = svcFactory.getReport('word');
+const options = { 'name' : 'Service Name' };
+const generateService = svcFactory.getService('api');
 
-//more logic here and late execution
-generateReport(options);
+//execute
+generateService(options);
 
 //ServiceFactory.js
-/* get the report given the type and options using factory*/
+/* get the service given the type and options using factory*/
 module.exports = class ServiceFactory {
     constructor() {
-        this.reportTypes = { 'defaultReportType': require('./defaultReportType') }
+        this.serviceTypes = { 'defaultServiceType': require('./defaultServiceType') }
     }
     
-    getReport(reportType) {
+    getService(serviceType) {
         try {
-            if (typeof require(`./${reportType}`) === 'object') {
-                return this.reportTypes['defaultReportType'];
-            }
-            this.reportTypes[reportType] = require(`./${reportType}`)
+            this.serviceTypes[serviceType] = require(`./${serviceType}`)
             
-            return this.reportTypes[reportType];
+            return this.serviceTypes[serviceType];
         } catch(ex) {
             //log error and handle default scenario
             console.log(ex);
-            return this.reportTypes['defaultReportType'];
+            return this.serviceTypes['defaultServiceType'];
         }
     }
 }

@@ -24,8 +24,8 @@ The code below checks for the service type and then performs the business logic 
 
 ```javascript
 
-function getService(pizzaType, options) {
-    if(pizzaType === 'api') {
+function getService(svcType, options) {
+    if(svcType === 'api') {
         console.log("Hello from api");
         //more logic to handle api specific scenario
     } else if(svcType === 'lambda') {

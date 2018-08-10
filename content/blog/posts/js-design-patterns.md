@@ -88,7 +88,7 @@ const svcFactory = new ServiceFactory();
 const options = { 'name' : 'Service Name' };
 const generateService = svcFactory.getService('api');
 
-//execute
+//more logic here and late execution
 generateService(options);
 
 //ServiceFactory.js

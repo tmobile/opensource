@@ -85,7 +85,9 @@ const generateService = svcFactory.getService('api');
 
 //more logic here and late execution
 generateService(options);
+```
 
+```javascript
 //ServiceFactory.js
 /* get the service given the type and options using factory*/
 module.exports = class ServiceFactory {
@@ -105,31 +107,38 @@ module.exports = class ServiceFactory {
         }
     }
 }
+```
 
+```javascript
 //api.js
 module.exports = function api(options) {
     console.log("Calling api service type");
     //code to handle api svc type stuff 
 }
+```
 
+```javascript
 //lambda.js
 module.exports = function lambda(options) {
     console.log("Calling lambda service type");
     //code to handle lambda svc type stuff 
 }
+```
 
+```javascript
 //website.js
 module.exports = function website(options) {
     console.log("Calling website service type");
     //code to handle website svc type stuff 
 }
+```
 
+```javascript
 //defaultSvcType.js
 module.exports = function defaultSvcType() {
     console.log("Calling default service type handler");
     //your logic to handle default/error case
 }
-
 ```
 
 This approach provides lot of benefits:
@@ -159,7 +168,8 @@ const options = {
 const builder = serverlessBuilder.getBuilder();
 const res = serverlessBuilder.construct(builder, options);
 console.log(res);
-
+```
+```javascript
 //ServerlessTemplateBuilder.js
 module.exports = class ServerlessTemplateBuilder {
     constructor(type) {  
@@ -184,7 +194,9 @@ module.exports = class ServerlessTemplateBuilder {
         return serverlessContent;
     };
 }
+```
 
+```javascript
 //E2EWebsiteTemplateBuilder.js
 module.exports = class E2EWebsiteTemplateBuilder {
     constructor() {
@@ -196,7 +208,9 @@ module.exports = class E2EWebsiteTemplateBuilder {
         return this.services.map(service => ({[service]: require(`./${service}`)(options[service])}));
     }
 }
+```
 
+```javascript
 //ApiWithCronTemplateBuilder.js
 module.exports = class ApiWithCronTemplateBuilder {
     constructor() {
@@ -208,7 +222,9 @@ module.exports = class ApiWithCronTemplateBuilder {
         return this.services.map(service => ({[service]: require(`./${service}`)(options[service])}));
     }
 }
+```
 
+```javascript
 //DefaultTemplateBuilder.js
 module.exports = class DefaultTemplateBuilder {
     constructor() {
@@ -219,8 +235,8 @@ module.exports = class DefaultTemplateBuilder {
         return this.services.map(service => ({[service]: require(`./${service}`)(options)}));
     }
 }
-
 ```
+
 Benefits of this approach:
 
  *   Similar benfits like previous example we saw.

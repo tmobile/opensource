@@ -239,7 +239,7 @@ module.exports = class DefaultTemplateBuilder {
 
 Benefits of this approach:
 
- *   Similar benfits like previous example we saw.
+ *   Similar benefits like previous example we saw.
  *   With this pattern we have delegated the construction(build) of template or implementation to it's own class/module/function and this provides a good separation of concerns.
  
 #  Summary

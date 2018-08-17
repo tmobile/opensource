@@ -15,13 +15,6 @@ Every language has design patterns, which help us to organize our code in a way,
 #  Bad coding patterns
 In JavaScript, lot of times we tend to write code using if/else or switch/case, when we have to use branching in multiple places. We end up writing too much logic which ends up being repetitive. Let’s take a look at an example:
 
-The code below checks for the service type and then performs the business logic for the appropriate service. There a few issues with this approach
-
- *   Every time you add a new service you need to update this if else to handle the logic for that. Imagine if this kind of logic is put in multiple files/module. This will become unmaintainable very soon. 
- *   The check has to be performed every time until the specific if/else block condition is satisfied. This is not efficient if you have a huge if/else block.
- *   The code can become unreadable for a developer looking at it when trying to debug any issue.
- *   The code for the specific service is executed the moment condition is satisfied. There is no way to do some kind of late execution.
-
 ```javascript
 
 function getService(svcType, options) {
@@ -43,6 +36,13 @@ function getService(svcType, options) {
 const options = { 'arn' : 'arnString' };
 const serviceData = getService('lambda', options);
 ```
+
+The code above checks for the service type and then performs the business logic for the appropriate service. There are a few issues with this approach
+ *   Every time you add a new service you need to update this if/else to handle the logic for that. Imagine if this kind of logic is put in multiple files/module. This will become unmaintainable very soon. 
+ *   The check has to be performed every time until the specific if/else block condition is satisfied. This is not efficient if you have a huge if/else block.
+ *   The code can become unreadable for a developer looking at it when trying to debug any issue.
+ *   The code for the specific service is executed the moment condition is satisfied. There is no way to do some kind of late execution.
+
 Another way I have seen this being done is using switch statement. Let’s take a look at it below
 
 This code is similar to the one above and has similar issues. If for any reason you forget to put a break statement then the code falls through to the next case statement which is a side effect of using switch.
@@ -74,12 +74,7 @@ const serviceData = getService('lambda', options);
 ```
 
 #  Factory pattern (with classes)
-Factory, in real word manufactures products and in software it manufactures objects. Let’s see how we can improve this code by using a factory class that uses object mapping and modules. I am also using some convention, to make it simpler which will be easier to maintain. The service type is also the name of the module, thus taking away the if/else logic and making the code more concise. This approach provides lot of benefits:
-
- *   Code is easy to maintain as you don’t have to change the factory if you add or delete a new service. It just works!
- *   Code is more concise as the logic is abstracted out. Also, this is more efficient as it’s a lookup(hash).
- *   Unit testing becomes easier as the code need not be tested again (serviceFactory or already implemented service types). Only specific module that are added will need their own unit tests.
- *   Late execution – what you get is a function (pointer) and you can execute it as per other logic you may have in the code. 
+Factory, in real word manufactures products and in software it manufactures objects. Let’s see how we can improve this code by using a factory class that uses object mapping and modules. I am also using some convention, to make it simpler which will be easier to maintain. The service type is also the name of the module, thus taking away the if/else logic and making the code more concise. 
 
 ```javascript
 //index.js
@@ -137,13 +132,17 @@ module.exports = function defaultSvcType() {
 
 ```
 
+This approach provides lot of benefits:
+
+ *   Code is easy to maintain as you don’t have to change the factory if you add or delete a new service. It just works!
+ *   Code is more concise as the logic is abstracted out. Also, this is more efficient as it’s a lookup(hash).
+ *   Unit testing becomes easier as the code need not be tested again (serviceFactory or already implemented service types). Only specific module that are added will need their own unit tests.
+ *   Late execution – what you get is a function (pointer) and you can execute it as per other logic you may have in the code. 
+
 #  Builder pattern (with classes)
 Now that we have looked at one pattern, lets take it to another level and see how we will use it in real world using the builder pattern. Builder pattern is used to separate the complexities of the creation logic from the final representation.
 
-In this section I will construct a template(bundle) (eg. a website with api or a api with another lambda) as in real world it is very often that we use templates to bundle our services. I have extended the previous example and below is how to use a builder pattern with classes in combination with object mapping similar to factory pattern we saw earlier. Benefits of this approach:
-
- *   Similar benfits like previous example we saw.
- *   With this pattern we have delegated the construction(build) of template or implementation to it's own class/module/function and this provides a good separation of concerns.
+In this section I will construct a template(bundle) (eg. a website with api or a api with another lambda) as in real world it is very often that we use templates to bundle our services. I have extended the previous example and below is how to use a builder pattern with classes in combination with object mapping similar to factory pattern we saw earlier. 
 
 ```javascript
 
@@ -222,7 +221,11 @@ module.exports = class DefaultTemplateBuilder {
 }
 
 ```
+Benefits of this approach:
 
+ *   Similar benfits like previous example we saw.
+ *   With this pattern we have delegated the construction(build) of template or implementation to it's own class/module/function and this provides a good separation of concerns.
+ 
 #  Summary
 So to summarize, it is always better to use some design patterns to improve the code and the above examples shows few ways of solving this problem. As we saw the benefits are:
 

@@ -216,6 +216,10 @@ header {
     border: solid 1px #1fa6ce;
 }
 
+pre code.language-ascii {
+    white-space: pre;
+}
+
 .scroll-prompt {
     position: relative;
     z-index: 998;

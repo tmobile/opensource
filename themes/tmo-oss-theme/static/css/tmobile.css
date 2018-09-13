@@ -133,6 +133,11 @@ svg.pink-transparent {
     color: #f21580;
     margin: 0px;
     margin-right: 0px;
+    width: 100%;
+    white-space: nowrap;
+    word-wrap: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .blog-row .markup .blog-tile-subheader {

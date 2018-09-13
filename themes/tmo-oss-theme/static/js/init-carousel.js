@@ -120,7 +120,7 @@ function newEvent(eventData) {
     }
 
     var eventTemplate = '<div event-id="' + eventData.id + '" onclick="changeEventModal(event)" class="markup ' + markupClass + '">' +
-        '<div class="markup-header">' + eventData.summary + '</div>' +
+        '<div class="markup-header" title="'+eventData.summary+'">' + eventData.summary + '</div>' +
         '<div class="markup-details"> ' +
         '<div class="markup-desc" title="' + description + '">' + description + ' </div>' +
         '</div>' +
@@ -226,11 +226,36 @@ function onRequestEvent(response) {
         string += appendModalElement('fa-map-marker', locationLabel, locationCoor, !!locationCoor);
     }
     if (response.description) {
-        string += appendModalElement('fa-align-justify', response.description, '', true);
+        string += appendModalElement('fa-align-justify', text2HTML(response.description), '', true);
     }
     string += appendModalElement('fa-calendar', response.result.organizer.displayName,
         response.creator ? 'Created by: ' + response.creator.displayName : '',
         !!response.creator);
     string += '</div>';
     modalContent.append($(string));
+}
+
+function text2HTML(text) {
+    // 0: Check if text is an HTML string
+    if (!(/[a-z][\s\S]*>/).test(text)){
+
+      // 1: Replace hypelinks with anchor tag
+      var linkExp = new RegExp(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&\/=()]*)/);
+	  var linkArr = linkExp.exec(text);
+      if (linkArr && linkArr.length){
+		var hl = '<a href="'+linkArr[0]+'">'+linkArr[0]+'</a>';
+      	text = text.replace(linkArr[0], hl) ;
+      }
+      
+      // 2: Line Breaks
+      text = text.replace(/\r\n?|\n/g, "<br>");
+
+      // 3: Paragraphs
+      text = text.replace(/<br>\s*<br>/g, "</p><p>");
+
+      // 4: Wrap in Paragraph Tags
+      text = "<p>" + text + "</p>";
+    }
+
+    return text;
 }

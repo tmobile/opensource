@@ -1,10 +1,10 @@
 
 +++
-tags = ["oss", "t-mobile", "aws", "cloud foundry"]
+tags = ["oss", "t-mobile", "aws", "cloud foundry", "chaos engineering", "chaos-tool-kit", "cf-app-blocker", "pivotal cloud foundry", "pcf app blocker", "turbulence"]
 categories = ["resources"]
 author = "Matthew Conover & Karun Chennuri"
 draft = false
-date = 2018-09-12T13:19:22-07:00
+date = 2018-09-13T17:10:22-07:00
 title = "The Start of Chaos Engineering at T-Mobile"
 
 +++
@@ -60,10 +60,10 @@ We started off experimenting with Turbulence as a way to perform experiments, ho
 |     |   |     +------------>App(s) ++ | |  metadata/\a/\    | |         +--+wfukcl2kg5q7-1+-----+  |                |
 |     |   |     | to port    +-------+  | |  store.json       | |            +-^-+----------+        |                | DNS:
 |     |   |     |                       | |                   | |              | |                   |                | bosh-lite.com+---+
-|     |   |  +--+-+                     +-+                   | |              | |10.244.0.143:61000 |                |   10.244.0.34:80<+
+|     |   |  +--+-+                     +-+                   | |              | |192.144.0.143:61000 |                |   192.144.0.34:80<+
 |     |   +--+eth0+---------------------+                     | |              | +-----------------+ |                |
 |     |      +--^-+                                           | |              |                   | |                | Host Routes to Bosh-Lite VM
-|     |         |   10.255.15.11:8080   10.244.0.143:61000    | |              |                   | |                | 10.244.0.0/16 -> 192.168.50.4
+|     |         |   192.150.15.11:8080   192.144.0.143:61000    | |              |                   | |                | 192.144.0.0/16 -> 192.168.50.4
 |     |         +--------------------+  +------+              | |              |                   | |                |
 |     |                              |  |      |              | |              |                   | |                |
 |     |                         +----+--v-+  +-+------------+ +-+              |                   | |                | VM IP: 192.168.50.4:80
@@ -71,13 +71,13 @@ We started off experimenting with Turbulence as a way to perform experiments, ho
 |                               +---------+  +----------^---+                  |        +-+wfukcl2kg5qa-0|            |
 |                                                       |                      |        | +----------+---+            |
 |                                                       +-------------------------------+            |                |
-|  App ID:        cf app $APP_NAME --guid                10.244.0.143:61000    |          +----------+---+            |
+|  App ID:        cf app $APP_NAME --guid                192.144.0.143:61000    |          +----------+---+            |
 |  Diego-Cell IP: cf curl /v2/apps/$APP_ID/stats                               +----------+wfukcl2kg5q7-0|            |
-|  Diego-Cell ID: bosh vms | grep $DC_IP                                    10.244.0.34:80+----^-----+---+            |
+|  Diego-Cell ID: bosh vms | grep $DC_IP                                    192.144.0.34:80+----^-----+---+            |
 |                                                                                              |     |                |
 |                                                                                              |    ++---+            |
-|                                             10.244.0.34                                      +----+eth1<------------+
-|                                             router-0.node.dc1.cf.internal           10.244.0.34:80++---+
+|                                             192.144.0.34                                      +----+eth1<------------+
+|                                             router-0.node.dc1.cf.internal           192.144.0.34:80++---+
 |                                                                                                    |
 +----------------------------------------------------------------------------------------------------+
 ```
@@ -106,12 +106,12 @@ Let's go ahead and walk through the steps used to find where the application is 
     ```json
     {
       "instance": {
-        "process_guid": "5f8a25f5-211c-4969-9ef3-22e6d933e76d-fd4bc437-4a66-4967-ac42-6fe79a3a0c8b",
+        "process_guid": "<REDACTED>",
           "index": 0,
           "domain": "cf-apps",
-          "instance_guid": "dd4341e3-af8c-435f-5314-02cc",
-          "cell_id": "ebd59f46-1992-4027-ba6a-e0c9cead4803",
-          "address": "10.244.0.140",      // The diego-cell VM address
+          "instance_guid": "<REDACTED>",
+          "cell_id": "<REDACTED>",
+          "address": "192.144.0.140",      // The diego-cell VM address
           "ports": [
             {
               "container_port": 8080,     // Application web interface port
@@ -122,7 +122,7 @@ Let's go ahead and walk through the steps used to find where the application is 
               "host_port": 61003          // Node-port on the Diego-cell for SSH
             }
           ],
-          "instance_address": "10.255.240.4",     // The container ip
+          "instance_address": "192.255.240.4",     // The container ip
           "crash_count": 2,
           "crash_reason": "Instance never healthy after 1m0s: Failed to make TCP connection to port 8080: connection refused",
           "state": "RUNNING",
@@ -152,11 +152,11 @@ Let's go ahead and walk through the steps used to find where the application is 
           {
             "credentials": {
               "hostname": "10.94.180.19",  // Service ip
-              "jdbcUrl": "jdbc:mysql://10.94.180.19:3306/cf_9ea806ad_2a1a_4699_84b4_dcd340649161?user=REDACTED\\u0026password=REDACTED",
+              "jdbcUrl": "jdbc:mysql://192.94.80.119:3306/cf_9ea_2a1a_4dcd340649161?user=REDACTED\\u0026password=REDACTED",
               "name": "cf_9ea806ad_2a1a_4699_84b4_dcd340649161",
               "password": "REDACTED",
               "port": 3306,  // Service Port
-              "uri": "mysql://REDACTED:REDACTED@10.94.180.19:3306/cf_9ea806ad_2a1a_4699_84b4_dcd340649161?reconnect=true",
+              "uri": "mysql://REDACTED:REDACTED@192.94.80.119:3306/cf_9ea_2a1a_4dcd340649161?reconnect=true",
               "username": "REDACTED"
             },
             "label": "mysql",
@@ -204,3 +204,17 @@ With CFBlocker, you can call it by either the CLI or from Chaos Toolkit. For thi
 In the short term, we would like to add some convenience features to the app-blocking script which allow blocking a series of apps and or services, to allow blocking only a percentage of the instances rather than all of them, and to automate testing of blocking different permutations of services.
 
 A larger project we would like to work on, is offering Chaos Engineering as a Service (CEaaS) through use of the Chaos Toolkit library wrapped with a REST API. This service could then be set up with a service broker to be offered in the Cloud Foundry marketplace. This would allow application developers to test their code without needing to be Admins of the system, and could make it as easy as binding a Cloud Foundry Service.
+
+# License
+Turbulence and its drivers, CF App Blocker Driver and Turbulence Driver, as open source projects, are continuously evolving.  Please refer to your IT group to determine suitability for any production or critical needs.  CFBlocker is open sourced under the Apache License 2.0.  Under the terms of section 7 of the Apache 2.0 license, CFBlocker is released AS-IS WITHOUT WARRANTEES OR CONDITIONS OF ANY KIND.  Please review the readme.txt file for additional license information.
+
+# Third party Licensing
+- Cloud Foundry - Apache 2.0
+- Chaos Toolkit - Apache 2.0
+- bosh-lite on windows - Apache 2.0
+- Spring-music app is provided by Cloud foundry as sample app under Apache 2.0 License
+
+# Trademark
+- T-Mobile is a Trademark of T-Mobile US.
+
+

@@ -1250,6 +1250,12 @@ footer .margin-container {
     width: 100%;
 }
 
+.markup-text {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
 .blogContainer {
     display: flex;
     flex-direction: row;

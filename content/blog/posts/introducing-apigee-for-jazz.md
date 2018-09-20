@@ -56,8 +56,9 @@ With the realization that our dedication and hard work will bear fruitful result
 
 We strongly believe in providing choices to the Jazz users community internally as well as externally, Apigee + Jazz integration is an effort of that strong belief. We are not stopping here as we work towards providing more options by integrating with other FaaS providers like Microsoft Azure Functions & Google Cloud Functions. Also in the product roadmap are providing  optional features like the OAuth, Basic Auth, JWT Auth, etc. if the user wants to opt in for them. Stay tuned.
 
-Learn more about Apigee API Gateway for T-Mobile's Jazz Serverless Development Platform [here](https://github.com/tmobile/jazz/).
+Checkout the Apigee API Gateway for T-Mobile's Jazz Serverless Platform Project [here](https://github.com/tmobile/jazz/).
+
+Learn how to create a serverless function in Jazz using Apigee API Gateway in this [demo](https://www.youtube.com/watch?v=foOjGP6Sqgg) video.
 
 Thanks to Satish Malireddi, Mike Merrell & Siddharth Vidhani for their valuable contribution to this project.
-
 *****

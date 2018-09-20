@@ -17,7 +17,7 @@ With this integration, Jazz developers will have an option to choose between mul
 * Vendor Lock-in
 * Infrastructure Limits
 
-## What does Apigee integration bring for Jazz developers ?
+## What value does Apigee integration bring for Jazz developers ?
 
 Apigee's integration with Jazz brings all the robust capabilities of the Apigee API gateway platform like key validation, quota management, transformation, authorization, and access control as out-of-the-box policies, all pre-built from within the Jazz serverless platform. This integration simplifies the life of Jazz developers who just want to write the FaaS code and get their API endpoint with all the security features inbuilt, to provide it to their customer for consumption.
 

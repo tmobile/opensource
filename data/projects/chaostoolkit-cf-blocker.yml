@@ -1,0 +1,7 @@
+name: chaostoolkit cf blocker
+full_name: tmobile/chaostoolkit-cf-blocker
+description: Plugin for Chaos Toolkit which can block access to Cloud Foundry apps & app’s bound services automatically
+url: https://github.com/tmobile/chaostoolkit-cf-blocker
+img: "foo.png"
+language: "PYTHON"
+css: ""

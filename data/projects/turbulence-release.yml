@@ -1,7 +1,0 @@
-name: turbulence release
-full_name: tmobile/turbulence-release
-description:  Bosh release for injecting Cloud Foundry platform level attacks
-url: https://github.com/tmobile/turbulence-release
-img: "foo.png"
-language: "GO"
-css: ""

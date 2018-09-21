@@ -5,3 +5,4 @@ url: https://github.com/tmobile/keybiner
 img: "foo.png"
 language: "JAVA"
 css: ""
+order: 7

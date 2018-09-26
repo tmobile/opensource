@@ -18,7 +18,7 @@
             </div>
             <div class="cat-feature-box added-padding mobile-padding col-lg-8 col-md-8 col-sm-12">
                 <div class="project-row row">
-                    {{ range .Site.Data.projects }}
+                    {{ range sort .Site.Data.projects "order" "asc"}}
                         <div class="content-adjust col-lg-4 col-md-4 col-sm-4 col-xs-12 text-center" onclick="window.open('{{ .url }}', '_blank');">
                             <div class="markup"
                                  full-name="{{.full_name}}"

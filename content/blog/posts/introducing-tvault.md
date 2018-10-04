@@ -85,7 +85,7 @@ details. All of the functionality available via the web UI is exposed via APIs
 and documentation is available from within the UI (another attempt to make
 developers’ lives easier).
 
-T-Vault is open-sourced under the Apache License Version 2.0. Check out the
+T-Vault is open-sourced under the terms of section 7 of the Apache 2.0 license and is released AS-IS WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND. Check out the
 project in [GitHub](https://github.com/tmobile/t-vault) and this [short demo video](https://www.youtube.com/watch?v=fv3GOiFYAt8).
 
 _(Note:  The T-Vault team has made every effort to review and test the present released version of T-Vault.  However, as with all security related software, a party’s security team should independently evaluate T-Vault and any modifications prior to any use.  Refer to the [readme.txt](https://github.com/tmobile/t-vault/blob/master/readme.txt))_

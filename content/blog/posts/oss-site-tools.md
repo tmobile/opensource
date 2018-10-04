@@ -1,5 +1,5 @@
 +++
-date = "2017-06-18T21:26:26-07:00"
+date = "2017-10-05T09:00:00-07:00"
 draft = false
 title = "Open source tools leveraged in this site"
 categories = ["resources"]

@@ -45,8 +45,7 @@ we are moving towards doing 100% of the planning and design in the open.
 [Casquatch](https://opensource.t-mobile.com/blog/posts/casquatch-intro/), a Java
 abstraction layer for Cassandra, and several projects to support [chaos
 engineering](https://opensource.t-mobile.com/blog/posts/chaos-engineering/).
-* And today, I’m super excited to share that we’ve released [PacBot](http://pacbot
-blog), a system that delivers continuous compliance with a concept called
+* And today, I’m super excited to share that we’ve released [PacBot](https://opensource.t-mobile.com/blog/posts/introducing-pacbot/), a system that delivers continuous compliance with a concept called
 “policy as code”. Internally, PacBot has been a significant security and
 operational bar-raiser and cost-saver.
 

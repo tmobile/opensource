@@ -1,7 +1,7 @@
 +++
 date = "2018-10-05T09:00:00-07:00"
 draft = false
-title = "Introduction Pacbot"
+title = "Introducing Pacbot"
 categories = ["resources"]
 tags= ["oss", "t-mobile", "pacbot", "saas", "aws"]
 author = "VK Varadharaj"
@@ -13,8 +13,7 @@ author = "VK Varadharaj"
 [Gartner
 predicts](https://www.gartner.com/smarterwithgartner/why-cloud-security-is-everyones-business)
 that "through 2020, 95 percent of cloud security failures will be the
-customer's fault."
-
+customer's fault."      
 The very nature of public cloud, the ease at which developers can
 create, modify and delete resources --gives us the agility we love but
 also makes it easy to overlook security guidelines. The dynamic nature
@@ -23,8 +22,7 @@ large footprint.
 
 From a recent
 [survey](https://www.cybersecurity-insiders.com/portfolio/2018-cloud-security-report-download/)
-conducted by
-[cybersecurity-insiders.com](https://www.cybersecurity-insiders.com/),
+conducted by cybersecurity-insiders.com,
 these are the most significant cloud security threats:
 
 1.  Misconfiguration of the cloud platform/wrong set-up
@@ -48,9 +46,9 @@ public cloud.
 Doing audits and compliance checks a few times a year doesn't cut it.
 What is needed is an automated compliance framework that allows us to
 ensure that security and compliance requirements are being met in real
-time.
+time.  
 
-## Introducing PacBot: continuous compliance with policy-as-code
+## Introducing PacBot: Continuous compliance with policy-as-code
 
 PacBot is a platform for continuous security and compliance assessment,
 reporting and automation. It assesses our infrastructure against

@@ -1,14 +1,14 @@
 +++
 date = "2018-10-05T09:00:00-07:00"
 draft = false
-title = "Introducing Pacbot"
+title = "Introducing PacBot"
 categories = ["resources"]
 tags= ["oss", "t-mobile", "pacbot", "saas", "aws"]
 author = "VK Varadharaj"
 
 +++
 
-![pacbot-logo](/blog/introducing-pacbot/logo.png)
+![pacbot-logo](/blog/introducing-pacbot/logo.png#center)
 
 [Gartner
 predicts](https://www.gartner.com/smarterwithgartner/why-cloud-security-is-everyones-business)
@@ -63,7 +63,7 @@ issues found. With PacBot we have eliminated the manual drudgery of
 compliance assessment letting us invest more time mitigating risks and
 addressing the gaps found.
 
-![pacbot-compliance](/blog/introducing-pacbot/pacbot-compliance.png)
+![pacbot-compliance](/blog/introducing-pacbot/pacbot-compliance.png#center)
 
 *Screenshot of PacBot - Compliance Landing Page*
 
@@ -118,10 +118,10 @@ Here is a high level roll-up of the capabilities. In next blog post, I
 will detail out the architecture, different components of the solution
 and how it works.
 
-![pacbot-capabilities](/blog/introducing-pacbot/capabilities.png)
+![pacbot-capabilities](/blog/introducing-pacbot/capabilities.png#center)
 
 Below is a simplified system architecture of PacBot.
-![pacbot-architecture](/blog/introducing-pacbot/architecture.png)
+![pacbot-architecture](/blog/introducing-pacbot/architecture.png#center)
 
 ## Automatic fixes for misconfigurations...
 

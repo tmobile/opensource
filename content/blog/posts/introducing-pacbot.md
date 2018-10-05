@@ -106,17 +106,13 @@ Assess -> Report -> Remediate -> Repeat is PacBot's philosophy.
 
 -   Policy violation is logged to violation tracker.
 
--   Violation may be remediated automatically or through 1-click
-    > automation.
+-   Violation may be remediated automatically or through 1-click automation.
 
--   Violations are automatically closed in the next assessment when the
-    > problem is fixed at the source.
+-   Violations are automatically closed in the next assessment when the problem is fixed at the source.
 
 -   Exception Manager is used for granting exceptions to violations.
 
--   Sticky Exceptions are exceptions based on a resource matching
-    > criteria rather than specific resource IDs (for assets that will
-    > be created in future).
+-   Sticky Exceptions are exceptions based on a resource matching criteria rather than specific resource IDs (for assets that will be created in future).
 
 Here is a high level roll-up of the capabilities. In next blog post, I
 will detail out the architecture, different components of the solution
@@ -146,19 +142,13 @@ reduce the mean time to respond/repair a policy violation.
 PacBot also uses data from other systems we've built over the course of
 PacBot's development history:
 
--   Blackbox: a central, searchable store of enriched CloudTrail events
-    > from all of our AWS accounts.
+-   Blackbox: a central, searchable store of enriched CloudTrail events from all of our AWS accounts.
 
--   Periscope: a tool for access permissions lookup and reverse lookup
-    > for users across all of our AWS accounts.
+-   Periscope: a tool for access permissions lookup and reverse lookup for users across all of our AWS accounts.
 
--   Heimdall: a central repository with critical alerts from security
-    > solutions like AWS Guard Duty, Macie, Trend Micro Deep Security,
-    > Tripwire and access logs from critical core infrastructure
-    > supporting workloads deployed on AWS.
+-   Heimdall: a central repository with critical alerts from security solutions like AWS Guard Duty, Macie, Trend Micro Deep Security, Tripwire and access logs from critical core infrastructure supporting workloads deployed on AWS.
 
--   Delta: a tool to audit what changes have occurred in our AWS
-    > environment in a given time range.
+-   Delta: a tool to audit what changes have occurred in our AWS environment in a given time range.
 
 We have plans to open source these as well.
 

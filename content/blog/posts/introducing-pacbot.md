@@ -160,10 +160,9 @@ from a cup of coffee.
 PacBot is open-sourced under the terms of section 7 of the Apache 2.0
 license and is released AS-IS WITHOUT WARRANTIES OR CONDITIONS OF ANY
 KIND. Check out the project in
-[GitHub](https://github.com/tmobile/pacbot) and this
-[short demo video].
+[GitHub](https://github.com/tmobile/pacbot).
 
-*(Note: the PacBot team has made every effort to review and test the
+*(Note: PacBot team has made every effort to review and test the
 presently released version of PacBot. However, as with all security
 related software, a party's security team should independently evaluate
 PacBot and any modifications prior to any use. Refer to the

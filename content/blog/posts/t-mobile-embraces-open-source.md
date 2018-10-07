@@ -1,5 +1,5 @@
 +++
-date = "2017-10-06T14:17:00-07:00"
+date = "2017-10-05T09:00:00-07:00"
 draft = false
 title = "T-Mobile embraces open source"
 categories = ["resources"]

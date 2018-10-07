@@ -1,0 +1,8 @@
+name: pacbot
+full_name: tmobile/pacbot
+description: A platform for continuous compliance monitoring, reporting and security automation for the cloud
+url: https://github.com/tmobile/pacbot
+img: "foo.png"
+language: JAVA
+css: ""
+order: 0

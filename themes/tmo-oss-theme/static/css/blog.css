@@ -56,3 +56,29 @@
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
 }
+img[alt='pacbot-capabilities']{
+    width: 50%;
+}
+img[alt='pacbot-logo']{
+    width: 65%;
+}
+img[alt='pacbot-architecture'],img[alt='pacbot-compliance']{
+    width:75%;
+}
+img[src$='#center']
+{
+    display: block;
+    margin: auto; 
+}
+
+img[src$='#floatleft']
+{
+    float:left;
+    margin: 0.7rem; 
+}
+
+img[src$='#floatright']
+{
+    float:right;
+    margin: 0.7rem;
+}

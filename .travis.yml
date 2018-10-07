@@ -1,11 +1,11 @@
 language: go
 go:
-- 1.8.3
+- 1.11.x
 branches:
   only:
   - master
 install:
-- go get -v github.com/gohugoio/hugo
+- ./install-hugo-from-gh.sh
 - sudo pip install awscli
 script:
 - hugo --cleanDestinationDir

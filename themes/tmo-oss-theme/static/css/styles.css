@@ -1272,7 +1272,6 @@ footer .margin-container {
     padding:0 1rem;
     font-weight: bold;
     display: flex;
-    align-items: left;
     justify-content: center;
     flex-direction: column;
     border-left: 2px solid lightgrey;

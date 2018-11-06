@@ -1269,7 +1269,7 @@ footer .margin-container {
     width: 25%;
     font-size: 15px;
     margin-top: 5px;
-    padding-left: 5%;
+    padding:0 1rem;
     font-weight: bold;
     display: flex;
     align-items: left;

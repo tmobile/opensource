@@ -1,0 +1,8 @@
+name: r-tensorflow-api
+full_name: tmobile/r-tensorflow-api
+description: Docker container for using R and TensorFlow as an enterprise API
+url: https://github.com/tmobile/r-tensorflow-api
+img: "foo.png"
+language: "R"
+css: ""
+order: 8

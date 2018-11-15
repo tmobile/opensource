@@ -24,10 +24,27 @@
 <link rel="stylesheet" href="{{ "css/blog.css" | absURL }}" type="text/css" />
 
 {{ "<!-- meta tags -->" | safeHTML }}
+
+{{ if .Params.title}}
+<meta property="og:title" content="{{ .Params.title }}"/>
+{{ else }}
 <meta property="og:title" content="{{ .Site.Params.Blog.headline }}"/>
+{{end}}
+
+{{ if .Params.thumbnail }}
+<meta property="og:image" content="{{ .Site.BaseURL }}{{ .Params.thumbnail }}">
+{{ else }}
 <meta property="og:image" content="{{ .Permalink }}"/>
+{{ end }}
+
 <meta property="og:site_name" content="{{ .Site.Title }}"/>
+
+{{ if .Params.summary }}
+<meta property="og:description" content="{{ .Params.summary }}"/>
+{{else}}
 <meta property="og:description" content="{{ .Site.Params.Blog.summary }}"/>
+{{end}}
+
 {{ "<!-- meta tag -->" | safeHTML }}
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">

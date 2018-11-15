@@ -2,12 +2,14 @@
 date = "2018-11-02T09:00:00-07:00"
 draft = false
 title = "Enterprise Web Services with Neural Networks Using R and TensorFlow"
+summary = "Our open source method for using R to create Neural Network powered APIs as Docker containers."
 categories = ["resources"]
 tags= ["R", "machine learning", "data science", "AI", "T-Mobile"]
 author = "Jonathan Nolis and Heather Nolis"
+thumbnail = "/blog/r-tensorflow-api/thumbnail.jpg"
 +++
 
-<img src="/blog/r-tensorflow-api/docker-and-r.png"  height="480px" />
+<img src="/blog/r-tensorflow-api/docker-and-r.png"  height="100%" width="100%" />
 
 Despite being an incredibly popular language for exploratory analysis, data scientists are repeatedly told that R is not sufficient for machine learning – especially if those ML models are destined for production.  Though much exploratory analysis and modeling is done in R, these models must be rebuilt in Python to meet DevOps and enterprise requirements. Our team doesn’t see the value in this double work. We explore in R and immediately deploy in R. Our APIs are neural network models using R and TensorFlow in docker containers that are small and maintainable enough to make our DevOps team happy!
 
@@ -15,7 +17,7 @@ We want to empower R users to do proper engineering on their own terms by sharin
 
 ## Who we are
 
-<img src="/blog/r-tensorflow-api/logo.png"  height="60px" />
+<img src="/blog/r-tensorflow-api/logo.png"  height="100%" width="100%" />
 
 When executives at T-Mobile decided to see if artificial intelligence and machine learning could truly improve the customer experience at T-Mobile, our team was created. We were given four months and a small budget to prove the worth of AI and ML to the business by creating a valuable machine learning model and deploying it into live systems. We had the freedom to use whatever tools we wanted, as long as they could be maintained continuously.
 

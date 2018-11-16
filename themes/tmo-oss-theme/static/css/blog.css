@@ -82,3 +82,15 @@ img[src$='#floatright']
     float:right;
     margin: 0.7rem;
 }
+img[src$='#small']
+{
+    width: 25%;
+}
+img[src$='#medium']
+{
+    width: 50%;
+}
+img[src$='#large']
+{
+    width: 75%;
+}

@@ -2,8 +2,8 @@ baseurl = "/"
 languageCode = "en-us"
 title = "T-Mobile Open Source"
 theme = "tmo-oss-theme"
-googleAnalytics = "UA-20393691-7"
-disqusShortname= "tmo-oss-internal"
+googleAnalytics = "UA-20393691-8"
+disqusShortname= "tmo-oss"
 
 [params]
 org_name = "tmobile"
@@ -72,9 +72,6 @@ favicon = "favicon.ico"
     [params.authors.satish]
     name = "Satish Malireddi"
 
-    [params.authors.prashant]
-    name = "Prashant Gupta"
-
   [params.events]
   headline = "EVENTS CALENDAR"
   summary = "Keep up to date on new releases and upcoming events."
@@ -82,3 +79,47 @@ favicon = "favicon.ico"
   [params.videos]
   headline = "VIDEOS"
   summary = "Check out T-Mobile conference and meetup presentations, demos and hackathons."
+
+    [[params.videos.data]]
+    title = "T-Mobile & StudentRND CodeDay"
+    url = "https://www.youtube.com/embed/11qwWGuH60s"
+
+    [[params.videos.data]]
+    title = "Zero to 12 Million - Brendan Aye, T-Mobile"
+    url = "https://www.youtube.com/embed/AUbZWaezOVk"
+
+    [[params.videos.data]]
+    title = "Building Enterprise Cache Based on CQRS - Komes Subramaniam, T-Mobile"
+    url = "https://www.youtube.com/embed/QI17F5XLg8U"
+
+    [[params.videos.data]]
+    title = "Using Alexa and the Echo Show for interactive business reports"
+    url = "https://www.youtube.com/embed/iGnjcXdhRgM"
+
+    [[params.videos.data]]
+    title = "Hacktober Cloud + Commerce Hackathon"
+    url = "https://www.youtube.com/embed/roeYsLd2YIA"
+
+    [[params.videos.data]]
+    title = "T-Mobile’s Cloud Container Platform (CCP) at Docker Meetup"
+    url = "https://www.youtube.com/embed/LlEirvpnvdU"
+
+    [[params.videos.data]]
+    title = "AWS re:Invent 2017: Enabling Digital Transformation on AWS for T-Mobile, While Maint (DEM61)"
+    url = "https://www.youtube.com/embed/J1zCH8aDnU4"
+
+    [[params.videos.data]]
+    title = "AWS re:Invent 2017: [REPEAT] GPS: Blockchain and the Road to Innovation (GPSTEC303-R)"
+    url = "https://www.youtube.com/embed/z29SCJQfBmM"
+
+    [[params.videos.data]]
+    title = "AWS re:Invent 2017: Amazon Connect Delivers Personalized Customer Experiences (BAP202)"
+    url = "https://www.youtube.com/embed/rSzDFJGw5vg"
+
+    [[params.videos.data]]
+    title = "T-Mobile | Open Source Tech | Jazz Serverless Developer Teaser"
+    url = "https://www.youtube.com/embed/6Kp1yxMjn1k"
+
+    [[params.videos.data]]
+    title = "T-Mobile Big Data Hackathon #TMoHack"
+    url = "https://www.youtube.com/embed/3zHxNo8pkg0"

@@ -1,0 +1,8 @@
+name: orchestration-desk
+full_name: tmobile/orchestration-desk
+description: Single module that provides interface to orchestration framework’s API 
+url: https://github.com/tmobile/orchestration-desk
+img: "foo.png"
+language: "Typescript"
+css: ""
+order: 9

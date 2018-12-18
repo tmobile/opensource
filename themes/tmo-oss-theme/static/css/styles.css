@@ -2679,6 +2679,10 @@ a.footer-links i:hover {
     color: white;
 }
 
+.blog-tag-content:hover a{
+    color: white;
+}
+
 .blog-web-content-script {
     margin-bottom: 20px;
     max-width: 252px;

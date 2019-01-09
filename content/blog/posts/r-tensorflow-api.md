@@ -5,8 +5,8 @@ title = "Enterprise Web Services with Neural Networks Using R and TensorFlow"
 summary = "Our open source method for using R to create Neural Network powered APIs as Docker containers."
 categories = ["resources"]
 tags= ["R", "machine learning", "data science", "AI", "T-Mobile"]
-author = "Jonathan Nolis and Heather Nolis"
-thumbnail = "/blog/r-tensorflow-api/thumbnail.jpg"
+author = "Jacqueline Nolis and Heather Nolis"
+thumbnail = "blog/r-tensorflow-api/thumbnail.jpg"
 +++
 
 <img src="/blog/r-tensorflow-api/docker-and-r.png"  height="100%" width="100%" />

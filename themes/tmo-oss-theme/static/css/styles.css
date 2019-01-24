@@ -724,10 +724,6 @@ button:hover {
     vertical-align: middle;
 }
 
-.left-contents:hover {
-    opacity: 0.8;
-}
-
 .content-right {
     float: right;
     padding-right: 1rem;

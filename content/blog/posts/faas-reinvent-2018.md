@@ -150,10 +150,5 @@ more deeply integrated with the rest of the AWS ecosystem. ALB Integration,
 BYOR, Lambda Layers and IDE support makes FaaS and in general serverless go more
 mainstream than ever.
 
-* [AWS Lambda](https://medium.com/tag/aws-lambda?source=post)
-* [Awsreinvent](https://medium.com/tag/awsreinvent?source=post)
-* [Application Load
-Balancer](https://medium.com/tag/application-load-balancer?source=post)
-* [Serverless](https://medium.com/tag/serverless?source=post)
-* [Aws Api Gateway](https://medium.com/tag/aws-api-gateway?source=post)
+*Originally published at https://medium.com/@suryaj/analysis-of-5-key-faas-announcements-at-re-invent-2018-f73b417b83f0*
 

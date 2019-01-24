@@ -50,4 +50,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 {{ if .Params.relcanonical }}
 <link rel="canonical" href="{{ .Params.relcanonical }}" />
+{{else if .Site.Params.Blog.relcanonical }}
+<link rel="canonical" href="{{ .Site.Params.Blog.relcanonical }}" />
 {{end}}

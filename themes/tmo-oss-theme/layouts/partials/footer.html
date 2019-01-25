@@ -3,7 +3,7 @@
     <div class="container grid"  style="width: 100%;">
         <div class="footer-content clearfix">
             <div class="left-contents">
-                <img class="logoMain" src="{{ "img/logo/Logo@1x.png" | absURL }}" />
+                <img class="logoMain" src="{{ "img/logo/logo.svg" | absURL }}" />
                 {{ range .Site.Data.sitemap.navigation.footer.links }}
                   <div class="left-contents">
                     <a class="footer-links" href="{{ .href }}" target="_blank">{{ .text | markdownify  }}</a>
@@ -31,7 +31,7 @@
             {{ end }}
         </div>
         <div class="mobile_logo" style="text-align: center;">
-            <img src="{{ "img/logo/Logo@1x.png" | absURL }}" />
+            <img src="{{ "img/logo/logo.svg" | absURL }}" />
         </div>
         <div class="footer-text">
             {{ with .Site.Params.footer.copyright }}

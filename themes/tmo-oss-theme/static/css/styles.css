@@ -724,10 +724,6 @@ button:hover {
     vertical-align: middle;
 }
 
-.left-contents:hover {
-    opacity: 0.8;
-}
-
 .content-right {
     float: right;
     padding-right: 1rem;
@@ -838,7 +834,7 @@ button:hover {
 }
 
 .mobile_logo {
-    width: 47%;
+    width: 113px;
     margin: auto;
 }
 
@@ -895,6 +891,7 @@ button:hover {
 .logoMain {
     float: left;
     max-height: 20px;
+    width: 113px;
 }
 
 .mobile-font {
@@ -1778,7 +1775,7 @@ footer .margin-container {
     }
 
     .mobile_logo {
-        width: 119px;
+        width: 113px;
     }
 }
 
@@ -2244,7 +2241,7 @@ footer .margin-container {
 
 @media (max-width: 376px) and (min-width: 321px) {
     .mobile_logo {
-        width: 38%;
+        width: 113px;
     }
 
     #services .overlay-vertical-center {
@@ -2361,7 +2358,7 @@ footer .margin-container {
     }
 
     .mobile_logo {
-        width: 37%;
+        width: 113px;
     }
 
     #services .overlay-vertical-center {
@@ -2518,7 +2515,7 @@ footer .margin-container {
     }
 
     .logoMain {
-        width: 33%;
+        width: 113px;
     }
 
     .mainNav-contents {

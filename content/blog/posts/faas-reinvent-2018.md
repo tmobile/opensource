@@ -150,5 +150,5 @@ more deeply integrated with the rest of the AWS ecosystem. ALB Integration,
 BYOR, Lambda Layers and IDE support makes FaaS and in general serverless go more
 mainstream than ever.
 
-*Originally published at https://medium.com/@suryaj/analysis-of-5-key-faas-announcements-at-re-invent-2018-f73b417b83f0*
+*Originally published at https://medium.com/@suryaj/analysis-of-5-key-faas-announcements-at-re-invent-2018-f73b417b83f0*.
 

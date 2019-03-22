@@ -4,7 +4,7 @@ draft = false
 title = "Introducing Codeless: T-Mobile’s Take on Test Automation Frameworks"
 categories = ["resources", "framework", "automation"]
 tags= ["oss", "t-mobile", "test", "automation", "framework"]
-author = "Rob Graff"
+author = "Pi Chartbanchachai and Rob Graff"
 
 +++
 Reliable, maintainable test automation, delivered by anyone.
@@ -96,6 +96,9 @@ runtime.
 
 -   Data Driven Testing support
 
+-   Mobile testing (with Appium)
+
+
 Rapid test development, and reduced maintenance effort are the pillars
 of T-Mobile's Codeless Automation Framework. With the above feature
 enhancements, and many more planned, codeless will enable simple test
@@ -107,6 +110,6 @@ Learn more and contribute on GitHub -- code
 (<https://github.com/tmobile/codeless>) and wiki
 (<https://github.com/tmobile/codeless/wiki>).
 
-Click [here](https://web.microsoftstream.com/video/4822f8a4-9efa-481d-b13c-4e8116ee80a3) to watch the video.  
+Click [here](https://www.youtube.com/watch?v=pL3TaGzbeBY) to watch the video.  
 
-_“T-Mobile has made every reasonable effort to test the code for its purposes.  However, there are a wide range of platforms and contexts that the code may be used for.  Accordingly, it is likely you will have to modify the code.  Please have your IT team validate the code prior to any production use.”_
+_T-Mobile has made every reasonable effort to test the code for its purposes.  However, there are a wide range of platforms and contexts that the code may be used for.  Accordingly, it is likely you will have to modify the code.  Please have your IT team validate the code prior to any production use._

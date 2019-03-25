@@ -8,7 +8,7 @@ author = "Matthew Conover"
 
 +++
 
-![](/blog/monarch-app-level.png#center)
+![monarch-banner](/blog/monarch-app-level.png#center)
 
 # Motivation
 As we have talked about in [an earlier post](https://opensource.t-mobile.com/blog/posts/chaos-engineering/), Chaos Engineering is a method by which the stability of complicated cloud infrastructures can be assessed and validated. The current Chaos Engineering tools do not support application-specific attacks, but rather vm-specific attacks. Now, this works if each application is on its own VM, but a lot of our applications are deployed in Cloud Foundry which moves apps without the developers even needing to know what VM their container is running on.

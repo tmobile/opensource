@@ -5,7 +5,6 @@ title = "Introducing Project Casquatch"
 categories = ["resources"]
 tags= ["oss", "t-mobile", "casquatch", "java"]
 author = "Josh Turner"
-
 +++
 
 # Introducing Project Casquatch

@@ -1,13 +1,13 @@
 
-+++
-tags = ["oss", "t-mobile", "aws", "cloud foundry", "chaos engineering", "chaos-tool-kit", "cf-app-blocker", "pivotal cloud foundry", "pcf app blocker", "turbulence"]
-categories = ["resources"]
-author = "Matthew Conover & Karun Chennuri"
-draft = false
-date = 2018-09-13T17:10:22-07:00
-title = "The Start of Chaos Engineering at T-Mobile"
+---
+tags : ["oss", "t-mobile", "aws", "cloud foundry", "chaos engineering", "chaos-tool-kit", "cf-app-blocker", "pivotal cloud foundry", "pcf app blocker", "turbulence"]
+categories : ["resources"]
+author : "Matthew Conover & Karun Chennuri"
+draft : false
+date : 2018-09-13T17:10:22-07:00
+title : "The Start of Chaos Engineering at T-Mobile"
 
-+++
+---
 
 # Overview
 

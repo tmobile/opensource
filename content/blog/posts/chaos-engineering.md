@@ -6,7 +6,6 @@ author : "Matthew Conover & Karun Chennuri"
 draft : false
 date : 2018-09-13T17:10:22-07:00
 title : "The Start of Chaos Engineering at T-Mobile"
-
 ---
 
 # Overview

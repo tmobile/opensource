@@ -6,7 +6,6 @@ title = "Serverless Development Challenges"
 categories = ["resources"]
 tags = ["jazz", "serverless", "tools", "devops", "faas", "cicd"]
 author = "Deepu Sundaresan"
-
 +++
 
 This article describes the challenges I faced and my observations while designing and developing the Jazz framework.

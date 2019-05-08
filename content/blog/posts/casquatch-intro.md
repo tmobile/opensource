@@ -1,11 +1,11 @@
----
-date : "2018-07-25T10:00:00-07:00"
-draft : false
-title : "Introducing Project Casquatch"
-categories : ["resources"]
-tags: ["oss", "t-mobile", "casquatch", "java"]
-author : "Josh Turner"
----
++++
+date = "2018-07-25T10:00:00-07:00"
+draft = false
+title = "Introducing Project Casquatch"
+categories = ["resources"]
+tags = ["oss", "t-mobile", "casquatch", "java"]
+author = "Josh Turner"
++++
 
 # Introducing Project Casquatch
 

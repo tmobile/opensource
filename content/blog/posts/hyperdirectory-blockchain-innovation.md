@@ -1,6 +1,4 @@
-
 +++
-
 date = "2017-11-27T14:00:00-07:00"
 draft = false
 title = "Hyper Directory and the Road to Blockchain Innovation"
@@ -9,6 +7,7 @@ tags = ["blockchain", "t-mobile", "open-source", "innovation"]
 author = "Chris Spanton"
 
 +++
+
 
 With the hype surrounding blockchain rapidly approaching fever-pitch, both
 businesses and consumers around the world are on high alert. We don’t need to

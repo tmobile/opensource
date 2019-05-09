@@ -1,12 +1,14 @@
 +++
+
 date = "2019-03-11T10:00:00-07:00"
 draft = false
 title = "Introducing Codeless: T-Mobile’s Take on Test Automation Frameworks"
 categories = ["resources", "framework", "automation"]
-tags= ["oss", "t-mobile", "test", "automation", "framework"]
+tags = ["oss", "t-mobile", "test", "automation", "framework"]
 author = "Pi Chartbanchachai and Rob Graff"
 
 +++
+
 Reliable, maintainable test automation, delivered by anyone.
 
 Continuous Delivery drives towards faster time to market which in turns

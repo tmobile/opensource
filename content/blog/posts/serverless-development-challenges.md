@@ -1,6 +1,6 @@
-
 +++
-date = "2018-03-01T12:12:54-08:00"
+
+date = "2018-03-01T12:12:55-08:00"
 draft = false
 title = "Serverless Development Challenges"
 categories = ["resources"]

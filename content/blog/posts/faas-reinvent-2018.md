@@ -1,4 +1,5 @@
 +++
+
 date = "2019-01-22T10:00:00-07:00"
 draft = false
 title = "5 Key FaaS Announcements at Re:Invent 2018"
@@ -6,6 +7,7 @@ categories = ["resources"]
 tags= ["AWS Lambda", "Awsreinvent", "Application Load Balancer", "Serverless", "Aws Api Gateway"]
 author = "Surya Jakhotia"
 relcanonical = "https://medium.com/@suryaj/analysis-of-5-key-faas-announcements-at-re-invent-2018-f73b417b83f0"
+
 +++
 
 

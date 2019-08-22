@@ -18,9 +18,9 @@ There are many APM (Application Performance Management) products that provide en
 
 ## Introducing Kardio - Health Check tool for Services running on Kubernetes. 
 
-Kardio is a simple health check tool for services deployed on Kubernetes, Mesos and can also be configured to perform health checks on any endpoint. Kardio has a rich UI showing Status, Availability based on responses from rest endpoints, TCP ports, etc., and it is also integrated with Slack and email for alerting.
+Kardio is a simple tool that can be configured to perform health checks on any endpoint. Kardio has a rich UI showing status and availability based on responses from REST endpoints, TCP ports, etc. It is also integrated with Slack and email for alerting.
 
-At T-Mobile, USA, Inc.” we run several massive multi-tenant Container Orchestration platforms and these platforms rely on monitoring tools such as Prometheus, Grafana, etc. A status check system that is standalone and is independent of the primary monitoring stack was required in case any part of the primary monitoring was compromised. We started Kardio as a simple status UI for services in Marathon, and later added more features as our platforms grew and switched to Kubernetes.
+At T-Mobile, USA, Inc. we run several massive multi-tenant Container Orchestration platforms and these platforms rely on monitoring tools such as Prometheus, Grafana, etc. A status check system that is standalone and is independent of the primary monitoring stack was required in the event of degraded performance in any part of the primary monitoring system. We started Kardio as a simple status UI for services on our platforms, and later added more features as our platforms grew and adopted Kubernetes.
 
 ![kardio-dashboard](/themes/tmo-oss-theme/static/blog/introducing-kardio/dashboard.png#center)
 
@@ -30,11 +30,11 @@ Features
 The Kardio home page has a responsive user interface and displays below features:
 
 * *Counters:*
-    Display Total Transactions, Current Requests per Second, Total Containers Run, Current Running Containers, Number of services running and Uptime in percentage on all Mesos and K8s Clusters individually and combined.
+    Display Total Transactions (http requests), Current Requests per Second, Total Containers Run, Current Running Containers, Number of services running and Uptime in percentage on all clusters individually and combined.
 
-        o	Application components list the applications deployed in the environment, and the number of services and containers running for each application.
+    *Application components* list the applications deployed in the environment, and the number of services and containers running for each application.
 
-        o	Service Component lists provide platform information (Kubernetes/Mesos) and real-time data of each service if available in Prometheus.
+    *Service Component* lists provide platform information and real-time data of each service if available in Prometheus.
 
 
 * *Dashboard:*
@@ -78,13 +78,12 @@ Below is the Architecture Diagram of Kardio:
 
 Upcoming features…
 
-We initially started with a simple theme of just showing the list of services by status and then started adding many other features. We always wanted to take it back to the root of providing a simple page with for status of all services, this is a planned in Q4 2019. 
+We initially started with a simple theme of just showing the list of services by status and then started adding many other features. We always wanted to take it back to the root of providing a simple page with for status of all services, this is a planned in the future. 
 Along with a new Home page, an export functionality of API dashboard services and Sharable links for service status are also planned.
 More details on these will be shared soon. PR’s, Contribution are welcome!
 
 *****
 
-*(Note: Kardio is open-sourced under the terms of the Apache 2.0 license and is released AS-IS WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND pursuant to Section 7 of the Apache 2.0 license. Refer to the
-[readme.txt])*
+*(Note: Kardio is open-sourced under the terms of the Apache 2.0 license and is released AS-IS WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND pursuant to Section 7 of the Apache 2.0 license.)*
 
 Please check more on Kardio @ [GitHub](https://github.com/tmobile/kardio).

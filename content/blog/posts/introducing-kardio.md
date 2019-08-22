@@ -22,7 +22,7 @@ Kardio is a simple tool that can be configured to perform health checks on any e
 
 At T-Mobile, USA, Inc. we run several massive multi-tenant Container Orchestration platforms and these platforms rely on monitoring tools such as Prometheus, Grafana, etc. A status check system that is standalone and is independent of the primary monitoring stack was required in the event of degraded performance in any part of the primary monitoring system. We started Kardio as a simple status UI for services on our platforms, and later added more features as our platforms grew and adopted Kubernetes.
 
-![kardio-dashboard](/themes/tmo-oss-theme/static/blog/introducing-kardio/dashboard.png#center)
+![kardio-dashboard](/blog/introducing-kardio/dashboard.png#center)
 
 *Screenshot of Kardio - Dashboard Page*
 
@@ -73,7 +73,7 @@ The Kardio home page has a responsive user interface and displays below features
 
 Below is the Architecture Diagram of Kardio:
 
-![kardio-architecture](/themes/tmo-oss-theme/static/blog/introducing-kardio/architecture.png#center)
+![kardio-architecture](/blog/introducing-kardio/architecture.png#center)
 
 
 Upcoming features…

@@ -3,13 +3,13 @@
 tags = ["oss", "t-mobile", "kardio", "telemetry", "health"]
 categories = ["resources"]
 author = "Amreth Chandrasehar"
-draft = true
-date = 2017-10-17T13:19:22-07:00
+draft = false
+date = 2019-08-21T13:19:22-07:00
 title = "Introducing Kardio"
 
 +++
 
-![kardio-logo](/themes/tmo-oss-theme/static/blog/introducing-kardio/logo.png#center)
+![kardio-logo](/blog/introducing-kardio/logo.png#center)
 
 
 Containers, Kubernetes and Health Checks for the Win! With the massive adoption of containers, many large enterprises as well as startups embracing containers in their application architecture patterns. With this huge growth, we have new challenges to monitor 1000’s of containers running in 10’s and 100’s of Container Platforms such as Kubernetes. 

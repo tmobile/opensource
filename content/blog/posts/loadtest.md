@@ -44,16 +44,13 @@ Mature software development workflow includes _performance testing_ when a syste
 
 As APIs become more accessible to the data science community, so should engineering best practices around those APIs. However, most load testing tools are crafted for engineers or testing specialists--so we fixed that.
 
-## Our package
 <div class="text-center" style="padding:20px">
-
 <img src="/blog/loadtest/loadtest_hex.png" alt="loadtest hex logo" width="200"/>
 </div>
+
 Our new R package, [__loadtest__](https://github.com/loadtest), is a tool for easily running load tests without ever having to leave R, all with a single line of code. With loadtest, load testing is so easy you can trivially do it before a service is deployed in production to test it will work, or it can be used as a method of better understanding API behavior. The package includes several plots to quickly understand the test results, and a standard report to package the output as an html document. And since loadtest is a set of R functions, you can even add it as a step in a build process. The loadtest package uses JMeter on the backend, which is a standard industry tool for load testing, so the results are high-fidelity.
 
 > The loadtest package has already solved production issues with R APIs. On the *AI @ T-Mobile* team, one of our APIs would be occasionally unresponsive. Using the loadtest package, we were able to simulate the production environment that produced the problem. We learned that 1 in 10 requests would take over a minute. With this information, we discovered that the unresponsive API was not due to our R code but an external HTTP request that sometimes would time out.
-
-### How to use loadtest
 
 As a demonstration we've created a website, [teststuff.biz](http://teststuff.biz), which hosts an API version of the [MIT DeepMoji project](https://deepmoji.mit.edu/). DeepMoji is a neural network that takes text and returns emoji relevant to the test. We've hosted it on a tiny Amazon Web Services® EC2 instance, and we want to know how well it works under a load!
 
@@ -131,6 +128,7 @@ plot_elapsed_times(results)
 <img src="/blog/loadtest/plot_elapsed_times.png" alt="Plot of elapsed times" width="80%">
 </img>
 </div>
+
 This chart shows that for the 250 requests, the requests either took around 200-250ms, or 1000-1250ms which is an unusual bifurcation. Something in the API is causes the requests to either be super fast or super slow.
 
 We can also look at the data as a measure of how quickly the API can handle responses. In this next plot from loadtest we can see a histogram of the number of requests per second the API handled:
@@ -143,6 +141,7 @@ plot_requests_per_second(results)
 <img src="/blog/loadtest/plot_requests_per_second.png" alt="Plot of requests per second" width="80%">
 </img>
 </div>
+
 The API was able to handle 12-18 requests per second during the course of the test. If we expect to only get a few requests per second, say 1-4, then this API should work fine. If we expect to get 30 requests per second then our API would be too slow. In that case we'd want to add more containers or virtual machines running the API or find a way to make the API run more quickly.
 
 There are more graphs you can make and you can make them all at once as a nice html report with loadtest as well. Using the loadtest_report command you can easily create a report right that can be shared around the office.
@@ -152,10 +151,10 @@ loadtest_report(results)
 ```
 
 <div class="text-center" style="padding:20px">
-<img src="/blog/loadtest/plot_report.png" alt="Report from loadtest" width="80%">
-</img>
+<img src="/blog/loadtest/plot_report.png" alt="Report from loadtest" width="80%"></img>
 </div>
-### What to do next
+
+---
 
 If you do any sort of API development, we encourage you to try this package out and see how your APIs fare! If you find features that are missing we'd love to hear from you in the [GitHub Issues](https://github.com/tmobile/loadtest/issues). Beyond running one-off load tests, you can also integrate it into your build pipeline so that after an API is deployed in testing an loadtest report is automatically generated. By making load tests as automatic as unit tests, your code is much more likely to handle the rigors of production. Happy testing!
 

@@ -15,8 +15,6 @@ thumbnail = "blog/loadtest/loadtest_hex.png"
  <img src="/blog/loadtest/intro.jpg" width="80%" alt="R logo lifting a weight"></img>
 </div>
 
-*[loadtest](https://github.com/loadtest) is a new R package for running load tests*
-
 APIs are great! Engineers love 'em! They're everywhere! By using packages like plumber in R, data scientists create their own APIs, allowing their models and code to be run by other people ([see here for an intro in R](https://medium.com/tmobile-tech/r-can-api-c184951a24a3)). Lovely! But when you release an API, you're giving people access to your own computing resources. If the code for your API is on a server, too many requests can cause it to fail.
 
 Failure is really bad. Yes, it hurts to have something you've made fall over spectacularly but in software the outcomes have long-term consequences. Releasing new software is--secretly, _under the hood_--an exercise in building trust with your end users. A single piece of wonky software can sour the relationship with your users forever. Most of us have felt the effects of this ourselves. Quitting a video game because of a bad expansion, switching cloud providers because of buggy implementations, tweeting threads and threads because a UI update ruffles your sensibilities.
@@ -27,7 +25,10 @@ Take this epic failure. If you were between 18-29 years old back on June 6, 2016
 
 <div class="text-center" style="padding:20px">
  <img src="/blog/loadtest/gcp_pokemon.png" width="80%" alt="GCP Pokémon Go Failure"></img>
+ <p><em>(source: <a href="https://cloud.google.com/blog/products/gcp/bringing-pokemon-go-to-life-on-google-cloud" target="_blank">Google Cloud®</a>)</em></p>
 </div>
+
+
 
 Niantic, the company that created the game, had 50 times the traffic that they expected in development. For days after launch, the app was unusable. Sure Pokémon GO was a viral phenomenon, but lots of people stopped using the app immediately after downloading it because of these performance issues--including a coauthor of this very article!
 
@@ -36,7 +37,7 @@ One quick, easy, cheap way to do avoid these catastophes is to simply apply load
 <div class="text-center" style="padding:20px">
 
 <img src="/blog/loadtest/plane.png" alt="a ton of people on the wings of an old-timey plane"></img>
-<p><em>(the authors and their friends load testing before loadtest)</em></p>
+<p><em>the authors and their friends load testing before loadtest <a href="http://fb-links.weebly.com/blog/10-classic-aircraft-from-world-war-2-saviors-in-the-skies" target="_blank">(source)</a></em></p>
 </div>
 
 Mature software development workflow includes _performance testing_ when a system's performance is tested before it's launched. One type of performance testing is _load testing_, simulating many users hitting your tool at once, which is done to see how the system behaves in real-world type conditions (or even worse ones). This can be multiple simultaneous users and lots of users in succession. By ensuring that the systems will work under extremely high loads, load testing gives stakeholders confidence in your software and helps identify bottlenecks in overall systems. Even in cases of total failure, if you've done good load testing in advance then you're sitting pretty. Unlike companies who didn't load test, you know what your system looks like when it is failing. You can detect failures more quickly and know what to do to fix them. By using computer programs to simulate the traffic rather than having developers repeatedly use the tool in unison, you lower the chance of hand injuries.
@@ -54,7 +55,7 @@ Our new R package, [__loadtest__](https://github.com/loadtest), is a tool for ea
 
 ### How to use loadtest
 
-As a demonstration we've created a website, [teststuff.biz](http://teststuff.biz), which hosts an API version of the [MIT DeepMoji project](https://deepmoji.mit.edu/). DeepMoji is a neural network that takes text and returns emoji relevant to the test. We've hosted it on a tiny AWS EC2 instance, and we want to know how well it works under a load!
+As a demonstration we've created a website, [teststuff.biz](http://teststuff.biz), which hosts an API version of the [MIT DeepMoji project](https://deepmoji.mit.edu/). DeepMoji is a neural network that takes text and returns emoji relevant to the test. We've hosted it on a tiny Amazon Web Services® EC2 instance, and we want to know how well it works under a load!
 
 The way the API works is that we send a POST request with a JSON body containing text to turn into emoji, like:
 
@@ -158,4 +159,4 @@ loadtest_report(results)
 
 If you do any sort of API development, we encourage you to try this package out and see how your APIs fare! If you find features that are missing we'd love to hear from you in the [GitHub Issues](https://github.com/tmobile/loadtest/issues). Beyond running one-off load tests, you can also integrate it into your build pipeline so that after an API is deployed in testing an loadtest report is automatically generated. By making load tests as automatic as unit tests, your code is much more likely to handle the rigors of production. Happy testing!
 
-_Boring legal note: this tool is released as open source for public use. It is released "as-is" and theoretically may have inconsistencies in reporting and stability. T-Mobile has no responsibility for the outcomes of the output of this tool--use at your own discretion._
+_Boring legal notes: this tool is released as open source for public use. It is released "as-is" and theoretically may have inconsistencies in reporting and stability. T-Mobile has no responsibility for the outcomes of the output of this tool--use at your own discretion. Loadtest is open-sourced under the terms of the Apache 2.0 license and is released AS IS WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND pursuant to Section 7 of the Apache 2.0 license._

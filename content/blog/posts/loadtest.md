@@ -14,6 +14,9 @@ thumbnail = "blog/loadtest/loadtest_hex.png"
 <div class="text-center" style="padding:20px">
  <img src="/blog/loadtest/intro.jpg" width="80%" alt="R logo lifting a weight"></img>
 </div>
+
+*[loadtest](https://github.com/loadtest) is a new R package for running load tests*
+
 APIs are great! Engineers love 'em! They're everywhere! By using packages like plumber in R, data scientists create their own APIs, allowing their models and code to be run by other people ([see here for an intro in R](https://medium.com/tmobile-tech/r-can-api-c184951a24a3)). Lovely! But when you release an API, you're giving people access to your own computing resources. If the code for your API is on a server, too many requests can cause it to fail.
 
 Failure is really bad. Yes, it hurts to have something you've made fall over spectacularly but in software the outcomes have long-term consequences. Releasing new software is--secretly, _under the hood_--an exercise in building trust with your end users. A single piece of wonky software can sour the relationship with your users forever. Most of us have felt the effects of this ourselves. Quitting a video game because of a bad expansion, switching cloud providers because of buggy implementations, tweeting threads and threads because a UI update ruffles your sensibilities.
@@ -45,7 +48,7 @@ As APIs become more accessible to the data science community, so should engineer
 
 <img src="/blog/loadtest/loadtest_hex.png" alt="loadtest hex logo" width="200"/>
 </div>
-Our new R package, __loadtest__, is a tool for easily running load tests without ever having to leave R, all with a single line of code. With loadtest, load testing is so easy you can trivially do it before a service is deployed in production to test it will work, or it can be used as a method of better understanding API behavior. The package includes several plots to quickly understand the test results, and a standard report to package the output as an html document. And since loadtest is a set of R functions, you can even add it as a step in a build process. The loadtest package uses JMeter on the backend, which is a standard industry tool for load testing, so the results are high-fidelity.
+Our new R package, [__loadtest__](https://github.com/loadtest), is a tool for easily running load tests without ever having to leave R, all with a single line of code. With loadtest, load testing is so easy you can trivially do it before a service is deployed in production to test it will work, or it can be used as a method of better understanding API behavior. The package includes several plots to quickly understand the test results, and a standard report to package the output as an html document. And since loadtest is a set of R functions, you can even add it as a step in a build process. The loadtest package uses JMeter on the backend, which is a standard industry tool for load testing, so the results are high-fidelity.
 
 > The loadtest package has already solved production issues with R APIs. On the *AI @ T-Mobile* team, one of our APIs would be occasionally unresponsive. Using the loadtest package, we were able to simulate the production environment that produced the problem. We learned that 1 in 10 requests would take over a minute. With this information, we discovered that the unresponsive API was not due to our R code but an external HTTP request that sometimes would time out.
 

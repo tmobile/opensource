@@ -1,7 +1,7 @@
 +++
 date = "2019-08-28T09:00:00-07:00"
 draft = false
-title = "loadtest - an R Package for Load Testing"
+title = "loadtest: an R Package for Load Testing"
 summary = "An R package that allows for simple load testing of websites and APIs."
 categories = ["resources"]
 tags= ["R", "testing", "data science", "AI", "T-Mobile"]
@@ -27,8 +27,6 @@ Take this epic failure. If you were between 18-29 years old back on June 6, 2016
  <img src="/blog/loadtest/gcp_pokemon.png" width="80%" alt="GCP Pokémon Go Failure"></img>
  <p><em>(source: <a href="https://cloud.google.com/blog/products/gcp/bringing-pokemon-go-to-life-on-google-cloud" target="_blank">Google Cloud®</a>)</em></p>
 </div>
-
-
 
 Niantic, the company that created the game, had 50 times the traffic that they expected in development. For days after launch, the app was unusable. Sure Pokémon GO was a viral phenomenon, but lots of people stopped using the app immediately after downloading it because of these performance issues--including a coauthor of this very article!
 

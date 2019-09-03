@@ -33,6 +33,7 @@
 <link rel="stylesheet" href="{{ "css/404.css" | absURL }}" type="text/css" />
 <link rel="stylesheet" href="{{ "css/oss.css" | absURL }}" type="text/css" />
 <meta property="og:title" content="{{ .Site.Title }}"/>
-<meta property="og:image" content="{{ .Permalink }}{{ .Site.Params.ogImage}}"/>
+<meta property="og:image" content="{{.Site.BaseURL}}/{{.Site.Params.ogImage}}"/>
 <meta property="og:site_name" content="{{ .Site.Title }}"/>
 <meta property="og:description" content="{{ .Site.Params.description }}"/>
+<meta property="og:type" content="website">

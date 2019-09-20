@@ -1,10 +1,13 @@
 +++
 
-date = "2019-09-20T10:00:00-07:00" draft = false title = "A Lean Mean Pipeline Machine" categories = ["resources"] tags = ["oss", "t-mobile", "poet", "java"] author = "Ravi Shanker Sharma"
+date = "2019-09-20T10:00:00-07:00" 
+draft = false 
+title = "A Lean Mean Pipeline Machine" 
+categories = ["resources"] 
+tags = ["oss", "t-mobile", "poet", "java"] 
+author = "Ravi Shanker Sharma"
 
 +++
-
-
 
 Keeping in mind the dynamic DevOps culture in our company and others, we set out to streamline our development pipelines using a modern container-based approach.  Our goal was to empower developers to have the flexibility and ease of adapting the pipeline to their development methodologies while providing more time for development and testing rather than spending time on creating and maintaining CI/CD pipelines. 
 Developers can easily on-board their solutions without spending too much time learning about the underlying technology that drives the pipeline. 

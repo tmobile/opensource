@@ -22,23 +22,23 @@
       <div class="row">
           <div class="cat-feature-box added-padding mobile-padding col-lg-12 col-md-12 col-sm-12">
               <div class="blog-row mobile-padding">
-                  {{ $paginator := .Paginate (where .Data.Pages "Section" "blog") }}
+                  {{ $paginator := .Paginate (where .Site.Pages "Section" "blog") }}
                   {{ range first 4 $paginator.Pages }}
-                      {{ if ne .File.BaseFileName "index" }}
+                      {{ if ne .File.BaseFileName "_index" }}
                         <div class="power markup markup-override" onclick="window.open('{{ .Permalink }}')">
                             <div class="markup-header">
                                 <div class="blogContainer">
                                     <div class="smallBlogContainer">
                                         <div class="blog-tile-header chop" title="{{ .Title | markdownify }}">{{ .Title | markdownify }}</div>
                                         {{ $summarylen := len .Summary}}
-                                        {{ if gt ($ ) 120 }}
+                                        {{ if gt ($summarylen) 120 }}
                                         <p class="blog-tile-paragraph">{{ slicestr .Summary 0 120| markdownify }}...</p>
-                                        {{ else }}
+                                        {{else}}
                                         <p class="blog-tile-paragraph">{{ .Summary | markdownify }}...</p>
-                                        {{ end }}
-
+                                        {{end}}
                                     </div>
                                     <div class="authorContainer">
+                                        <!-- {{ $author := index .Site.Params.authors .Params.author }} -->
                                         <h5>By: {{ .Params.author  | markdownify }}</h5>
                                         <div class="blog-tile-subheader">
                                                 {{ dateFormat "2 Jan, 2006" (default .Date (.PublishDate)) }}  |

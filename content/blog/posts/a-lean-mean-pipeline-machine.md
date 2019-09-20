@@ -1,4 +1,10 @@
-A Lean Mean Pipeline Machine
++++
+
+date = "2019-09-20T10:00:00-07:00" draft = false title = "A Lean Mean Pipeline Machine" categories = ["resources"] tags = ["oss", "t-mobile", "poet", "java"] author = "Ravi Shanker Sharma"
+
++++
+
+
 
 Keeping in mind the dynamic DevOps culture in our company and others, we set out to streamline our development pipelines using a modern container-based approach.  Our goal was to empower developers to have the flexibility and ease of adapting the pipeline to their development methodologies while providing more time for development and testing rather than spending time on creating and maintaining CI/CD pipelines. 
 Developers can easily on-board their solutions without spending too much time learning about the underlying technology that drives the pipeline. 
@@ -111,4 +117,3 @@ POET Pipeline Wiki (https://github.com/tmobile/POET-pipeline-library/wiki)
 License 
 
 POET PIPELINE is open-sourced under the terms of the Apache 2.0 license and is released AS-IS WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND pursuant to Section 7 of the Apache 2.0 license.
-By: Ravi Shanker Sharma

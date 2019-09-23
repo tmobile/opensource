@@ -7,6 +7,9 @@ categories = ["resources"]
 tags = ["oss", "t-mobile", "poet", "java"] 
 author = "Ravi Shanker Sharma"
 
+
+themes/tmo-oss-theme/static/img/poet.png
+
 +++
 
 Keeping in mind the dynamic DevOps culture in our company and others, we set out to streamline our development pipelines using a modern container-based approach.  Our goal was to empower developers to have the flexibility and ease of adapting the pipeline to their development methodologies while providing more time for development and testing rather than spending time on creating and maintaining CI/CD pipelines. 

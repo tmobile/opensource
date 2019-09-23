@@ -120,6 +120,6 @@ Please follow the below links to know more about POET pipeline and contributions
 POET Pipeline source code (https://github.com/tmobile/POET-pipeline-library)                                                                                
 POET Pipeline Wiki (https://github.com/tmobile/POET-pipeline-library/wiki)
 
-License 
+# License 
 
 POET PIPELINE is open-sourced under the terms of the Apache 2.0 license and is released AS-IS WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND pursuant to Section 7 of the Apache 2.0 license.

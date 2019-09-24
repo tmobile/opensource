@@ -23,7 +23,11 @@
           <div class="cat-feature-box added-padding mobile-padding col-lg-12 col-md-12 col-sm-12">
               <div class="blog-row mobile-padding">
                   {{ $paginator := .Paginate (where .Site.Pages "Section" "blog") }}
+
                   {{ range first 4 $paginator.Pages }}
+
+                  {{ range first 5 $paginator.Pages }}
+
                       {{ if ne .File.BaseFileName "_index" }}
                         <div class="power markup markup-override" onclick="window.open('{{ .Permalink }}')">
                             <div class="markup-header">
@@ -33,12 +37,18 @@
                                         {{ $summarylen := len .Summary}}
                                         {{ if gt ($summarylen) 120 }}
                                         <p class="blog-tile-paragraph">{{ slicestr .Summary 0 120| markdownify }}...</p>
+
                                         {{else}}
                                         <p class="blog-tile-paragraph">{{ .Summary | markdownify }}...</p>
                                         {{end}}
+
+                                        {{ else }}
+                                        <p class="blog-tile-paragraph">{{ .Summary | markdownify }}...</p>
+                                        {{ end }}
+
+
                                     </div>
                                     <div class="authorContainer">
-                                        <!-- {{ $author := index .Site.Params.authors .Params.author }} -->
                                         <h5>By: {{ .Params.author  | markdownify }}</h5>
                                         <div class="blog-tile-subheader">
                                                 {{ dateFormat "2 Jan, 2006" (default .Date (.PublishDate)) }}  |

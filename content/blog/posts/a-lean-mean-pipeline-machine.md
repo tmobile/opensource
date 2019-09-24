@@ -17,7 +17,7 @@ author = "Ravi Shanker Sharma"
 </style>
 
 <div class="text-center" style="padding:20px">
- <img src="/blog/poet-pipeline/POET.png" width="50%" alt="POET Pipeline Official Logo"></img>
+<img src="/blog/poet-pipeline/POET.png" width="50%" alt="POET Pipeline Official Logo"></img>
 </div>
 
 Keeping in mind the dynamic DevOps culture in our company and others, we set out to streamline our development pipelines using a modern container-based approach.  Our goal was to empower developers to have the flexibility and ease of adapting the pipeline to their development methodologies while providing more time for development and testing rather than spending time on creating and maintaining CI/CD pipelines.
@@ -31,12 +31,12 @@ The POET pipeline is designed around leveraging a dynamic DevOps culture. Develo
 
 Values such as:
 
- - Make it **easier to implement new pipeline capabilities**, without having to impact pipeline users.
- - Make pipeline usage and onboarding faster and easier.
- - Designing a service for **scalability, reusability and flexibility** across Dev teams. 
+- Make it **easier to implement new pipeline capabilities**, without having to impact pipeline users.
+- Make pipeline usage and onboarding faster and easier.
+- Designing a service for **scalability, reusability and flexibility** across Dev teams. 
  - Help teams **avoid having their own CI/CD pipeline specialists** to maintain their own custom pipeline. 
  - Continue to **abstract the underlying technologies** that drive the pipeline (no need to know about Jenkins and associated tool chain).
- <br><br>
+<br><br>
 
 ## What is the POET pipeline framework?
 
@@ -44,14 +44,13 @@ The POET pipeline framework is built with a containers-first architecture. Pipel
 
 POET Pipeline executes build, test and deployment commands against your code inside isolated containers. 
 
-
 ### Example representation of a pipeline workflow
 
 <div class="text-center" style="padding:20px">
- <img src="/blog/poet-pipeline/workflow.png" width="100%" alt="POET Pipeline Workflow"></img>
+<img src="/blog/poet-pipeline/workflow.png" width="100%" alt="POET Pipeline Workflow"></img>
 </div>
 
- 
+
 Jenkins Groovy code is limited, error-prone, and difficult to incorporate with 3rd party libraries. For these reasons, our approach has been to keep the core pipeline code small, and push functionality out into containers.
 
 One of the key design features is that we define a pipeline as a list of steps that include building, testing, and deploying code, along with sending notifications, or any other type. Each step is self-contained and implemented as a container. The pipeline workflow is responsible for executing each step but does not need to understand the step container internals. Step containers are a key strategy to empowering teams to develop their own containers to solve unique problems within their CI/CD, but they can also use existing containers developed by our team for immediate use.
@@ -64,10 +63,9 @@ Below is a diagram that looks to depict the different aspects of managing a CI/C
 This often moves organizations or teams to a more centralized approach, but this can create too “prescriptive” of a solution that doesn’t leave engineering teams the flexibility they need. To that end the POET pipeline looks to bridge that gap where we could have a reusability of capabilities, eliminate the need for “deep” knowledge of Jenkins for development teams.
 
 <div class="text-center" style="padding:20px">
- <img src="/blog/poet-pipeline/complex.png" width="100%" alt="A Complex Pipeline Example"></img>
+<img src="/blog/poet-pipeline/complex.png" width="100%" alt="A Complex Pipeline Example"></img>
 </div>
 <br><br>
- 
 
 
 ## POET works to address simplifying the running and maintaining a CICD pipeline.
@@ -96,19 +94,18 @@ This often moves organizations or teams to a more centralized approach, but this
   </tr>
   <tr>
     <td class="tg-0pky"> With a Groovy pipeline library, there are operational challenges that need to be addressed.
-		<ul>    
-			<li>Getting pipeline metrics.</li>
-			<li>Pipeline availability and monitoring.</li>
-			<li>Pipeline performance.</li>
-			<li>Pipeline logging.</li>
-		</ul> 
+        <ul>    
+            <li>Getting pipeline metrics.</li>
+            <li>Pipeline availability and monitoring.</li>
+            <li>Pipeline performance.</li>
+            <li>Pipeline logging.</li>
+        </ul> 
     </td>
     <td class="tg-0pky">To run the POET pipeline, you just need 3-4 minimum plugins to maintain in Jenkins. The pipeline framework works seamlessly, the maintenance overhead of the traditional pipeline goes away.<br>Secondly, there is no groovy need to be written for any new features/functionality. The “step containers” are created to do the different functions such as builds, slack notifications, deployments, etc.</td>
   </tr>
 </table>
 
 <br>
-
 
 ### Customer support or need of a CI/CD Specialist (harder to find)
 
@@ -192,8 +189,8 @@ This often moves organizations or teams to a more centralized approach, but this
   <tr>
     <td class="tg-0pky">The definition file contains the steps which define the pipeline workflow and execution. But if you have hundreds of microservices which are built in a similar fashion, needing to duplicate the pipeline/Jenkins file to keep in each repository, it can become problematic.</td>
     <td class="tg-0pky">In POET we introduced a concept of templates and templates-within-templates.Templates allow you to define your logic once and reuse it several times. Using templates, you can combine the contents of multiple YAML files into a single pipeline. Templates can be defined locally or included from remote git repositories.
-	<br><br>More details about templates can be found on the GitHub <a href="https://github.com/tmobile/POET-pipeline-library/wiki/Pipeline-Templates">wiki</a>.
-	</td>
+    <br><br>More details about templates can be found on the GitHub <a href="https://github.com/tmobile/POET-pipeline-library/wiki/Pipeline-Templates">wiki</a>.
+    </td>
   </tr>
 </table>
 <br>
@@ -202,17 +199,15 @@ This often moves organizations or teams to a more centralized approach, but this
 
 Overall, POET pipeline is a big win-win situation for both the stakeholders, the developers as well the Enterprise delivery pipeline team. POET Pipeline is all about customer satisfaction and providing quality results along with recognized value to the devops teams.
 
- - Make it easier to **implement new pipeline capabilities**, without having to impact pipeline users.
- - Make pipeline **usage** and **onboarding** faster and easier.
- - Designing a service for scalability, reusability and flexibility across Dev teams.
- - Help teams **avoid having their own CI/CD pipeline specialists** to maintain their own custom pipeline. 
+- Make it easier to **implement new pipeline capabilities**, without having to impact pipeline users.
+- Make pipeline **usage** and **onboarding** faster and easier.
+- Designing a service for scalability, reusability and flexibility across Dev teams.
+- Help teams **avoid having their own CI/CD pipeline specialists** to maintain their own custom pipeline. 
  - Continue to **abstract the underlying technologies** that drive the pipeline (no need to know about Jenkins and associated tool chain).
-
-
 
 Please follow the below links to know more about POET pipeline and contributions.
 
- - [**POET Pipeline source code**](https://github.com/tmobile/POET-pipeline-library)                                                                                
+- [**POET Pipeline source code**](https://github.com/tmobile/POET-pipeline-library)                                                                                
  - [**POET Pipeline Wiki**](https://github.com/tmobile/POET-pipeline-library/wiki)
 <br><br>
 

@@ -3,6 +3,6 @@ full_name: tmobile/POET-pipeline-library
 description: POET pipeline framework automation code
 url: https://github.com/tmobile/POET-pipeline-library
 img: "foo.png"
-language: JAVA
+language: GROOVY
 css: ""
 order: 12

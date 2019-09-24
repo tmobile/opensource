@@ -138,6 +138,7 @@ svg.pink-transparent {
     word-wrap: break-word;
     overflow: hidden;
     text-overflow: ellipsis;
+    text-transform: capitalize;
 }
 
 .blog-row .markup .blog-tile-subheader {

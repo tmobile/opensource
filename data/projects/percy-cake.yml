@@ -1,8 +1,0 @@
-name: percy-cake
-full_name: tmobile/percy-cake
-description: A Configuration As Kode Editor to simplify managing distributed applications and services.
-url: https://github.com/tmobile/percy-cake
-img: "foo.png"
-language: Angular
-css: ""
-order: 13

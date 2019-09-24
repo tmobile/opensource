@@ -25,7 +25,7 @@ Keeping in mind the dynamic DevOps culture in our company and others, we set out
 Developers can easily on-board their solutions without spending too much time learning about the underlying technology that drives the pipeline.
 <br><br>
 
-## Why did we create the POET Pipeline?
+# Why did we create the POET Pipeline?
 
 The POET pipeline is designed around leveraging a dynamic DevOps culture. Developers should spend their time on development, not creating and maintaining their CI/CD pipeline, be able to on-board their solutions to the pipeline without having to be Jenkins “(R).” experts. POET pipeline provides recognized value to Devops teams without compromising the quality.
 
@@ -38,7 +38,7 @@ Values such as:
  - Continue to **abstract the underlying technologies** that drive the pipeline (no need to know about Jenkins and associated tool chain).
 <br><br>
 
-## What is the POET pipeline framework?
+# What is the POET pipeline framework?
 
 The POET pipeline framework is built with a containers-first architecture. Pipelines are configured using a YAML files that you check-in to your git repository. The syntax is designed to be easy to read and expressive so that anyone using the repository can understand the continuous delivery process.
 
@@ -56,7 +56,7 @@ Jenkins Groovy code is limited, error-prone, and difficult to incorporate with 3
 One of the key design features is that we define a pipeline as a list of steps that include building, testing, and deploying code, along with sending notifications, or any other type. Each step is self-contained and implemented as a container. The pipeline workflow is responsible for executing each step but does not need to understand the step container internals. Step containers are a key strategy to empowering teams to develop their own containers to solve unique problems within their CI/CD, but they can also use existing containers developed by our team for immediate use.
 <br><br>
 
-### Managing and Running a CI/CD pipeline is complex
+## Managing and Running a CI/CD pipeline is complex
 
 Below is a diagram that looks to depict the different aspects of managing a CI/CD pipeline. Often a team building their own pipeline doesn’t have time to do all these items and they tend to do “just enough” to run but the solution doesn’t provide the robustness one is typically looking for in a pipeline critical to a highly available CI/CD flow. Doing it as a one off also consumes a greater percentage of a development team’s time.
 
@@ -195,7 +195,7 @@ This often moves organizations or teams to a more centralized approach, but this
 </table>
 <br>
 
-## Summary
+# Summary
 
 Overall, POET pipeline is a big win-win situation for both the stakeholders, the developers as well the Enterprise delivery pipeline team. POET Pipeline is all about customer satisfaction and providing quality results along with recognized value to the devops teams.
 
@@ -208,9 +208,9 @@ Overall, POET pipeline is a big win-win situation for both the stakeholders, the
 Please follow the below links to know more about POET pipeline and contributions.
 
 - [**POET Pipeline source code**](https://github.com/tmobile/POET-pipeline-library)                                                                                
- - [**POET Pipeline Wiki**](https://github.com/tmobile/POET-pipeline-library/wiki)
+- [**POET Pipeline Wiki**](https://github.com/tmobile/POET-pipeline-library/wiki)
 <br><br>
 
-## License 
+# License 
 
 POET PIPELINE is open-sourced under the terms of the Apache 2.0 license and is released AS-IS WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND pursuant to Section 7 of the Apache 2.0 license.

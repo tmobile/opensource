@@ -9,15 +9,8 @@ author = "Ravi Shanker Sharma"
 
 +++
 
-<style type="text/css">
-.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#fff;}
-.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#f0f0f0;height:30px;width:1500px;}
-.tg .tg-vnl4{font-family:"Trebuchet MS", Helvetica, sans-serif !important;;border-color:inherit;text-align:left;vertical-align:top}
-.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
-</style>
-
 <div class="text-center" style="padding:20px">
-<img src="/blog/poet-pipeline/POET.png" width="50%" alt="POET Pipeline Official Logo"></img>
+<img src="/blog/poet-pipeline/POET-logo.png" width="50%" alt="POET Pipeline Official Logo"></img>
 </div>
 
 Keeping in mind the dynamic DevOps culture in our company and others, we set out to streamline our development pipelines using a modern container-based approach.  Our goal was to empower developers to have the flexibility and ease of adapting the pipeline to their development methodologies while providing more time for development and testing rather than spending time on creating and maintaining CI/CD pipelines.
@@ -34,8 +27,8 @@ Values such as:
 - Make it **easier to implement new pipeline capabilities**, without having to impact pipeline users.
 - Make pipeline usage and onboarding faster and easier.
 - Designing a service for **scalability, reusability and flexibility** across Dev teams. 
- - Help teams **avoid having their own CI/CD pipeline specialists** to maintain their own custom pipeline. 
- - Continue to **abstract the underlying technologies** that drive the pipeline (no need to know about Jenkins and associated tool chain).
+- Help teams **avoid having their own CI/CD pipeline specialists** to maintain their own custom pipeline. 
+- Continue to **abstract the underlying technologies** that drive the pipeline (no need to know about Jenkins and associated tool chain).
 <br><br>
 
 # What is the POET pipeline framework?
@@ -71,6 +64,13 @@ This often moves organizations or teams to a more centralized approach, but this
 ## POET works to address simplifying the running and maintaining a CICD pipeline.
 
 ### Design and implementation
+
+<style type="text/css">
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#fff;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#f0f0f0;height:30px;width:1500px;}
+.tg .tg-vnl4{font-family:"Trebuchet MS", Helvetica, sans-serif !important;;border-color:inherit;text-align:left;vertical-align:top}
+.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+</style>
 
 <table class="tg">
   <tr>
@@ -203,7 +203,7 @@ Overall, POET pipeline is a big win-win situation for both the stakeholders, the
 - Make pipeline **usage** and **onboarding** faster and easier.
 - Designing a service for scalability, reusability and flexibility across Dev teams.
 - Help teams **avoid having their own CI/CD pipeline specialists** to maintain their own custom pipeline. 
- - Continue to **abstract the underlying technologies** that drive the pipeline (no need to know about Jenkins and associated tool chain).
+- Continue to **abstract the underlying technologies** that drive the pipeline (no need to know about Jenkins and associated tool chain).
 
 Please follow the below links to know more about POET pipeline and contributions.
 

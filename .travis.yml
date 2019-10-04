@@ -19,9 +19,9 @@ deploy:
   region: us-west-2
   on:
     branch: develop
-    after_deploy:
-    - aws configure set preview.cloudfront true
-    - "./cdn-invalidate.sh"
+after_deploy:
+  - aws configure set preview.cloudfront true
+  - "./cdn-invalidate.sh"
 notifications:
   email:
     on_failure: always

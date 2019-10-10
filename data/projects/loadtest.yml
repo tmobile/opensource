@@ -1,0 +1,8 @@
+name: loadtest
+full_name: tmobile/loadtest
+description: An R package that automates performance testing of ML models and summarizes the results in a dashboard w/ rad visualizations
+url: https://github.com/tmobile/loadtest
+img: "foo.png"
+language: "R"
+css: ""
+order: 14

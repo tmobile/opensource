@@ -220,6 +220,10 @@ pre code.language-ascii {
     white-space: pre;
 }
 
+code {
+    font-size: 80%;
+}
+
 .scroll-prompt {
     position: relative;
     z-index: 998;

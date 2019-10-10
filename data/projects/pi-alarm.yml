@@ -1,0 +1,8 @@
+name: pi-alarm
+full_name: tmobile/pi-alarm
+description: Control an alarm with a Raspberry Pi over the internet! 
+url: https://github.com/tmobile/pi-alarm
+img: "foo.png"
+language: "PYTHON"
+css: ""
+order: 18

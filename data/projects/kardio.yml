@@ -1,0 +1,8 @@
+name: kardio
+full_name: tmobile/kardio
+description: Service Health Dashboard
+url: https://github.com/tmobile/kardio
+img: "foo.png"
+language: "FRAMEWORK"
+css: ""
+order: 16

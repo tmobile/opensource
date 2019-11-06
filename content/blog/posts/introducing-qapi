@@ -16,16 +16,16 @@ In order to remove the database connections from such tests, T-Mobile’s Test P
 
 · Growing database support: qAPI currently supports Oracle (R), SQL Server, and Cassandra (R) databases. Other databases integration can be enabled in the future by community.
 
-## Design without qAPI
+# Design without qAPI
 
 ![image1](https://github.com/tmobile/qapi/blob/master/misc/without%20qAPI.png)
 
-## Design with qAPi
+# Design with qAPi
 
 ![image2](https://github.com/tmobile/qapi/blob/master/misc/with%20qAPI.png)
 
 With these capabilities, teams no longer will have to overload their test dependencies with JDBC drivers, as well as other dependencies needed to manage connections. Also, all database configurations are centralized in one location so if credentials ever need to be added or updated, they can be done in one location, rather than on a test by test basis. To learn more or contribute to qAPI on GitHub – code (https://github.com/tmobile/qapi) and wiki (https://github.com/tmobile/qapi/wiki)
 
-## License
+# License
 
 qAPI is open-sourced under the terms of the Apache 2.0 license and is released AS-IS WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND pursuant to Section 7 of the Apache 2.0 license.

@@ -1,0 +1,8 @@
+name: jest-jsdom-browser-compatibility 
+full_name: tmobile/jest-jsdom-browser-compatibility 
+description: This is a matrix of issues and risks of using Jest with JSDOM to test browser applications. 
+url: https://github.com/tmobile/jest-jsdom-browser-compatibility
+img: "foo.png"
+language: "JS"
+css: ""
+order: 21

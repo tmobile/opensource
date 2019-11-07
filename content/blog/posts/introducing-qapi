@@ -3,6 +3,7 @@ Whether it may be a simple test script, test frameworks such as Selenium (R), or
 
 In order to remove the database connections from such tests, T-Mobile’s Test Platform Engineering team developed qAPI (which stands for query API). qAPI eases the process by converting a database query to an API service that testers can integrate with in order to retrieve data in their test scripts. With this design, they can simply make an API call whenever needed, keeping their tests clean and modular. Additionally, if certain test frameworks don’t provide the drivers needed to connect to certain databases, qAPI removes this constraint and allows for more flexibility and expandability on database-type support.
 
+[video](https://www.youtube.com/watch?v=IRU-AcRGL74&feature=youtu.be)
 
 # The benefits of using qAPI include:
 

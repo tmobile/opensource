@@ -1,9 +1,19 @@
++++
+date = "2019-11-07T10:00:00-08:00"
+draft = false
+title = "Introducing qAPI: Translating database queries into API calls"
+categories = ["resources"]
+tags = ["testing", "API", "database"]
+author = "Julio Zevallos"
+
++++
+
 Designing and implementing test flows typically involves validating data with one or multiple databases. 
 Whether it may be a simple test script, test frameworks such as Selenium (R), or test applications such as Tosca (R), querying the database directly is often not a good approach (from security and maintainability standpoints), and sometimes, not even fully supported.
 
 In order to remove the database connections from such tests, T-Mobile’s Test Platform Engineering team developed qAPI (which stands for query API). qAPI eases the process by converting a database query to an API service that testers can integrate with in order to retrieve data in their test scripts. With this design, they can simply make an API call whenever needed, keeping their tests clean and modular. Additionally, if certain test frameworks don’t provide the drivers needed to connect to certain databases, qAPI removes this constraint and allows for more flexibility and expandability on database-type support.
 
-[video](https://www.youtube.com/watch?v=IRU-AcRGL74&feature=youtu.be)
+[Video](https://www.youtube.com/watch?v=IRU-AcRGL74&feature=youtu.be)
 
 # The benefits of using qAPI include:
 
@@ -19,11 +29,11 @@ In order to remove the database connections from such tests, T-Mobile’s Test P
 
 # Design without qAPI
 
-![image1](https://github.com/tmobile/qapi/blob/master/misc/without%20qAPI.png)
+![image1](https://raw.githubusercontent.com/tmobile/qapi/master/misc/without%20qAPI.png )
 
 # Design with qAPi
 
-![image2](https://github.com/tmobile/qapi/blob/master/misc/with%20qAPI.png)
+![image2](https://raw.githubusercontent.com/tmobile/qapi/master/misc/with%20qAPI.png)
 
 With these capabilities, teams no longer will have to overload their test dependencies with JDBC drivers, as well as other dependencies needed to manage connections. Also, all database configurations are centralized in one location so if credentials ever need to be added or updated, they can be done in one location, rather than on a test by test basis. To learn more or contribute to qAPI on GitHub – code (https://github.com/tmobile/qapi) and wiki (https://github.com/tmobile/qapi/wiki)
 

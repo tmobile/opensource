@@ -1,0 +1,8 @@
+name: qapi
+full_name: tmobile/qapi
+description: Translating database queries into API calls
+url: https://github.com/tmobile/qapi
+img: "foo.png"
+language: JAVA
+css: ""
+order: 20

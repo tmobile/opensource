@@ -1,8 +1,8 @@
 name: passport-tmobileid
-full_name: hyperledger/passport-tmobileid
+full_name: tmobile/passport-tmobileid
 description: T-Mobile ID enabled authentication strategy for Passport and Node.js
-url: https://github.com/hyperledger/passport-tmobileid
+url: https://github.com/tmobile/passport-tmobileid
 img: "foo.png"
 language: "JSON"
 css: ""
-order: 19
+order: 12

@@ -41,7 +41,7 @@ In order to remove the database connections from such tests, T-Mobile’s Test P
  </tr>
 </table>
  
-With these capabilities, teams no longer will have to overload their test dependencies with JDBC drivers, as well as other dependencies needed to manage connections. Also, all database configurations are centralized in one location so if credentials ever need to be added or updated, they can be done in one location, rather than on a test by test basis. To learn more or contribute to qAPI on GitHub – code (https://github.com/tmobile/qapi) and wiki (https://github.com/tmobile/qapi/wiki) 
+With these capabilities, teams no longer will have to overload their test dependencies with JDBC drivers, as well as other dependencies needed to manage connections. Also, all database configurations are centralized in one location so if credentials ever need to be added or updated, they can be done in one location, rather than on a test by test basis. To learn more or contribute to qAPI on GitHub – code (https://github.com/tmobile/qapi) and wiki (https://github.com/tmobile/qapi/wiki)  
 
 # License
 

@@ -34,7 +34,7 @@ In order to remove the database connections from such tests, T-Mobile’s Test P
         <image style="width:100%" src="https://raw.githubusercontent.com/tmobile/qapi/master/misc/without%20qAPI.png" />
     </td>
     <td style="padding: 30px;   width: 50%; vertical-align: top;">
-        <h2>Design without qAPI</h2>    
+        <h2>Design with qAPI</h2>    
         <image style="width:100%" src="https://raw.githubusercontent.com/tmobile/qapi/master/misc/with%20qAPI.png" />
     </td>
     </td>

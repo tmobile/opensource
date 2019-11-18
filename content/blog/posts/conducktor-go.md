@@ -13,7 +13,7 @@ title = "Conducktor-Go for Kubernetes"
 
 Kubernetes (R) has now become the default Container orchestration platform of choice but launching and configuring a Production grade Kubernetes Cluster is a lot of work. Conducktor-Go simplifies launching native Kubernetes Cluster on AWS (R) using Terraform (TM), Ansible (R), Python Scripts and also provide a rich Telemetry with Pre-built Grafana(R) Dashboards, Prometheus(R) as data source. 
 
-The one huge benefit using Conducktor-go is the cost, talent and time required to build and maintain many kubernetes clusters. Conducktor-GO also configures Nginx(R), Docker(R) CE, Weave Net (CNI), Kube2IAM, Kubernetes 2.0 Dashboard, Kube-State-Metrics and Metrics Server to provide a Production ready Kubernetes Cluster to deploy your services. 
+Conducktor-GO also configures Nginx(R), Docker(R) CE, Weave Net (CNI), Kube2IAM, Kubernetes 2.0 Dashboard, Kube-State-Metrics and Metrics Server to provide a Production ready Kubernetes Cluster to deploy your services. Also, Conducktor-Go offers flexibility to launch K8s clusters in any AWS VPC and use any AMIs with CentOS v7.6 or higher.
 
 
 ## Features 

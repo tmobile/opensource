@@ -11,9 +11,9 @@ title = "Conducktor-Go for Kubernetes"
 ![conducktor-logo](/blog/conducktor-go/conducktor.png#center)
 
 
-Kubernetes (R) has now become the default Container orchestration platform of choice but launching and configuring a Production grade Kubernetes Cluster is a lot of work. Conducktor-Go simplifies launching native Kubernetes Cluster on AWS (R) using Terraform (TM), Ansible (R), Python Scripts and also provide a rich Telemetry with Pre-built Grafana(R) Dashboards, Prometheus(R) as data source. 
+Kubernetes (R) has become the Container orchestration platform of choice--but launching and configuring a Production grade Kubernetes Cluster is a lot of work. Conducktor-Go simplifies launching native Kubernetes Clusters on AWS (R) using Terraform (TM), Ansible (R), and Python Scripts. It also provides a rich, turn-key telemetry solution with pre-configured Grafana(R) dashboards and Prometheus(R) as data source. 
 
-Conducktor-GO also configures Nginx(R), Docker(R) CE, Weave Net (CNI), Kube2IAM, Kubernetes 2.0 Dashboard, Kube-State-Metrics and Metrics Server to provide a Production ready Kubernetes Cluster to deploy your services. Also, Conducktor-Go offers flexibility to launch K8s clusters in any AWS VPC and use any AMIs with CentOS v7.6 or higher.
+Conducktor-GO also configures Nginx(R), Docker(R) CE, Weave Net (CNI), Kube2IAM, Kubernetes 2.0 Dashboard, Kube-State-Metrics, and Metrics Server to provide a Production ready Kubernetes Cluster to deploy your services. Conducktor-Go offers flexibility to launch K8s clusters in any AWS VPC, and use any AMIs with CentOS v7.6 or higher (not yet tested with Debian).
 
 
 ## Features 
@@ -24,7 +24,7 @@ The automation script will configure below components along with K8s API Server 
     VMs and ELBs are launched using Terraform on AWS to deploy Kubernetes and other core components.
 
 * *Ingress:* 
-    Nginx is used as Ingress in Conducktor-GO. This can however be substituted with any ingress of your choice by deploying separately.
+    Nginx is used as Ingress in Conducktor-GO. This can, however, be substituted with the ingress of your choice by deploying separately.
 
 * *Admin Dashboard:*
     Latest Kubernetes Dashboard 2.0 is configured in the cluster.
@@ -33,7 +33,7 @@ The automation script will configure below components along with K8s API Server 
     Grafana with pre-built dashboards, Prometheus, Kube-State-Metrics and Metric server are deployed in the newly launched cluster.
  
 * *High Availability:*
-    The K8s Cluster is deployed across 3 AZs to supports High Availability (HA) mode in both Control Plane and Worker Nodes. Please provide VPC ID, Subnets to launch the cluster.
+    The K8s Cluster is deployed across 3 AZs to support High Availability (HA) mode in both Control Plane and Worker Nodes. Please provide VPC ID and subnets to launch the cluster.
 
 * *IAM Access:*
     Kube2IAM is used for Pods to securely access AWS Managed services.
@@ -45,7 +45,7 @@ The automation script will configure below components along with K8s API Server 
     Docker CE for Container Runtime in Kubernetes Cluster will be configured on all the nodes. 
 
 
-Pre-Requisite and assumptions 
+## Prerequisites and assumptions 
 
 * A Linux/Unix host
 * Git (2.x)
@@ -58,10 +58,7 @@ Pre-Requisite and assumptions
     We assume VPC and Subnets (accross 3 AZ), NATGateway are already available. Our current use case at T-Mobile is to launch with existing pre-configure VPC and to use very minimal IAM roles for security reasons.
 
 
-
-Below are some of Known issues and Future work we have planned:
-
-Known issues / limitations
+## Known issues / limitations
 
 * There is no way to specify the number of Control plane or worker nodes
 * If for some reason the script fails, when you re-run the script, it will destroy terraform created resources and will recreate it. To avoid this, current work around is to comment out code.
@@ -69,7 +66,7 @@ Known issues / limitations
 * Current script only works with Python 2.7.x
 * No way to add additional/custom tags without making code changes
 
-Future work
+## Future work
 
 * Provide ability to dynamically choose the number of Masters and Worker Nodes
 * Add idempotency to automation process
@@ -83,7 +80,7 @@ Future work
 * Calico as CNI
 * Ability to skip launching clusters and configure an existing K8s Cluster
 
-More details on these will be shared soon. PR’s, Contribution are welcome!
+More details on these will be shared soon. Contributions are welcome!
 
 
 *****

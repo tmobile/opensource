@@ -7,7 +7,7 @@ categories: ["resources"]
 author: "Joe Searcy & Torin Sandall"
 ---
 
-Hi all, I'm Joe Searcy, a Principal Engineer on the Platform Engineering team here at T-Mobile and I'm joined by Torin Sandall, Software Engineer at [Styra](https://www.styra.com) and Co-founder/Core Contributor for the [OPA](https://www.openpolicyagent.org) (Open Policy Agent) project, to help tell the story behind one of T-Mobile's latest open source projects, `MagTape`.
+Hi all, I'm Joe Searcy, Member of Technical Staff on the Platform Engineering team here at T-Mobile and I'm joined by Torin Sandall, Software Engineer at [Styra](https://www.styra.com) and Co-founder/Core Contributor for the [Open Policy Agent](https://www.openpolicyagent.org) (OPA) project, to help tell the story behind one of T-Mobile's latest open source projects, `MagTape`.
 
 ![magtape-logo](/blog/magtape/magtape-logo-2.png)
 

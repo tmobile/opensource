@@ -1,7 +1,7 @@
 ---
 title: "Rolling Out the Magenta Tape: Policy-as-Code for Kubernetes"
 date: 2020-05-01T01:00:00-04:00
-draft: true
+draft: false
 tags: ["oss", "t-mobile", "magtape", "kubernetes", "policy", "opa"]
 categories: ["resources"]
 author: "Joe Searcy & Torin Sandall"

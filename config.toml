@@ -28,7 +28,7 @@ favicon = "favicon.ico"
   description = "All of our projects are available at <a href='https://github.com/tmobile' target='_github-tmobile'>github.com/tmobile</a>"
 
   [params.about]
-  headline = "T-MOBILE OSS WORKING GROUP"
+  headline = "Open Dev Working Group"
   description = "We champion open source use and contribution throughout T-Mobile and help teams release their projects as open source."
 
   [params.code]

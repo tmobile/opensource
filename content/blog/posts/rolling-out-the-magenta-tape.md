@@ -1,13 +1,13 @@
 ---
 title: "Rolling Out the Magenta Tape: Policy-as-Code for Kubernetes"
-date: 2020-03-12T01:33:11-04:00
+date: 2020-05-01T01:00:00-04:00
 draft: true
 tags: ["oss", "t-mobile", "magtape", "kubernetes", "policy", "opa"]
 categories: ["resources"]
 author: "Joe Searcy & Torin Sandall"
 ---
 
-Hi all, I'm Joe Searcy, a Principal Engineer on the Platform Engineering team here at T-Mobile and I'm joined by Torin Sandall, Software Engineer at [Styra](https://www.styra.com) and Co-founder/Core Contributor for the [OPA](https://www.openpolicyagent.org) (Open Policy Agent) project, to help tell the story behind one of T-Mobile's latest open source projects, `MagTape`.
+Hi all, I'm Joe Searcy, Member of Technical Staff on the Platform Engineering team here at T-Mobile and I'm joined by Torin Sandall, Software Engineer at [Styra](https://www.styra.com) and Co-founder/Core Contributor for the [Open Policy Agent](https://www.openpolicyagent.org) (OPA) project, to help tell the story behind one of T-Mobile's latest open source projects, `MagTape`.
 
 ![magtape-logo](/blog/magtape/magtape-logo-2.png)
 

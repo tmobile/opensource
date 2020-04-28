@@ -40,9 +40,15 @@
                                 <div class="names-content">
                                     {{ .bio }}
                                     <div class="names-links">
+                                      {{ if .linkedInUrl }}
                                         <a href="{{ .linkedInUrl }}" target="_blank"><i class="icon-icon-linkedin"></i></a>
+                                      {{ end }}
+                                      {{ if .githubUrl }}
                                         <a href="{{ .githubUrl }}" target="_blank"><i class="icon-icon-github"></i></a>
-        								<a href="{{ .twitterUrl }}" target="_blank"><i class="icon-icon-twitter"></i></a>
+                                      {{ end }}
+                                      {{ if .twitterUrl }}
+                                        <a href="{{ .twitterUrl }}" target="_blank"><i class="icon-icon-twitter"></i></a>
+                                      {{ end }}
                                     </div>
                                 </div>
                             </div>

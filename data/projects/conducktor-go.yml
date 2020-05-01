@@ -1,0 +1,8 @@
+name: conducktor-go
+full_name: tmobile/conducktor-go
+description: Production Grade Kubernetes Cluster
+url: https://github.com/tmobile/conducktor-go
+img: "foo.png"
+language: "FRAMEWORK"
+css: ""
+order: 1

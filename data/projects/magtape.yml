@@ -1,0 +1,8 @@
+name: MagTape
+full_name: tmobile/magtape
+description: Kubernetes Policy as Code
+url: https://github.com/tmobile/magtape
+img: "foo.png"
+language: "Python"
+css: ""
+order: 21

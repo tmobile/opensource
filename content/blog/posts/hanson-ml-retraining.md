@@ -14,7 +14,7 @@ Now, you need it to retrain every day… and that
 requires a whole new architecture.
 
 In this [article](https://medium.com/tmobile-tech/retraining-is-the-only-constant-or-the-machine-learning-is-never-done-28e386cf763d),
-Mark Eric Hanson outlines why an automated ML model retraining is important,
+Mark Eric Hanson outlines why automated ML model retraining is important,
 the use cases it solves for T-Mobile, and how to stitch the tech together
 to recreate a similar implementation of your own. Its a fascinating read, and a good
 behind-the-scenes look at how we approach problem-solving at T-Mobile.

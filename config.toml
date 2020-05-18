@@ -12,7 +12,7 @@ description = "Open source at the Un-carrier."
 favicon = "favicon.ico"
 
   [params.footer]
-  copyright = "Copyright 2017. All Rights Reserved."
+  copyright = "Copyright 2020. All Rights Reserved."
 
   [params.hero]
   headline1 = "AT THE"
@@ -20,9 +20,9 @@ favicon = "favicon.ico"
   headline3 = "UN-CARRIER"
   slogan = "Transforming wireless through technology innovation."
 
-  [params.hero.cta]
-  text = "VIEW PROJECTS"
-  navigate_to = "#PROJECTS"
+    [params.hero.cta]
+    text = "VIEW PROJECTS"
+    navigate_to = "#PROJECTS"
 
   [params.projects]
   headline = "PROJECTS"
@@ -71,6 +71,9 @@ favicon = "favicon.ico"
 
     [params.authors.satish]
     name = "Satish Malireddi"
+
+    [params.authors.prashant]
+    name = "Prashant Gupta"
 
   [params.events]
   headline = "EVENTS CALENDAR"

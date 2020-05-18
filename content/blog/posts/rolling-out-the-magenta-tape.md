@@ -217,6 +217,6 @@ It's been awesome to share our story with you as I feel like the path to how we 
 
 >So far `MagTape` has helped us validate close to one million application deployments and upgrades. If you assume the manual effort for an engineer to validate a set of YAML manifests is ~3 minutes, that's a savings of ~50,000 engineering hours over the past year.
 
-Please check out the project on [GitHub](https://github.com/tmobile/magtape) and let us know what you think. We look forward to your feedback. Please open issues for any bugs you might encounter using `MagTape` or any enhancements you would like to see. Join us on [Gitter](https://gitter.im/TMO-OSS/magtape) to talk more.
+Please check out the project on [GitHub](https://github.com/tmobile/magtape) and let us know what you think. We look forward to your feedback. Please open issues for any bugs you might encounter using `MagTape` or any enhancements you would like to see. Join us on [Gitter](https://gitter.im/tmobile/magtape) to talk more.
 
 Cheers!

@@ -21,9 +21,7 @@ platform components and services. The platform-engineering team at T-Mobile have
 observability of critical workflows, and to ensure swift real-time identification of problems
 before they impact the platform applications.
 
-
 ## Where Did We Start?
-
 
 Our journey started with the open-source community. They provided smoke-tests that were aimed at
 monitoring specific platform services. However, we found a few gaps that restricted us from using
@@ -37,9 +35,7 @@ unique to our environment, we attempted to build a customized
 [suite of pipelines, configuration, scripts, and sample-apps](https://github.com/tmobile/cf-smoke-tests)
 to monitor our platform components and services.
 
-
 ## What Does Our Solution Offer?
-
 
 We designed a solution keeping __reliability__, __accuracy__, and __maintainability__ in the
 center of our focus. We wanted to ensure that a failure of a smoke-test run indicated a legitimate
@@ -52,9 +48,7 @@ metrics emitted by the smoke-tests, and stored in these metrics-platforms, showe
 operations carried out by each of the smoke-test runs in easy-to-read dashboards and actionable
 alerts.
 
-
 ## What Are the Core Components?
-
 
 The smoke-tests suite is comprised of the following components:
  1. __Pipelines__:
@@ -68,9 +62,7 @@ The smoke-tests suite is comprised of the following components:
  4. __Sample-Apps__: Simple, lightweight, dedicated apps to be used by specific smoke-tests as
  part of exercising the end-to-end user workflows.
 
-
 ## How Does Deployment Work?
-
 
 The following diagram depicts the deployment approach we have followed. Here, each Concourse
 deployment is dedicated to a specific hardware region, and has Concourse teams dedicated to each
@@ -88,9 +80,7 @@ alternatives to Vault that can integrate with Concourse.
 
 ![Workflow diagram showing how Git, Concourse, CF foundation, and Hashicorp Vault work together in both the bootstrap and smoke-test pipelines](/blog/diwan-cf-smoke-test-suite/diagram1.png#center)
 
-
 ## How Do Smoke-Tests Work?
-
 
 Spring-Cloud-Services are among the most frequently used services offered on Cloud Foundry platform.
 To understand the workflow of the smoke-tests in this suite, lets dive into the smoke-test for SCS
@@ -106,9 +96,7 @@ the necessary customizations around the services they intend to test.
 
 ![Workflow diagram showing a single smoke-test lifecycle.](/blog/diwan-cf-smoke-test-suite/diagram2.png#center)
 
-
 ## How Does Reporting Work?
-
 
 This suite offers library functions to report results of every run of all the critical smoke-test
 operations as individual metrics with necessary tags. These metrics can be shipped to a choice of
@@ -120,9 +108,7 @@ the most recently failed concourse job where the detailed logs can be viewed. Al
 datapoints are available for holistic dashboards that include all passed and failed smoke-tests
 on each foundation.
 
-
 ## Summary
-
 
 T-Mobile's Platform-Engineering team uses these smoke-tests to monitor the CF deployments hosting
 thousands of applications. These tests continue to help our operators get the real-time health
@@ -135,9 +121,7 @@ spring-cloud-services broker, cloud-cache service broker, and almost all the oth
 that come under the scope of these tests. We hope that the CF community also reaps the benefits
 of these smoke-tests, and help strengthening the tests in future through contributions to the repo.
 
-
 ## Resources
-
 
  - [Github repository for cf-smoke-tests](https://github.com/tmobile/cf-smoke-tests)
  - [Video of Piyush introducing the suite to Cloud Foundry Community Advisory Board](https://youtu.be/2_-cQub8IzM?t=1405)

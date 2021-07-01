@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Application Load Balancer on T-Mobile Open Source</title>
+    <link>/tags/application-load-balancer/</link>
+    <description>Recent content in Application Load Balancer on T-Mobile Open Source</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 22 Jan 2019 10:00:00 -0700</lastBuildDate><atom:link href="/tags/application-load-balancer/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>5 Key FaaS Announcements at Re:Invent 2018</title>
+      <link>/blog/posts/faas-reinvent-2018/</link>
+      <pubDate>Tue, 22 Jan 2019 10:00:00 -0700</pubDate>
+      
+      <guid>/blog/posts/faas-reinvent-2018/</guid>
+      <description>55000+ attendees with 100+ products and services announcements make AWS re:Invent 2018 one of the largest tech events. It was a big event for serverless in general where AWS Lambda continued to be the top trending service from the event.
+ Here are 5 key releases/upgrades in the FaaS world along with my notes of when to use it and when not to:
+1. Invoke Lambda from Application Load Balancer (ALB): You can now expose your Lambda Functions as an endpoint through ALB.</description>
+    </item>
+    
+  </channel>
+</rss>

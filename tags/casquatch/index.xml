@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>casquatch on T-Mobile Open Source</title>
+    <link>/tags/casquatch/</link>
+    <description>Recent content in casquatch on T-Mobile Open Source</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 25 Jul 2018 10:00:00 -0700</lastBuildDate><atom:link href="/tags/casquatch/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Introducing Project Casquatch</title>
+      <link>/blog/posts/casquatch-intro/</link>
+      <pubDate>Wed, 25 Jul 2018 10:00:00 -0700</pubDate>
+      
+      <guid>/blog/posts/casquatch-intro/</guid>
+      <description>Introducing Project Casquatch At T-Mobile, we have been rapidly developing new applications on top of a micro-service architecture through a combination of Java and Cassandra, including all the latest and greatest technologies. This is great except that Cassandra pushes a significant amount of the performance tuning and high availability configuration from the database layer up to the application layer. This leads to a few problems for the enterpise as all these policies are individually implemented (or not) by each service and database availability is now out of central control, leaving each developer to implement as they see fit.</description>
+    </item>
+    
+  </channel>
+</rss>

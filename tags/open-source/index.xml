@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>open-source on T-Mobile Open Source</title>
+    <link>/tags/open-source/</link>
+    <description>Recent content in open-source on T-Mobile Open Source</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 14 Nov 2018 01:59:28 -0700</lastBuildDate><atom:link href="/tags/open-source/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>NEXT Directory - PR of the Week</title>
+      <link>/blog/posts/next-pr-series-2/</link>
+      <pubDate>Wed, 14 Nov 2018 01:59:28 -0700</pubDate>
+      
+      <guid>/blog/posts/next-pr-series-2/</guid>
+      <description>Following last week’s efforts highlighted in our previous ‘PR of the Week’ post, I decided to select NEXT PR #347. Pull request 347, titled ‘Inbound filters operating for AAD’, is a direct downstream step in creating the Azure and Active Directory Integration Engine.
+At the end of the hackathon hosted by Microsoft at the Microsoft Reactor in Seattle, we had two different providers capable of ingesting and loading data into the Rethink DB.</description>
+    </item>
+    
+    <item>
+      <title>NEXT Directory - PR of the Week</title>
+      <link>/blog/posts/next-pr-series-1/</link>
+      <pubDate>Mon, 29 Oct 2018 01:59:28 -0700</pubDate>
+      
+      <guid>/blog/posts/next-pr-series-1/</guid>
+      <description>Recently, I had a chance to review NEXT PR #305. This was a fun one, as it came while the NEXT team was on the Microsoft Reactor campus in Seattle’s South Lake Union neighborhood, collaborating in a code-with style hackathon, to develop some of the Azure and Active Directory Integration Engine components.
+The Microsoft Reactors (there&amp;rsquo;s also one in San Francisco) definitely fit the mold of TV-style hip innovative office space.</description>
+    </item>
+    
+    <item>
+      <title>Hyper Directory and the Road to Blockchain Innovation</title>
+      <link>/blog/posts/hyperdirectory-blockchain-innovation/</link>
+      <pubDate>Mon, 27 Nov 2017 14:01:00 -0700</pubDate>
+      
+      <guid>/blog/posts/hyperdirectory-blockchain-innovation/</guid>
+      <description>With the hype surrounding blockchain rapidly approaching fever-pitch, both businesses and consumers around the world are on high alert. We don’t need to point to the next big Initial Coin Offering (ICO) to prove that point - with Bitcoin trading at over $8,000 and players like IBM, Microsoft, Amazon, and Intel investing significant resources into their blockchain positions, we can be confident that innovation is on the horizon.
+As a Senior Architect in T-Mobile’s Cloud Center of Excellence (CCOE), I have the unique opportunity to represent our efforts working with this exciting technology.</description>
+    </item>
+    
+  </channel>
+</rss>

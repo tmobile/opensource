@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>devops on T-Mobile Open Source</title>
+    <link>/tags/devops/</link>
+    <description>Recent content in devops on T-Mobile Open Source</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 01 Mar 2018 12:12:55 -0800</lastBuildDate><atom:link href="/tags/devops/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Serverless Development Challenges</title>
+      <link>/blog/posts/serverless-development-challenges/</link>
+      <pubDate>Thu, 01 Mar 2018 12:12:55 -0800</pubDate>
+      
+      <guid>/blog/posts/serverless-development-challenges/</guid>
+      <description>This article describes the challenges I faced and my observations while designing and developing the Jazz framework.
+Jazz is an application development framework for developing and managing serverless (aka FaaS) services. Jazz itself is built on top of Jazz and currently supports the best known FaaS implementation from AWS, ‘AWS Lambda’. Jazz started as an internal initiative in T-Mobile and is now available on github as an open source project.</description>
+    </item>
+    
+  </channel>
+</rss>

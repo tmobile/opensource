@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>java on T-Mobile Open Source</title>
+    <link>/tags/java/</link>
+    <description>Recent content in java on T-Mobile Open Source</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 20 Sep 2019 10:00:00 -0700</lastBuildDate><atom:link href="/tags/java/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>A Lean Mean Pipeline Machine</title>
+      <link>/blog/posts/a-lean-mean-pipeline-machine/</link>
+      <pubDate>Fri, 20 Sep 2019 10:00:00 -0700</pubDate>
+      
+      <guid>/blog/posts/a-lean-mean-pipeline-machine/</guid>
+      <description>Keeping in mind the dynamic DevOps culture in our company and others, we set out to streamline our development pipelines using a modern container-based approach. Our goal was to empower developers to have the flexibility and ease of adapting the pipeline to their development methodologies while providing more time for development and testing rather than spending time on creating and maintaining CI/CD pipelines.
+Developers can easily on-board their solutions without spending too much time learning about the underlying technology that drives the pipeline.</description>
+    </item>
+    
+    <item>
+      <title>Introducing Project Casquatch</title>
+      <link>/blog/posts/casquatch-intro/</link>
+      <pubDate>Wed, 25 Jul 2018 10:00:00 -0700</pubDate>
+      
+      <guid>/blog/posts/casquatch-intro/</guid>
+      <description>Introducing Project Casquatch At T-Mobile, we have been rapidly developing new applications on top of a micro-service architecture through a combination of Java and Cassandra, including all the latest and greatest technologies. This is great except that Cassandra pushes a significant amount of the performance tuning and high availability configuration from the database layer up to the application layer. This leads to a few problems for the enterpise as all these policies are individually implemented (or not) by each service and database availability is now out of central control, leaving each developer to implement as they see fit.</description>
+    </item>
+    
+    <item>
+      <title>Introducing Vertx and SpringBoot Java Templates for OpenFaas</title>
+      <link>/blog/posts/faas-template-for-java/</link>
+      <pubDate>Sun, 11 Feb 2018 13:19:22 -0700</pubDate>
+      
+      <guid>/blog/posts/faas-template-for-java/</guid>
+      <description>Introduction This post is more of an introductory post announcing release of SpringBoot and Vertx Java templates for OpenFaas. These templates allow you to develop your serverless function for the OpenFaas platform using SpringBoot or Vertx. In the Java ecosystem both SpringBoot and Vertx are very popular frameworks for developing microservices. With the release of these templates we are bringing the power of these frameworks into OpenFaas. You can find the templates in our github repository here.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Microservices on T-Mobile Open Source</title>
+    <link>/tags/microservices/</link>
+    <description>Recent content in Microservices on T-Mobile Open Source</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 16 Oct 2017 01:59:28 -0700</lastBuildDate><atom:link href="/tags/microservices/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>KeyBiner — Holder for your entitlements</title>
+      <link>/blog/posts/keybiner-holder/</link>
+      <pubDate>Mon, 16 Oct 2017 01:59:28 -0700</pubDate>
+      
+      <guid>/blog/posts/keybiner-holder/</guid>
+      <description>In Microservice architecture, using the Access Token Pattern solution, the API Gateway authenticates a request and passes an access token (e.g. JSON Web Token) to downstream systems and services securely. This helps the service or system to identify/authenticate/authorize each request.
+JSON Web Token (JWT) is an open standard (RFC 7519) that defines a compact and self-contained way for securely transmitting information between parties as a JSON object.
+ Compact:  Because of their smaller size, JWTs can be sent through a URL, POST parameter, or inside an HTTP header.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>FaaS on T-Mobile Open Source</title>
+    <link>/tags/faas/</link>
+    <description>Recent content in FaaS on T-Mobile Open Source</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 18 Sep 2018 01:59:28 -0700</lastBuildDate><atom:link href="/tags/faas/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Introducing Apigee API Gateway for T-Mobile&#39;s Jazz Serverless Development Platform</title>
+      <link>/blog/posts/introducing-apigee-for-jazz/</link>
+      <pubDate>Tue, 18 Sep 2018 01:59:28 -0700</pubDate>
+      
+      <guid>/blog/posts/introducing-apigee-for-jazz/</guid>
+      <description>We are thrilled to announce that serverless (aka FaaS) developers now have a choice to expose their serverless functions as RESTful APIs from within the Jazz serverless development platform at a click of a button. If you are not aware of T-Mobile&amp;rsquo;s Jazz Serverless Development Platform, you can check it out on Github.
+With this integration, Jazz developers will have an option to choose between multiple API Gateway providers for their serverless functions - APIGEE &amp;amp; AWS API Gateway depending on their business needs &amp;amp; their enterprise compliance requirements.</description>
+    </item>
+    
+    <item>
+      <title>Serverless Development Challenges</title>
+      <link>/blog/posts/serverless-development-challenges/</link>
+      <pubDate>Thu, 01 Mar 2018 12:12:55 -0800</pubDate>
+      
+      <guid>/blog/posts/serverless-development-challenges/</guid>
+      <description>This article describes the challenges I faced and my observations while designing and developing the Jazz framework.
+Jazz is an application development framework for developing and managing serverless (aka FaaS) services. Jazz itself is built on top of Jazz and currently supports the best known FaaS implementation from AWS, ‘AWS Lambda’. Jazz started as an internal initiative in T-Mobile and is now available on github as an open source project.</description>
+    </item>
+    
+  </channel>
+</rss>

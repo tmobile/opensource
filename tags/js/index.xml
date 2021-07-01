@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>JS on T-Mobile Open Source</title>
+    <link>/tags/js/</link>
+    <description>Recent content in JS on T-Mobile Open Source</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 01 Aug 2018 07:32:00 -0800</lastBuildDate><atom:link href="/tags/js/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Factory and builder patterns in JavaScript using object mapping</title>
+      <link>/blog/posts/js-design-patterns/</link>
+      <pubDate>Wed, 01 Aug 2018 07:32:00 -0800</pubDate>
+      
+      <guid>/blog/posts/js-design-patterns/</guid>
+      <description>Overview Every language has design patterns, which help us to organize our code in a way, where it’s easy to understand, maintain and test. JavaScript being one of the most commonly used dynamic languages, is also one of the most abused and misunderstood ;). In this post I want to share some examples of how code is written and how can it be improved to make it more flexible which is easy to maintain and follow.</description>
+    </item>
+    
+  </channel>
+</rss>

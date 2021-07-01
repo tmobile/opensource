@@ -1,0 +1,1323 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <!-- HEAD -->
+<meta charset="utf-8">
+<meta name="author" content="T-Mobile">
+<meta name="description" content="Open source at the Un-carrier.">
+<meta name="generator" content="Hugo 0.84.4" />
+<title>T-Mobile Open Source</title>
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="/img/favicon-32x32.png" sizes="32x32" />
+<link rel="icon" type="image/png" href="/img/favicon-16x16.png" sizes="16x16" />
+
+
+<!-- Bootstrap Core CSS -->
+<link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.css" type="text/css" />
+
+<!-- Custom Fonts -->
+<link rel="stylesheet" href="/vendor/font-awesome/css/font-awesome.min.css" type="text/css" />
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css' />
+<link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css' />
+
+<!-- Custom CSS -->
+
+<link rel="stylesheet" href="/css/styles.css" type="text/css" />
+<link rel="stylesheet" href="/css/tmobile.css" type="text/css" />
+<link rel="stylesheet" href="/css/blog.css" type="text/css" />
+
+<!-- meta tags -->
+
+
+<meta property="og:title" content="loadtest: an R Package for Load Testing"/>
+
+
+
+<meta property="og:image" content="/blog/loadtest/loadtest_hex.png">
+
+
+<meta property="og:site_name" content="T-Mobile Open Source"/>
+
+
+<meta property="og:description" content="An R package that allows for simple load testing of websites and APIs."/>
+
+
+<!-- meta tag -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- canonical tags -->
+
+    </head>
+    <body>
+        <div class="blog-overlay-innerwrap blogs-wrap">
+            <div class="blog-request-submit-widget">
+                
+    <div class="blog-heading-overlay">
+        <div class='blog-head-wrap'>
+            <div class='blog-breadcrumb'>
+                <!-- NAVIGATION -->
+<nav id="mainNav" class="navbar navbar-default navbar-fixed-top affix">
+    <div class="mainNav-contents clearfix"> 
+        <a href="#"><img class="logoMain" src="/img/logo/logo.svg" /></a>
+        
+            <div class="nav-contents">
+                <a href="#about" class="animated-scroll">COMMUNITY</a>
+            </div>
+        
+            <div class="nav-contents">
+                <a href="#blog" class="animated-scroll">BLOG</a>
+            </div>
+        
+            <div class="nav-contents">
+                <a href="#videos" class="animated-scroll">VIDEOS</a>
+            </div>
+        
+            <div class="nav-contents">
+                <a href="#services" class="animated-scroll">PROJECTS</a>
+            </div>
+        
+        <div class="dots" id="dots-overlay" onclick="openPopup()">
+            <div class="dot-option"></div>
+            <div class="dot-option"></div>
+            <div class="dot-option"></div>
+        </div>
+    </div>
+</nav>
+
+            </div>
+        </div>
+    </div>
+    <div class="requestAccess overlay-container display-none" id="overlay-container-id">
+        <div class="overlay-state-con" onclick="closePopup()">
+            <div class="overlay-state">
+                <div class="overlay-state-wrp">
+                    <div class="overlay-vertical-center">
+                        <div class="overlay-innerwrap">
+                            
+                                <div class="overlay-text" onclick="closePopup()">
+                                   <a href="#about" class="animated-scroll">COMMUNITY</a>
+                                </div>
+                            
+                                <div class="overlay-text" onclick="closePopup()">
+                                   <a href="#blog" class="animated-scroll">BLOG</a>
+                                </div>
+                            
+                                <div class="overlay-text" onclick="closePopup()">
+                                   <a href="#videos" class="animated-scroll">VIDEOS</a>
+                                </div>
+                            
+                                <div class="overlay-text" onclick="closePopup()">
+                                   <a href="#services" class="animated-scroll">PROJECTS</a>
+                                </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="blog-event-container-angular">
+        <div class="blog-first-container">
+                
+                <a href="/blog/posts"><h4 class="back-to-blogs"><i class="fa fa-arrow-left" aria-hidden="true"></i>   Back To Blogs</h4></a>
+                <h2 class='blog-post-head' style="font-size: 2.5rem;">loadtest: an R Package for Load Testing</h2>
+                <h3 class="blog-success-header-content author">By: Jacqueline Nolis and Heather Nolis</h3>
+            <div class='blog-title-date bp-date'>
+                2019-09-03
+            </div>
+            <div class='blog-title-desc'>
+                <!-- raw HTML omitted -->
+<!-- raw HTML omitted -->
+<p>APIs are great! Engineers love &lsquo;em! They&rsquo;re everywhere! By using packages like plumber in R, data scientists create their own APIs, allowing their models and code to be run by other people (<a href="https://medium.com/tmobile-tech/r-can-api-c184951a24a3">see here for an intro in R</a>). Lovely! But when you release an API, you&rsquo;re giving people access to your own computing resources. If the code for your API is on a server, too many requests can cause it to fail.</p>
+<p>Failure is really bad. Yes, it hurts to have something you&rsquo;ve made fall over spectacularly but in software the outcomes have long-term consequences. Releasing new software is&ndash;secretly, <em>under the hood</em>&ndash;an exercise in building trust with your end users. A single piece of wonky software can sour the relationship with your users forever. Most of us have felt the effects of this ourselves. Quitting a video game because of a bad expansion, switching cloud providers because of buggy implementations, tweeting threads and threads because a UI update ruffles your sensibilities.</p>
+<p>If you develop stuff that doesn&rsquo;t work, people will remember.</p>
+<p>Take this epic failure. If you were between 18-29 years old back on June 6, 2016, you probably personally remember this catastrophe&ndash;the launch of Pokémon GO.</p>
+<!-- raw HTML omitted -->
+<p>Niantic, the company that created the game, had 50 times the traffic that they expected in development. For days after launch, the app was unusable. Sure Pokémon GO was a viral phenomenon, but lots of people stopped using the app immediately after downloading it because of these performance issues&ndash;including a coauthor of this very article!</p>
+<p>One quick, easy, cheap way to do avoid these catastophes is to simply apply load yourself before launching your code. Sometimes the best you can do is get your dev buds in a room, hand them a postman collection, and drown in the sound of mouse clicks as everyone wails manually at top speed, desperately hoping they can generate a useful amount of test traffic.</p>
+<!-- raw HTML omitted -->
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<p>Mature software development workflow includes <em>performance testing</em> when a system&rsquo;s performance is tested before it&rsquo;s launched. One type of performance testing is <em>load testing</em>, simulating many users hitting your tool at once, which is done to see how the system behaves in real-world type conditions (or even worse ones). This can be multiple simultaneous users and lots of users in succession. By ensuring that the systems will work under extremely high loads, load testing gives stakeholders confidence in your software and helps identify bottlenecks in overall systems. Even in cases of total failure, if you&rsquo;ve done good load testing in advance then you&rsquo;re sitting pretty. Unlike companies who didn&rsquo;t load test, you know what your system looks like when it is failing. You can detect failures more quickly and know what to do to fix them. By using computer programs to simulate the traffic rather than having developers repeatedly use the tool in unison, you lower the chance of hand injuries.</p>
+<p>As APIs become more accessible to the data science community, so should engineering best practices around those APIs. However, most load testing tools are crafted for engineers or testing specialists&ndash;so we fixed that.</p>
+<!-- raw HTML omitted -->
+<p>Our new R package, <a href="https://github.com/tmobile/loadtest"><strong>loadtest</strong></a>, is a tool for easily running load tests without ever having to leave R, all with a single line of code. With loadtest, load testing is so easy you can trivially do it before a service is deployed in production to test it will work, or it can be used as a method of better understanding API behavior. The package includes several plots to quickly understand the test results, and a standard report to package the output as an html document. And since loadtest is a set of R functions, you can even add it as a step in a build process. The loadtest package uses JMeter on the backend, which is a standard industry tool for load testing, so the results are high-fidelity.</p>
+<blockquote>
+<p>The loadtest package has already solved production issues with R APIs. On the <em>AI @ T-Mobile</em> team, one of our APIs would be occasionally unresponsive. Using the loadtest package, we were able to simulate the production environment that produced the problem. We learned that 1 in 10 requests would take over a minute. With this information, we discovered that the unresponsive API was not due to our R code but an external HTTP request that sometimes would time out.</p>
+</blockquote>
+<p>As a demonstration we&rsquo;ve created a website, <a href="http://teststuff.biz">teststuff.biz</a>, which hosts an API version of the <a href="https://deepmoji.mit.edu/">MIT DeepMoji project</a>. DeepMoji is a neural network that takes text and returns emoji relevant to the test. We&rsquo;ve hosted it on a tiny Amazon Web Services® EC2 instance, and we want to know how well it works under a load!</p>
+<p>The way the API works is that we send a POST request with a JSON body containing text to turn into emoji, like:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">library</span>(dplyr)
+<span style="color:#a6e22e">library</span>(httr)
+
+<span style="color:#75715e"># make the request</span>
+response <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">POST</span>(<span style="color:#e6db74">&#34;http://deepmoji.teststuff.biz&#34;</span>,
+                 body <span style="color:#f92672">=</span> <span style="color:#a6e22e">list</span>(sentences <span style="color:#f92672">=</span> <span style="color:#a6e22e">list</span>(<span style="color:#e6db74">&#34;I love this band&#34;</span>)),
+                 encode<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;json&#34;</span>)
+
+<span style="color:#75715e"># format the json into a table, then look at the 3 three emoji for that sentence</span>
+<span style="color:#a6e22e">content</span>(response)<span style="color:#f92672">$</span>emoji[[1]] <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">bind_rows</span>() <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">arrange</span>(<span style="color:#a6e22e">desc</span>(prob)) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">top_n</span>(<span style="color:#ae81ff">5</span>, prob)
+</code></pre></div><table>
+<thead>
+<tr>
+<th style="text-align:left">emoji</th>
+<th style="text-align:right">prob</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">🎶</td>
+<td style="text-align:right">0.1589428</td>
+</tr>
+<tr>
+<td style="text-align:left">🎧</td>
+<td style="text-align:right">0.0829151</td>
+</tr>
+<tr>
+<td style="text-align:left">😍</td>
+<td style="text-align:right">0.0745626</td>
+</tr>
+<tr>
+<td style="text-align:left">❤</td>
+<td style="text-align:right">0.0681824</td>
+</tr>
+<tr>
+<td style="text-align:left">💚</td>
+<td style="text-align:right">0.0606171</td>
+</tr>
+</tbody>
+</table>
+<p>How fun! But how does this system do under load? Will it work when hundreds of people all want hundreds of sentences converted to emoji at once? That&rsquo;s when load test comes in! Let&rsquo;s run a test of having 10 concurrent users each make a request to convert sentences to emoji 25 times. That task can be done with a single function call, using almost the exact same parameters as the <code>httr::POST</code> request.</p>
+<p>After <a href="https://github.com/tmobile/loadtest#installation">installing Java and JMeter</a> we install and load the loadtest library:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">remotes<span style="color:#f92672">::</span><span style="color:#a6e22e">install_github</span>(<span style="color:#e6db74">&#34;tmobile/loadtest&#34;</span>)
+<span style="color:#a6e22e">library</span>(loadtest)
+</code></pre></div><p>Then we run a load test with one command:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">results <span style="color:#f92672">&lt;-</span> <span style="color:#a6e22e">loadtest</span>(url <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;http://deepmoji.teststuff.biz&#34;</span>,
+                              method <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;POST&#34;</span>,
+                              body <span style="color:#f92672">=</span> <span style="color:#a6e22e">list</span>(sentences <span style="color:#f92672">=</span> <span style="color:#a6e22e">list</span>(<span style="color:#e6db74">&#34;I love this band&#34;</span>)),
+                              threads <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>,
+                              loops <span style="color:#f92672">=</span> <span style="color:#ae81ff">25</span>)
+</code></pre></div><p>As output get a table with a row for each of the 250 requests made. The table has lots of attributes for each request, but importantly we get the time each request was made and the time it took before the full response was received.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r">results <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">select</span>(request_id, start_time, elapsed) <span style="color:#f92672">%&gt;%</span>
+  <span style="color:#a6e22e">head</span>()
+</code></pre></div><table>
+<thead>
+<tr>
+<th style="text-align:right">request_id</th>
+<th style="text-align:right">thread</th>
+<th style="text-align:left">start_time</th>
+<th style="text-align:right">elapsed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right">1</td>
+<td style="text-align:right">4</td>
+<td style="text-align:left">2019-07-25 11:20:49</td>
+<td style="text-align:right"><strong>202</strong></td>
+</tr>
+<tr>
+<td style="text-align:right">2</td>
+<td style="text-align:right">5</td>
+<td style="text-align:left">2019-07-25 11:20:49</td>
+<td style="text-align:right"><strong>235</strong></td>
+</tr>
+<tr>
+<td style="text-align:right">3</td>
+<td style="text-align:right">2</td>
+<td style="text-align:left">2019-07-25 11:20:49</td>
+<td style="text-align:right"><strong>368</strong></td>
+</tr>
+<tr>
+<td style="text-align:right">4</td>
+<td style="text-align:right">8</td>
+<td style="text-align:left">2019-07-25 11:20:49</td>
+<td style="text-align:right"><strong>399</strong></td>
+</tr>
+<tr>
+<td style="text-align:right">5</td>
+<td style="text-align:right">3</td>
+<td style="text-align:left">2019-07-25 11:20:49</td>
+<td style="text-align:right"><strong>527</strong></td>
+</tr>
+<tr>
+<td style="text-align:right">6</td>
+<td style="text-align:right">5</td>
+<td style="text-align:left">2019-07-25 11:20:49</td>
+<td style="text-align:right"><strong>327</strong></td>
+</tr>
+</tbody>
+</table>
+<p>The elapsed time column gives us the precious data we need on how how quickly our API will respond.</p>
+<p>We can use the loadtest package to plot the results too. Here is a plot showing the results over the course of the test:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">plot_elapsed_times</span>(results)
+</code></pre></div><!-- raw HTML omitted -->
+<p>This chart shows that for the 250 requests, the requests either took around 200-250ms, or 1000-1250ms which is an unusual bifurcation. Something in the API is causes the requests to either be super fast or super slow.</p>
+<p>We can also look at the data as a measure of how quickly the API can handle responses. In this next plot from loadtest we can see a histogram of the number of requests per second the API handled:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">plot_requests_per_second</span>(results)
+</code></pre></div><!-- raw HTML omitted -->
+<p>The API was able to handle 12-18 requests per second during the course of the test. If we expect to only get a few requests per second, say 1-4, then this API should work fine. If we expect to get 30 requests per second then our API would be too slow. In that case we&rsquo;d want to add more containers or virtual machines running the API or find a way to make the API run more quickly.</p>
+<p>There are more graphs you can make and you can make them all at once as a nice html report with loadtest as well. Using the loadtest_report command you can easily create a report right that can be shared around the office.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-r" data-lang="r"><span style="color:#a6e22e">loadtest_report</span>(results)
+</code></pre></div><!-- raw HTML omitted -->
+<hr>
+<p>If you do any sort of API development, we encourage you to try this package out and see how your APIs fare! If you find features that are missing we&rsquo;d love to hear from you in the <a href="https://github.com/tmobile/loadtest/issues">GitHub Issues</a>. Beyond running one-off load tests, you can also integrate it into your build pipeline so that after an API is deployed in testing an loadtest report is automatically generated. By making load tests as automatic as unit tests, your code is much more likely to handle the rigors of production. Happy testing!</p>
+<p><em>Boring legal notes: this tool is released as open source for public use. It is released &ldquo;as-is&rdquo; and theoretically may have inconsistencies in reporting and stability. T-Mobile has no responsibility for the outcomes of the output of this tool&ndash;use at your own discretion. Loadtest is open-sourced under the terms of the Apache 2.0 license and is released AS IS WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND pursuant to Section 7 of the Apache 2.0 license.</em></p>
+
+            </div>
+            <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "tmo-oss" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+        <!-- BLOG SIDEBAR -->
+<div class="blog-second-container">
+    <div class="blog-web-content">
+        <div class="blog-topic"><h4><i class="fi-megaphone"></i> <div class="blog-topic-share">Recent Posts</div></h4></div>
+        
+		<div class="blog-year"><a href="/blog/"></a></div>
+		
+		<div class="blog-year"><a href="/blog/posts/"></a></div>
+		
+		<div class="blog-year"><a href="/blog/posts/diwan-smoke-test-suite/">Monitoring Cloud Foundry at Scale with cf-smoke-tests suite</a></div>
+		
+		<div class="blog-year"><a href="/blog/posts/hanson-ml-retraining/">The [Machine] Learning is Never Done</a></div>
+		
+		<div class="blog-year"><a href="/blog/posts/rolling-out-the-magenta-tape/">Rolling Out the Magenta Tape: Policy-as-Code for Kubernetes</a></div>
+		
+		<div class="blog-year"><a href="/blog/posts/introducing-qapi/">Introducing qAPI: Translating database queries into API calls</a></div>
+		
+		<div class="blog-year"><a href="/blog/posts/percy-cake/">A Piece of Cake, Percy Cake</a></div>
+		
+		<div class="blog-year"><a href="/blog/posts/a-lean-mean-pipeline-machine/">A Lean Mean Pipeline Machine</a></div>
+		
+		<div class="blog-year"><a href="/blog/posts/loadtest/">loadtest: an R Package for Load Testing</a></div>
+		
+		<div class="blog-year"><a href="/blog/posts/introducing-kardio/">Introducing Kardio</a></div>
+		
+    </div>
+
+    
+        <div class="blog-web-content">
+            <div class="blog-topic"><h4><i class="fi-folder"></i> <div class="blog-topic-share">Categories</div></h4></div>            
+            
+                
+                
+                <div class="blog-topic-content"><a href="/categories/resources">Resources</a></div>
+            
+                
+                
+                <div class="blog-topic-content"><a href="/categories/opensource">Opensource</a></div>
+            
+                
+                
+                <div class="blog-topic-content"><a href="/categories/community">Community</a></div>
+            
+                
+                
+                <div class="blog-topic-content"><a href="/categories/aks">Aks</a></div>
+            
+                
+                
+                <div class="blog-topic-content"><a href="/categories/apigee">Apigee</a></div>
+            
+        </div>
+    
+
+    
+        <div class="blog-web-content-script">
+            <div class="blog-topic"><h4><i class="fi-pricetag-multiple"></i> <div class="blog-topic-share">Tags</div></h4></div>
+
+            
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/t-mobile" title="t-mobile">
+                        t-mobile (23)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/oss" title="oss">
+                        oss (15)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/serverless" title="serverless">
+                        serverless (5)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/innovation" title="innovation">
+                        innovation (4)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/tools" title="tools">
+                        tools (4)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/ai" title="ai">
+                        ai (3)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/blockchain" title="blockchain">
+                        blockchain (3)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/data-science" title="data-science">
+                        data-science (3)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/java" title="java">
+                        java (3)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/kubernetes" title="kubernetes">
+                        kubernetes (3)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/open-source" title="open-source">
+                        open-source (3)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/r" title="r">
+                        r (3)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/api" title="api">
+                        api (2)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/automation" title="automation">
+                        automation (2)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/aws" title="aws">
+                        aws (2)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/aws-lambda" title="aws-lambda">
+                        aws-lambda (2)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/chaos-engineering" title="chaos-engineering">
+                        chaos-engineering (2)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/cicd" title="cicd">
+                        cicd (2)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/cloud-foundry" title="cloud-foundry">
+                        cloud-foundry (2)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/elasticsearch" title="elasticsearch">
+                        elasticsearch (2)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/faas" title="faas">
+                        faas (2)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/jazz" title="jazz">
+                        jazz (2)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/k8s" title="k8s">
+                        k8s (2)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/machine-learning" title="machine-learning">
+                        machine-learning (2)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/opensource" title="opensource">
+                        opensource (2)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/publishing" title="publishing">
+                        publishing (2)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/reinvent" title="reinvent">
+                        reinvent (2)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/springboot" title="springboot">
+                        springboot (2)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/testing" title="testing">
+                        testing (2)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/turbulence" title="turbulence">
+                        turbulence (2)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/aks" title="aks">
+                        aks (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/angularjs" title="angularjs">
+                        angularjs (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/api-development" title="api-development">
+                        api-development (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/apigee" title="apigee">
+                        apigee (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/application-load-balancer" title="application-load-balancer">
+                        application-load-balancer (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/artificial-intelligence" title="artificial-intelligence">
+                        artificial-intelligence (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/aws-api-gateway" title="aws-api-gateway">
+                        aws-api-gateway (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/awsreinvent" title="awsreinvent">
+                        awsreinvent (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/azure" title="azure">
+                        azure (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/builder" title="builder">
+                        builder (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/casquatch" title="casquatch">
+                        casquatch (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/cf" title="cf">
+                        cf (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/cf-app-blocker" title="cf-app-blocker">
+                        cf-app-blocker (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/chaos-monkey" title="chaos-monkey">
+                        chaos-monkey (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/chaos-tool-kit" title="chaos-tool-kit">
+                        chaos-tool-kit (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/concourse" title="concourse">
+                        concourse (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/conducktor" title="conducktor">
+                        conducktor (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/conducktor-go" title="conducktor-go">
+                        conducktor-go (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/configuration" title="configuration">
+                        configuration (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/continuous" title="continuous">
+                        continuous (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/database" title="database">
+                        database (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/design-patterns" title="design-patterns">
+                        design-patterns (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/devops" title="devops">
+                        devops (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/entitlement" title="entitlement">
+                        entitlement (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/es6-classes" title="es6-classes">
+                        es6-classes (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/factory" title="factory">
+                        factory (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/framework" title="framework">
+                        framework (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/golang" title="golang">
+                        golang (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/harbor" title="harbor">
+                        harbor (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/hashicorp" title="hashicorp">
+                        hashicorp (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/hashicorp-vault" title="hashicorp-vault">
+                        hashicorp-vault (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/health" title="health">
+                        health (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/influxdb" title="influxdb">
+                        influxdb (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/javascript" title="javascript">
+                        javascript (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/javascript-objects" title="javascript-objects">
+                        javascript-objects (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/js" title="js">
+                        js (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/jwt" title="jwt">
+                        jwt (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/kardio" title="kardio">
+                        kardio (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/magtape" title="magtape">
+                        magtape (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/microservices" title="microservices">
+                        microservices (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/microsoft" title="microsoft">
+                        microsoft (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/ml" title="ml">
+                        ml (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/model" title="model">
+                        model (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/monitoring" title="monitoring">
+                        monitoring (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/opa" title="opa">
+                        opa (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/openfaas" title="openfaas">
+                        openfaas (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/operations" title="operations">
+                        operations (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/pacbot" title="pacbot">
+                        pacbot (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/pcf" title="pcf">
+                        pcf (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/pcf-app-blocker" title="pcf-app-blocker">
+                        pcf-app-blocker (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/pipeline" title="pipeline">
+                        pipeline (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/pivotal" title="pivotal">
+                        pivotal (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/pivotal-cloud-foundry" title="pivotal-cloud-foundry">
+                        pivotal-cloud-foundry (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/platform" title="platform">
+                        platform (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/poet" title="poet">
+                        poet (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/policy" title="policy">
+                        policy (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/python" title="python">
+                        python (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/raspberry-pi" title="raspberry-pi">
+                        raspberry-pi (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/restful" title="restful">
+                        restful (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/retraining" title="retraining">
+                        retraining (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/s1p" title="s1p">
+                        s1p (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/s3" title="s3">
+                        s3 (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/saas" title="saas">
+                        saas (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/scale" title="scale">
+                        scale (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/secret-management" title="secret-management">
+                        secret-management (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/smoke" title="smoke">
+                        smoke (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/software-architecture" title="software-architecture">
+                        software-architecture (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/splunk" title="splunk">
+                        splunk (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/springone" title="springone">
+                        springone (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/telemetry" title="telemetry">
+                        telemetry (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/test" title="test">
+                        test (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/tests" title="tests">
+                        tests (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/training" title="training">
+                        training (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/typescript" title="typescript">
+                        typescript (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/vault" title="vault">
+                        vault (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/vertx" title="vertx">
+                        vertx (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/vmware" title="vmware">
+                        vmware (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/workflow" title="workflow">
+                        workflow (1)
+                    </a>
+                </div>
+		    
+        </div>
+    
+
+    <div class="blog-web-content">
+        <div class="blog-topic-share">Share</div>
+        <img class="blog-share-img" src="/img/fb.png">
+        <img class="blog-share-img" src="/img/tw.png">
+        <img class="blog-share-img" src="/img/ins.png">
+    </div>
+</div>
+
+    </div>
+
+            </div>
+        </div>
+        <!-- FOOTER -->
+<footer style="padding: 2vh 0vh;">
+    <div class="container grid"  style="width: 100%;">
+        <div class="footer-content clearfix">
+            <div class="left-contents">
+                <img class="logoMain" src="/img/logo/logo.svg" />
+                
+                  <div class="left-contents">
+                    <a class="footer-links" href="https://www.t-mobile.com/company/website/privacypolicy.aspx" target="_blank">PRIVACY</a>
+                  </div>
+                
+            </div>
+            <div class="content-right">
+			          
+                  <a class="footer-links" href="https://tmo-oss-getinvite.herokuapp.com/" target="_blank"><i class="fa fa-slack"></i></a>
+                
+                  <a class="footer-links" href="https://www.youtube.com/playlist?list=PL0mz2nejZ-DgH0XsbYDrKPbeMiEJYWqUg" target="_blank"><i class="fa fa-youtube"></i></a>
+                
+            </div>
+        </div>
+        <div class="mobile_version_content" style="width: 100%;">
+            
+                <div class="mobile_version margin">
+                    <a class="footer-links" href="https://tmo-oss-getinvite.herokuapp.com/" target="_blank"><i style="min-width: 34px;" class="fa fa-slack"></i></a>
+                </div>
+            
+                <div class="mobile_version margin">
+                    <a class="footer-links" href="https://www.youtube.com/playlist?list=PL0mz2nejZ-DgH0XsbYDrKPbeMiEJYWqUg" target="_blank"><i style="min-width: 34px;" class="fa fa-youtube"></i></a>
+                </div>
+            
+        </div>
+        <div class="footer_mobile">
+            
+                <div class="footer_mobile_contents_privacy" onclick="navigateTo('https:\/\/www.t-mobile.com\/company\/website\/privacypolicy.aspx');">
+                    PRIVACY
+                </div>
+            
+        </div>
+        <div class="mobile_logo" style="text-align: center;">
+            <img src="/img/logo/logo.svg" />
+        </div>
+        <div class="footer-text">
+            
+                Copyright 2020. All Rights Reserved.
+            
+        </div>
+    </div>
+</footer>
+
+        <!-- jQuery 3.2.1 -->
+<script src="/js/jquery.min.js" type="text/javascript"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/vendor/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+
+<!-- Plugin JavaScript -->
+<script src="/js/jquery.easing.min.js" type="text/javascript"></script>
+<script src="/js/scrolling.js" type="text/javascript"></script>
+
+<!-- PowerOwls -->
+<script src="/vendor/owlcarousel/owl.carousel.js" type="text/javascript"></script>
+<script src="/js/carousel.js" type="text/javascript"></script>
+
+<!-- MOMENT JS-->
+<script src="/js/moment.min.js" type="text/javascript"></script>
+
+<!-- Google APIS-->
+<script src="https://apis.google.com/js/api.js" type="text/javascript"></script>
+
+<!-- Custom Scripts -->
+<script src="/js/github.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+<script src="/js/init-carousel.js" type="text/javascript"></script>
+<script src="/js/oninit.js" type="text/javascript"></script>
+
+
+        
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-20393691-8', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+    </body>
+</html>

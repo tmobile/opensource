@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>conducktor-go on T-Mobile Open Source</title>
+    <link>/tags/conducktor-go/</link>
+    <description>Recent content in conducktor-go on T-Mobile Open Source</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="/tags/conducktor-go/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Conducktor-Go for Kubernetes</title>
+      <link>/blog/posts/conducktor-go/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/posts/conducktor-go/</guid>
+      <description>Kubernetes (R) has become the Container orchestration platform of choice&amp;ndash;but launching and configuring a Production grade Kubernetes Cluster is a lot of work. Conducktor-Go simplifies launching native Kubernetes Clusters on AWS (R) using Terraform (TM), Ansible (R), and Python Scripts. It also provides a rich, turn-key telemetry solution with pre-configured Grafana(R) dashboards and Prometheus(R) as data source.
+Conducktor-GO also configures Nginx(R), Docker(R) CE, Weave Net (CNI), Kube2IAM, Kubernetes 2.0 Dashboard, Kube-State-Metrics, and Metrics Server to provide a Production ready Kubernetes Cluster to deploy your services.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>magtape on T-Mobile Open Source</title>
+    <link>/tags/magtape/</link>
+    <description>Recent content in magtape on T-Mobile Open Source</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 01 May 2020 01:00:00 -0400</lastBuildDate><atom:link href="/tags/magtape/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Rolling Out the Magenta Tape: Policy-as-Code for Kubernetes</title>
+      <link>/blog/posts/rolling-out-the-magenta-tape/</link>
+      <pubDate>Fri, 01 May 2020 01:00:00 -0400</pubDate>
+      
+      <guid>/blog/posts/rolling-out-the-magenta-tape/</guid>
+      <description>Hi all, I&amp;rsquo;m Joe Searcy, Member of Technical Staff on the Platform Engineering team here at T-Mobile and I&amp;rsquo;m joined by Torin Sandall, Software Engineer at Styra and Co-founder/Core Contributor for the Open Policy Agent (OPA) project, to help tell the story behind one of T-Mobile&amp;rsquo;s latest open source projects, MagTape.
+History &amp;amp; Motivation Here at T-Mobile we&amp;rsquo;re ALL-IN on containers and container platforms like Kubernetes. We, like most companies building Kubernetes environments, came to a quick realization that empowering your developers with platforms like Kubernetes can exponentially increase the volume and velocity of applications and releases.</description>
+    </item>
+    
+  </channel>
+</rss>

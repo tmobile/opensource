@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>artificial intelligence on T-Mobile Open Source</title>
+    <link>/tags/artificial-intelligence/</link>
+    <description>Recent content in artificial intelligence on T-Mobile Open Source</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 14 May 2020 10:51:21 -0400</lastBuildDate><atom:link href="/tags/artificial-intelligence/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The [Machine] Learning is Never Done</title>
+      <link>/blog/posts/hanson-ml-retraining/</link>
+      <pubDate>Thu, 14 May 2020 10:51:21 -0400</pubDate>
+      
+      <guid>/blog/posts/hanson-ml-retraining/</guid>
+      <description>You’ve built a model that stakeholders love. Now, you need it to retrain every day… and that requires a whole new architecture.
+In this article, Mark Eric Hanson outlines why automated ML model retraining is important, the use cases it solves for T-Mobile, and how to stitch the tech together to recreate a similar implementation of your own. Its a fascinating read, and a good behind-the-scenes look at how we approach problem-solving at T-Mobile.</description>
+    </item>
+    
+  </channel>
+</rss>

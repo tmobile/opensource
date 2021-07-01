@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>framework on T-Mobile Open Source</title>
+    <link>/categories/framework/</link>
+    <description>Recent content in framework on T-Mobile Open Source</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 11 Mar 2019 10:00:00 -0700</lastBuildDate><atom:link href="/categories/framework/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Introducing Codeless: T-Mobile’s Take on Test Automation Frameworks</title>
+      <link>/blog/posts/introducing-codeless/</link>
+      <pubDate>Mon, 11 Mar 2019 10:00:00 -0700</pubDate>
+      
+      <guid>/blog/posts/introducing-codeless/</guid>
+      <description>Reliable, maintainable test automation, delivered by anyone.
+Continuous Delivery drives towards faster time to market which in turns demands new code to be tested and verified at high speed. For many years, QA and development teams have leveraged test automation tools to allow more tests to be run in a shorter amount of time. However, some teams may not have enough runway to build test automation &amp;ldquo;SDET&amp;rdquo; skillsets to meet demanding release timeline.</description>
+    </item>
+    
+  </channel>
+</rss>

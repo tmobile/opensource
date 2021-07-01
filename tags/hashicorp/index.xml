@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hashicorp on T-Mobile Open Source</title>
+    <link>/tags/hashicorp/</link>
+    <description>Recent content in Hashicorp on T-Mobile Open Source</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 12 Jan 2018 14:12:54 -0800</lastBuildDate><atom:link href="/tags/hashicorp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Introducing T-Vault</title>
+      <link>/blog/posts/introducing-tvault/</link>
+      <pubDate>Fri, 12 Jan 2018 14:12:54 -0800</pubDate>
+      
+      <guid>/blog/posts/introducing-tvault/</guid>
+      <description>2017: the year that nothing seemed safe. The scale of breaches reached new heights. More often, attackers didn’t target security features like encryption, authentication or authorization, instead went after the less interesting parts of the application. A lack of regular patching and poor handling of secrets tended to be the common cause for most attacks.
+Let’s focus on the secret management for a minute… Keeping your secrets safe should be a top priority.</description>
+    </item>
+    
+  </channel>
+</rss>

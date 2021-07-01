@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AKS on T-Mobile Open Source</title>
+    <link>/tags/aks/</link>
+    <description>Recent content in AKS on T-Mobile Open Source</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 30 May 2018 13:19:22 -0700</lastBuildDate><atom:link href="/tags/aks/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Deploying VMWare Harbor on Azure Kubernetes Service aka AKS</title>
+      <link>/blog/posts/deploying-harbor-on-aks/</link>
+      <pubDate>Wed, 30 May 2018 13:19:22 -0700</pubDate>
+      
+      <guid>/blog/posts/deploying-harbor-on-aks/</guid>
+      <description>VMware Harbor is an open source all in one enterprise-class container registry that extends open source docker distribution and adds many functionalities that are typically required in the enterprise such as:
+  container registry
+  container image vulnerability scanning
+  notary (Content trust and digital signing)
+  We recently went through an evaluation process of VMware Harbor and had to deploy it on our Azure Kubernetes cluster.</description>
+    </item>
+    
+  </channel>
+</rss>

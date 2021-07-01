@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>K8s on T-Mobile Open Source</title>
+    <link>/tags/k8s/</link>
+    <description>Recent content in K8s on T-Mobile Open Source</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 14 May 2020 10:51:21 -0400</lastBuildDate><atom:link href="/tags/k8s/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The [Machine] Learning is Never Done</title>
+      <link>/blog/posts/hanson-ml-retraining/</link>
+      <pubDate>Thu, 14 May 2020 10:51:21 -0400</pubDate>
+      
+      <guid>/blog/posts/hanson-ml-retraining/</guid>
+      <description>You’ve built a model that stakeholders love. Now, you need it to retrain every day… and that requires a whole new architecture.
+In this article, Mark Eric Hanson outlines why automated ML model retraining is important, the use cases it solves for T-Mobile, and how to stitch the tech together to recreate a similar implementation of your own. Its a fascinating read, and a good behind-the-scenes look at how we approach problem-solving at T-Mobile.</description>
+    </item>
+    
+    <item>
+      <title>Deploying VMWare Harbor on Azure Kubernetes Service aka AKS</title>
+      <link>/blog/posts/deploying-harbor-on-aks/</link>
+      <pubDate>Wed, 30 May 2018 13:19:22 -0700</pubDate>
+      
+      <guid>/blog/posts/deploying-harbor-on-aks/</guid>
+      <description>VMware Harbor is an open source all in one enterprise-class container registry that extends open source docker distribution and adds many functionalities that are typically required in the enterprise such as:
+  container registry
+  container image vulnerability scanning
+  notary (Content trust and digital signing)
+  We recently went through an evaluation process of VMware Harbor and had to deploy it on our Azure Kubernetes cluster.</description>
+    </item>
+    
+  </channel>
+</rss>

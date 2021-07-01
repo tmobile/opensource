@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Vertx on T-Mobile Open Source</title>
+    <link>/tags/vertx/</link>
+    <description>Recent content in Vertx on T-Mobile Open Source</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 11 Feb 2018 13:19:22 -0700</lastBuildDate><atom:link href="/tags/vertx/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Introducing Vertx and SpringBoot Java Templates for OpenFaas</title>
+      <link>/blog/posts/faas-template-for-java/</link>
+      <pubDate>Sun, 11 Feb 2018 13:19:22 -0700</pubDate>
+      
+      <guid>/blog/posts/faas-template-for-java/</guid>
+      <description>Introduction This post is more of an introductory post announcing release of SpringBoot and Vertx Java templates for OpenFaas. These templates allow you to develop your serverless function for the OpenFaas platform using SpringBoot or Vertx. In the Java ecosystem both SpringBoot and Vertx are very popular frameworks for developing microservices. With the release of these templates we are bringing the power of these frameworks into OpenFaas. You can find the templates in our github repository here.</description>
+    </item>
+    
+  </channel>
+</rss>

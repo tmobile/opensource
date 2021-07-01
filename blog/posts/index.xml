@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>T-Mobile Open Source</title>
+    <link>/blog/posts/</link>
+    <description>Recent content on T-Mobile Open Source</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 28 May 2020 05:59:21 -0400</lastBuildDate><atom:link href="/blog/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Monitoring Cloud Foundry at Scale with cf-smoke-tests suite</title>
+      <link>/blog/posts/diwan-smoke-test-suite/</link>
+      <pubDate>Thu, 28 May 2020 05:59:21 -0400</pubDate>
+      
+      <guid>/blog/posts/diwan-smoke-test-suite/</guid>
+      <description>T-Mobile runs Pivotal Cloud Foundry platform at a very large scale (≈100K application instances!), with a wide range of applications from across the organization spanning finance, payments, retail, and customer care. Monitoring such a large-scale Cloud Foundry environment is super challenging, yet mission-critical, for running the business operations seamlessly. We need to not only monitor important platform KPIs, but also the most frequently exercised workflows involving critical platform components and services.</description>
+    </item>
+    
+    <item>
+      <title>The [Machine] Learning is Never Done</title>
+      <link>/blog/posts/hanson-ml-retraining/</link>
+      <pubDate>Thu, 14 May 2020 10:51:21 -0400</pubDate>
+      
+      <guid>/blog/posts/hanson-ml-retraining/</guid>
+      <description>You’ve built a model that stakeholders love. Now, you need it to retrain every day… and that requires a whole new architecture.
+In this article, Mark Eric Hanson outlines why automated ML model retraining is important, the use cases it solves for T-Mobile, and how to stitch the tech together to recreate a similar implementation of your own. Its a fascinating read, and a good behind-the-scenes look at how we approach problem-solving at T-Mobile.</description>
+    </item>
+    
+    <item>
+      <title>Rolling Out the Magenta Tape: Policy-as-Code for Kubernetes</title>
+      <link>/blog/posts/rolling-out-the-magenta-tape/</link>
+      <pubDate>Fri, 01 May 2020 01:00:00 -0400</pubDate>
+      
+      <guid>/blog/posts/rolling-out-the-magenta-tape/</guid>
+      <description>Hi all, I&amp;rsquo;m Joe Searcy, Member of Technical Staff on the Platform Engineering team here at T-Mobile and I&amp;rsquo;m joined by Torin Sandall, Software Engineer at Styra and Co-founder/Core Contributor for the Open Policy Agent (OPA) project, to help tell the story behind one of T-Mobile&amp;rsquo;s latest open source projects, MagTape.
+History &amp;amp; Motivation Here at T-Mobile we&amp;rsquo;re ALL-IN on containers and container platforms like Kubernetes. We, like most companies building Kubernetes environments, came to a quick realization that empowering your developers with platforms like Kubernetes can exponentially increase the volume and velocity of applications and releases.</description>
+    </item>
+    
+    <item>
+      <title>Introducing qAPI: Translating database queries into API calls</title>
+      <link>/blog/posts/introducing-qapi/</link>
+      <pubDate>Thu, 07 Nov 2019 10:00:00 -0800</pubDate>
+      
+      <guid>/blog/posts/introducing-qapi/</guid>
+      <description>Designing and implementing test flows typically involves validating data with one or multiple databases. Whether it may be a simple test script, test frameworks such as Selenium (R), or test applications such as Tosca (R), querying the database directly is often not a good approach (from security and maintainability standpoints), and sometimes, not even fully supported.
+In order to remove the database connections from such tests, T-Mobile’s Test Platform Engineering team developed qAPI (which stands for query API).</description>
+    </item>
+    
+    <item>
+      <title>A Piece of Cake, Percy Cake</title>
+      <link>/blog/posts/percy-cake/</link>
+      <pubDate>Thu, 03 Oct 2019 09:00:00 -0700</pubDate>
+      
+      <guid>/blog/posts/percy-cake/</guid>
+      <description>Percy Percy is a configuration as code editor, it is not a configuration distribution system like Spring Cloud Configuration Server.
+Percy facilitates editing configuration files in a terse (de-hydrated) format that is intended to simplify maintenance of external configuration files of an app or service across multiple deployed environments. The Percy project includes a set of validation and hydration scripts that will expand the de-hydrated ( DRY) configuration files into a set of JSON files, one for every deployment environment.</description>
+    </item>
+    
+    <item>
+      <title>A Lean Mean Pipeline Machine</title>
+      <link>/blog/posts/a-lean-mean-pipeline-machine/</link>
+      <pubDate>Fri, 20 Sep 2019 10:00:00 -0700</pubDate>
+      
+      <guid>/blog/posts/a-lean-mean-pipeline-machine/</guid>
+      <description>Keeping in mind the dynamic DevOps culture in our company and others, we set out to streamline our development pipelines using a modern container-based approach. Our goal was to empower developers to have the flexibility and ease of adapting the pipeline to their development methodologies while providing more time for development and testing rather than spending time on creating and maintaining CI/CD pipelines.
+Developers can easily on-board their solutions without spending too much time learning about the underlying technology that drives the pipeline.</description>
+    </item>
+    
+    <item>
+      <title>loadtest: an R Package for Load Testing</title>
+      <link>/blog/posts/loadtest/</link>
+      <pubDate>Tue, 03 Sep 2019 09:00:00 -0700</pubDate>
+      
+      <guid>/blog/posts/loadtest/</guid>
+      <description>An R package that allows for simple load testing of websites and APIs.</description>
+    </item>
+    
+    <item>
+      <title>Introducing Kardio</title>
+      <link>/blog/posts/introducing-kardio/</link>
+      <pubDate>Wed, 21 Aug 2019 13:19:22 -0700</pubDate>
+      
+      <guid>/blog/posts/introducing-kardio/</guid>
+      <description>Containers, Kubernetes and Health Checks for the Win! With the massive adoption of containers, many large enterprises as well as startups embracing containers in their application architecture patterns. With this huge growth, we have new challenges to monitor 1000’s of containers running in 10’s and 100’s of Container Platforms such as Kubernetes.
+There are many APM (Application Performance Management) products that provide end to end monitoring of application services. However, it can be complicated to build dashboards to get simple status of these services.</description>
+    </item>
+    
+    <item>
+      <title>Monarch: App-level Chaos Engineering</title>
+      <link>/blog/posts/monarch-app-level/</link>
+      <pubDate>Mon, 25 Mar 2019 10:00:00 -0700</pubDate>
+      
+      <guid>/blog/posts/monarch-app-level/</guid>
+      <description>Motivation As we have talked about in an earlier post, Chaos Engineering is a method by which the stability of complicated cloud infrastructures can be assessed and validated. The current Chaos Engineering tools do not support application-specific attacks, but rather vm-specific attacks. Now, this works if each application is on its own VM, but a lot of our applications are deployed in Cloud Foundry which moves apps without the developers even needing to know what VM their container is running on.</description>
+    </item>
+    
+    <item>
+      <title>Introducing Codeless: T-Mobile’s Take on Test Automation Frameworks</title>
+      <link>/blog/posts/introducing-codeless/</link>
+      <pubDate>Mon, 11 Mar 2019 10:00:00 -0700</pubDate>
+      
+      <guid>/blog/posts/introducing-codeless/</guid>
+      <description>Reliable, maintainable test automation, delivered by anyone.
+Continuous Delivery drives towards faster time to market which in turns demands new code to be tested and verified at high speed. For many years, QA and development teams have leveraged test automation tools to allow more tests to be run in a shorter amount of time. However, some teams may not have enough runway to build test automation &amp;ldquo;SDET&amp;rdquo; skillsets to meet demanding release timeline.</description>
+    </item>
+    
+    <item>
+      <title>5 Key FaaS Announcements at Re:Invent 2018</title>
+      <link>/blog/posts/faas-reinvent-2018/</link>
+      <pubDate>Tue, 22 Jan 2019 10:00:00 -0700</pubDate>
+      
+      <guid>/blog/posts/faas-reinvent-2018/</guid>
+      <description>55000+ attendees with 100+ products and services announcements make AWS re:Invent 2018 one of the largest tech events. It was a big event for serverless in general where AWS Lambda continued to be the top trending service from the event.
+ Here are 5 key releases/upgrades in the FaaS world along with my notes of when to use it and when not to:
+1. Invoke Lambda from Application Load Balancer (ALB): You can now expose your Lambda Functions as an endpoint through ALB.</description>
+    </item>
+    
+    <item>
+      <title>How I created my first open source node module?</title>
+      <link>/blog/posts/orchestration-desk/</link>
+      <pubDate>Thu, 06 Dec 2018 10:00:00 -0700</pubDate>
+      
+      <guid>/blog/posts/orchestration-desk/</guid>
+      <description>Why I wrote Orchestration Desk? Hello everybody !! I will be writing my first tech blog today. The topic I will be covering is &amp;ldquo;why I wrote a open source module &amp;lsquo;Orchestration-Desk&amp;rsquo;&amp;rdquo; (https://github.com/tmobile/orchestration-desk/wiki) along with one of my favorite topic &amp;ldquo;Feature Toggles&amp;rdquo;. Feature toggles are very popular among software industry /teams that wants continuous development and release of software products. The teams want the ability to show/hide features on demand. I believe any team can create their own little feature toggles system using some of the popular tools available to them.</description>
+    </item>
+    
+    <item>
+      <title>Pi Alarm</title>
+      <link>/blog/posts/pi-alarm/</link>
+      <pubDate>Thu, 15 Nov 2018 10:00:00 -0700</pubDate>
+      
+      <guid>/blog/posts/pi-alarm/</guid>
+      <description>Purpose: To control an alarm using a Raspberry Pi and Python At T-Mobile, our development teams run pipelines to build, test, and deploy our code. Any disruption in the pipeline means new code can&amp;rsquo;t be delivered, so fixing pipeline issues when they arise becomes top priority. To emphasize the importance of having an &amp;ldquo;always on&amp;rdquo; pipeline, we wanted a way to alert the teams explicitly, rather than just notifications via email/chat, when there&amp;rsquo;s a failure in the job pipeline.</description>
+    </item>
+    
+    <item>
+      <title>NEXT Directory - PR of the Week</title>
+      <link>/blog/posts/next-pr-series-2/</link>
+      <pubDate>Wed, 14 Nov 2018 01:59:28 -0700</pubDate>
+      
+      <guid>/blog/posts/next-pr-series-2/</guid>
+      <description>Following last week’s efforts highlighted in our previous ‘PR of the Week’ post, I decided to select NEXT PR #347. Pull request 347, titled ‘Inbound filters operating for AAD’, is a direct downstream step in creating the Azure and Active Directory Integration Engine.
+At the end of the hackathon hosted by Microsoft at the Microsoft Reactor in Seattle, we had two different providers capable of ingesting and loading data into the Rethink DB.</description>
+    </item>
+    
+    <item>
+      <title>Enterprise Web Services with Neural Networks Using R and TensorFlow</title>
+      <link>/blog/posts/r-tensorflow-api/</link>
+      <pubDate>Fri, 02 Nov 2018 09:00:00 -0700</pubDate>
+      
+      <guid>/blog/posts/r-tensorflow-api/</guid>
+      <description>Our open source method for using R to create Neural Network powered APIs as Docker containers.</description>
+    </item>
+    
+    <item>
+      <title>NEXT Directory - PR of the Week</title>
+      <link>/blog/posts/next-pr-series-1/</link>
+      <pubDate>Mon, 29 Oct 2018 01:59:28 -0700</pubDate>
+      
+      <guid>/blog/posts/next-pr-series-1/</guid>
+      <description>Recently, I had a chance to review NEXT PR #305. This was a fun one, as it came while the NEXT team was on the Microsoft Reactor campus in Seattle’s South Lake Union neighborhood, collaborating in a code-with style hackathon, to develop some of the Azure and Active Directory Integration Engine components.
+The Microsoft Reactors (there&amp;rsquo;s also one in San Francisco) definitely fit the mold of TV-style hip innovative office space.</description>
+    </item>
+    
+    <item>
+      <title>Introducing PacBot</title>
+      <link>/blog/posts/introducing-pacbot/</link>
+      <pubDate>Fri, 05 Oct 2018 09:00:00 -0700</pubDate>
+      
+      <guid>/blog/posts/introducing-pacbot/</guid>
+      <description>Gartner predicts that &amp;ldquo;through 2020, 95 percent of cloud security failures will be the customer&amp;rsquo;s fault.&amp;rdquo; The very nature of public cloud, the ease at which developers can create, modify and delete resources &amp;ndash;gives us the agility we love but also makes it easy to overlook security guidelines. The dynamic nature of the cloud further complicates matters, especially if you have a very large footprint.
+From a recent survey conducted by cybersecurity-insiders.</description>
+    </item>
+    
+    <item>
+      <title>T-Mobile and Open Source: A Look Back on Year One</title>
+      <link>/blog/posts/tmobile-oss-lookback/</link>
+      <pubDate>Fri, 05 Oct 2018 09:00:00 -0700</pubDate>
+      
+      <guid>/blog/posts/tmobile-oss-lookback/</guid>
+      <description>It was one year ago today (on my birthday) that T-Mobile publicly embraced the open source community with the release of Jazz — a framework to unlock the full potential of serverless computing. It was both the start of a new journey for T-Mobile and a significant milestone along a path that we have been on for the past two and a half years: from telco to technology company.
+So, I think now is a great time to reflect on the progress we made over the last year…</description>
+    </item>
+    
+    <item>
+      <title>Introducing Apigee API Gateway for T-Mobile&#39;s Jazz Serverless Development Platform</title>
+      <link>/blog/posts/introducing-apigee-for-jazz/</link>
+      <pubDate>Tue, 18 Sep 2018 01:59:28 -0700</pubDate>
+      
+      <guid>/blog/posts/introducing-apigee-for-jazz/</guid>
+      <description>We are thrilled to announce that serverless (aka FaaS) developers now have a choice to expose their serverless functions as RESTful APIs from within the Jazz serverless development platform at a click of a button. If you are not aware of T-Mobile&amp;rsquo;s Jazz Serverless Development Platform, you can check it out on Github.
+With this integration, Jazz developers will have an option to choose between multiple API Gateway providers for their serverless functions - APIGEE &amp;amp; AWS API Gateway depending on their business needs &amp;amp; their enterprise compliance requirements.</description>
+    </item>
+    
+    <item>
+      <title>The Start of Chaos Engineering at T-Mobile</title>
+      <link>/blog/posts/chaos-engineering/</link>
+      <pubDate>Thu, 13 Sep 2018 17:10:22 -0700</pubDate>
+      
+      <guid>/blog/posts/chaos-engineering/</guid>
+      <description>Overview At T-Mobile, we have been making a large push toward cloud infrastructures. Through this process, we have been taking large monoliths from the past and breaking them into a series of microservices. This allows us to easily scale parts of services which are overloaded with requests and to increase the redundancy of our systems by having backups ready to go in the event one of them crashes or the hosting hardware has issues.</description>
+    </item>
+    
+    <item>
+      <title>Factory and builder patterns in JavaScript using object mapping</title>
+      <link>/blog/posts/js-design-patterns/</link>
+      <pubDate>Wed, 01 Aug 2018 07:32:00 -0800</pubDate>
+      
+      <guid>/blog/posts/js-design-patterns/</guid>
+      <description>Overview Every language has design patterns, which help us to organize our code in a way, where it’s easy to understand, maintain and test. JavaScript being one of the most commonly used dynamic languages, is also one of the most abused and misunderstood ;). In this post I want to share some examples of how code is written and how can it be improved to make it more flexible which is easy to maintain and follow.</description>
+    </item>
+    
+    <item>
+      <title>Introducing Project Casquatch</title>
+      <link>/blog/posts/casquatch-intro/</link>
+      <pubDate>Wed, 25 Jul 2018 10:00:00 -0700</pubDate>
+      
+      <guid>/blog/posts/casquatch-intro/</guid>
+      <description>Introducing Project Casquatch At T-Mobile, we have been rapidly developing new applications on top of a micro-service architecture through a combination of Java and Cassandra, including all the latest and greatest technologies. This is great except that Cassandra pushes a significant amount of the performance tuning and high availability configuration from the database layer up to the application layer. This leads to a few problems for the enterpise as all these policies are individually implemented (or not) by each service and database availability is now out of central control, leaving each developer to implement as they see fit.</description>
+    </item>
+    
+    <item>
+      <title>Deploying VMWare Harbor on Azure Kubernetes Service aka AKS</title>
+      <link>/blog/posts/deploying-harbor-on-aks/</link>
+      <pubDate>Wed, 30 May 2018 13:19:22 -0700</pubDate>
+      
+      <guid>/blog/posts/deploying-harbor-on-aks/</guid>
+      <description>VMware Harbor is an open source all in one enterprise-class container registry that extends open source docker distribution and adds many functionalities that are typically required in the enterprise such as:
+  container registry
+  container image vulnerability scanning
+  notary (Content trust and digital signing)
+  We recently went through an evaluation process of VMware Harbor and had to deploy it on our Azure Kubernetes cluster.</description>
+    </item>
+    
+    <item>
+      <title>Dude where&#39;s my store? using geo distance search queries with Elasticsearch to provide store locator experience</title>
+      <link>/blog/posts/geo-distance-search-queries-with-elasticsearch/</link>
+      <pubDate>Thu, 24 May 2018 21:00:00 -0700</pubDate>
+      
+      <guid>/blog/posts/geo-distance-search-queries-with-elasticsearch/</guid>
+      <description>In this post, I will walk through how we use geo distance search queries with Elasticsearch to provide &amp;ldquo;find a store&amp;rdquo; experience within our mobile application. Currently, the microservice that powers this experience in our mobile app is developed using Vert.x which is a Java based framework that is quite commonly used for developing microservices. We recently ported this service to a serverless application and decided to develop in golang.</description>
+    </item>
+    
+    <item>
+      <title>Serverless Development Challenges</title>
+      <link>/blog/posts/serverless-development-challenges/</link>
+      <pubDate>Thu, 01 Mar 2018 12:12:55 -0800</pubDate>
+      
+      <guid>/blog/posts/serverless-development-challenges/</guid>
+      <description>This article describes the challenges I faced and my observations while designing and developing the Jazz framework.
+Jazz is an application development framework for developing and managing serverless (aka FaaS) services. Jazz itself is built on top of Jazz and currently supports the best known FaaS implementation from AWS, ‘AWS Lambda’. Jazz started as an internal initiative in T-Mobile and is now available on github as an open source project.</description>
+    </item>
+    
+    <item>
+      <title>Introducing Vertx and SpringBoot Java Templates for OpenFaas</title>
+      <link>/blog/posts/faas-template-for-java/</link>
+      <pubDate>Sun, 11 Feb 2018 13:19:22 -0700</pubDate>
+      
+      <guid>/blog/posts/faas-template-for-java/</guid>
+      <description>Introduction This post is more of an introductory post announcing release of SpringBoot and Vertx Java templates for OpenFaas. These templates allow you to develop your serverless function for the OpenFaas platform using SpringBoot or Vertx. In the Java ecosystem both SpringBoot and Vertx are very popular frameworks for developing microservices. With the release of these templates we are bringing the power of these frameworks into OpenFaas. You can find the templates in our github repository here.</description>
+    </item>
+    
+    <item>
+      <title>Introducing T-Vault</title>
+      <link>/blog/posts/introducing-tvault/</link>
+      <pubDate>Fri, 12 Jan 2018 14:12:54 -0800</pubDate>
+      
+      <guid>/blog/posts/introducing-tvault/</guid>
+      <description>2017: the year that nothing seemed safe. The scale of breaches reached new heights. More often, attackers didn’t target security features like encryption, authentication or authorization, instead went after the less interesting parts of the application. A lack of regular patching and poor handling of secrets tended to be the common cause for most attacks.
+Let’s focus on the secret management for a minute… Keeping your secrets safe should be a top priority.</description>
+    </item>
+    
+    <item>
+      <title>T-Mobile @ SpringOne platform conference</title>
+      <link>/blog/posts/tmo-at-s1p/</link>
+      <pubDate>Tue, 28 Nov 2017 10:00:00 -0700</pubDate>
+      
+      <guid>/blog/posts/tmo-at-s1p/</guid>
+      <description>SpringOne platform is a premier conference that brings leading software companies, enterprises and cloud architects who build and run cloud native applications to share and collaborate their experiences. You can catch engineers from T-Mobile at SpringOne. We also have two talks, you can find links to those talks below. If you are at SpringOne come check us out and say hello. Hope to see you there.
+Tuesday 2:00p-3:00p PST (60 min) at Room: 2010 Zero to 12 Million</description>
+    </item>
+    
+    <item>
+      <title>T-Mobile Technology Innovation on Display at AWS re:Invent</title>
+      <link>/blog/posts/tmobile-innovation-reinvent/</link>
+      <pubDate>Tue, 28 Nov 2017 10:00:00 -0700</pubDate>
+      
+      <guid>/blog/posts/tmobile-innovation-reinvent/</guid>
+      <description>For over four years, T-Mobile has been on a journey to transform the wireless industry. We call this our Un-carrier revolution. For as many years, we’ve also been on a journey with the public cloud. It has been a key enabler of innovation. As we’ve gained experience, our solutions have matured, and so has our understanding of our role in T-Mobile and the greater technology community.
+In those four years, we’ve had four generations of cloud architectures, and we don’t expect the pace of innovation to slow down anytime soon.</description>
+    </item>
+    
+    <item>
+      <title>Hyper Directory and the Road to Blockchain Innovation</title>
+      <link>/blog/posts/hyperdirectory-blockchain-innovation/</link>
+      <pubDate>Mon, 27 Nov 2017 14:01:00 -0700</pubDate>
+      
+      <guid>/blog/posts/hyperdirectory-blockchain-innovation/</guid>
+      <description>With the hype surrounding blockchain rapidly approaching fever-pitch, both businesses and consumers around the world are on high alert. We don’t need to point to the next big Initial Coin Offering (ICO) to prove that point - with Bitcoin trading at over $8,000 and players like IBM, Microsoft, Amazon, and Intel investing significant resources into their blockchain positions, we can be confident that innovation is on the horizon.
+As a Senior Architect in T-Mobile’s Cloud Center of Excellence (CCOE), I have the unique opportunity to represent our efforts working with this exciting technology.</description>
+    </item>
+    
+    <item>
+      <title>Catch T-Mobile @ re:Invent!</title>
+      <link>/blog/posts/re-invent-blog/</link>
+      <pubDate>Mon, 27 Nov 2017 10:00:00 -0700</pubDate>
+      
+      <guid>/blog/posts/re-invent-blog/</guid>
+      <description>T-Mobile is transforming wireless, and the public cloud is a key enabler of that transformation. This week, technologists from around the world are gathering in Las Vegas for re:Invent, a conference for Amazon Web Services and the public cloud.
+As one of the largest tech events of the year, it&amp;rsquo;s a great venue for the Un-carrier to showcase the innovative development work we are doing. Here are the great stories being presented by T-Mobilers this week&amp;ndash;be sure to check out the webcasts!</description>
+    </item>
+    
+    <item>
+      <title>KeyBiner — Holder for your entitlements</title>
+      <link>/blog/posts/keybiner-holder/</link>
+      <pubDate>Mon, 16 Oct 2017 01:59:28 -0700</pubDate>
+      
+      <guid>/blog/posts/keybiner-holder/</guid>
+      <description>In Microservice architecture, using the Access Token Pattern solution, the API Gateway authenticates a request and passes an access token (e.g. JSON Web Token) to downstream systems and services securely. This helps the service or system to identify/authenticate/authorize each request.
+JSON Web Token (JWT) is an open standard (RFC 7519) that defines a compact and self-contained way for securely transmitting information between parties as a JSON object.
+ Compact:  Because of their smaller size, JWTs can be sent through a URL, POST parameter, or inside an HTTP header.</description>
+    </item>
+    
+    <item>
+      <title>Introducing Jazz: T-Mobile’s Serverless Development Platform</title>
+      <link>/blog/posts/introducing-jazz/</link>
+      <pubDate>Fri, 13 Oct 2017 01:59:28 -0700</pubDate>
+      
+      <guid>/blog/posts/introducing-jazz/</guid>
+      <description>Ship production code with confidence to FaaS platforms &amp;amp; more!
+ Serverless is fascinating! No server setup, no failover management, no scaling issues, no infrastructure operations — Just the code! We’ll not get into the definitions, benefits, serverless trends etc — lots of great speakers, authors and writers have shared their excitement around serverless and a simple google search can answer most of the basic questions around serverless. Instead, we’ll focus on the serverless story in our organization, observations, learnings &amp;amp; the work we have been doing in this space.</description>
+    </item>
+    
+    <item>
+      <title>Open source tools leveraged in this site</title>
+      <link>/blog/posts/oss-site-tools/</link>
+      <pubDate>Thu, 05 Oct 2017 09:00:00 -0700</pubDate>
+      
+      <guid>/blog/posts/oss-site-tools/</guid>
+      <description>Overview In this post I wanted to walkthrough how the T-Mobile opensource site is setup and cover the tools and content publishing process we are leveraging. If you are looking to begin your journey towards opensource hopefully this information will be useful.
+Our Requirements When we first started talking with Steve and Tim about launching our opensource site to show case lot of the great work our teams are doing, both Steve and Tim wanted to make sure we leveraged opensource tools and not rely on any internal tools or processes.</description>
+    </item>
+    
+    <item>
+      <title>T-Mobile embraces open source</title>
+      <link>/blog/posts/t-mobile-embraces-open-source/</link>
+      <pubDate>Thu, 05 Oct 2017 09:00:00 -0700</pubDate>
+      
+      <guid>/blog/posts/t-mobile-embraces-open-source/</guid>
+      <description>As the Un-carrier, T-Mobile is transforming wireless. Technology and software development play a key role in enabling that transformation.
+We work every day on technology to make systems more robust while enabling faster delivery at reduced cost&amp;ndash;all so we can provide more value to our customers!
+Today we are making available as open source, both large and small projects that contribute to that effort:
+ Jazz  Jazz is being developed by T-Mobile&amp;rsquo;s Cloud Center of Excellence to make it easier to develop, deploy and operate solutions, shifting workloads from VMs and IaaS to serverless and container platforms.</description>
+    </item>
+    
+    <item>
+      <title>Conducktor-Go for Kubernetes</title>
+      <link>/blog/posts/conducktor-go/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/posts/conducktor-go/</guid>
+      <description>Kubernetes (R) has become the Container orchestration platform of choice&amp;ndash;but launching and configuring a Production grade Kubernetes Cluster is a lot of work. Conducktor-Go simplifies launching native Kubernetes Clusters on AWS (R) using Terraform (TM), Ansible (R), and Python Scripts. It also provides a rich, turn-key telemetry solution with pre-configured Grafana(R) dashboards and Prometheus(R) as data source.
+Conducktor-GO also configures Nginx(R), Docker(R) CE, Weave Net (CNI), Kube2IAM, Kubernetes 2.0 Dashboard, Kube-State-Metrics, and Metrics Server to provide a Production ready Kubernetes Cluster to deploy your services.</description>
+    </item>
+    
+  </channel>
+</rss>

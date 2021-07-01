@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>kardio on T-Mobile Open Source</title>
+    <link>/tags/kardio/</link>
+    <description>Recent content in kardio on T-Mobile Open Source</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 21 Aug 2019 13:19:22 -0700</lastBuildDate><atom:link href="/tags/kardio/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Introducing Kardio</title>
+      <link>/blog/posts/introducing-kardio/</link>
+      <pubDate>Wed, 21 Aug 2019 13:19:22 -0700</pubDate>
+      
+      <guid>/blog/posts/introducing-kardio/</guid>
+      <description>Containers, Kubernetes and Health Checks for the Win! With the massive adoption of containers, many large enterprises as well as startups embracing containers in their application architecture patterns. With this huge growth, we have new challenges to monitor 1000’s of containers running in 10’s and 100’s of Container Platforms such as Kubernetes.
+There are many APM (Application Performance Management) products that provide end to end monitoring of application services. However, it can be complicated to build dashboards to get simple status of these services.</description>
+    </item>
+    
+  </channel>
+</rss>

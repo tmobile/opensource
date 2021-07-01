@@ -1,0 +1,1380 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <!-- HEAD -->
+<meta charset="utf-8">
+<meta name="author" content="T-Mobile">
+<meta name="description" content="Open source at the Un-carrier.">
+<meta name="generator" content="Hugo 0.84.4" />
+<title>T-Mobile Open Source</title>
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="/img/favicon-32x32.png" sizes="32x32" />
+<link rel="icon" type="image/png" href="/img/favicon-16x16.png" sizes="16x16" />
+
+
+<!-- Bootstrap Core CSS -->
+<link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.css" type="text/css" />
+
+<!-- Custom Fonts -->
+<link rel="stylesheet" href="/vendor/font-awesome/css/font-awesome.min.css" type="text/css" />
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css' />
+<link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css' />
+
+<!-- Custom CSS -->
+
+<link rel="stylesheet" href="/css/styles.css" type="text/css" />
+<link rel="stylesheet" href="/css/tmobile.css" type="text/css" />
+<link rel="stylesheet" href="/css/blog.css" type="text/css" />
+
+<!-- meta tags -->
+
+
+<meta property="og:title" content="Factory and builder patterns in JavaScript using object mapping"/>
+
+
+
+<meta property="og:image" content="/blog/posts/js-design-patterns/"/>
+
+
+<meta property="og:site_name" content="T-Mobile Open Source"/>
+
+
+<meta property="og:description" content="Read about T-Mobile technology development, release details and other insights from app teams."/>
+
+
+<!-- meta tag -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- canonical tags -->
+
+    </head>
+    <body>
+        <div class="blog-overlay-innerwrap blogs-wrap">
+            <div class="blog-request-submit-widget">
+                
+    <div class="blog-heading-overlay">
+        <div class='blog-head-wrap'>
+            <div class='blog-breadcrumb'>
+                <!-- NAVIGATION -->
+<nav id="mainNav" class="navbar navbar-default navbar-fixed-top affix">
+    <div class="mainNav-contents clearfix"> 
+        <a href="#"><img class="logoMain" src="/img/logo/logo.svg" /></a>
+        
+            <div class="nav-contents">
+                <a href="#about" class="animated-scroll">COMMUNITY</a>
+            </div>
+        
+            <div class="nav-contents">
+                <a href="#blog" class="animated-scroll">BLOG</a>
+            </div>
+        
+            <div class="nav-contents">
+                <a href="#videos" class="animated-scroll">VIDEOS</a>
+            </div>
+        
+            <div class="nav-contents">
+                <a href="#services" class="animated-scroll">PROJECTS</a>
+            </div>
+        
+        <div class="dots" id="dots-overlay" onclick="openPopup()">
+            <div class="dot-option"></div>
+            <div class="dot-option"></div>
+            <div class="dot-option"></div>
+        </div>
+    </div>
+</nav>
+
+            </div>
+        </div>
+    </div>
+    <div class="requestAccess overlay-container display-none" id="overlay-container-id">
+        <div class="overlay-state-con" onclick="closePopup()">
+            <div class="overlay-state">
+                <div class="overlay-state-wrp">
+                    <div class="overlay-vertical-center">
+                        <div class="overlay-innerwrap">
+                            
+                                <div class="overlay-text" onclick="closePopup()">
+                                   <a href="#about" class="animated-scroll">COMMUNITY</a>
+                                </div>
+                            
+                                <div class="overlay-text" onclick="closePopup()">
+                                   <a href="#blog" class="animated-scroll">BLOG</a>
+                                </div>
+                            
+                                <div class="overlay-text" onclick="closePopup()">
+                                   <a href="#videos" class="animated-scroll">VIDEOS</a>
+                                </div>
+                            
+                                <div class="overlay-text" onclick="closePopup()">
+                                   <a href="#services" class="animated-scroll">PROJECTS</a>
+                                </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="blog-event-container-angular">
+        <div class="blog-first-container">
+                
+                <a href="/blog/posts"><h4 class="back-to-blogs"><i class="fa fa-arrow-left" aria-hidden="true"></i>   Back To Blogs</h4></a>
+                <h2 class='blog-post-head' style="font-size: 2.5rem;">Factory and builder patterns in JavaScript using object mapping</h2>
+                <h3 class="blog-success-header-content author">By: Siddharth Vidhani</h3>
+            <div class='blog-title-date bp-date'>
+                2018-08-01
+            </div>
+            <div class='blog-title-desc'>
+                <h1 id="overview">Overview</h1>
+<p>Every language has design patterns, which help us to organize our code in a way, where it’s easy to understand, maintain and test. JavaScript being one of the most commonly used dynamic languages, is also one of the most abused and misunderstood ;). In this post I want to share some examples of how code is written and how can it be improved to make it more flexible which is easy to maintain and follow.</p>
+<h1 id="bad-coding-patterns">Bad coding patterns</h1>
+<p>In JavaScript, lot of times we tend to write code using if/else or switch/case, when we have to use branching in multiple places. We end up writing too much logic which ends up being repetitive. Let’s take a look at an example:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getService</span>(<span style="color:#a6e22e">svcType</span>, <span style="color:#a6e22e">options</span>) {
+    <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">svcType</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#39;api&#39;</span>) {
+        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Hello from api&#34;</span>);
+        <span style="color:#75715e">//more logic to handle api specific scenario
+</span><span style="color:#75715e"></span>    } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">svcType</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#39;lambda&#39;</span>) {
+        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Hello from lambda&#34;</span>);
+        <span style="color:#75715e">//more logic to handle lambda specific scenario
+</span><span style="color:#75715e"></span>    } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">svcType</span> <span style="color:#f92672">===</span> <span style="color:#e6db74">&#39;website&#39;</span>) {
+        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Hello from website&#34;</span>);
+        <span style="color:#75715e">//more logic to handle website specific scenario
+</span><span style="color:#75715e"></span>    } <span style="color:#66d9ef">else</span> {
+        <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Invalid service type provided&#34;</span>);
+        <span style="color:#75715e">//more logic to handle default/error scenario
+</span><span style="color:#75715e"></span>    }
+}
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">options</span> <span style="color:#f92672">=</span> { <span style="color:#e6db74">&#39;arn&#39;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;arnString&#39;</span> };
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">serviceData</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">getService</span>(<span style="color:#e6db74">&#39;lambda&#39;</span>, <span style="color:#a6e22e">options</span>);
+</code></pre></div><p>The code above checks for the service type and then performs the business logic for the appropriate service. There are a few issues with this approach</p>
+<ul>
+<li>Every time you add a new service you need to update this if/else to handle the logic for that. Imagine if this kind of logic is put in multiple files/module. This will become unmaintainable very soon.</li>
+<li>The check has to be performed every time until the specific if/else block condition is satisfied. This is not efficient if you have a huge if/else block.</li>
+<li>The code can become unreadable for a developer looking at it when trying to debug any issue.</li>
+<li>The code for the specific service is executed the moment condition is satisfied. There is no way to do some kind of late execution.</li>
+</ul>
+<p>Another way I have seen this being done is using switch statement. Let’s take a look at it below</p>
+<p>This code is similar to the one above and has similar issues. If for any reason you forget to put a break statement then the code falls through to the next case statement which is a side effect of using switch.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">getService</span>(<span style="color:#a6e22e">svcType</span>, <span style="color:#a6e22e">options</span>) {
+    <span style="color:#66d9ef">switch</span>(<span style="color:#a6e22e">svcType</span>) {
+        <span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#39;api&#39;</span><span style="color:#f92672">:</span>
+            <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Hello from api&#34;</span>);
+            <span style="color:#75715e">//more logic to handle api specific scenario
+</span><span style="color:#75715e"></span>            <span style="color:#66d9ef">break</span>;
+        <span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#39;lambda&#39;</span><span style="color:#f92672">:</span>
+            <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Hello from lambda&#34;</span>);
+            <span style="color:#75715e">//more logic to handle lambda specific scenario
+</span><span style="color:#75715e"></span>            <span style="color:#66d9ef">break</span>;
+        <span style="color:#66d9ef">case</span> <span style="color:#e6db74">&#39;website&#39;</span><span style="color:#f92672">:</span>
+            <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Hello from website&#34;</span>);
+            <span style="color:#75715e">//more logic to handle lambda specific scenario
+</span><span style="color:#75715e"></span>            <span style="color:#66d9ef">break</span>;
+        <span style="color:#66d9ef">default</span><span style="color:#f92672">:</span>
+            <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Call some default service&#34;</span>);
+            <span style="color:#75715e">//more logic to handle default/error scenario
+</span><span style="color:#75715e"></span>    }
+}
+
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">options</span> <span style="color:#f92672">=</span> { <span style="color:#e6db74">&#39;arn&#39;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;arnString&#39;</span> };
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">serviceData</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">getService</span>(<span style="color:#e6db74">&#39;lambda&#39;</span>, <span style="color:#a6e22e">options</span>);
+</code></pre></div><h1 id="factory-pattern-with-classes">Factory pattern (with classes)</h1>
+<p>Factory, in real word manufactures products and in software it manufactures objects. Let’s see how we can improve this code by using a factory class that uses object mapping and modules. I am also using some convention, to make it simpler which will be easier to maintain. The service type is also the name of the module, thus taking away the if/else logic and making the code more concise.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">//index.js
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">ServiceFactory</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;./ServiceFactory&#39;</span>);
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">svcFactory</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">ServiceFactory</span>();
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">options</span> <span style="color:#f92672">=</span> { <span style="color:#e6db74">&#39;name&#39;</span> <span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;Service Name&#39;</span> };
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">generateService</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">svcFactory</span>.<span style="color:#a6e22e">getService</span>(<span style="color:#e6db74">&#39;api&#39;</span>);
+
+<span style="color:#75715e">//more logic here and late execution
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">generateService</span>(<span style="color:#a6e22e">options</span>);
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">//ServiceFactory.js
+</span><span style="color:#75715e"></span><span style="color:#75715e">/* get the service given the type and options using factory*/</span>
+<span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ServiceFactory</span> {
+    <span style="color:#a6e22e">constructor</span>() {
+        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">serviceTypes</span> <span style="color:#f92672">=</span> { <span style="color:#e6db74">&#39;defaultServiceType&#39;</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;./defaultServiceType&#39;</span>) }
+    }
+    
+    <span style="color:#a6e22e">getService</span>(<span style="color:#a6e22e">serviceType</span>) {
+        <span style="color:#66d9ef">try</span> {
+            <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">serviceTypes</span>[<span style="color:#a6e22e">serviceType</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">`./</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">serviceType</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>)
+            
+            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">serviceTypes</span>[<span style="color:#a6e22e">serviceType</span>];
+        } <span style="color:#66d9ef">catch</span>(<span style="color:#a6e22e">ex</span>) {
+            <span style="color:#75715e">//log error and handle default scenario
+</span><span style="color:#75715e"></span>            <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">ex</span>);
+            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">serviceTypes</span>[<span style="color:#e6db74">&#39;defaultServiceType&#39;</span>];
+        }
+    }
+}
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">//api.js
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">api</span>(<span style="color:#a6e22e">options</span>) {
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Calling api service type&#34;</span>);
+    <span style="color:#75715e">//code to handle api svc type stuff 
+</span><span style="color:#75715e"></span>}
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">//lambda.js
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">lambda</span>(<span style="color:#a6e22e">options</span>) {
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Calling lambda service type&#34;</span>);
+    <span style="color:#75715e">//code to handle lambda svc type stuff 
+</span><span style="color:#75715e"></span>}
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">//website.js
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">website</span>(<span style="color:#a6e22e">options</span>) {
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Calling website service type&#34;</span>);
+    <span style="color:#75715e">//code to handle website svc type stuff 
+</span><span style="color:#75715e"></span>}
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">//defaultSvcType.js
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span> <span style="color:#a6e22e">defaultSvcType</span>() {
+    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#34;Calling default service type handler&#34;</span>);
+    <span style="color:#75715e">//your logic to handle default/error case
+</span><span style="color:#75715e"></span>}
+</code></pre></div><p>This approach provides lot of benefits:</p>
+<ul>
+<li>Code is easy to maintain as you don’t have to change the factory if you add or delete a new service. It just works!</li>
+<li>Code is more concise as the logic is abstracted out. Also, this is more efficient as it’s a lookup(hash).</li>
+<li>Unit testing becomes easier as the code need not be tested again (serviceFactory or already implemented service types). Only specific module that are added will need their own unit tests.</li>
+<li>Late execution – what you get is a function (pointer) and you can execute it as per other logic you may have in the code.</li>
+</ul>
+<h1 id="builder-pattern-with-classes">Builder pattern (with classes)</h1>
+<p>Now that we have looked at one pattern, lets take it to another level and see how we will use it in real world using the builder pattern. Builder pattern is used to separate the complexities of the creation logic from the final representation.</p>
+<p>In this section I will construct a template(bundle) (eg. a website with api or a api with another lambda) as in real world it is very often that we use templates to bundle our services. I have extended the previous example and below is how to use a builder pattern with classes in combination with object mapping similar to factory pattern we saw earlier.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">
+<span style="color:#75715e">//index.js
+</span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">ServerlessTemplateBuilder</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">&#39;./ServerlessTemplateBuilder&#39;</span>);
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">serverlessBuilder</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">ServerlessTemplateBuilder</span>(<span style="color:#e6db74">&#39;E2EWebsite&#39;</span>);
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">options</span> <span style="color:#f92672">=</span> {
+    <span style="color:#e6db74">&#39;website&#39;</span><span style="color:#f92672">:</span> {
+        <span style="color:#e6db74">&#39;title&#39;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;My website&#39;</span>
+    }, <span style="color:#e6db74">&#39;api&#39;</span><span style="color:#f92672">:</span> {
+        <span style="color:#e6db74">&#39;resouce&#39;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#39;MyResource&#39;</span>
+    }
+};
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">builder</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">serverlessBuilder</span>.<span style="color:#a6e22e">getBuilder</span>();
+<span style="color:#66d9ef">const</span> <span style="color:#a6e22e">res</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">serverlessBuilder</span>.<span style="color:#a6e22e">construct</span>(<span style="color:#a6e22e">builder</span>, <span style="color:#a6e22e">options</span>);
+<span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">res</span>);
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">//ServerlessTemplateBuilder.js
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ServerlessTemplateBuilder</span> {
+    <span style="color:#a6e22e">constructor</span>(<span style="color:#a6e22e">type</span>) {  
+        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">type</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">type</span>;
+        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">serverlessTemplateType</span> <span style="color:#f92672">=</span> {<span style="color:#e6db74">&#39;default&#39;</span><span style="color:#f92672">:</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">`./DefaultTemplateBuilder`</span>)};
+    }
+
+    <span style="color:#75715e">/* return the right builder based on type */</span>
+    <span style="color:#a6e22e">getBuilder</span>() {
+        <span style="color:#66d9ef">try</span> {
+            <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">serverlessTemplateType</span>[<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">type</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">`./</span><span style="color:#e6db74">${</span><span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">type</span><span style="color:#e6db74">}</span><span style="color:#e6db74">TemplateBuilder`</span>)
+            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">serverlessTemplateType</span>[<span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">type</span>];
+        } <span style="color:#66d9ef">catch</span>(<span style="color:#a6e22e">ex</span>) {
+            <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">ex</span>.<span style="color:#a6e22e">message</span>);
+            <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">serverlessTemplateType</span>[<span style="color:#e6db74">&#39;default&#39;</span>];
+        }
+    };
+
+    <span style="color:#75715e">/* constructs (builds) the content given the options for the right builder */</span>
+    <span style="color:#a6e22e">construct</span>(<span style="color:#a6e22e">builder</span>, <span style="color:#a6e22e">options</span>) {
+        <span style="color:#66d9ef">let</span> <span style="color:#a6e22e">serverlessContent</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">builder</span>().<span style="color:#a6e22e">build</span>(<span style="color:#a6e22e">options</span>);
+        <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">serverlessContent</span>;
+    };
+}
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">//E2EWebsiteTemplateBuilder.js
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">E2EWebsiteTemplateBuilder</span> {
+    <span style="color:#a6e22e">constructor</span>() {
+        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">services</span> <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;website&#39;</span>, <span style="color:#e6db74">&#39;api&#39;</span>];
+    }
+    
+    <span style="color:#a6e22e">build</span>(<span style="color:#a6e22e">options</span>) {
+        <span style="color:#75715e">//more logic specific to website and api
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">services</span>.<span style="color:#a6e22e">map</span>(<span style="color:#a6e22e">service</span> =&gt; ({[<span style="color:#a6e22e">service</span>]<span style="color:#f92672">:</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">`./</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">service</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>)(<span style="color:#a6e22e">options</span>[<span style="color:#a6e22e">service</span>])}));
+    }
+}
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">//ApiWithCronTemplateBuilder.js
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ApiWithCronTemplateBuilder</span> {
+    <span style="color:#a6e22e">constructor</span>() {
+        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">services</span> <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;lambda&#39;</span>, <span style="color:#e6db74">&#39;api&#39;</span>];
+    }
+    
+    <span style="color:#a6e22e">build</span>(<span style="color:#a6e22e">options</span>) {
+        <span style="color:#75715e">//more logic specific to api and lambda with cron job
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">services</span>.<span style="color:#a6e22e">map</span>(<span style="color:#a6e22e">service</span> =&gt; ({[<span style="color:#a6e22e">service</span>]<span style="color:#f92672">:</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">`./</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">service</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>)(<span style="color:#a6e22e">options</span>[<span style="color:#a6e22e">service</span>])}));
+    }
+}
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#75715e">//DefaultTemplateBuilder.js
+</span><span style="color:#75715e"></span><span style="color:#a6e22e">module</span>.<span style="color:#a6e22e">exports</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">DefaultTemplateBuilder</span> {
+    <span style="color:#a6e22e">constructor</span>() {
+        <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">services</span> <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#39;website&#39;</span>];
+    }
+    
+    <span style="color:#a6e22e">build</span>(<span style="color:#a6e22e">options</span>) {
+        <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">this</span>.<span style="color:#a6e22e">services</span>.<span style="color:#a6e22e">map</span>(<span style="color:#a6e22e">service</span> =&gt; ({[<span style="color:#a6e22e">service</span>]<span style="color:#f92672">:</span> <span style="color:#a6e22e">require</span>(<span style="color:#e6db74">`./</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">service</span><span style="color:#e6db74">}</span><span style="color:#e6db74">`</span>)(<span style="color:#a6e22e">options</span>)}));
+    }
+}
+</code></pre></div><p>Benefits of this approach:</p>
+<ul>
+<li>Similar benefits like previous example we saw.</li>
+<li>With this pattern we have delegated the construction(build) of template or implementation to it&rsquo;s own class/module/function and this provides a good separation of concerns.</li>
+</ul>
+<h1 id="summary">Summary</h1>
+<p>So to summarize, it is always better to use some design patterns to improve the code and the above examples shows few ways of solving this problem. As we saw the benefits are:</p>
+<ul>
+<li>Easy to read and follow.</li>
+<li>Easy to maintain when it comes to troubleshooting and debugging as code is abstracted.</li>
+<li>Good seperation of concern</li>
+<li>Late execution of code based on other logic</li>
+<li>Easier to test.</li>
+</ul>
+
+            </div>
+            <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "tmo-oss" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+        <!-- BLOG SIDEBAR -->
+<div class="blog-second-container">
+    <div class="blog-web-content">
+        <div class="blog-topic"><h4><i class="fi-megaphone"></i> <div class="blog-topic-share">Recent Posts</div></h4></div>
+        
+		<div class="blog-year"><a href="/blog/"></a></div>
+		
+		<div class="blog-year"><a href="/blog/posts/"></a></div>
+		
+		<div class="blog-year"><a href="/blog/posts/diwan-smoke-test-suite/">Monitoring Cloud Foundry at Scale with cf-smoke-tests suite</a></div>
+		
+		<div class="blog-year"><a href="/blog/posts/hanson-ml-retraining/">The [Machine] Learning is Never Done</a></div>
+		
+		<div class="blog-year"><a href="/blog/posts/rolling-out-the-magenta-tape/">Rolling Out the Magenta Tape: Policy-as-Code for Kubernetes</a></div>
+		
+		<div class="blog-year"><a href="/blog/posts/introducing-qapi/">Introducing qAPI: Translating database queries into API calls</a></div>
+		
+		<div class="blog-year"><a href="/blog/posts/percy-cake/">A Piece of Cake, Percy Cake</a></div>
+		
+		<div class="blog-year"><a href="/blog/posts/a-lean-mean-pipeline-machine/">A Lean Mean Pipeline Machine</a></div>
+		
+		<div class="blog-year"><a href="/blog/posts/loadtest/">loadtest: an R Package for Load Testing</a></div>
+		
+		<div class="blog-year"><a href="/blog/posts/introducing-kardio/">Introducing Kardio</a></div>
+		
+    </div>
+
+    
+        <div class="blog-web-content">
+            <div class="blog-topic"><h4><i class="fi-folder"></i> <div class="blog-topic-share">Categories</div></h4></div>            
+            
+                
+                
+                <div class="blog-topic-content"><a href="/categories/resources">Resources</a></div>
+            
+                
+                
+                <div class="blog-topic-content"><a href="/categories/opensource">Opensource</a></div>
+            
+                
+                
+                <div class="blog-topic-content"><a href="/categories/community">Community</a></div>
+            
+                
+                
+                <div class="blog-topic-content"><a href="/categories/aks">Aks</a></div>
+            
+                
+                
+                <div class="blog-topic-content"><a href="/categories/apigee">Apigee</a></div>
+            
+        </div>
+    
+
+    
+        <div class="blog-web-content-script">
+            <div class="blog-topic"><h4><i class="fi-pricetag-multiple"></i> <div class="blog-topic-share">Tags</div></h4></div>
+
+            
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/t-mobile" title="t-mobile">
+                        t-mobile (23)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/oss" title="oss">
+                        oss (15)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/serverless" title="serverless">
+                        serverless (5)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/innovation" title="innovation">
+                        innovation (4)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/tools" title="tools">
+                        tools (4)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/ai" title="ai">
+                        ai (3)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/blockchain" title="blockchain">
+                        blockchain (3)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/data-science" title="data-science">
+                        data-science (3)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/java" title="java">
+                        java (3)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/kubernetes" title="kubernetes">
+                        kubernetes (3)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/open-source" title="open-source">
+                        open-source (3)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/r" title="r">
+                        r (3)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/api" title="api">
+                        api (2)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/automation" title="automation">
+                        automation (2)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/aws" title="aws">
+                        aws (2)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/aws-lambda" title="aws-lambda">
+                        aws-lambda (2)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/chaos-engineering" title="chaos-engineering">
+                        chaos-engineering (2)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/cicd" title="cicd">
+                        cicd (2)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/cloud-foundry" title="cloud-foundry">
+                        cloud-foundry (2)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/elasticsearch" title="elasticsearch">
+                        elasticsearch (2)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/faas" title="faas">
+                        faas (2)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/jazz" title="jazz">
+                        jazz (2)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/k8s" title="k8s">
+                        k8s (2)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/machine-learning" title="machine-learning">
+                        machine-learning (2)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/opensource" title="opensource">
+                        opensource (2)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/publishing" title="publishing">
+                        publishing (2)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/reinvent" title="reinvent">
+                        reinvent (2)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/springboot" title="springboot">
+                        springboot (2)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/testing" title="testing">
+                        testing (2)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/turbulence" title="turbulence">
+                        turbulence (2)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/aks" title="aks">
+                        aks (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/angularjs" title="angularjs">
+                        angularjs (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/api-development" title="api-development">
+                        api-development (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/apigee" title="apigee">
+                        apigee (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/application-load-balancer" title="application-load-balancer">
+                        application-load-balancer (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/artificial-intelligence" title="artificial-intelligence">
+                        artificial-intelligence (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/aws-api-gateway" title="aws-api-gateway">
+                        aws-api-gateway (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/awsreinvent" title="awsreinvent">
+                        awsreinvent (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/azure" title="azure">
+                        azure (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/builder" title="builder">
+                        builder (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/casquatch" title="casquatch">
+                        casquatch (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/cf" title="cf">
+                        cf (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/cf-app-blocker" title="cf-app-blocker">
+                        cf-app-blocker (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/chaos-monkey" title="chaos-monkey">
+                        chaos-monkey (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/chaos-tool-kit" title="chaos-tool-kit">
+                        chaos-tool-kit (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/concourse" title="concourse">
+                        concourse (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/conducktor" title="conducktor">
+                        conducktor (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/conducktor-go" title="conducktor-go">
+                        conducktor-go (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/configuration" title="configuration">
+                        configuration (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/continuous" title="continuous">
+                        continuous (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/database" title="database">
+                        database (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/design-patterns" title="design-patterns">
+                        design-patterns (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/devops" title="devops">
+                        devops (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/entitlement" title="entitlement">
+                        entitlement (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/es6-classes" title="es6-classes">
+                        es6-classes (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/factory" title="factory">
+                        factory (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/framework" title="framework">
+                        framework (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/golang" title="golang">
+                        golang (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/harbor" title="harbor">
+                        harbor (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/hashicorp" title="hashicorp">
+                        hashicorp (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/hashicorp-vault" title="hashicorp-vault">
+                        hashicorp-vault (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/health" title="health">
+                        health (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/influxdb" title="influxdb">
+                        influxdb (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/javascript" title="javascript">
+                        javascript (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/javascript-objects" title="javascript-objects">
+                        javascript-objects (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/js" title="js">
+                        js (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/jwt" title="jwt">
+                        jwt (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/kardio" title="kardio">
+                        kardio (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/magtape" title="magtape">
+                        magtape (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/microservices" title="microservices">
+                        microservices (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/microsoft" title="microsoft">
+                        microsoft (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/ml" title="ml">
+                        ml (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/model" title="model">
+                        model (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/monitoring" title="monitoring">
+                        monitoring (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/opa" title="opa">
+                        opa (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/openfaas" title="openfaas">
+                        openfaas (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/operations" title="operations">
+                        operations (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/pacbot" title="pacbot">
+                        pacbot (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/pcf" title="pcf">
+                        pcf (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/pcf-app-blocker" title="pcf-app-blocker">
+                        pcf-app-blocker (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/pipeline" title="pipeline">
+                        pipeline (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/pivotal" title="pivotal">
+                        pivotal (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/pivotal-cloud-foundry" title="pivotal-cloud-foundry">
+                        pivotal-cloud-foundry (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/platform" title="platform">
+                        platform (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/poet" title="poet">
+                        poet (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/policy" title="policy">
+                        policy (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/python" title="python">
+                        python (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/raspberry-pi" title="raspberry-pi">
+                        raspberry-pi (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/restful" title="restful">
+                        restful (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/retraining" title="retraining">
+                        retraining (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/s1p" title="s1p">
+                        s1p (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/s3" title="s3">
+                        s3 (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/saas" title="saas">
+                        saas (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/scale" title="scale">
+                        scale (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/secret-management" title="secret-management">
+                        secret-management (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/smoke" title="smoke">
+                        smoke (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/software-architecture" title="software-architecture">
+                        software-architecture (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/splunk" title="splunk">
+                        splunk (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/springone" title="springone">
+                        springone (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/telemetry" title="telemetry">
+                        telemetry (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/test" title="test">
+                        test (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/tests" title="tests">
+                        tests (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/training" title="training">
+                        training (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/typescript" title="typescript">
+                        typescript (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/vault" title="vault">
+                        vault (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/vertx" title="vertx">
+                        vertx (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/vmware" title="vmware">
+                        vmware (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/workflow" title="workflow">
+                        workflow (1)
+                    </a>
+                </div>
+		    
+        </div>
+    
+
+    <div class="blog-web-content">
+        <div class="blog-topic-share">Share</div>
+        <img class="blog-share-img" src="/img/fb.png">
+        <img class="blog-share-img" src="/img/tw.png">
+        <img class="blog-share-img" src="/img/ins.png">
+    </div>
+</div>
+
+    </div>
+
+            </div>
+        </div>
+        <!-- FOOTER -->
+<footer style="padding: 2vh 0vh;">
+    <div class="container grid"  style="width: 100%;">
+        <div class="footer-content clearfix">
+            <div class="left-contents">
+                <img class="logoMain" src="/img/logo/logo.svg" />
+                
+                  <div class="left-contents">
+                    <a class="footer-links" href="https://www.t-mobile.com/company/website/privacypolicy.aspx" target="_blank">PRIVACY</a>
+                  </div>
+                
+            </div>
+            <div class="content-right">
+			          
+                  <a class="footer-links" href="https://tmo-oss-getinvite.herokuapp.com/" target="_blank"><i class="fa fa-slack"></i></a>
+                
+                  <a class="footer-links" href="https://www.youtube.com/playlist?list=PL0mz2nejZ-DgH0XsbYDrKPbeMiEJYWqUg" target="_blank"><i class="fa fa-youtube"></i></a>
+                
+            </div>
+        </div>
+        <div class="mobile_version_content" style="width: 100%;">
+            
+                <div class="mobile_version margin">
+                    <a class="footer-links" href="https://tmo-oss-getinvite.herokuapp.com/" target="_blank"><i style="min-width: 34px;" class="fa fa-slack"></i></a>
+                </div>
+            
+                <div class="mobile_version margin">
+                    <a class="footer-links" href="https://www.youtube.com/playlist?list=PL0mz2nejZ-DgH0XsbYDrKPbeMiEJYWqUg" target="_blank"><i style="min-width: 34px;" class="fa fa-youtube"></i></a>
+                </div>
+            
+        </div>
+        <div class="footer_mobile">
+            
+                <div class="footer_mobile_contents_privacy" onclick="navigateTo('https:\/\/www.t-mobile.com\/company\/website\/privacypolicy.aspx');">
+                    PRIVACY
+                </div>
+            
+        </div>
+        <div class="mobile_logo" style="text-align: center;">
+            <img src="/img/logo/logo.svg" />
+        </div>
+        <div class="footer-text">
+            
+                Copyright 2020. All Rights Reserved.
+            
+        </div>
+    </div>
+</footer>
+
+        <!-- jQuery 3.2.1 -->
+<script src="/js/jquery.min.js" type="text/javascript"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/vendor/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+
+<!-- Plugin JavaScript -->
+<script src="/js/jquery.easing.min.js" type="text/javascript"></script>
+<script src="/js/scrolling.js" type="text/javascript"></script>
+
+<!-- PowerOwls -->
+<script src="/vendor/owlcarousel/owl.carousel.js" type="text/javascript"></script>
+<script src="/js/carousel.js" type="text/javascript"></script>
+
+<!-- MOMENT JS-->
+<script src="/js/moment.min.js" type="text/javascript"></script>
+
+<!-- Google APIS-->
+<script src="https://apis.google.com/js/api.js" type="text/javascript"></script>
+
+<!-- Custom Scripts -->
+<script src="/js/github.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+<script src="/js/init-carousel.js" type="text/javascript"></script>
+<script src="/js/oninit.js" type="text/javascript"></script>
+
+
+        
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-20393691-8', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+    </body>
+</html>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>database on T-Mobile Open Source</title>
+    <link>/tags/database/</link>
+    <description>Recent content in database on T-Mobile Open Source</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 07 Nov 2019 10:00:00 -0800</lastBuildDate><atom:link href="/tags/database/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Introducing qAPI: Translating database queries into API calls</title>
+      <link>/blog/posts/introducing-qapi/</link>
+      <pubDate>Thu, 07 Nov 2019 10:00:00 -0800</pubDate>
+      
+      <guid>/blog/posts/introducing-qapi/</guid>
+      <description>Designing and implementing test flows typically involves validating data with one or multiple databases. Whether it may be a simple test script, test frameworks such as Selenium (R), or test applications such as Tosca (R), querying the database directly is often not a good approach (from security and maintainability standpoints), and sometimes, not even fully supported.
+In order to remove the database connections from such tests, T-Mobile’s Test Platform Engineering team developed qAPI (which stands for query API).</description>
+    </item>
+    
+  </channel>
+</rss>

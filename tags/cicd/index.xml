@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>cicd on T-Mobile Open Source</title>
+    <link>/tags/cicd/</link>
+    <description>Recent content in cicd on T-Mobile Open Source</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 01 Mar 2018 12:12:55 -0800</lastBuildDate><atom:link href="/tags/cicd/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Serverless Development Challenges</title>
+      <link>/blog/posts/serverless-development-challenges/</link>
+      <pubDate>Thu, 01 Mar 2018 12:12:55 -0800</pubDate>
+      
+      <guid>/blog/posts/serverless-development-challenges/</guid>
+      <description>This article describes the challenges I faced and my observations while designing and developing the Jazz framework.
+Jazz is an application development framework for developing and managing serverless (aka FaaS) services. Jazz itself is built on top of Jazz and currently supports the best known FaaS implementation from AWS, ‘AWS Lambda’. Jazz started as an internal initiative in T-Mobile and is now available on github as an open source project.</description>
+    </item>
+    
+    <item>
+      <title>Introducing Jazz: T-Mobile’s Serverless Development Platform</title>
+      <link>/blog/posts/introducing-jazz/</link>
+      <pubDate>Fri, 13 Oct 2017 01:59:28 -0700</pubDate>
+      
+      <guid>/blog/posts/introducing-jazz/</guid>
+      <description>Ship production code with confidence to FaaS platforms &amp;amp; more!
+ Serverless is fascinating! No server setup, no failover management, no scaling issues, no infrastructure operations — Just the code! We’ll not get into the definitions, benefits, serverless trends etc — lots of great speakers, authors and writers have shared their excitement around serverless and a simple google search can answer most of the basic questions around serverless. Instead, we’ll focus on the serverless story in our organization, observations, learnings &amp;amp; the work we have been doing in this space.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>monitoring on T-Mobile Open Source</title>
+    <link>/tags/monitoring/</link>
+    <description>Recent content in monitoring on T-Mobile Open Source</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 28 May 2020 05:59:21 -0400</lastBuildDate><atom:link href="/tags/monitoring/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Monitoring Cloud Foundry at Scale with cf-smoke-tests suite</title>
+      <link>/blog/posts/diwan-smoke-test-suite/</link>
+      <pubDate>Thu, 28 May 2020 05:59:21 -0400</pubDate>
+      
+      <guid>/blog/posts/diwan-smoke-test-suite/</guid>
+      <description>T-Mobile runs Pivotal Cloud Foundry platform at a very large scale (≈100K application instances!), with a wide range of applications from across the organization spanning finance, payments, retail, and customer care. Monitoring such a large-scale Cloud Foundry environment is super challenging, yet mission-critical, for running the business operations seamlessly. We need to not only monitor important platform KPIs, but also the most frequently exercised workflows involving critical platform components and services.</description>
+    </item>
+    
+  </channel>
+</rss>

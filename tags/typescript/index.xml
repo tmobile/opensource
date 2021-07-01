@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>typescript on T-Mobile Open Source</title>
+    <link>/tags/typescript/</link>
+    <description>Recent content in typescript on T-Mobile Open Source</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 06 Dec 2018 10:00:00 -0700</lastBuildDate><atom:link href="/tags/typescript/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How I created my first open source node module?</title>
+      <link>/blog/posts/orchestration-desk/</link>
+      <pubDate>Thu, 06 Dec 2018 10:00:00 -0700</pubDate>
+      
+      <guid>/blog/posts/orchestration-desk/</guid>
+      <description>Why I wrote Orchestration Desk? Hello everybody !! I will be writing my first tech blog today. The topic I will be covering is &amp;ldquo;why I wrote a open source module &amp;lsquo;Orchestration-Desk&amp;rsquo;&amp;rdquo; (https://github.com/tmobile/orchestration-desk/wiki) along with one of my favorite topic &amp;ldquo;Feature Toggles&amp;rdquo;. Feature toggles are very popular among software industry /teams that wants continuous development and release of software products. The teams want the ability to show/hide features on demand. I believe any team can create their own little feature toggles system using some of the popular tools available to them.</description>
+    </item>
+    
+  </channel>
+</rss>

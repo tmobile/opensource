@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SpringBoot on T-Mobile Open Source</title>
+    <link>/tags/springboot/</link>
+    <description>Recent content in SpringBoot on T-Mobile Open Source</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 06 Dec 2018 10:00:00 -0700</lastBuildDate><atom:link href="/tags/springboot/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How I created my first open source node module?</title>
+      <link>/blog/posts/orchestration-desk/</link>
+      <pubDate>Thu, 06 Dec 2018 10:00:00 -0700</pubDate>
+      
+      <guid>/blog/posts/orchestration-desk/</guid>
+      <description>Why I wrote Orchestration Desk? Hello everybody !! I will be writing my first tech blog today. The topic I will be covering is &amp;ldquo;why I wrote a open source module &amp;lsquo;Orchestration-Desk&amp;rsquo;&amp;rdquo; (https://github.com/tmobile/orchestration-desk/wiki) along with one of my favorite topic &amp;ldquo;Feature Toggles&amp;rdquo;. Feature toggles are very popular among software industry /teams that wants continuous development and release of software products. The teams want the ability to show/hide features on demand. I believe any team can create their own little feature toggles system using some of the popular tools available to them.</description>
+    </item>
+    
+    <item>
+      <title>Introducing Vertx and SpringBoot Java Templates for OpenFaas</title>
+      <link>/blog/posts/faas-template-for-java/</link>
+      <pubDate>Sun, 11 Feb 2018 13:19:22 -0700</pubDate>
+      
+      <guid>/blog/posts/faas-template-for-java/</guid>
+      <description>Introduction This post is more of an introductory post announcing release of SpringBoot and Vertx Java templates for OpenFaas. These templates allow you to develop your serverless function for the OpenFaas platform using SpringBoot or Vertx. In the Java ecosystem both SpringBoot and Vertx are very popular frameworks for developing microservices. With the release of these templates we are bringing the power of these frameworks into OpenFaas. You can find the templates in our github repository here.</description>
+    </item>
+    
+  </channel>
+</rss>

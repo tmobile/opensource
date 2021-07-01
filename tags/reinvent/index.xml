@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>re:Invent on T-Mobile Open Source</title>
+    <link>/tags/reinvent/</link>
+    <description>Recent content in re:Invent on T-Mobile Open Source</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 28 Nov 2017 10:00:00 -0700</lastBuildDate><atom:link href="/tags/reinvent/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>T-Mobile Technology Innovation on Display at AWS re:Invent</title>
+      <link>/blog/posts/tmobile-innovation-reinvent/</link>
+      <pubDate>Tue, 28 Nov 2017 10:00:00 -0700</pubDate>
+      
+      <guid>/blog/posts/tmobile-innovation-reinvent/</guid>
+      <description>For over four years, T-Mobile has been on a journey to transform the wireless industry. We call this our Un-carrier revolution. For as many years, we’ve also been on a journey with the public cloud. It has been a key enabler of innovation. As we’ve gained experience, our solutions have matured, and so has our understanding of our role in T-Mobile and the greater technology community.
+In those four years, we’ve had four generations of cloud architectures, and we don’t expect the pace of innovation to slow down anytime soon.</description>
+    </item>
+    
+    <item>
+      <title>Catch T-Mobile @ re:Invent!</title>
+      <link>/blog/posts/re-invent-blog/</link>
+      <pubDate>Mon, 27 Nov 2017 10:00:00 -0700</pubDate>
+      
+      <guid>/blog/posts/re-invent-blog/</guid>
+      <description>T-Mobile is transforming wireless, and the public cloud is a key enabler of that transformation. This week, technologists from around the world are gathering in Las Vegas for re:Invent, a conference for Amazon Web Services and the public cloud.
+As one of the largest tech events of the year, it&amp;rsquo;s a great venue for the Un-carrier to showcase the innovative development work we are doing. Here are the great stories being presented by T-Mobilers this week&amp;ndash;be sure to check out the webcasts!</description>
+    </item>
+    
+  </channel>
+</rss>

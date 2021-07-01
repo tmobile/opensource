@@ -1,0 +1,96 @@
+#pinkNav {
+    margin: 0;
+    width: 100vw;
+    padding: none;
+    height: 6vh;
+    background-color: #f21580;
+}
+
+.blog-head-wrap {
+    background-color: #f21580;  
+    color: white;
+}
+
+.secondHeader {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-size: 2.5rem; 
+    padding-left: 7%;
+    font-weight: bold;
+}
+
+.blogParagraph {
+    font-size: 1.2rem; 
+    padding-bottom: 20px;
+    padding-left: 7%;
+    background-color: #f21580;
+}
+
+.back-to-blogs {
+    color:#f21580;
+    font-weight: bold;
+    font-size: 1rem;
+    margin-bottom: 30px;
+}
+
+.author .blog-success-header-content {
+    font-family: 'Tele Grotesk Halb';
+    margin: 0px;
+    font-size: 1.25rem; 
+    padding-bottom: 1vh;
+    font-weight: bold;
+}
+
+@media (max-width: 767px) {
+    header .overlay-container .overlay-vertical-center .overlay-innerwrap {
+        border-radius: 3px;
+    }
+}
+.overlay-container .overlay-vertical-center .overlay-innerwrap {
+    width: 100%;
+    margin: 0;
+    background: #fff;
+    position: relative;
+    left: 0;
+    border-radius: 6px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+img[alt='pacbot-capabilities']{
+    width: 50%;
+}
+img[alt='pacbot-logo']{
+    width: 65%;
+}
+img[alt='pacbot-architecture'],img[alt='pacbot-compliance']{
+    width:75%;
+}
+img[src$='#center']
+{
+    display: block;
+    margin: auto; 
+}
+
+img[src$='#floatleft']
+{
+    float:left;
+    margin: 0.7rem; 
+}
+
+img[src$='#floatright']
+{
+    float:right;
+    margin: 0.7rem;
+}
+img[src$='#small']
+{
+    width: 25%;
+}
+img[src$='#medium']
+{
+    width: 50%;
+}
+img[src$='#large']
+{
+    width: 75%;
+}

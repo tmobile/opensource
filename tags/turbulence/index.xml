@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>turbulence on T-Mobile Open Source</title>
+    <link>/tags/turbulence/</link>
+    <description>Recent content in turbulence on T-Mobile Open Source</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 25 Mar 2019 10:00:00 -0700</lastBuildDate><atom:link href="/tags/turbulence/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Monarch: App-level Chaos Engineering</title>
+      <link>/blog/posts/monarch-app-level/</link>
+      <pubDate>Mon, 25 Mar 2019 10:00:00 -0700</pubDate>
+      
+      <guid>/blog/posts/monarch-app-level/</guid>
+      <description>Motivation As we have talked about in an earlier post, Chaos Engineering is a method by which the stability of complicated cloud infrastructures can be assessed and validated. The current Chaos Engineering tools do not support application-specific attacks, but rather vm-specific attacks. Now, this works if each application is on its own VM, but a lot of our applications are deployed in Cloud Foundry which moves apps without the developers even needing to know what VM their container is running on.</description>
+    </item>
+    
+    <item>
+      <title>The Start of Chaos Engineering at T-Mobile</title>
+      <link>/blog/posts/chaos-engineering/</link>
+      <pubDate>Thu, 13 Sep 2018 17:10:22 -0700</pubDate>
+      
+      <guid>/blog/posts/chaos-engineering/</guid>
+      <description>Overview At T-Mobile, we have been making a large push toward cloud infrastructures. Through this process, we have been taking large monoliths from the past and breaking them into a series of microservices. This allows us to easily scale parts of services which are overloaded with requests and to increase the redundancy of our systems by having backups ready to go in the event one of them crashes or the hosting hardware has issues.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>pacbot on T-Mobile Open Source</title>
+    <link>/tags/pacbot/</link>
+    <description>Recent content in pacbot on T-Mobile Open Source</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 05 Oct 2018 09:00:00 -0700</lastBuildDate><atom:link href="/tags/pacbot/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Introducing PacBot</title>
+      <link>/blog/posts/introducing-pacbot/</link>
+      <pubDate>Fri, 05 Oct 2018 09:00:00 -0700</pubDate>
+      
+      <guid>/blog/posts/introducing-pacbot/</guid>
+      <description>Gartner predicts that &amp;ldquo;through 2020, 95 percent of cloud security failures will be the customer&amp;rsquo;s fault.&amp;rdquo; The very nature of public cloud, the ease at which developers can create, modify and delete resources &amp;ndash;gives us the agility we love but also makes it easy to overlook security guidelines. The dynamic nature of the cloud further complicates matters, especially if you have a very large footprint.
+From a recent survey conducted by cybersecurity-insiders.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>opensource on T-Mobile Open Source</title>
+    <link>/tags/opensource/</link>
+    <description>Recent content in opensource on T-Mobile Open Source</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 03 Oct 2019 09:00:00 -0700</lastBuildDate><atom:link href="/tags/opensource/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>A Piece of Cake, Percy Cake</title>
+      <link>/blog/posts/percy-cake/</link>
+      <pubDate>Thu, 03 Oct 2019 09:00:00 -0700</pubDate>
+      
+      <guid>/blog/posts/percy-cake/</guid>
+      <description>Percy Percy is a configuration as code editor, it is not a configuration distribution system like Spring Cloud Configuration Server.
+Percy facilitates editing configuration files in a terse (de-hydrated) format that is intended to simplify maintenance of external configuration files of an app or service across multiple deployed environments. The Percy project includes a set of validation and hydration scripts that will expand the de-hydrated ( DRY) configuration files into a set of JSON files, one for every deployment environment.</description>
+    </item>
+    
+    <item>
+      <title>Open source tools leveraged in this site</title>
+      <link>/blog/posts/oss-site-tools/</link>
+      <pubDate>Thu, 05 Oct 2017 09:00:00 -0700</pubDate>
+      
+      <guid>/blog/posts/oss-site-tools/</guid>
+      <description>Overview In this post I wanted to walkthrough how the T-Mobile opensource site is setup and cover the tools and content publishing process we are leveraging. If you are looking to begin your journey towards opensource hopefully this information will be useful.
+Our Requirements When we first started talking with Steve and Tim about launching our opensource site to show case lot of the great work our teams are doing, both Steve and Tim wanted to make sure we leveraged opensource tools and not rely on any internal tools or processes.</description>
+    </item>
+    
+  </channel>
+</rss>

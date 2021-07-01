@@ -1,0 +1,1375 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <!-- HEAD -->
+<meta charset="utf-8">
+<meta name="author" content="T-Mobile">
+<meta name="description" content="Open source at the Un-carrier.">
+<meta name="generator" content="Hugo 0.84.4" />
+<title>T-Mobile Open Source</title>
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="/img/favicon-32x32.png" sizes="32x32" />
+<link rel="icon" type="image/png" href="/img/favicon-16x16.png" sizes="16x16" />
+
+
+<!-- Bootstrap Core CSS -->
+<link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.css" type="text/css" />
+
+<!-- Custom Fonts -->
+<link rel="stylesheet" href="/vendor/font-awesome/css/font-awesome.min.css" type="text/css" />
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css' />
+<link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css' />
+
+<!-- Custom CSS -->
+
+<link rel="stylesheet" href="/css/styles.css" type="text/css" />
+<link rel="stylesheet" href="/css/tmobile.css" type="text/css" />
+<link rel="stylesheet" href="/css/blog.css" type="text/css" />
+
+<!-- meta tags -->
+
+
+<meta property="og:title" content="Deploying VMWare Harbor on Azure Kubernetes Service aka AKS"/>
+
+
+
+<meta property="og:image" content="/blog/posts/deploying-harbor-on-aks/"/>
+
+
+<meta property="og:site_name" content="T-Mobile Open Source"/>
+
+
+<meta property="og:description" content="Read about T-Mobile technology development, release details and other insights from app teams."/>
+
+
+<!-- meta tag -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- canonical tags -->
+
+    </head>
+    <body>
+        <div class="blog-overlay-innerwrap blogs-wrap">
+            <div class="blog-request-submit-widget">
+                
+    <div class="blog-heading-overlay">
+        <div class='blog-head-wrap'>
+            <div class='blog-breadcrumb'>
+                <!-- NAVIGATION -->
+<nav id="mainNav" class="navbar navbar-default navbar-fixed-top affix">
+    <div class="mainNav-contents clearfix"> 
+        <a href="#"><img class="logoMain" src="/img/logo/logo.svg" /></a>
+        
+            <div class="nav-contents">
+                <a href="#about" class="animated-scroll">COMMUNITY</a>
+            </div>
+        
+            <div class="nav-contents">
+                <a href="#blog" class="animated-scroll">BLOG</a>
+            </div>
+        
+            <div class="nav-contents">
+                <a href="#videos" class="animated-scroll">VIDEOS</a>
+            </div>
+        
+            <div class="nav-contents">
+                <a href="#services" class="animated-scroll">PROJECTS</a>
+            </div>
+        
+        <div class="dots" id="dots-overlay" onclick="openPopup()">
+            <div class="dot-option"></div>
+            <div class="dot-option"></div>
+            <div class="dot-option"></div>
+        </div>
+    </div>
+</nav>
+
+            </div>
+        </div>
+    </div>
+    <div class="requestAccess overlay-container display-none" id="overlay-container-id">
+        <div class="overlay-state-con" onclick="closePopup()">
+            <div class="overlay-state">
+                <div class="overlay-state-wrp">
+                    <div class="overlay-vertical-center">
+                        <div class="overlay-innerwrap">
+                            
+                                <div class="overlay-text" onclick="closePopup()">
+                                   <a href="#about" class="animated-scroll">COMMUNITY</a>
+                                </div>
+                            
+                                <div class="overlay-text" onclick="closePopup()">
+                                   <a href="#blog" class="animated-scroll">BLOG</a>
+                                </div>
+                            
+                                <div class="overlay-text" onclick="closePopup()">
+                                   <a href="#videos" class="animated-scroll">VIDEOS</a>
+                                </div>
+                            
+                                <div class="overlay-text" onclick="closePopup()">
+                                   <a href="#services" class="animated-scroll">PROJECTS</a>
+                                </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="blog-event-container-angular">
+        <div class="blog-first-container">
+                
+                <a href="/blog/posts"><h4 class="back-to-blogs"><i class="fa fa-arrow-left" aria-hidden="true"></i>   Back To Blogs</h4></a>
+                <h2 class='blog-post-head' style="font-size: 2.5rem;">Deploying VMWare Harbor on Azure Kubernetes Service aka AKS</h2>
+                <h3 class="blog-success-header-content author">By: Prashant Gupta</h3>
+            <div class='blog-title-date bp-date'>
+                2018-05-30
+            </div>
+            <div class='blog-title-desc'>
+                <p>VMware <a href="https://github.com/vmware/harbor">Harbor</a> is an open source all in one enterprise-class container registry that extends open source docker distribution and adds many functionalities that are typically required in the enterprise such as:</p>
+<ul>
+<li>
+<p>container registry</p>
+</li>
+<li>
+<p>container image vulnerability scanning</p>
+</li>
+<li>
+<p>notary (Content trust and digital signing)</p>
+</li>
+</ul>
+<p>We recently went through an evaluation process of VMware Harbor and had to deploy it on our Azure Kubernetes cluster. Harbor project currently includes a <a href="https://github.com/vmware/harbor/tree/master/contrib/helm/harbor">helm chart</a> that can be used to deploy to a kubernetes cluster, unfortunately, with AKS we had to make some edits to the Helm chart as well as perform some additional steps.
+This article is meant to provide a walkthrough/guide to deploy VMWare Harbor on Azure Kubernetes Service (AKS).</p>
+<h2 id="pre-requisites">Pre-Requisites</h2>
+<ul>
+<li>
+<p>AKS cluster provisioned in your Azure Account</p>
+<p>Creating a Kubernetes cluster on Azure is pretty simple and can be quickly done by utilizing either <a href="https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough">Azure CLI</a> or from <a href="https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough-portal">Azure Portal</a>. There is a known issue with the Harbor helm chart, chart doesn&rsquo;t work with Kubernetes 1.8.9+ and 1.9.4+ versions. So if you are testing this out, be sure to use version 1.8.7. See more info on the issue <a href="https://github.com/vmware/harbor/issues/4496">here</a></p>
+</li>
+<li>
+<p>Helm installed and configured</p>
+<p>If this your first time using helm, you can learn more about Helm <a href="https://docs.helm.sh/">here</a> and install and configure helm using instructions available <a href="https://github.com/kubernetes/helm/blob/master/docs/install.md">here</a>, additionally be sure to initialize helm with default service account as shown below.</p>
+<pre><code class="language-#!/bin/bash" data-lang="#!/bin/bash">helm init --service-account default
+</code></pre></li>
+</ul>
+<h2 id="installing-vmware-harbor-on-azure-kubernetes-service">Installing VMWare Harbor on Azure Kubernetes Service</h2>
+<h2 id="10-create-ingress-controllers-for-harbor-and-notary">1.0. Create ingress controllers for Harbor and notary</h2>
+<p>We need to create two ingress controllers to allow users to access both Harbor and Notary services. Follow the instructions available in this <a href="https://docs.microsoft.com/en-us/azure/aks/ingress">tutorial</a> to create ingress controllers. We only need to follow steps listed below from that article.</p>
+<ul>
+<li>
+<p><a href="https://docs.microsoft.com/en-us/azure/aks/ingress#install-an-ingress-controller">install-an-ingress-controller</a></p>
+<p>Follow steps listed in this section to install an NGINX ingress controller. Please be sure to set the RBAC to false as shown below. Preview version of AKS doesn&rsquo;t support RBAC; this could potentially change in future.</p>
+<pre><code>helm install stable/nginx-ingress --namespace kube-system --set rbac.create=false --set rbac.createRole=false --set rbac.createClusterRole=false
+</code></pre></li>
+<li>
+<p><a href="https://docs.microsoft.com/en-us/azure/aks/ingress#configure-dns-name">Configure-dns-name</a></p>
+<p>Helm chart sets up FQDN for notary based on the harbor DNS, for ex. for this post we used &ldquo;tmobile-harbor-demo&rdquo; as harbor DNS, so your notary DNS will be &ldquo;notary-tmobile-harbor-demo&rdquo;. Keep this in mind when you configure the DNS for the nginx ingress for notary to also use the same format.</p>
+<p>You could always change this using kubectl edit ing command and update ingress routes if you made any mistake or you are getting certificate errors.</p>
+</li>
+<li>
+<p><a href="https://docs.microsoft.com/en-us/azure/aks/ingress#install-kube-leg">Install-kube-lego</a></p>
+</li>
+</ul>
+<p>At the end of this step, you would have created two ingress urls. In my case ingress hosts were:</p>
+<ul>
+<li>
+<p>tmobile-harbor-demo.eastus.cloudapp.azure.com</p>
+</li>
+<li>
+<p>notary-tmobile-harbor-demo.eastus.cloudapp.azure.com</p>
+</li>
+</ul>
+<h2 id="20-create-an-azure-storage-account">2.0. Create an Azure storage account</h2>
+<p>Harbor registry requires persistent blob storage to store all the docker images. Since we are deploying this on Azure we will need to use Azure Blob storage. Follow instructions below to create an Azure Storage Account in your subscription. One thing to keep in mind here is we need to ensure Azure storage account is created in &ldquo;EastUS&rdquo; region as AKS in the preview is currently only available in that region. We don&rsquo;t want our AKS cluster in EastUS and Storage Account used by VMware Harbor to store images be in a different region.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">AKS_STORAGE_ACCOUNT_NAME<span style="color:#f92672">=</span>&lt;Provide storage account name&gt;
+AKS_RESOURCE_GROUP<span style="color:#f92672">=</span>&lt;Provide the Kubenetes Resource group&gt;
+AKS_REGION<span style="color:#f92672">=</span>eastus 
+
+<span style="color:#75715e">#Create the storage account</span>
+az storage account create -n $AKS_STORAGE_ACCOUNT_NAME -g $AKS_RESOURCE_GROUP -l $AKS_REGION --sku Standard_LRS
+
+<span style="color:#75715e">#Export the connection string as an environment variable, this is used when creating </span>
+export AZURE_STORAGE_CONNECTION_STRING<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>az storage account show-connection-string -n $AKS_STORAGE_ACCOUNT_NAME -g $AKS_RESOURCE_GROUP -o tsv<span style="color:#e6db74">`</span>
+
+<span style="color:#75715e">#Get storage account key</span>
+STORAGE_KEY<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>az storage account keys list --resource-group $AKS_RESOURCE_GROUP --account-name $AKS_STORAGE_ACCOUNT_NAME --query <span style="color:#e6db74">&#34;[0].value&#34;</span> -o tsv<span style="color:#66d9ef">)</span>
+<span style="color:#75715e">#Echo storage account name and key</span>
+echo Storage account name: $AKS_STORAGE_ACCOUNT_NAME
+echo Storage account key: $STORAGE_KEY
+</code></pre></div><p>Note down the account name and key; you will need it in the steps below.</p>
+<h2 id="30-deploying-harbor-using-helm-chart">3.0. Deploying Harbor using Helm chart</h2>
+<h3 id="31-download-helm-chart-from-harbor-github-repository">3.1. Download Helm chart from Harbor GitHub repository</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git clone https://github.com/vmware/harbor
+cd harbor/contrib/helm/harbor
+</code></pre></div><h3 id="32-download-chart-dependencies">3.2. Download Chart dependencies</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">helm dependency update
+</code></pre></div><h3 id="33-update-helm-chart-for-harbor">3.3. Update Helm chart for Harbor</h3>
+<p>We need to make some changes to values.yaml.</p>
+<h4 id="331-updates-to-valuesyaml">3.3.1 Updates to values.yaml</h4>
+<ul>
+<li>
+<p>Turn off certificate auto generation by Helm</p>
+<p>Since we are using kube-lego for automatically getting a TLS certificate from letsencrypt, we will need to turn off auto-generation of the certificate by Helm when deploying the chart.</p>
+</li>
+<li>
+<p>Update external domain</p>
+<p>Ensure external domain option is updated to reflect the ingress URL for harbor that we created in the previous step.</p>
+</li>
+<li>
+<p>Add annotations</p>
+<p>We need to add some k8s specific annotations to use TLS and NGINX as ingress controller.</p>
+</li>
+<li>
+<p>Add Azure storage account information</p>
+<p>Add Azure storage account information from the earlier step.</p>
+</li>
+</ul>
+<p>Once the above changes are complete, your values.yaml should look like below.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"> <span style="color:#f92672">externalDomain</span>: <span style="color:#ae81ff">tmobile-Harbor-demo.eastus.cloudapp.azure.com</span>
+ <span style="color:#f92672">generateCertificates</span>: <span style="color:#66d9ef">false</span>
+ <span style="color:#f92672">ingress</span>:
+ <span style="color:#f92672">annotations</span>:
+    <span style="color:#f92672">kubernetes.io/tls-acme</span>: <span style="color:#e6db74">&#34;true&#34;</span>
+    <span style="color:#f92672">kubernetes.io/ingress.class</span>: <span style="color:#ae81ff">nginx</span>
+    <span style="color:#f92672">ingress.kubernetes.io/ssl-redirect</span>: <span style="color:#e6db74">&#34;true&#34;</span>
+    <span style="color:#f92672">ingress.kubernetes.io/proxy-body-size</span>: <span style="color:#e6db74">&#34;0&#34;</span>
+    <span style="color:#f92672">nginx.ingress.kubernetes.io/proxy-body-size</span>: <span style="color:#e6db74">&#34;0&#34;</span>
+  <span style="color:#f92672">objectStorage</span>:
+    <span style="color:#f92672">gcs</span>:
+      <span style="color:#f92672">keyfile</span>: <span style="color:#e6db74">&#34;&#34;</span>
+      <span style="color:#f92672">bucket</span>: <span style="color:#e6db74">&#34;&#34;</span>
+      <span style="color:#f92672">chunksize</span>: <span style="color:#e6db74">&#34;5242880&#34;</span>
+    <span style="color:#f92672">s3</span>:
+      <span style="color:#f92672">region</span>: <span style="color:#e6db74">&#34;&#34;</span>
+      <span style="color:#f92672">accesskey</span>: <span style="color:#e6db74">&#34;&#34;</span>
+      <span style="color:#f92672">secretkey</span>: <span style="color:#e6db74">&#34;&#34;</span>
+      <span style="color:#f92672">bucket</span>: <span style="color:#e6db74">&#34;&#34;</span>
+      <span style="color:#f92672">encrypt</span>: <span style="color:#e6db74">&#34;true&#34;</span>
+    <span style="color:#f92672">azure</span>:
+      <span style="color:#f92672">accountname</span>: <span style="color:#e6db74">&#34;Storage account name (from above)&#34;</span>
+      <span style="color:#f92672">accountkey</span>: <span style="color:#e6db74">&#34;Storage account key (from above)&#34;</span>
+      <span style="color:#f92672">container</span>: <span style="color:#e6db74">&#34;images&#34;</span>
+</code></pre></div><h3 id="34-deploy-to-aks">3.4. Deploy to AKS</h3>
+<p>We can now deploy harbor to AKS using the Helm install command as shown below.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+helm install . --debug --name my-release --set externalDomain<span style="color:#f92672">=</span>tmobile-harbor-demo.eastus.cloudapp.azure.com
+
+</code></pre></div><p>At this point you should go get that coffee as it will take a little bit for Harbor deployment to be completely ready.</p>
+<h2 id="40-verify-the-deployment">4.0. Verify the deployment</h2>
+<p>Verify all pods are in running state as well as ingresses. You can perform this using azure CLI or kubectl.</p>
+<p>Using Azure CLI</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">az aks browse --resource-group &lt;YOUR RESOURCE GROUP&gt; --name &lt;KUBERNETES SERVICE NAME&gt;
+</code></pre></div><p>Using kubectl</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl get pods
+kubectl get ing
+</code></pre></div><h3 id="41-verify-we-can-access-the-harbor-web-ui">4.1. Verify we can access the Harbor web UI</h3>
+<h4 id="411-getting-harbor-admin-password">4.1.1 Getting Harbor admin password</h4>
+<p>To login to Harbor web UI requires a user name and password. Run the kubectl command below to retrieve Harbor admin user password.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl get secret --namespace default harbor-on-aks-harbor-adminserver -o jsonpath<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{.data.HARBOR_ADMIN_PASSWORD}&#34;</span> | base64 --decode; echo
+</code></pre></div><ul>
+<li>
+<p>Launch browser and navigate to <a href="https://tmobile-harbor-demo.eastus.cloudapp.azure.com">https://tmobile-harbor-demo.eastus.cloudapp.azure.com</a></p>
+</li>
+<li>
+<p>Login with admin credentials.</p>
+<p>Change the default admin password immediately as it is available on public domain.</p>
+</li>
+</ul>
+<h3 id="42-configure-docker">4.2. Configure docker</h3>
+<h4 id="421-add-the-harbor-ca-certificate-to-docker">4.2.1. Add the Harbor CA certificate to Docker</h4>
+<p>Make directory under &ldquo;/etc/docker/certs.d/&rdquo; and name it same as the FQDN you used for Harbor. For this POC since we used tmobile-harbor-demo for DNS, full FQDN is going to be &ldquo;tmobile-harbor-demo.eastus.cloudapp.azure.com&rdquo;. Execute kubectl command below to download the CA cert which is stored as secret.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl get secret <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    --namespace default harbor-on-aks-harbor-ingress <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    -o jsonpath<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;{.data.ca\.crt}&#34;</span> | base64 --decode | <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    sudo tee /etc/docker/certs.d/tmobile-harbor-demo.eastus.cloudapp.azure.com/ca.crt
+</code></pre></div><h4 id="422-login-to-harbor-registry-using-docker-cli">4.2.2. Login to Harbor registry using Docker CLI</h4>
+<p>Before we can push/pull images from registry, we need to login to the Harbor registry. Run command below to login to Harbor registry from Docker CLI. When prompted enter Harbor admin user credentials.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker login tmobile-harbor-demo.eastus.cloudapp.azure.com
+
+</code></pre></div><h4 id="423-pushing-a-docker-image-to-harbor-registry">4.2.3. Pushing a Docker image to Harbor registry</h4>
+<p>Run commands below to quickly test pushing. For this post I created a sample project called &ldquo;fromhub&rdquo; using Harbor web UI.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">
+<span style="color:#75715e">#pull default hello world image from docker hub</span>
+docker pull hello-world
+
+<span style="color:#75715e">#tag image</span>
+docker tag hello-world:latest tmobile-harbor-demo.eastus.cloudapp.azure.com/fromhub/hello-world:latest
+
+<span style="color:#75715e">#push image to Harbor registry</span>
+docker push tmobile-harbor-demo.eastus.cloudapp.azure.com/fromhub/hello-world:latest
+
+</code></pre></div><p>If all is well, the image should be successfully pushed and you should be able to login back into Harbor web UI and see it there.</p>
+<h4 id="423-enabling-content-trust-and-image-signing">4.2.3. Enabling content trust and image signing</h4>
+<p>Set environment variables to enable content trust and image signing as shown below.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">export DOCKER_CONTENT_TRUST<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+export DOCKER_CONTENT_TRUST_SERVER<span style="color:#f92672">=</span>https://&lt;YOUR NOTARYDNS&gt;.eastus.cloudapp.azure.com
+</code></pre></div><p>If you are new to Harbor please check out <a href="https://github.com/vmware/harbor">Harbor project</a> on Github</p>
+<h2 id="50-resources">5.0. Resources</h2>
+<p>The following list of resources was immensely helpful, a huge shout out to everyone who contributed content to these articles.</p>
+<ul>
+<li>
+<p><a href="https://github.com/vmware/harbor">https://github.com/vmware/harbor</a></p>
+</li>
+<li>
+<p><a href="https://github.com/vmware/harbor/tree/master/contrib/helm/harbor">https://github.com/vmware/harbor/tree/master/contrib/helm/harbor</a></p>
+</li>
+<li>
+<p><a href="https://docs.microsoft.com/en-us/azure/aks/ingress#install-an-ingress-controller">https://docs.microsoft.com/en-us/azure/aks/ingress#install-an-ingress-controller</a></p>
+</li>
+</ul>
+<h2 id="60-final-thoughts">6.0. Final thoughts</h2>
+<p>Huge thanks to <a href="http://twitter.com/rprakashg">Ram Gopinathan</a> for pointing me to look at Harbor project and reviewing this article and providing many comments and updates. This was a truly fun effort, and Harbor project is something that everyone should seriously have a look at if you are leveraging docker and containers in your organization.</p>
+
+            </div>
+            <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "tmo-oss" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+        <!-- BLOG SIDEBAR -->
+<div class="blog-second-container">
+    <div class="blog-web-content">
+        <div class="blog-topic"><h4><i class="fi-megaphone"></i> <div class="blog-topic-share">Recent Posts</div></h4></div>
+        
+		<div class="blog-year"><a href="/blog/"></a></div>
+		
+		<div class="blog-year"><a href="/blog/posts/"></a></div>
+		
+		<div class="blog-year"><a href="/blog/posts/diwan-smoke-test-suite/">Monitoring Cloud Foundry at Scale with cf-smoke-tests suite</a></div>
+		
+		<div class="blog-year"><a href="/blog/posts/hanson-ml-retraining/">The [Machine] Learning is Never Done</a></div>
+		
+		<div class="blog-year"><a href="/blog/posts/rolling-out-the-magenta-tape/">Rolling Out the Magenta Tape: Policy-as-Code for Kubernetes</a></div>
+		
+		<div class="blog-year"><a href="/blog/posts/introducing-qapi/">Introducing qAPI: Translating database queries into API calls</a></div>
+		
+		<div class="blog-year"><a href="/blog/posts/percy-cake/">A Piece of Cake, Percy Cake</a></div>
+		
+		<div class="blog-year"><a href="/blog/posts/a-lean-mean-pipeline-machine/">A Lean Mean Pipeline Machine</a></div>
+		
+		<div class="blog-year"><a href="/blog/posts/loadtest/">loadtest: an R Package for Load Testing</a></div>
+		
+		<div class="blog-year"><a href="/blog/posts/introducing-kardio/">Introducing Kardio</a></div>
+		
+    </div>
+
+    
+        <div class="blog-web-content">
+            <div class="blog-topic"><h4><i class="fi-folder"></i> <div class="blog-topic-share">Categories</div></h4></div>            
+            
+                
+                
+                <div class="blog-topic-content"><a href="/categories/resources">Resources</a></div>
+            
+                
+                
+                <div class="blog-topic-content"><a href="/categories/opensource">Opensource</a></div>
+            
+                
+                
+                <div class="blog-topic-content"><a href="/categories/community">Community</a></div>
+            
+                
+                
+                <div class="blog-topic-content"><a href="/categories/aks">Aks</a></div>
+            
+                
+                
+                <div class="blog-topic-content"><a href="/categories/apigee">Apigee</a></div>
+            
+        </div>
+    
+
+    
+        <div class="blog-web-content-script">
+            <div class="blog-topic"><h4><i class="fi-pricetag-multiple"></i> <div class="blog-topic-share">Tags</div></h4></div>
+
+            
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/t-mobile" title="t-mobile">
+                        t-mobile (23)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/oss" title="oss">
+                        oss (15)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/serverless" title="serverless">
+                        serverless (5)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/innovation" title="innovation">
+                        innovation (4)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/tools" title="tools">
+                        tools (4)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/ai" title="ai">
+                        ai (3)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/blockchain" title="blockchain">
+                        blockchain (3)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/data-science" title="data-science">
+                        data-science (3)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/java" title="java">
+                        java (3)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/kubernetes" title="kubernetes">
+                        kubernetes (3)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/open-source" title="open-source">
+                        open-source (3)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/r" title="r">
+                        r (3)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/api" title="api">
+                        api (2)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/automation" title="automation">
+                        automation (2)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/aws" title="aws">
+                        aws (2)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/aws-lambda" title="aws-lambda">
+                        aws-lambda (2)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/chaos-engineering" title="chaos-engineering">
+                        chaos-engineering (2)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/cicd" title="cicd">
+                        cicd (2)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/cloud-foundry" title="cloud-foundry">
+                        cloud-foundry (2)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/elasticsearch" title="elasticsearch">
+                        elasticsearch (2)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/faas" title="faas">
+                        faas (2)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/jazz" title="jazz">
+                        jazz (2)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/k8s" title="k8s">
+                        k8s (2)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/machine-learning" title="machine-learning">
+                        machine-learning (2)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/opensource" title="opensource">
+                        opensource (2)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/publishing" title="publishing">
+                        publishing (2)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/reinvent" title="reinvent">
+                        reinvent (2)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/springboot" title="springboot">
+                        springboot (2)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/testing" title="testing">
+                        testing (2)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/turbulence" title="turbulence">
+                        turbulence (2)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/aks" title="aks">
+                        aks (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/angularjs" title="angularjs">
+                        angularjs (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/api-development" title="api-development">
+                        api-development (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/apigee" title="apigee">
+                        apigee (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/application-load-balancer" title="application-load-balancer">
+                        application-load-balancer (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/artificial-intelligence" title="artificial-intelligence">
+                        artificial-intelligence (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/aws-api-gateway" title="aws-api-gateway">
+                        aws-api-gateway (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/awsreinvent" title="awsreinvent">
+                        awsreinvent (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/azure" title="azure">
+                        azure (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/builder" title="builder">
+                        builder (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/casquatch" title="casquatch">
+                        casquatch (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/cf" title="cf">
+                        cf (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/cf-app-blocker" title="cf-app-blocker">
+                        cf-app-blocker (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/chaos-monkey" title="chaos-monkey">
+                        chaos-monkey (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/chaos-tool-kit" title="chaos-tool-kit">
+                        chaos-tool-kit (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/concourse" title="concourse">
+                        concourse (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/conducktor" title="conducktor">
+                        conducktor (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/conducktor-go" title="conducktor-go">
+                        conducktor-go (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/configuration" title="configuration">
+                        configuration (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/continuous" title="continuous">
+                        continuous (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/database" title="database">
+                        database (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/design-patterns" title="design-patterns">
+                        design-patterns (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/devops" title="devops">
+                        devops (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/entitlement" title="entitlement">
+                        entitlement (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/es6-classes" title="es6-classes">
+                        es6-classes (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/factory" title="factory">
+                        factory (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/framework" title="framework">
+                        framework (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/golang" title="golang">
+                        golang (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/harbor" title="harbor">
+                        harbor (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/hashicorp" title="hashicorp">
+                        hashicorp (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/hashicorp-vault" title="hashicorp-vault">
+                        hashicorp-vault (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/health" title="health">
+                        health (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/influxdb" title="influxdb">
+                        influxdb (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/javascript" title="javascript">
+                        javascript (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/javascript-objects" title="javascript-objects">
+                        javascript-objects (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/js" title="js">
+                        js (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/jwt" title="jwt">
+                        jwt (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/kardio" title="kardio">
+                        kardio (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/magtape" title="magtape">
+                        magtape (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/microservices" title="microservices">
+                        microservices (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/microsoft" title="microsoft">
+                        microsoft (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/ml" title="ml">
+                        ml (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/model" title="model">
+                        model (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/monitoring" title="monitoring">
+                        monitoring (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/opa" title="opa">
+                        opa (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/openfaas" title="openfaas">
+                        openfaas (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/operations" title="operations">
+                        operations (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/pacbot" title="pacbot">
+                        pacbot (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/pcf" title="pcf">
+                        pcf (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/pcf-app-blocker" title="pcf-app-blocker">
+                        pcf-app-blocker (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/pipeline" title="pipeline">
+                        pipeline (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/pivotal" title="pivotal">
+                        pivotal (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/pivotal-cloud-foundry" title="pivotal-cloud-foundry">
+                        pivotal-cloud-foundry (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/platform" title="platform">
+                        platform (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/poet" title="poet">
+                        poet (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/policy" title="policy">
+                        policy (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/python" title="python">
+                        python (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/raspberry-pi" title="raspberry-pi">
+                        raspberry-pi (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/restful" title="restful">
+                        restful (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/retraining" title="retraining">
+                        retraining (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/s1p" title="s1p">
+                        s1p (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/s3" title="s3">
+                        s3 (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/saas" title="saas">
+                        saas (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/scale" title="scale">
+                        scale (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/secret-management" title="secret-management">
+                        secret-management (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/smoke" title="smoke">
+                        smoke (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/software-architecture" title="software-architecture">
+                        software-architecture (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/splunk" title="splunk">
+                        splunk (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/springone" title="springone">
+                        springone (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/telemetry" title="telemetry">
+                        telemetry (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/test" title="test">
+                        test (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/tests" title="tests">
+                        tests (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/training" title="training">
+                        training (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/typescript" title="typescript">
+                        typescript (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/vault" title="vault">
+                        vault (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/vertx" title="vertx">
+                        vertx (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/vmware" title="vmware">
+                        vmware (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/workflow" title="workflow">
+                        workflow (1)
+                    </a>
+                </div>
+		    
+        </div>
+    
+
+    <div class="blog-web-content">
+        <div class="blog-topic-share">Share</div>
+        <img class="blog-share-img" src="/img/fb.png">
+        <img class="blog-share-img" src="/img/tw.png">
+        <img class="blog-share-img" src="/img/ins.png">
+    </div>
+</div>
+
+    </div>
+
+            </div>
+        </div>
+        <!-- FOOTER -->
+<footer style="padding: 2vh 0vh;">
+    <div class="container grid"  style="width: 100%;">
+        <div class="footer-content clearfix">
+            <div class="left-contents">
+                <img class="logoMain" src="/img/logo/logo.svg" />
+                
+                  <div class="left-contents">
+                    <a class="footer-links" href="https://www.t-mobile.com/company/website/privacypolicy.aspx" target="_blank">PRIVACY</a>
+                  </div>
+                
+            </div>
+            <div class="content-right">
+			          
+                  <a class="footer-links" href="https://tmo-oss-getinvite.herokuapp.com/" target="_blank"><i class="fa fa-slack"></i></a>
+                
+                  <a class="footer-links" href="https://www.youtube.com/playlist?list=PL0mz2nejZ-DgH0XsbYDrKPbeMiEJYWqUg" target="_blank"><i class="fa fa-youtube"></i></a>
+                
+            </div>
+        </div>
+        <div class="mobile_version_content" style="width: 100%;">
+            
+                <div class="mobile_version margin">
+                    <a class="footer-links" href="https://tmo-oss-getinvite.herokuapp.com/" target="_blank"><i style="min-width: 34px;" class="fa fa-slack"></i></a>
+                </div>
+            
+                <div class="mobile_version margin">
+                    <a class="footer-links" href="https://www.youtube.com/playlist?list=PL0mz2nejZ-DgH0XsbYDrKPbeMiEJYWqUg" target="_blank"><i style="min-width: 34px;" class="fa fa-youtube"></i></a>
+                </div>
+            
+        </div>
+        <div class="footer_mobile">
+            
+                <div class="footer_mobile_contents_privacy" onclick="navigateTo('https:\/\/www.t-mobile.com\/company\/website\/privacypolicy.aspx');">
+                    PRIVACY
+                </div>
+            
+        </div>
+        <div class="mobile_logo" style="text-align: center;">
+            <img src="/img/logo/logo.svg" />
+        </div>
+        <div class="footer-text">
+            
+                Copyright 2020. All Rights Reserved.
+            
+        </div>
+    </div>
+</footer>
+
+        <!-- jQuery 3.2.1 -->
+<script src="/js/jquery.min.js" type="text/javascript"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/vendor/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+
+<!-- Plugin JavaScript -->
+<script src="/js/jquery.easing.min.js" type="text/javascript"></script>
+<script src="/js/scrolling.js" type="text/javascript"></script>
+
+<!-- PowerOwls -->
+<script src="/vendor/owlcarousel/owl.carousel.js" type="text/javascript"></script>
+<script src="/js/carousel.js" type="text/javascript"></script>
+
+<!-- MOMENT JS-->
+<script src="/js/moment.min.js" type="text/javascript"></script>
+
+<!-- Google APIS-->
+<script src="https://apis.google.com/js/api.js" type="text/javascript"></script>
+
+<!-- Custom Scripts -->
+<script src="/js/github.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+<script src="/js/init-carousel.js" type="text/javascript"></script>
+<script src="/js/oninit.js" type="text/javascript"></script>
+
+
+        
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-20393691-8', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+    </body>
+</html>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>poet on T-Mobile Open Source</title>
+    <link>/tags/poet/</link>
+    <description>Recent content in poet on T-Mobile Open Source</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 20 Sep 2019 10:00:00 -0700</lastBuildDate><atom:link href="/tags/poet/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>A Lean Mean Pipeline Machine</title>
+      <link>/blog/posts/a-lean-mean-pipeline-machine/</link>
+      <pubDate>Fri, 20 Sep 2019 10:00:00 -0700</pubDate>
+      
+      <guid>/blog/posts/a-lean-mean-pipeline-machine/</guid>
+      <description>Keeping in mind the dynamic DevOps culture in our company and others, we set out to streamline our development pipelines using a modern container-based approach. Our goal was to empower developers to have the flexibility and ease of adapting the pipeline to their development methodologies while providing more time for development and testing rather than spending time on creating and maintaining CI/CD pipelines.
+Developers can easily on-board their solutions without spending too much time learning about the underlying technology that drives the pipeline.</description>
+    </item>
+    
+  </channel>
+</rss>

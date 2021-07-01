@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Golang on T-Mobile Open Source</title>
+    <link>/categories/golang/</link>
+    <description>Recent content in Golang on T-Mobile Open Source</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 24 May 2018 21:00:00 -0700</lastBuildDate><atom:link href="/categories/golang/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Dude where&#39;s my store? using geo distance search queries with Elasticsearch to provide store locator experience</title>
+      <link>/blog/posts/geo-distance-search-queries-with-elasticsearch/</link>
+      <pubDate>Thu, 24 May 2018 21:00:00 -0700</pubDate>
+      
+      <guid>/blog/posts/geo-distance-search-queries-with-elasticsearch/</guid>
+      <description>In this post, I will walk through how we use geo distance search queries with Elasticsearch to provide &amp;ldquo;find a store&amp;rdquo; experience within our mobile application. Currently, the microservice that powers this experience in our mobile app is developed using Vert.x which is a Java based framework that is quite commonly used for developing microservices. We recently ported this service to a serverless application and decided to develop in golang.</description>
+    </item>
+    
+  </channel>
+</rss>

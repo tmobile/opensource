@@ -1,0 +1,1367 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <!-- HEAD -->
+<meta charset="utf-8">
+<meta name="author" content="T-Mobile">
+<meta name="description" content="Open source at the Un-carrier.">
+<meta name="generator" content="Hugo 0.84.4" />
+<title>T-Mobile Open Source</title>
+<!-- Favicon -->
+<link rel="icon" type="image/png" href="/img/favicon-32x32.png" sizes="32x32" />
+<link rel="icon" type="image/png" href="/img/favicon-16x16.png" sizes="16x16" />
+
+
+<!-- Bootstrap Core CSS -->
+<link rel="stylesheet" href="/vendor/bootstrap/css/bootstrap.min.css" type="text/css" />
+
+<!-- Custom Fonts -->
+<link rel="stylesheet" href="/vendor/font-awesome/css/font-awesome.min.css" type="text/css" />
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css' />
+<link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css' />
+
+<!-- Custom CSS -->
+
+<link rel="stylesheet" href="/css/styles.css" type="text/css" />
+<link rel="stylesheet" href="/css/tmobile.css" type="text/css" />
+<link rel="stylesheet" href="/css/blog.css" type="text/css" />
+
+<!-- meta tags -->
+
+
+<meta property="og:title" content="Rolling Out the Magenta Tape: Policy-as-Code for Kubernetes"/>
+
+
+
+<meta property="og:image" content="/blog/posts/rolling-out-the-magenta-tape/"/>
+
+
+<meta property="og:site_name" content="T-Mobile Open Source"/>
+
+
+<meta property="og:description" content="Read about T-Mobile technology development, release details and other insights from app teams."/>
+
+
+<!-- meta tag -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- canonical tags -->
+
+    </head>
+    <body>
+        <div class="blog-overlay-innerwrap blogs-wrap">
+            <div class="blog-request-submit-widget">
+                
+    <div class="blog-heading-overlay">
+        <div class='blog-head-wrap'>
+            <div class='blog-breadcrumb'>
+                <!-- NAVIGATION -->
+<nav id="mainNav" class="navbar navbar-default navbar-fixed-top affix">
+    <div class="mainNav-contents clearfix"> 
+        <a href="#"><img class="logoMain" src="/img/logo/logo.svg" /></a>
+        
+            <div class="nav-contents">
+                <a href="#about" class="animated-scroll">COMMUNITY</a>
+            </div>
+        
+            <div class="nav-contents">
+                <a href="#blog" class="animated-scroll">BLOG</a>
+            </div>
+        
+            <div class="nav-contents">
+                <a href="#videos" class="animated-scroll">VIDEOS</a>
+            </div>
+        
+            <div class="nav-contents">
+                <a href="#services" class="animated-scroll">PROJECTS</a>
+            </div>
+        
+        <div class="dots" id="dots-overlay" onclick="openPopup()">
+            <div class="dot-option"></div>
+            <div class="dot-option"></div>
+            <div class="dot-option"></div>
+        </div>
+    </div>
+</nav>
+
+            </div>
+        </div>
+    </div>
+    <div class="requestAccess overlay-container display-none" id="overlay-container-id">
+        <div class="overlay-state-con" onclick="closePopup()">
+            <div class="overlay-state">
+                <div class="overlay-state-wrp">
+                    <div class="overlay-vertical-center">
+                        <div class="overlay-innerwrap">
+                            
+                                <div class="overlay-text" onclick="closePopup()">
+                                   <a href="#about" class="animated-scroll">COMMUNITY</a>
+                                </div>
+                            
+                                <div class="overlay-text" onclick="closePopup()">
+                                   <a href="#blog" class="animated-scroll">BLOG</a>
+                                </div>
+                            
+                                <div class="overlay-text" onclick="closePopup()">
+                                   <a href="#videos" class="animated-scroll">VIDEOS</a>
+                                </div>
+                            
+                                <div class="overlay-text" onclick="closePopup()">
+                                   <a href="#services" class="animated-scroll">PROJECTS</a>
+                                </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="blog-event-container-angular">
+        <div class="blog-first-container">
+                
+                <a href="/blog/posts"><h4 class="back-to-blogs"><i class="fa fa-arrow-left" aria-hidden="true"></i>   Back To Blogs</h4></a>
+                <h2 class='blog-post-head' style="font-size: 2.5rem;">Rolling Out the Magenta Tape: Policy-as-Code for Kubernetes</h2>
+                <h3 class="blog-success-header-content author">By: Joe Searcy &amp; Torin Sandall</h3>
+            <div class='blog-title-date bp-date'>
+                2020-05-01
+            </div>
+            <div class='blog-title-desc'>
+                <p>Hi all, I&rsquo;m Joe Searcy, Member of Technical Staff on the Platform Engineering team here at T-Mobile and I&rsquo;m joined by Torin Sandall, Software Engineer at <a href="https://www.styra.com">Styra</a> and Co-founder/Core Contributor for the <a href="https://www.openpolicyagent.org">Open Policy Agent</a> (OPA) project, to help tell the story behind one of T-Mobile&rsquo;s latest open source projects, <code>MagTape</code>.</p>
+<p><img src="/blog/magtape/magtape-logo-2.png" alt="magtape-logo"></p>
+<h2 id="history--motivation">History &amp; Motivation</h2>
+<p>Here at T-Mobile we&rsquo;re ALL-IN on containers and container platforms like Kubernetes. We, like most companies building Kubernetes environments, came to a quick realization that empowering your developers with platforms like Kubernetes can exponentially increase the volume and velocity of applications and releases. That&rsquo;s usually the goal, but you rarely get to scale your operations teams to keep up with the exponential growth in platform consumers. We have dozens of Kubernetes clusters, thousands of developers, and hundreds of applications that run everything from coverage maps, to iPhone launches, to point of sale in our retail stores. When we first started onboarding developers to our Kubernetes platform almost 3 years ago we took a very hands-on approach to developer relations. We sat down with each team and talked through their current application architecture and how it could be adapted to run on Kubernetes. We even got our hands dirty and helped with code changes to ensure they would be successful on this new crazy container platform. We also wrote some YAML&hellip;lots and lots of YAML! While we built a great relationship with these teams it was obvious this wouldn&rsquo;t scale as we moved from dozens of teams to hundreds. It didn&rsquo;t take long for us to reach critical mass as Kubernetes has proven to be a huge success and our developers love it! We scaled up our consumer base, we shortened, and in some cases did away with those pesky meetings to talk about application onboarding, and we had multiple applications running in production successfully. It was great&hellip;until it wasn&rsquo;t.</p>
+<blockquote>
+<p>We had our first application outage on our Kubernetes platform</p>
+</blockquote>
+<h2 id="the-problem">The Problem</h2>
+<p>Luckily we have great engineers and developers who jumped in and we easily identified the problem. Our lifecycle management tooling we used to upgrade our clusters worked a little too efficiently! We did an upgrade on a Kubernetes cluster, in a rolling fashion, and it finished successfully. What we didn&rsquo;t plan for was our development teams not having <a href="https://kubernetes.io/docs/tasks/run-application/configure-pdb/">PodDisruptionBudgets</a> deployed for their applications. Our platform upgrade ran through all nodes, finished promptly, and at the same time took down every pod for a very high profile application before new pods had the ability to come up and take traffic. Totally the Developer&rsquo;s fault right?! Wrong! Some of the things we covered in those hands-on meetings we had in the beginning of our Kubernetes platform launch included links to our best practice guides and talking through what those best practices were. When we couldn&rsquo;t keep up with those meetings anymore, we just posted a link to the docs and called it a day. Our job as a platform team is to know the edges of the platform and evangelize the best practices, or &ldquo;guard rails&rdquo; as we like to call them, to the consumers of the platform. Lesson learned!</p>
+<p>The problem here wasn&rsquo;t that we didn&rsquo;t identify the edges&hellip;those were documented.</p>
+<blockquote>
+<p>The problem was our validation of developer workloads could NOT scale beyond people.</p>
+</blockquote>
+<p>Coming up with a solution for this became an obsession of mine. We needed some type of policy enforcement to validate best practices and secure configurations, but it had to be different than any traditional type of policy enforcement. No red tape! No ticket queues, no manual processes, no subjective reviews or policies being determined by teams that have zero knowledge of the platform. Luckily Kubernetes provides a great mechanism to help solve this problem. Enter Kubernetes <a href="https://kubernetes.io/docs/reference/access-authn-authz/extensible-admission-controllers/">Dynamic Admission Control</a>. Essentially, Dynamic Admission Control provides a standard interface to intercept requests to the Kubernetes API Server and apply custom logic to either validate (allow or deny) or mutate (insert, delete, or replace) request content before it hits the Kubernetes API Server and is persisted.</p>
+<p><img src="/blog/magtape/kubernetes-admission-workflow.png" alt="kubernetes-admission-workflow"></p>
+<h2 id="the-solution">The Solution</h2>
+<p>In typical Un-carrier fashion, we sprinkled some Magenta on the problem and came up with a plan to turn the negative ideas around traditional &ldquo;Red Tape&rdquo; into something better. &ldquo;Magenta Tape&rdquo; or&hellip;<code>MagTape</code></p>
+<p>Since the Validating Admission Control interface could cover all requests to the Kubernetes API regardless of origin (ie. kubectl, helm, client-go, etc.), it was the perfect mechanism to build a solution around. I knew there would need to be features beyond just <code>allow</code> or <code>deny</code> for the tool to be successful at a large Enterprise like T-Mobile.</p>
+<ul>
+<li>Variable Enforcement - We needed a way to ease users into the idea of policy enforcement. We had to make sure we didn&rsquo;t ruin developer UX and introduce a stigma that the platform was hard to use, but also increase enforcement over time as the platform and its users matured.</li>
+<li>Notifications - The tool had to produce clear and precise notifications, needed to be immediate, and needed to be interactive if possible.</li>
+<li>Self-Service - We needed a way to define what each policy was checking, what produced a failure, and how it could be resolved by end-users with no dependency on human-to-human interaction.</li>
+<li>Observability - We needed a way to track which policies were proving to be difficult across all teams, as well as which policies seemed to be giving specific teams problems. This would help us focus training and education materials for our consumer base.</li>
+</ul>
+<p>At the time I didn&rsquo;t come across any other tools that solved for all of these problems, so I decided to roll up my sleeves and build one from scratch!</p>
+<p><img src="/blog/magtape/magtape-workflow.png" alt="magtape-workflow"></p>
+<hr>
+<h2 id="magtape-10">MagTape 1.0</h2>
+<h3 id="the-good">The Good</h3>
+<p>I decided to sit down one night and see how far I could get to gauge complexity and get an idea of how long it might take to build something we felt confident deploying throughout our environments. It was fairly easy to cobble together something passable and I demoed it to my team the next day to great reception. I began to extend the tool to cover more scenarios and eventually made it modular with a formal policy format and a proper decision engine. I built in a feature called <code>DENY_LEVEL</code> that allows for both active (deny) and passive (alerts only) operation. You can assign a severity level to each policy and use the <code>DENY_LEVEL</code> to control which severities will produce a deny and which will only produce an alert. This solved the problem of variable enforcement scenarios. Next I built in integration for Slack alerts. Again using the <code>DENY_LEVEL</code> and policy severity to control the format of alerts. Initially alerts were sent to the Platform Administrators only, but I also introduced functionality to allow for developer teams to annotate their namespace in a specific way to also send alerts to their own Slack channel. In addition to Slack alerts, policy failures will generate Kubernetes event logs within the developer&rsquo;s namespace. These features solved the notification problem. Lastly I added a metrics interface that allowed us to collect data and store it in Prometheus. We built custom dashboards to allow us to harness the information from the policy failures and build targeted education materials for our platform users. With these features we were able to build a bundle of policies to enforce best practices for Kubernetes workloads and secure against specific risk vectors.</p>
+<p>We now had a tool that allowed us to define policies that could validate developer&rsquo;s workloads and scale beyond what our operations staff could perform manually. Whoohoo!</p>
+<h3 id="the-bad">The Bad</h3>
+<p>I was proud right up until I realized how much effort was required to keep the decision engine up-to-date. Policies evolve and the maintenance effort was going to be a problem. For example:</p>
+<ul>
+<li>
+<p>Each time there was a new Kubernetes resource or a change to a Kubernetes resource schema, we would have to dive into hundreds of lines of Python code that we had not looked at in ages.</p>
+</li>
+<li>
+<p>Designing and implementing a maintainable &ldquo;break glass&rdquo; or exception model is difficult. At the same time, managing exceptions is a fundamental problem in policy enforcement. We knew that implementing this functionality in an ad-hoc way would be difficult to understand and hard to maintain.</p>
+</li>
+<li>
+<p>The Kubernetes admission control webhook does not provide all of the information required for some of the policies we want to implement. Adding the ability to fetch and cache additional information in the decision engine was going to take a lot of work.</p>
+</li>
+<li>
+<p>Since we had rolled our own decision engine, it was going to be difficult to incorporate best practices and policies implemented and published by other companies.</p>
+</li>
+</ul>
+<blockquote>
+<p>Here&rsquo;s my advice if you find yourself thinking about building and maintaining your own decision engine&hellip;DON&rsquo;T DO IT!!!</p>
+</blockquote>
+<hr>
+<h3 id="example-policies">Example Policies</h3>
+<ul>
+<li><strong>MT1001</strong> - Policy to check for liveness probes</li>
+<li><strong>MT1002</strong> - Policy to check for readiness probes</li>
+<li><strong>MT1003</strong> - Policy to check for resource limits (CPU/MEM) within Workloads</li>
+<li><strong>MT1004</strong> - Policy to check for resource requests (CPU/MEM) within Workloads</li>
+<li><strong>MT1005</strong> - Policy to check for PodDisruptionBudget and verify sane configuration</li>
+<li><strong>MT2001</strong> - Policy to check for privileged security context</li>
+</ul>
+<p>NOTE: Each policy gets assigned an <code>MT</code> number to allow for concise feedback via alerting/events and enable an easy mechanism for self service lookup that can cover more detailed information on what causes a failure for a specific policy and how you can adjust your configurations to pass the policy evaluation.</p>
+<hr>
+<h3 id="example-magtape-v10-policy-definition">Example MagTape v1.0 Policy Definition</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Function to check for the existence of a liveness probe within a container spec</span>
+
+policy_name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;liveness_probe&#34;</span>
+obj_name <span style="color:#f92672">=</span> container_spec[<span style="color:#e6db74">&#34;name&#34;</span>]
+mt_severity <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;LOW&#34;</span>
+mt_code <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;MT1001&#34;</span>
+
+<span style="color:#75715e"># Set policy specific Prometheus metric for total count</span>
+prom_policy_requests<span style="color:#f92672">.</span>labels(scope <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;policy&#34;</span>, count_type <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;total&#34;</span>, policy <span style="color:#f92672">=</span> policy_name, mt_code <span style="color:#f92672">=</span> mt_code)<span style="color:#f92672">.</span>inc()
+
+<span style="color:#66d9ef">if</span> <span style="color:#e6db74">&#34;livenessProbe&#34;</span> <span style="color:#f92672">in</span> container_spec:
+
+    <span style="color:#75715e"># Set policy specific Prometheus metric for pass count</span>
+    prom_policy_requests<span style="color:#f92672">.</span>labels(scope <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;policy&#34;</span>, count_type <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;pass&#34;</span>, policy <span style="color:#f92672">=</span> policy_name, mt_code <span style="color:#f92672">=</span> mt_code)<span style="color:#f92672">.</span>inc()
+
+    print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;[PASS] </span><span style="color:#e6db74">{</span>mt_severity<span style="color:#e6db74">}</span><span style="color:#e6db74"> - Found liveness probe in container spec for </span><span style="color:#ae81ff">\&#34;</span><span style="color:#e6db74">{</span>obj_name<span style="color:#e6db74">}</span><span style="color:#ae81ff">\&#34;</span><span style="color:#e6db74"> (</span><span style="color:#e6db74">{</span>mt_code<span style="color:#e6db74">}</span><span style="color:#e6db74">)&#34;</span>)
+
+    msg <span style="color:#f92672">=</span> <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;[PASS] </span><span style="color:#e6db74">{</span>mt_severity<span style="color:#e6db74">}</span><span style="color:#e6db74"> - Liveness Probe Check (</span><span style="color:#e6db74">{</span>tke_code<span style="color:#e6db74">}</span><span style="color:#e6db74">)&#34;</span> <span style="color:#f92672">+</span> set_line_end(lineend_type)
+
+    <span style="color:#66d9ef">return</span> msg
+
+<span style="color:#66d9ef">else</span>:
+
+    <span style="color:#75715e"># Set policy specific Prometheus metric for fail count</span>
+    prom_policy_requests<span style="color:#f92672">.</span>labels(scope <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;policy&#34;</span>, count_type <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;fail&#34;</span>, policy <span style="color:#f92672">=</span> policy_name, mt_code <span style="color:#f92672">=</span> mt_code)<span style="color:#f92672">.</span>inc()
+
+    print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;[FAIL] </span><span style="color:#e6db74">{</span>mt_severity<span style="color:#e6db74">}</span><span style="color:#e6db74"> - No liveness probe was found in container spec: </span><span style="color:#ae81ff">\&#34;</span><span style="color:#e6db74">{</span>obj_name<span style="color:#e6db74">}</span><span style="color:#ae81ff">\&#34;</span><span style="color:#e6db74"> (</span><span style="color:#e6db74">{</span>mt_code<span style="color:#e6db74">}</span><span style="color:#e6db74">)&#34;</span>)
+
+    msg <span style="color:#f92672">=</span> <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;[FAIL] </span><span style="color:#e6db74">{</span>mt_severity<span style="color:#e6db74">}</span><span style="color:#e6db74"> - Liveness Probe Check (</span><span style="color:#e6db74">{</span>tke_code<span style="color:#e6db74">}</span><span style="color:#e6db74">)&#34;</span> <span style="color:#f92672">+</span> set_line_end(lineend_type)
+
+    <span style="color:#66d9ef">return</span> msg
+</code></pre></div><hr>
+<h3 id="example-alerts">Example Alerts</h3>
+<p><img src="/blog/magtape/magtape-alerts-3.png#center" alt="magtape-slack-alert-failure"></p>
+<hr>
+<h2 id="magtape-20">MagTape 2.0</h2>
+<p>At some point along the way I came across the OPA project. After I took some time to get over the initial idea that I had wasted effort, I recognized it for what it was&hellip;a better path forward. While OPA didn&rsquo;t solve all of our original criteria, it did present a great amount of flexibility where we could take the existing code and wrap it around OPA to give us a better policy engine and maintain the existing feature set that was important to how we do business. OPA was interesting for a number of reasons:</p>
+<ul>
+<li>
+<p>If you search for blog posts or talks about admission control in Kubernetes, you come across OPA. There are many other companies using OPA for admission control and it would be relatively straightforward to incorporate their policies into MagTape if it was based on OPA.</p>
+</li>
+<li>
+<p>OPA has strong support for loading and caching additional data along with rules. As long as the data fits in memory, you can easily load it into OPA. This meant that policies requiring information outside of the Kubernetes admission control webhook would be easier to write. This <a href="https://www.openpolicyagent.org/docs/latest/kubernetes-tutorial/">tutorial</a> on the OPA website demonstrates this.</p>
+</li>
+<li>
+<p>OPA does not have any runtime dependencies which makes it very lightweight. It was easy to drop-in and replace the custom decision engine we had built.</p>
+</li>
+<li>
+<p>OPA&rsquo;s policy language is purpose-built for expressing rules over complex hierarchical data like JSON and YAML. Of course every language has a learning curve, but with OPA and Rego the policies in MagTape would become more concise and maintanable. In addition, Rego&rsquo;s general-purpose design allowed us to model our DENY_LEVEL concept in a straightforward way.</p>
+</li>
+</ul>
+<hr>
+<h3 id="example-magtape-20-policy-definition-rego">Example MagTape 2.0 Policy Definition (Rego)</h3>
+<pre><code class="language-rego" data-lang="rego">package kubernetes.admission.policy_liveness_probe
+
+policy_metadata = {
+
+    # Set MagTape Policy Info
+    &quot;name&quot;: &quot;policy-liveness-probe&quot;,
+    &quot;severity&quot;: &quot;LOW&quot;,
+    &quot;errcode&quot;: &quot;MT1001&quot;,
+    &quot;targets&quot;: {&quot;Deployment&quot;, &quot;StatefulSet&quot;, &quot;DaemonSet&quot;, &quot;Pod&quot;},
+
+}
+
+servicetype = input.request.kind.kind
+
+matches {
+
+    # Verify request object type matches targets
+    policy_metadata.targets[servicetype]
+    
+}
+
+deny[info] {
+
+    # Find container spec
+    containers := find_containers(servicetype, policy_metadata)
+
+    # Check for livenessProbe in each container spec
+    container := containers[_]
+    name := container.name
+    not container.livenessProbe
+
+    # Build message to return
+    msg = sprintf(&quot;[FAIL] %v - Liveness Probe missing for container \&quot;%v\&quot; (%v)&quot;, [policy_metadata.severity, name, policy_metadata.errcode])
+
+    info := {
+        
+    	&quot;name&quot;: policy_metadata.name,
+		&quot;severity&quot;: policy_metadata.severity,
+        &quot;errcode&quot;: policy_metadata.errcode,
+		&quot;msg&quot;: msg,
+    }
+}
+
+# find_containers accepts a value (k8s object type) and returns the container spec
+find_containers(type, metadata) = input.request.object.spec.containers {
+
+    type == &quot;Pod&quot;
+
+} else = input.request.object.spec.template.spec.containers {
+
+	metadata.targets[type]
+    
+}
+</code></pre><hr>
+<h2 id="future-enhancements">Future Enhancements</h2>
+<p>We have a handful of future enhancements planned for <code>MagTape</code>:</p>
+<ul>
+<li>Add additional policies</li>
+<li>Add additional policy granularity to allow for namespace specific scoped policies (BYOP - Bring Your Own Policy)</li>
+<li>Enable User configurable <code>DENY_LEVEL</code> per namespace to be above the global setting</li>
+</ul>
+<hr>
+<h2 id="conclusion">Conclusion</h2>
+<p>It&rsquo;s been awesome to share our story with you as I feel like the path to how we got here is just as important as the tool itself. So after about a year of runtime behind the big magenta curtain, we&rsquo;re proud to open source <code>MagTape</code> under the <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache-2.0</a> license.</p>
+<blockquote>
+<p>So far <code>MagTape</code> has helped us validate close to one million application deployments and upgrades. If you assume the manual effort for an engineer to validate a set of YAML manifests is ~3 minutes, that&rsquo;s a savings of ~50,000 engineering hours over the past year.</p>
+</blockquote>
+<p>Please check out the project on <a href="https://github.com/tmobile/magtape">GitHub</a> and let us know what you think. We look forward to your feedback. Please open issues for any bugs you might encounter using <code>MagTape</code> or any enhancements you would like to see. Join us on <a href="https://gitter.im/tmobile/magtape">Gitter</a> to talk more.</p>
+<p>Cheers!</p>
+
+            </div>
+            <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "tmo-oss" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+        <!-- BLOG SIDEBAR -->
+<div class="blog-second-container">
+    <div class="blog-web-content">
+        <div class="blog-topic"><h4><i class="fi-megaphone"></i> <div class="blog-topic-share">Recent Posts</div></h4></div>
+        
+		<div class="blog-year"><a href="/blog/"></a></div>
+		
+		<div class="blog-year"><a href="/blog/posts/"></a></div>
+		
+		<div class="blog-year"><a href="/blog/posts/diwan-smoke-test-suite/">Monitoring Cloud Foundry at Scale with cf-smoke-tests suite</a></div>
+		
+		<div class="blog-year"><a href="/blog/posts/hanson-ml-retraining/">The [Machine] Learning is Never Done</a></div>
+		
+		<div class="blog-year"><a href="/blog/posts/rolling-out-the-magenta-tape/">Rolling Out the Magenta Tape: Policy-as-Code for Kubernetes</a></div>
+		
+		<div class="blog-year"><a href="/blog/posts/introducing-qapi/">Introducing qAPI: Translating database queries into API calls</a></div>
+		
+		<div class="blog-year"><a href="/blog/posts/percy-cake/">A Piece of Cake, Percy Cake</a></div>
+		
+		<div class="blog-year"><a href="/blog/posts/a-lean-mean-pipeline-machine/">A Lean Mean Pipeline Machine</a></div>
+		
+		<div class="blog-year"><a href="/blog/posts/loadtest/">loadtest: an R Package for Load Testing</a></div>
+		
+		<div class="blog-year"><a href="/blog/posts/introducing-kardio/">Introducing Kardio</a></div>
+		
+    </div>
+
+    
+        <div class="blog-web-content">
+            <div class="blog-topic"><h4><i class="fi-folder"></i> <div class="blog-topic-share">Categories</div></h4></div>            
+            
+                
+                
+                <div class="blog-topic-content"><a href="/categories/resources">Resources</a></div>
+            
+                
+                
+                <div class="blog-topic-content"><a href="/categories/opensource">Opensource</a></div>
+            
+                
+                
+                <div class="blog-topic-content"><a href="/categories/community">Community</a></div>
+            
+                
+                
+                <div class="blog-topic-content"><a href="/categories/aks">Aks</a></div>
+            
+                
+                
+                <div class="blog-topic-content"><a href="/categories/apigee">Apigee</a></div>
+            
+        </div>
+    
+
+    
+        <div class="blog-web-content-script">
+            <div class="blog-topic"><h4><i class="fi-pricetag-multiple"></i> <div class="blog-topic-share">Tags</div></h4></div>
+
+            
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/t-mobile" title="t-mobile">
+                        t-mobile (23)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/oss" title="oss">
+                        oss (15)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/serverless" title="serverless">
+                        serverless (5)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/innovation" title="innovation">
+                        innovation (4)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/tools" title="tools">
+                        tools (4)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/ai" title="ai">
+                        ai (3)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/blockchain" title="blockchain">
+                        blockchain (3)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/data-science" title="data-science">
+                        data-science (3)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/java" title="java">
+                        java (3)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/kubernetes" title="kubernetes">
+                        kubernetes (3)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/open-source" title="open-source">
+                        open-source (3)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/r" title="r">
+                        r (3)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/api" title="api">
+                        api (2)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/automation" title="automation">
+                        automation (2)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/aws" title="aws">
+                        aws (2)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/aws-lambda" title="aws-lambda">
+                        aws-lambda (2)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/chaos-engineering" title="chaos-engineering">
+                        chaos-engineering (2)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/cicd" title="cicd">
+                        cicd (2)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/cloud-foundry" title="cloud-foundry">
+                        cloud-foundry (2)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/elasticsearch" title="elasticsearch">
+                        elasticsearch (2)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/faas" title="faas">
+                        faas (2)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/jazz" title="jazz">
+                        jazz (2)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/k8s" title="k8s">
+                        k8s (2)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/machine-learning" title="machine-learning">
+                        machine-learning (2)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/opensource" title="opensource">
+                        opensource (2)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/publishing" title="publishing">
+                        publishing (2)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/reinvent" title="reinvent">
+                        reinvent (2)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/springboot" title="springboot">
+                        springboot (2)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/testing" title="testing">
+                        testing (2)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/turbulence" title="turbulence">
+                        turbulence (2)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/aks" title="aks">
+                        aks (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/angularjs" title="angularjs">
+                        angularjs (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/api-development" title="api-development">
+                        api-development (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/apigee" title="apigee">
+                        apigee (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/application-load-balancer" title="application-load-balancer">
+                        application-load-balancer (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/artificial-intelligence" title="artificial-intelligence">
+                        artificial-intelligence (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/aws-api-gateway" title="aws-api-gateway">
+                        aws-api-gateway (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/awsreinvent" title="awsreinvent">
+                        awsreinvent (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/azure" title="azure">
+                        azure (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/builder" title="builder">
+                        builder (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/casquatch" title="casquatch">
+                        casquatch (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/cf" title="cf">
+                        cf (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/cf-app-blocker" title="cf-app-blocker">
+                        cf-app-blocker (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/chaos-monkey" title="chaos-monkey">
+                        chaos-monkey (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/chaos-tool-kit" title="chaos-tool-kit">
+                        chaos-tool-kit (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/concourse" title="concourse">
+                        concourse (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/conducktor" title="conducktor">
+                        conducktor (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/conducktor-go" title="conducktor-go">
+                        conducktor-go (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/configuration" title="configuration">
+                        configuration (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/continuous" title="continuous">
+                        continuous (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/database" title="database">
+                        database (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/design-patterns" title="design-patterns">
+                        design-patterns (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/devops" title="devops">
+                        devops (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/entitlement" title="entitlement">
+                        entitlement (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/es6-classes" title="es6-classes">
+                        es6-classes (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/factory" title="factory">
+                        factory (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/framework" title="framework">
+                        framework (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/golang" title="golang">
+                        golang (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/harbor" title="harbor">
+                        harbor (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/hashicorp" title="hashicorp">
+                        hashicorp (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/hashicorp-vault" title="hashicorp-vault">
+                        hashicorp-vault (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/health" title="health">
+                        health (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/influxdb" title="influxdb">
+                        influxdb (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/javascript" title="javascript">
+                        javascript (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/javascript-objects" title="javascript-objects">
+                        javascript-objects (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/js" title="js">
+                        js (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/jwt" title="jwt">
+                        jwt (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/kardio" title="kardio">
+                        kardio (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/magtape" title="magtape">
+                        magtape (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/microservices" title="microservices">
+                        microservices (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/microsoft" title="microsoft">
+                        microsoft (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/ml" title="ml">
+                        ml (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/model" title="model">
+                        model (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/monitoring" title="monitoring">
+                        monitoring (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/opa" title="opa">
+                        opa (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/openfaas" title="openfaas">
+                        openfaas (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/operations" title="operations">
+                        operations (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/pacbot" title="pacbot">
+                        pacbot (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/pcf" title="pcf">
+                        pcf (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/pcf-app-blocker" title="pcf-app-blocker">
+                        pcf-app-blocker (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/pipeline" title="pipeline">
+                        pipeline (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/pivotal" title="pivotal">
+                        pivotal (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/pivotal-cloud-foundry" title="pivotal-cloud-foundry">
+                        pivotal-cloud-foundry (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/platform" title="platform">
+                        platform (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/poet" title="poet">
+                        poet (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/policy" title="policy">
+                        policy (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/python" title="python">
+                        python (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/raspberry-pi" title="raspberry-pi">
+                        raspberry-pi (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/restful" title="restful">
+                        restful (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/retraining" title="retraining">
+                        retraining (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/s1p" title="s1p">
+                        s1p (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/s3" title="s3">
+                        s3 (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/saas" title="saas">
+                        saas (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/scale" title="scale">
+                        scale (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/secret-management" title="secret-management">
+                        secret-management (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/smoke" title="smoke">
+                        smoke (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/software-architecture" title="software-architecture">
+                        software-architecture (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/splunk" title="splunk">
+                        splunk (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/springone" title="springone">
+                        springone (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/telemetry" title="telemetry">
+                        telemetry (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/test" title="test">
+                        test (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/tests" title="tests">
+                        tests (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/training" title="training">
+                        training (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/typescript" title="typescript">
+                        typescript (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/vault" title="vault">
+                        vault (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/vertx" title="vertx">
+                        vertx (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/vmware" title="vmware">
+                        vmware (1)
+                    </a>
+                </div>
+		    
+                <div class="blog-tag-content">
+                    
+                    
+                    <a class="button" href="/tags/workflow" title="workflow">
+                        workflow (1)
+                    </a>
+                </div>
+		    
+        </div>
+    
+
+    <div class="blog-web-content">
+        <div class="blog-topic-share">Share</div>
+        <img class="blog-share-img" src="/img/fb.png">
+        <img class="blog-share-img" src="/img/tw.png">
+        <img class="blog-share-img" src="/img/ins.png">
+    </div>
+</div>
+
+    </div>
+
+            </div>
+        </div>
+        <!-- FOOTER -->
+<footer style="padding: 2vh 0vh;">
+    <div class="container grid"  style="width: 100%;">
+        <div class="footer-content clearfix">
+            <div class="left-contents">
+                <img class="logoMain" src="/img/logo/logo.svg" />
+                
+                  <div class="left-contents">
+                    <a class="footer-links" href="https://www.t-mobile.com/company/website/privacypolicy.aspx" target="_blank">PRIVACY</a>
+                  </div>
+                
+            </div>
+            <div class="content-right">
+			          
+                  <a class="footer-links" href="https://tmo-oss-getinvite.herokuapp.com/" target="_blank"><i class="fa fa-slack"></i></a>
+                
+                  <a class="footer-links" href="https://www.youtube.com/playlist?list=PL0mz2nejZ-DgH0XsbYDrKPbeMiEJYWqUg" target="_blank"><i class="fa fa-youtube"></i></a>
+                
+            </div>
+        </div>
+        <div class="mobile_version_content" style="width: 100%;">
+            
+                <div class="mobile_version margin">
+                    <a class="footer-links" href="https://tmo-oss-getinvite.herokuapp.com/" target="_blank"><i style="min-width: 34px;" class="fa fa-slack"></i></a>
+                </div>
+            
+                <div class="mobile_version margin">
+                    <a class="footer-links" href="https://www.youtube.com/playlist?list=PL0mz2nejZ-DgH0XsbYDrKPbeMiEJYWqUg" target="_blank"><i style="min-width: 34px;" class="fa fa-youtube"></i></a>
+                </div>
+            
+        </div>
+        <div class="footer_mobile">
+            
+                <div class="footer_mobile_contents_privacy" onclick="navigateTo('https:\/\/www.t-mobile.com\/company\/website\/privacypolicy.aspx');">
+                    PRIVACY
+                </div>
+            
+        </div>
+        <div class="mobile_logo" style="text-align: center;">
+            <img src="/img/logo/logo.svg" />
+        </div>
+        <div class="footer-text">
+            
+                Copyright 2020. All Rights Reserved.
+            
+        </div>
+    </div>
+</footer>
+
+        <!-- jQuery 3.2.1 -->
+<script src="/js/jquery.min.js" type="text/javascript"></script>
+
+<!-- Bootstrap Core JavaScript -->
+<script src="/vendor/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+
+<!-- Plugin JavaScript -->
+<script src="/js/jquery.easing.min.js" type="text/javascript"></script>
+<script src="/js/scrolling.js" type="text/javascript"></script>
+
+<!-- PowerOwls -->
+<script src="/vendor/owlcarousel/owl.carousel.js" type="text/javascript"></script>
+<script src="/js/carousel.js" type="text/javascript"></script>
+
+<!-- MOMENT JS-->
+<script src="/js/moment.min.js" type="text/javascript"></script>
+
+<!-- Google APIS-->
+<script src="https://apis.google.com/js/api.js" type="text/javascript"></script>
+
+<!-- Custom Scripts -->
+<script src="/js/github.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+<script src="/js/init-carousel.js" type="text/javascript"></script>
+<script src="/js/oninit.js" type="text/javascript"></script>
+
+
+        
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-20393691-8', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+    </body>
+</html>

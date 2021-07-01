@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python on T-Mobile Open Source</title>
+    <link>/tags/python/</link>
+    <description>Recent content in Python on T-Mobile Open Source</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 15 Nov 2018 10:00:00 -0700</lastBuildDate><atom:link href="/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Pi Alarm</title>
+      <link>/blog/posts/pi-alarm/</link>
+      <pubDate>Thu, 15 Nov 2018 10:00:00 -0700</pubDate>
+      
+      <guid>/blog/posts/pi-alarm/</guid>
+      <description>Purpose: To control an alarm using a Raspberry Pi and Python At T-Mobile, our development teams run pipelines to build, test, and deploy our code. Any disruption in the pipeline means new code can&amp;rsquo;t be delivered, so fixing pipeline issues when they arise becomes top priority. To emphasize the importance of having an &amp;ldquo;always on&amp;rdquo; pipeline, we wanted a way to alert the teams explicitly, rather than just notifications via email/chat, when there&amp;rsquo;s a failure in the job pipeline.</description>
+    </item>
+    
+  </channel>
+</rss>

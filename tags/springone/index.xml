@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SpringOne on T-Mobile Open Source</title>
+    <link>/tags/springone/</link>
+    <description>Recent content in SpringOne on T-Mobile Open Source</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 28 Nov 2017 10:00:00 -0700</lastBuildDate><atom:link href="/tags/springone/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>T-Mobile @ SpringOne platform conference</title>
+      <link>/blog/posts/tmo-at-s1p/</link>
+      <pubDate>Tue, 28 Nov 2017 10:00:00 -0700</pubDate>
+      
+      <guid>/blog/posts/tmo-at-s1p/</guid>
+      <description>SpringOne platform is a premier conference that brings leading software companies, enterprises and cloud architects who build and run cloud native applications to share and collaborate their experiences. You can catch engineers from T-Mobile at SpringOne. We also have two talks, you can find links to those talks below. If you are at SpringOne come check us out and say hello. Hope to see you there.
+Tuesday 2:00p-3:00p PST (60 min) at Room: 2010 Zero to 12 Million</description>
+    </item>
+    
+  </channel>
+</rss>
